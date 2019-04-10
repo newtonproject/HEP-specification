@@ -3,6 +3,8 @@
 a. Precondition: Third-party app is required to finish registration on Newton open platform (Fill in public key, app name, schema host and other app information)
 
 b. Third-party application jumps to NewPay with three parameters which are auth_type, signature and message.
+newpay.native.login.requestAccess(```auth_type```, ```signature```, ```message```)
+What are valid ```auth_type```s?
 
 c. NewPay gets the public key of the third-party application through the signature and message parameters.
 
