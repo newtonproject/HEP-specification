@@ -3,8 +3,10 @@
 a. Precondition: Third-party app is required to finish registration on Newton open platform (Fill in public key, app name, schema host and other app information)
 
 b. Third-party application jumps to NewPay with three parameters which are auth_type, signature and message.
-newpay.native.login.requestAccess(```auth_type```, ```signature```, ```message```)
-What are valid ```auth_type```s?
+
+> newpay.native.login.requestAccess(```auth_type```, ```signature```, ```message```)
+> What are valid ```auth_type```s?
+> Message is json object?
 
 c. NewPay gets the public key of the third-party application through the signature and message parameters.
 
@@ -15,6 +17,7 @@ e. API uses the public key to request app information from database and send the
 > If app information is returned successfully, authorization view should be loaded with app information and a specific style that defined by auth_type.
 
 > If failed to recieve app information, app should jump back to third-party app with specific information.
+> **Error codes?**
 
 f. Enter Payment Password
 
@@ -33,7 +36,7 @@ f. Enter Payment Password
 * app_info:app_name，schema_host，app_icon, etc (to be completed)
 * Rules for message creation: timestamp and nonce
 * message valid period: 5 min
-* timestamp unit: second (秒)
+* timestamp unit: second
 
 | code | message |
 | :-: | :-: | :-: |
