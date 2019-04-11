@@ -1,3 +1,41 @@
+# NewPay Login Process
+
+## Preconditions
+
+* User has NewPay installed on their device and has set a NewID
+* The Dapp requesting login has [registered on Newton's platform]
+
+## The Login Process
+
+{% tabs first="Native", second="Web", third="In-app Dapp" %}
+
+{% content "first" %}
+### Dapp requests user login
+
+1. Dapp displays **Login with NewID** button
+2. User taps button
+
+* See [newpay.native.login.requestAccess]
+
+### User authorizes Dapp on NewPay
+
+1. NewPay gets public key of Dapp through [signature] and [message] parameters
+2. NewPay sends public key to [HEP API]
+3. HEP API uses public key to request app information that was registered in database and sends that information back to NewPay
+4. NewPay opens and prompts user to authorize the Dapp login based on information gathered from HEP API
+5. User confirms login
+6. User's NewID is sent to Dapp, with [message] and [signature]
+
+{% content "second" %}
+Coming soon...
+
+{% content "third" %}
+Coming soon...
+
+{% endtabs %}
+----
+
+
 ## NewPay Login Rules:
 
 a. Precondition: Third-party app is required to finish registration on Newton open platform (Fill in public key, app name, schema host and other app information)

@@ -9,8 +9,9 @@ newpay.login.requestAccess(DappId)
 #### Parameters
 
 * [JSON object](qr_login.md)
+* Signature
 
-#### Returns
+#### Return Values
 
 * User public key
 
@@ -73,25 +74,25 @@ newpay.payment.refundPayment
 * [JSON object](qr_refund.md)
 * [Signature](signature.md)
 
+#### Returns
+
+```True``` if successful
+
 ## Proof of Action
 
-### Confirm Proof of Payment
+### Confirm Proof of Action
 
-Confirms a payment was logged on NewChain
+newpay.proofOfAction.confirm(```hash```)
 
-newpay.proofOfAction.checkPayment
+### Parameters
 
-#### Error Codes
+The hash value of the transaction to check
 
-| Code | Meaning                             |
-| ---  | ---                                 |
-|      | Signature mis-match                 |
-|      | NewPay not installed on user device |
-|      | Transaction not found               |
-|      | Network unreachable                 |
-|      | Dapp ID unrecognized                |
-|      | Dapp ID blocked                     |
-|      | User ID unrecognized                |
-|      | User ID blocked                     |
-|      | Internal error                       |
+#### Return Values
 
+Returns a single boolean
+
+| Value | Meaning              |
+| ---   | ---                  |
+| True  | Action confirmed     |
+| False | Action not confirmed |
