@@ -2,8 +2,6 @@
 
 ## User Login
 
-newpay.login
-
 ### Request access
 
 newpay.login.requestAccess(DappId)

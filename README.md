@@ -13,3 +13,25 @@ In our release of SDK 1.0, we support the following features:
 * Login
 * Payment
 * Proof of Action
+
+## Dapp Anatomy
+
+A distributed app consists of:
+
+| Item                    | Language/infrastructure      |
+| ---                     | ---                          |
+| A smart contract        | Solidity                     |
+| A user interface        | HTML/CSS or relevant toolkit |
+| A transaction interface | Java/Python/Javascript       |
+
+## Building your Dapp
+
+### Smart Contract
+
+NewPay Dapps use [NewTruffle](newtruffle.md), a fork of [Truffle](https://truffleframework.com/), so if you're familiar with [Ethereum](https://www.ethereum.org/) you'll feel right at home.
+
+### User Interface
+
+### Transaction Interface
+
+NewPay SDK 1.0 provides basic functions for login, payment, and proof-of-action transactions
