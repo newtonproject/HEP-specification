@@ -8,29 +8,16 @@ newpay.login.requestAccess(DappId)
 
 #### Parameters
 
-* [JSON object](qr_login.md)
-* Signature
+* [JSON object](login_json.md)
+* [Signature]
 
 #### Return Values
 
-* User public key
+* User NewID
 
 #### Error Codes
 
-| Code | Meaning                            |
-| ---  | ---                                |
-|      | Signature mis-match                 |
-|      | NewPay not installed on user device |
-|      | User ID unrecognized               |
-|      | User ID blocked                    |
-|      | Access refused by user             |
-|      | User access confirmation timed out |
-|      | Access refused by system           |
-|      | Network unreachable                |
-|      | Dapp ID unrecognized               |
-|      | Dapp ID blocked                    |
-|      | Internal error                      |
-
+See error codes[error_codes.md]
 
 ## Payments
 
@@ -50,20 +37,7 @@ newpay.payment.requestPayment("auth_type", json-object, signature)
 
 #### Error Codes
 
-| Code | Meaning                             |
-| ---  | ---                                 |
-|      | Signature mis-match                 |
-|      | NewPay not installed on user device |
-|      | Transaction not found               |
-|      | User refused payment                |
-|      | User payment confirmation timed out |
-|      | Network unreachable                 |
-|      | Dapp ID unrecognized                |
-|      | Dapp ID blocked                     |
-|      | User ID unrecognized                |
-|      | User ID blocked                     |
-|      | Insufficient user funds             |
-|      | Internal error                      |
+See error codes[error_codes.md]
 
 ### Refund Payment
 
@@ -78,13 +52,17 @@ newpay.payment.refundPayment
 
 ```True``` if successful
 
+#### Error Codes
+
+See error codes[error_codes.md]
+
 ## Proof of Action
 
 ### Confirm Proof of Action
 
 newpay.proofOfAction.confirm(```hash```)
 
-### Parameters
+#### Parameters
 
 The hash value of the transaction to check
 
@@ -96,3 +74,7 @@ Returns a single boolean
 | ---   | ---                  |
 | True  | Action confirmed     |
 | False | Action not confirmed |
+
+#### Error Codes
+
+See error codes[error_codes.md]
