@@ -89,7 +89,31 @@ sequenceDiagram;
 5. User confirms login
 6. User's NewID is sent to website, with [message] and [signature]
 
-{% content "third" %}
+## Dapp-in-Dapp
+
+```mermaid
+
+sequenceDiagram;
+    participant User;
+    participant Dapp;
+	participant NewPay;
+	participant HEP API;
+	participant NewChain;
+
+	User->>NewPay: Open Dapp Store;
+	User->>NewPay: Install Dapp;
+	User-->>Dapp: Open Dapp
+	Dapp->>NewPay: Request NewID access
+	NewPay->>HEP API: Send Dapp public key;
+	HEP API->>NewChain: Request Dapp info;
+	NewChain->>HEP API: Send Dapp info;
+	HEP API->>NewPay: Send Dapp info, request user access;
+	NewPay->>User: Pop-up requesting NewID
+	User->>NewPay: Authorize access
+	NewPay->>Dapp: NewID sent to Dapp;
+	NewPay-->>Dapp: Send user back;
+```
+
 ### User installs Dapp
 
 1. User opens Dapp Store in NewPay
