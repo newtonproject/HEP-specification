@@ -3,7 +3,7 @@
 ```mermaid
 
 	graph TD;
-    A-->B;
+    User clicks login-->NewPay opens;
     A-->C;
     B-->D;
     C-->D;
