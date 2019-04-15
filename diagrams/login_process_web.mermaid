@@ -1,0 +1,16 @@
+sequenceDiagram;
+    participant User;
+    participant Website;
+	participant NewPay;
+	participant HEP API;
+ 
+    User->>Website: Click Login;
+	Website->>User: Display QR code;
+	User-->>NewPay: Open NewPay;
+	User->>NewPay: Scan QR code;
+	NewPay->>HEP API: Send website public key;
+	HEP API->>NewPay: Send website info, request user access;
+	NewPay->> User: Prompt to authorize login;
+	User->>NewPay: Authorize login;
+	NewPay->>Website: NewID sent to website;
+	NewPay-->>Website: Send user back;
