@@ -1,0 +1,21 @@
+sequenceDiagram;
+    participant User;
+    participant Website;
+	participant NewPay;
+	participant HEP API;
+
+    User->>Website: Click 'Pay with NewPay';
+	Website->>User: Display QR code;
+	User-->>NewPay: Open NewPay;
+	User->>NewPay: Scan QR code;
+	NewPay->>HEP API: Send public key + order info;
+	HEP API->>NewPay: Send website info;
+	NewPay->> User: Prompt: authorize payment;
+	User->>NewPay: Type password + authorize;
+	NewPay->>HEP API: Request payment;
+loop FundsTransfer;
+        HEP API->>HEP API: Transfer payment;
+	end;
+	HEP API->>NewPay: Send receipt;
+	NewPay->>User: Send receipt;
+	NewPay->>Website: Send receipt;
