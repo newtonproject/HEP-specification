@@ -28,15 +28,15 @@ sequenceDiagram;
 	NewPay->> User: Prompt to authorize payment;
 	User->>NewPay: Authorize payment;
 	User->>NewPay: Type password;
-	NewPay->>HEP API: Transfer funds from buyer to seller
-	HEP API->>NewChain: Check sufficient balance
-	HEP API->>NewChain: Transfer funds from buyer to seller
+	NewPay->>HEP API: Transfer funds from buyer to seller;
+	HEP API->>NewChain: Check sufficient balance;
+	HEP API->>NewChain: Transfer funds from buyer to seller;
 loop FundsTransfer
         NewChain->>NewChain: Transfer funds;
-	NewPay->>NewChain: Confirm funds transfer
-	NewChain->>NewPay: Confirm	
-	NewPay->>Native Dapp: Send receipt
-	NewPay->>User: Send receipt
+	NewPay->>NewChain: Confirm funds transfer;
+	NewChain->>NewPay: Confirm;
+	NewPay->>Native Dapp: Send receipt;
+	NewPay->>User: Send receipt;
 	NewPay-->>Native Dapp: Send user back;
 ```
 
