@@ -108,7 +108,7 @@ sequenceDiagram;
     User->>Dapp: Click 'Pay with NewPay';
 	Dapp->>NewPay: Send public key + order info;
 	NewPay->>HEP API: Send public key;
-	HEP API->>NewPay: Send info, request payment;
+	HEP API->>NewPay: Send Dapp info;
 	NewPay->> User: Prompt: authorize payment;
 	User->>NewPay: Type password + authorize;
 	NewPay->>HEP API: Request payment;
