@@ -20,7 +20,7 @@ sequenceDiagram;
 	participant NewChain;
 
     User->>Native Dapp: Click 'Pay with NewPay';
-	Native Dapp->>NewPay: Send <a href='https://gitlab.newtonproject.org/alexcg/newpay-sdk-example/blob/master/payment_process.md'>public key and order info</a>;
+	Native Dapp->>NewPay: Send public key and order info</a>;
 	NewPay->>HEP API: Send Dapp public key;
 	HEP API->>NewChain: Request Dapp info;
 	NewChain->>HEP API: Send Dapp info;
