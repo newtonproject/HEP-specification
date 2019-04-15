@@ -27,6 +27,7 @@ sequenceDiagram;
 
 	Website->>HEP API: Send public key + transaction hash;
 	HEP API->>Website: Send proof of transaction;
+```
 
 ## Dapp-in-Dapp
 
