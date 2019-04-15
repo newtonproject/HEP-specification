@@ -47,7 +47,30 @@ sequenceDiagram;
 6. User confirms login
 7. User's NewID is sent to Dapp, with [message] and [signature]
 
-{% content "second" %}
+## Website
+
+```mermaid
+
+sequenceDiagram;
+    participant User;
+    participant Website;
+	participant NewPay;
+	participant HEP API;
+	participant NewChain;
+ 
+    User->>Website: Click Login;
+	Website->>User: Display QR code;
+	User-->>NewPay: Open NewPay;
+	User->>NewPay: Scan QR code;
+	NewPay->>HEP API: Send website public key;
+	HEP API->>NewChain: Request website info;
+	NewChain->>HEP API: Send website info;
+	HEP API->>NewPay: Send website info, request user access;
+	NewPay->> User: Prompt to authorize login;
+	User->>NewPay: Authorize login;
+	NewPay->>Website: NewID sent to website;
+	NewPay-->>Website: Send user back;
+```
 
 ### Website requests user login
 
