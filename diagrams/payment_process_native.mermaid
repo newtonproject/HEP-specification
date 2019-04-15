@@ -13,9 +13,9 @@ sequenceDiagram;
 	HEP API->>NewPay: Send info, request payment;
 	NewPay->> User: Prompt: authorize payment;
 	User->>NewPay: Type password + authorize;
+	NewPay->>NewChain: Check sufficient balance;
+	NewChain->>NewPay: Confirm OK
 	NewPay->>HEP API: Request payment;
-	HEP API->>NewChain: Check sufficient balance;
-	NewChain->>HEP API: Confirm OK
 	HEP API->>NewChain: Request payment;
 loop FundsTransfer;
         NewChain->>NewChain: Transfer payment;
