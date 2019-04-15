@@ -18,10 +18,10 @@ sequenceDiagram;
 	NewChain->>HEP API: Confirm OK
 	HEP API->>NewChain: Request payment;
 loop FundsTransfer;
-        NewChain->>NewChain: Transfer payments;
+        NewChain->>NewChain: Transfer payment;
 	end;
-	NewChain->>HEP API: Confirm payments;
-	HEP API->>NewPay: Confirm payment;
+	NewChain->>HEP API: Send receipt;
+	HEP API->>NewPay: Send receipt;
 	NewPay->>User: Send receipt;
 	NewPay->>Native Dapp: Send receipt;
 	NewPay-->>Native Dapp: Send user back;
