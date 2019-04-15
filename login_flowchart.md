@@ -12,8 +12,8 @@ check_key -->|No| Err[Send error code]
 check_key -->|Yes| redirect_newpay[Send user to NewPay]
 redirect_newpay --> user_exist{User already approved?}
 user_exist-->|Yes| login_user
-user_exist-->|No| redirect_newpay
-redirect_newpay --> user_auth_ask{User authorize?}
+user_exist-->|No| user_auth_ask{User authorize?}
+redirect_newpay --> user_auth_ask
 user_auth_ask-->|No| Err
 user_auth_ask-->|Yes| send_newid[Send NewID]
 send_newid --> login_user[Log user in]
