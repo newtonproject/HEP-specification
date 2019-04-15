@@ -7,7 +7,7 @@ qr --> user_scan{User scans QR code}
 user_scan-->|No| Err
 user_scan-->|Yes| send_req_newpay
 send_req_newpay[Send message + key to NewPay];
-send_req_newpay --> |Send data to HEP| check_key{Key OK?}
+send_req_newpay --> |Data sent to HEP| check_key{Key OK?}
 check_key -->|No| Err[Send error code]
 check_key -->|Yes| redirect_newpay[Send user to NewPay]
 redirect_newpay --> user_auth_ask{User authorize}
