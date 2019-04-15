@@ -32,7 +32,7 @@ sequenceDiagram;
 	HEP API->>NewChain: Check sufficient balance
 	HEP API->>NewChain: Transfer funds from buyer to seller
 	NewPay->>NewChain: Confirm funds transfer
-	NewPay->>Dapp: Send receipt
+	NewPay->>Native Dapp: Send receipt
 	NewPay->>User: Send receipt
 	NewPay-->>Native Dapp: Send user back;
 ```
