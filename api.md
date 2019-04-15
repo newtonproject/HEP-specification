@@ -1,5 +1,11 @@
 # NewPay SDK API reference
 
+## Endpoints
+
+```
+Testnet: https://rpc1.newchain.newtonproject.org
+```
+
 ## User Login
 
 ### Request access
