@@ -24,7 +24,7 @@ sequenceDiagram;
 	NewPay->>HEP API: Send Dapp public key;
 	HEP API->>NewChain: Request Dapp info;
 	NewChain->>HEP API: Send Dapp info;
-	HEP API->>NewPay: Send Dapp info, request user access;
+	HEP API->>NewPay: Send Dapp info, request payment;
 	NewPay->> User: Prompt to authorize payment;
 	User->>NewPay: Authorize payment;
 	User->>NewPay: Type password;
@@ -32,6 +32,7 @@ sequenceDiagram;
 	HEP API->>NewChain: Check sufficient balance
 	HEP API->>NewChain: Transfer funds from buyer to seller
 	NewPay->>NewChain: Confirm funds transfer
+	NewChain->>NewPay: Confirm	
 	NewPay->>Native Dapp: Send receipt
 	NewPay->>User: Send receipt
 	NewPay-->>Native Dapp: Send user back;
