@@ -1,0 +1,28 @@
+sequenceDiagram;
+    participant User;
+    participant Native Dapp;
+	participant NewPay;
+	participant HEP API;
+	participant NewChain;
+
+    User->>Native Dapp: Click 'Pay with NewPay';
+	Native Dapp->>NewPay: Send public key and order info;
+	NewPay->>HEP API: Send Dapp public key;
+	HEP API->>NewChain: Request Dapp info;
+	NewChain->>HEP API: Send Dapp info;
+	HEP API->>NewPay: Send Dapp info, request payment;
+	NewPay->> User: Prompt to authorize payment;
+	User->>NewPay: Authorize payment;
+	User->>NewPay: Type password;
+	NewPay->>HEP API: Request payment;
+	HEP API->>NewChain: Check sufficient balance;
+	NewChain->>HEP API: Confirm
+	HEP API->>NewChain: Request payment;
+loop FundsTransfer;
+        NewChain->>NewChain: Transfer payments;
+	end;
+	NewChain->>HEP API: Confirm payments;
+	HEP API->>NewPay: Confirm payment;
+	NewPay->>User: Send receipt;
+	NewPay->>Native Dapp: Send receipt;
+	NewPay-->>Native Dapp: Send user back;

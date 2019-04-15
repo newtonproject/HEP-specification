@@ -11,7 +11,6 @@
 ## Native Dapp
 
 ```mermaid
-
 sequenceDiagram;
     participant User;
     participant Native Dapp;
@@ -33,10 +32,11 @@ sequenceDiagram;
 	HEP API->>NewChain: Transfer funds from buyer to seller;
 loop FundsTransfer;
         NewChain->>NewChain: Transfer funds;
-	NewPay->>NewChain: Confirm funds transfer;
-	NewChain->>NewPay: Confirm;
-	NewPay->>Native Dapp: Send receipt;
+	end;
+	NewChain->>HEP API: Confirm funds transfer;
+	HEP API->>NewChain: Confirm funds transfer;
 	NewPay->>User: Send receipt;
+	NewPay->>Native Dapp: Send receipt;
 	NewPay-->>Native Dapp: Send user back;
 ```
 
