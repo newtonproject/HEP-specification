@@ -10,6 +10,26 @@
 
 ## Native Dapp
 
+```mermaid
+sequenceDiagram;
+    participant User;
+    participant Native Dapp;
+	participant NewPay;
+	participant HEP API;
+	participant NewChain;
+
+    User->>Native Dapp: Click 'Pay with NewPay';
+	Native Dapp->>NewPay: Send [public key and order info](https://gitlab.newtonproject.org/alexcg/newpay-sdk-example/blob/master/payment_json.md);
+	NewPay->>HEP API: Send Dapp public key;
+	HEP API->>NewChain: Request Dapp info;
+	NewChain->>HEP API: Send Dapp info;
+	HEP API->>NewPay: Send Dapp info, request user access;
+	NewPay->> User: Prompt to authorize login;
+	User->>NewPay: Authorize login;
+	NewPay->>Native Dapp: NewID sent to Dapp;
+	NewPay-->>Native Dapp: Send user back;
+```
+
 ### Dapp requests user payment
 
 1. Dapp displays **Pay with NewID** button
