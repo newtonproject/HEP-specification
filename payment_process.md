@@ -4,12 +4,12 @@
 
 * User has NewPay installed on their device and has set a NewID
 * The Dapp or website requesting payment has [registered on Newton's platform](register_service.md)
+* User is already logged in to native dapp/website/dapp-in-dapp with their NewID
 
 ## The Payment Process
 
-{% tabs first="Native", second="Web", third="In-app Dapp" %}
+## Native Dapp
 
-{% content "first" %}
 ### Dapp requests user payment
 
 1. Dapp displays **Pay with NewID** button
@@ -27,7 +27,8 @@
 6. Payment receipt is sent to user and Dapp
 7. User is redirected back to Dapp
 
-{% content "second" %}
+## Website
+
 ### Website requests user payment
 
 1. Website displays *Pay with NewID* button
@@ -47,6 +48,4 @@
 7. Payment receipt is sent to user and website
 7. User is redirected back to website
 
-{% content "third" %}
-Coming soon...
-{% endtabs %}
+## Dapp-in-Dapp
