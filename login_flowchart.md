@@ -3,6 +3,6 @@
 ```mermaid
 sequenceDiagram;
 
-	Start->>User click login
+	Start->>User click login;
 
 ```
