@@ -11,8 +11,8 @@ send_req_newpay --> |Data sent to HEP| check_key{Check key}
 check_key -->|Not OK| Err[Send error code]
 check_key -->|OK| redirect_newpay[Send user to NewPay]
 redirect_newpay --> user_exist{User already approved?}
-user_exist-->|Yes| login_user
 user_exist-->|No| user_auth_ask{Ask user to authorize}
+user_exist-->|Yes| login_user
 user_auth_ask-->|No| Err
 user_auth_ask-->|Yes| send_newid[Send NewID]
 send_newid --> login_user[Log user in]
