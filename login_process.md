@@ -15,12 +15,9 @@ sequenceDiagram;
     participant Native Dapp;
 	participant NewPay;
 	participant HEP API;
-	participant NewChain;
     User->>Native Dapp: Click Login;
 	Native Dapp->>NewPay: Send login request;
 	NewPay->>HEP API: Send Dapp public key;
-	HEP API->>NewChain: Request Dapp info;
-	NewChain->>HEP API: Send Dapp info;
 	HEP API->>NewPay: Send Dapp info, request user access;
 	NewPay->> User: Prompt to authorize login;
 	User->>NewPay: Authorize login;
@@ -48,21 +45,17 @@ sequenceDiagram;
 ## Website
 
 ```mermaid
-
 sequenceDiagram;
     participant User;
     participant Website;
 	participant NewPay;
 	participant HEP API;
-	participant NewChain;
  
     User->>Website: Click Login;
 	Website->>User: Display QR code;
 	User-->>NewPay: Open NewPay;
 	User->>NewPay: Scan QR code;
 	NewPay->>HEP API: Send website public key;
-	HEP API->>NewChain: Request website info;
-	NewChain->>HEP API: Send website info;
 	HEP API->>NewPay: Send website info, request user access;
 	NewPay->> User: Prompt to authorize login;
 	User->>NewPay: Authorize login;
@@ -90,21 +83,17 @@ sequenceDiagram;
 ## Dapp-in-Dapp
 
 ```mermaid
-
 sequenceDiagram;
     participant User;
     participant Dapp;
 	participant NewPay;
 	participant HEP API;
-	participant NewChain;
 
 	User->>NewPay: Open Dapp Store;
 	User->>NewPay: Install Dapp;
 	User-->>Dapp: Open Dapp
 	Dapp->>NewPay: Request NewID access
 	NewPay->>HEP API: Send Dapp public key;
-	HEP API->>NewChain: Request Dapp info;
-	NewChain->>HEP API: Send Dapp info;
 	HEP API->>NewPay: Send Dapp info, request user access;
 	NewPay->>User: Pop-up requesting NewID
 	User->>NewPay: Authorize access
@@ -120,4 +109,4 @@ sequenceDiagram;
 
 ### User opens Dapp in NewPay
 
-* User automatically logged into in-app Dapp
+* User automatically logged into Dapp-in-Dapp
