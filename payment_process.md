@@ -34,7 +34,7 @@ loop FundsTransfer;
         NewChain->>NewChain: Transfer funds;
 	end;
 	NewChain->>HEP API: Confirm funds transfer;
-	HEP API->>NewChain: Confirm funds transfer;
+	HEP API->>NewPay: Confirm funds transfer;
 	NewPay->>User: Send receipt;
 	NewPay->>Native Dapp: Send receipt;
 	NewPay-->>Native Dapp: Send user back;
