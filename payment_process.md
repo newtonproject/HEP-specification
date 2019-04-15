@@ -31,7 +31,7 @@ sequenceDiagram;
 	NewPay->>HEP API: Transfer funds from buyer to seller;
 	HEP API->>NewChain: Check sufficient balance;
 	HEP API->>NewChain: Transfer funds from buyer to seller;
-loop FundsTransfer
+loop FundsTransfer;
         NewChain->>NewChain: Transfer funds;
 	NewPay->>NewChain: Confirm funds transfer;
 	NewChain->>NewPay: Confirm;
