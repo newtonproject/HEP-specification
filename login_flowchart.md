@@ -1,8 +1,11 @@
 ## Native
 
 ```mermaid
-sequenceDiagram;
 
-	Start->>User click login;
+	graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
 
 ```
