@@ -96,3 +96,27 @@ loop FundsTransfer;
 7. User is redirected back to website
 
 ## Dapp-in-Dapp
+
+```mermaid
+
+sequenceDiagram;
+    participant User;
+    participant Dapp;
+	participant NewPay;
+	participant HEP API;
+
+    User->>Dapp: Click 'Pay with NewPay';
+	Dapp->>NewPay: Send public key + order info;
+	NewPay->>HEP API: Send public key;
+	HEP API->>NewPay: Send info, request payment;
+	NewPay->> User: Prompt: authorize payment;
+	User->>NewPay: Type password + authorize;
+	NewPay->>HEP API: Request payment;
+loop FundsTransfer;
+        HEP API->>HEP API: Transfer payment;
+	end;
+	HEP API->>NewPay: Send receipt;
+	NewPay->>User: Send receipt;
+	NewPay->>Dapp: Send receipt;
+	NewPay-->>Dapp: Send user back;
+```
