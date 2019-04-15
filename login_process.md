@@ -12,22 +12,22 @@
 ## Native Dapp
 
 ```mermaid
-sequenceDiagram
-    participant User
-    participant Native Dapp
-	participant NewPay
-	participant HEP API
-	participant NewChain
-    User->>Native Dapp: Click Login
-	Native Dapp->>NewPay: Send login request
-	NewPay->>HEP API: Send Dapp public key
-	HEP API->>NewChain: Request Dapp info
-	NewChain->>HEP API: Send Dapp info
-	HEP API->>NewPay: Send Dapp info; requests user access
-	NewPay->> User: Prompt to authorize login
-	User->>NewPay: Authorize login
-	NewPay->>Native Dapp: NewID sent to Dapp
-	NewPay-->>Native Dapp: Send user back
+sequenceDiagram;
+    participant User;
+    participant Native Dapp;
+	participant NewPay;
+	participant HEP API;
+	participant NewChain;
+    User->>Native Dapp: Click Login;
+	Native Dapp->>NewPay: Send login request;
+	NewPay->>HEP API: Send Dapp public key;
+	HEP API->>NewChain: Request Dapp info;
+	NewChain->>HEP API: Send Dapp info;
+	HEP API->>NewPay: Send Dapp info, request user access;
+	NewPay->> User: Prompt to authorize login;
+	User->>NewPay: Authorize login;
+	NewPay->>Native Dapp: NewID sent to Dapp;
+	NewPay-->>Native Dapp: Send user back;
 ```
 
 ### Dapp requests user login
