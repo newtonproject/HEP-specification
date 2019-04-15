@@ -22,7 +22,6 @@ sequenceDiagram;
 ```mermaid
 sequenceDiagram;
     participant Website;
-	participant NewPay;
 	participant HEP API;
 
 	Website->>HEP API: Send public key + transaction hash;
