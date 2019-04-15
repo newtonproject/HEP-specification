@@ -7,8 +7,6 @@
 
 ## The Login Process
 
-{% tabs first="Native", second="Web", third="In-app Dapp" %}
-
 ## Native Dapp
 
 ```mermaid
@@ -123,4 +121,3 @@ sequenceDiagram;
 ### User opens Dapp in NewPay
 
 * User automatically logged into in-app Dapp
-{% endtabs %}
