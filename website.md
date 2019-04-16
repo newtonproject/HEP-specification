@@ -1,5 +1,7 @@
 # Website
 
+The NewPay SDK provides a Javascript API for websites to integrate with NewID for user login and NewPay for payments
+
 ## User Account Creation and Login
 
 ### Preconditions
