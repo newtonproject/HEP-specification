@@ -1,11 +1,15 @@
 # Native Dapp
 
+* Native Dapps are apps that users download from the Google Play Store or Apple App Store that integrate with NewPay. ([See all Dapp types](/))
+* Android native Dapps use [Newton's Android NewPay SDK](https://github.com/newtonproject/NewPaySDK-Android)
+* iOS native Dapps use [Newton's iOS NewPay SDK](/)
+
 ## User Account Creation and Login
 
 ### Preconditions
 
-* User has NewPay installed on their device and has set a NewID
-* The Dapp or website requesting login has [registered on Newton's platform]
+* User has NewPay installed on their device and has set a [NewID](/)
+* The Dapp requesting login has [registered on Newton's platform](/)
 
 ```mermaid
 sequenceDiagram;
