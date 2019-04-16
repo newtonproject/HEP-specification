@@ -1,24 +1,22 @@
-
-## NewID Specification (Draft)
+# NewID Specification (Draft)
 
 NewID, created from Newton addresses, is designed as [Decentralized Identifiers](https://w3c-ccg.github.io/did-spec/#did-documents)(DIDs). 
 
 DID is a new type of identifier for verifiable, "self-sovereign" digital identity according to W3C Community Group Draft Report. It meets the requirement of decentralized world to identify the entities.
-
 
 ### DID Method
 
 A "DID method" is a specific implementation of a DID scheme that is identified by a method name.
 To encode a DID for an NewID address, simply prepend did:newid:
 
-eg:
+For example:
 
 >- Version prefix - Used chainID. see [ NewChain Network ID ]
 >- Payload - hash of public key
 >- Four bytes (32 bits) of SHA256-based error checking code (digest of the version and payload)
 
 
-```
+```java
 let NEWID_PREFIX = "NEWID"
 let chainId = currentChainID
 let newIdHash = Data(hexString: publicKey)?.sha3(.keccak256).hexEncoded
@@ -110,7 +108,7 @@ This property is designed for the User Excitation Plan. It contains the informat
 
 The DID document for a NewID address NEWID1amZoHrrVxHpD5mrtX1rJttJxtAqujeWmjwLJyRfT32BujPuJbja look like this (authentication and service are included in later version):
 
-```
+```json
 {
  ‘@context’: ‘ https://w3id.org/did/v1'',
  ‘@type’: ‘Person’,
