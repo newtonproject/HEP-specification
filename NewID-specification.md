@@ -10,10 +10,9 @@ A "DID method" is a specific implementation of a DID scheme that is identified b
 
 For example:
 
->- Version prefix - Used chainID. see [NewChain Network ID](https://gitlab.newtonproject.org/alexcg/newchain-sdk-example/blob/master/chain_id.md)
+>- Version prefix - Uses [chain ID](https://gitlab.newtonproject.org/alexcg/newchain-sdk-example/blob/master/chain_id.md)
 >- Payload - hash of public key
 >- Four bytes (32 bits) of SHA256-based error checking code (digest of the version and payload)
-
 
 ```java
 let NEWID_PREFIX = "NEWID"
@@ -22,11 +21,9 @@ let newIdHash = Data(hexString: publicKey)?.sha3(.keccak256).hexEncoded
 var NEWID = NEWID_PREFIX + (Data(hexString: chainId.getHexData().toHexString() + newIdHash!)?.base58CheckEncodedString())!
 ```
 
+```
 did:newid:NEWID1amZoHrrVxHpD5mrtX1rJttJxtAqujeWmjwLJyRfT32BujPuJbja
-
-
-
-
+```
 
 ## NewID Documents
 
@@ -38,16 +35,14 @@ JSON objects in JSON-LD format must include a JSON-LD context statement. The rul
 2. The key for this property MUST be @context.
 3. The value of this key MUST be the URL for the generic DID context: https://w3id.org/did/v1.
 
-
 ### DID Subject
 
 The DID subject is the identifier that the DID Document is about, i.e., it is the DID described by DID Document. The rules for a DID subject are:
 
 1. A DID Document MUST have exactly one DID subject.
-2. The key for this property MUST be id.
+2. The key for this property MUST be ```id```.
 3. The value of this key MUST be a valid DID.
 4. When this DID Document is registered with the target distributed ledger or network, the registered DID MUST match this DID subject value.
-
 
 ### Public Keys
 
@@ -66,7 +61,6 @@ The rules for public keys are:
 5. The value property of a public key may be publicKeyPem, publicKeyJwk, publicKeyHex, publicKeyBase64 or similar, depending on the format and encoding of the public key.
 6. A registry of key types and formats is available in Appendix A. Registries .
 
-
 ### Authentication
 
 Authentication is the mechanism by which an entity can cryptographically prove that they are associated with a DID and DID Description. 
@@ -77,7 +71,6 @@ The rules for Authentication are:
 2. The value of the authentication property should be an array of proof mechanisms.
 3. Each proof mechanism must include the type property.
 4. Each proof mechanism MAY embed or reference a public key (see Section Public Keys ).
-
 
 ### Service Endpoints
 
@@ -130,5 +123,4 @@ The DID document for a NewID address NEWID1amZoHrrVxHpD5mrtX1rJttJxtAqujeWmjwLJy
   },
   'referee': ‘did:newid:NEWID1amZoHrrVxHpD5mrtX1rJttJxtAqujeWmjwLJyRfT32BujPuJbja’
 }
-
 ```
