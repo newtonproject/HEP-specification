@@ -92,7 +92,7 @@ This property is designed for the User Excitation Plan. It contains the informat
 
 The DID document for a NewID address NEWID1amZoHrrVxHpD5mrtX1rJttJxtAqujeWmjwLJyRfT32BujPuJbja look like this (authentication and service are included in later version):
 
-```json
+```
 {
  ‘@context’: ‘ https://w3id.org/did/v1'',
  ‘@type’: ‘Person’,
