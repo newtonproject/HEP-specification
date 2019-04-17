@@ -1,17 +1,16 @@
 # NewID Specification (Draft)
 
-NewID, created from Newton addresses, is designed as [Decentralized Identifiers](https://w3c-ccg.github.io/did-spec/#did-documents)(DIDs). 
+NewID, created from Newton addresses, is designed as a [Decentralized Identifier](https://w3c-ccg.github.io/did-spec/#did-documents)(DIDs). 
 
-DID is a new type of identifier for verifiable, "self-sovereign" digital identity according to W3C Community Group Draft Report. It meets the requirement of decentralized world to identify the entities.
+DID is a new type of identifier for verifiable, "self-sovereign" digital identity according to W3C Community Group Draft Report. It allows entity identification in the decentralized world.
 
-### DID Method
+## DID Method
 
-A "DID method" is a specific implementation of a DID scheme that is identified by a method name.
-To encode a DID for an NewID address, simply prepend did:newid:
+A "DID method" is a specific implementation of a DID scheme that is identified by a method name. To encode a DID for an NewID address, simply prepend ```did:newid:```
 
 For example:
 
->- Version prefix - Used chainID. see [ NewChain Network ID ]
+>- Version prefix - Used chainID. see [NewChain Network ID](https://gitlab.newtonproject.org/alexcg/newchain-sdk-example/blob/master/chain_id.md)
 >- Payload - hash of public key
 >- Four bytes (32 bits) of SHA256-based error checking code (digest of the version and payload)
 
@@ -29,9 +28,9 @@ did:newid:NEWID1amZoHrrVxHpD5mrtX1rJttJxtAqujeWmjwLJyRfT32BujPuJbja
 
 
 
-### NewID Documents
+## NewID Documents
 
-##### Context
+### Context
 
 JSON objects in JSON-LD format must include a JSON-LD context statement. The rules for this statement are:
 
@@ -39,9 +38,8 @@ JSON objects in JSON-LD format must include a JSON-LD context statement. The rul
 2. The key for this property MUST be @context.
 3. The value of this key MUST be the URL for the generic DID context: https://w3id.org/did/v1.
 
----
 
-##### DID Subject
+### DID Subject
 
 The DID subject is the identifier that the DID Document is about, i.e., it is the DID described by DID Document. The rules for a DID subject are:
 
@@ -50,9 +48,8 @@ The DID subject is the identifier that the DID Document is about, i.e., it is th
 3. The value of this key MUST be a valid DID.
 4. When this DID Document is registered with the target distributed ledger or network, the registered DID MUST match this DID subject value.
 
----
 
-##### Public Keys
+### Public Keys
 
 Public keys are used for digital signatures, encryption and other cryptographic operations, which in turn are the basis for purposes such as authentication or establishing secure communication with service endpoints. In addition, public keys may play a role in authorization mechanisms of DID CRUD operations; This may be defined by DID Method specifications.
 
@@ -69,9 +66,8 @@ The rules for public keys are:
 5. The value property of a public key may be publicKeyPem, publicKeyJwk, publicKeyHex, publicKeyBase64 or similar, depending on the format and encoding of the public key.
 6. A registry of key types and formats is available in Appendix A. Registries .
 
----
 
-##### Authentication
+### Authentication
 
 Authentication is the mechanism by which an entity can cryptographically prove that they are associated with a DID and DID Description. 
 
@@ -82,9 +78,8 @@ The rules for Authentication are:
 3. Each proof mechanism must include the type property.
 4. Each proof mechanism MAY embed or reference a public key (see Section Public Keys ).
 
----
 
-##### Service Endpoints
+### Service Endpoints
 
 In addition to publication of authentication and authorization mechanisms, the other primary purpose of a DID Document is to enable discovery of service endpoints for the entity. A service endpoint may represent any type of service the entity wishes to advertise, including decentralized identity management services for further discovery, authentication, authorization, or interaction. The rules for service endpoints are:
 
@@ -94,17 +89,12 @@ In addition to publication of authentication and authorization mechanisms, the o
 4. The service endpoint protocol SHOULD be published in an open standard specification.
 5. The value of the serviceEndpoint property MUST be a JSON-LD object or a valid URI conforming to [RFC3986] and normalized according to the rules in section 6 of [RFC3986] and to any normalization rules in its applicable URI scheme specification.
 
----
+### Profile
 
-##### Profile
-In newID there is an additional property which contains the basic information of the entity compared with DID, such as name, id, phoneNumber, etc.
+NewID has an additional property which contains the basic information of the entity compared with DID, such as name, ID, phone number, etc.
 
----
-
-##### Referee
+### Referee
 This property is designed for the User Excitation Plan. It contains the information of the NewIDs who invited the entity.
-
----
 
 The DID document for a NewID address NEWID1amZoHrrVxHpD5mrtX1rJttJxtAqujeWmjwLJyRfT32BujPuJbja look like this (authentication and service are included in later version):
 
