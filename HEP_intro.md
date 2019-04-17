@@ -2,7 +2,7 @@
 
 The Hyper Exchange Protocol (HEP for short) is the middle layer of Newton's tech stack, between the basic system and user-facing Dapps, and provides high-level libraries for developers.
 
-Version 1.0 of our HEP SDK includes support for logging in with NewID, making payments, and getting proof of action.
+Version 1.0 of our HEP SDK includes support for logging in with NewID and making payments.
 
 # Behind the Scenes: Newton's Tech Stack
 

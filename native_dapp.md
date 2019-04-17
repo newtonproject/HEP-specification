@@ -85,5 +85,3 @@ loop FundsTransfer;
 5. User confirms payment
 6. Payment receipt is sent to user and Dapp
 7. User is redirected back to Dapp
-
-## Proof of Action

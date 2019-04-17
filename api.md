@@ -61,26 +61,3 @@ newpay.payment.refundPayment
 #### Error Codes
 
 See error codes[error_codes.md]
-
-## Proof of Action
-
-### Confirm Proof of Action
-
-newpay.proofOfAction.confirm(```hash```)
-
-#### Parameters
-
-The hash value of the transaction to check
-
-#### Return Values
-
-Returns a single boolean
-
-| Value | Meaning              |
-| ---   | ---                  |
-| True  | Action confirmed     |
-| False | Action not confirmed |
-
-#### Error Codes
-
-See error codes[error_codes.md]
