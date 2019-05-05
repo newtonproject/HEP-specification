@@ -1,6 +1,6 @@
-# QR Code for NewPay Login
+# JSON for NewPay Login
 
-QR code should encode the following in JSON:
+Dapps should send the following JSON to NewPay to allow NewID logins. In the case of websites, it should be encoded in the QR code.
 
 | Field            | Type   | Notes                         |
 | ---              | ---    | ---                           |

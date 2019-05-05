@@ -1,6 +1,6 @@
-# QR Code for NewPay Payment
+# JSON NewPay Payment
 
-QR code should encode the following in JSON:
+Dapps should send the following JSON to NewPay to allow payments. In the case of websites, it should be encoded in the QR code.
 
 | Field            | Type   | Notes                         |
 | ---              | ---    | ---                           |

@@ -63,7 +63,3 @@ loop FundsTransfer;
 	NewPay->>Dapp: Send receipt;
 	NewPay-->>Dapp: Send user back;
 ```
-
-## Proof of Action
-
-TBC

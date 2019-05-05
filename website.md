@@ -89,7 +89,3 @@ loop FundsTransfer;
 6. User's NewID is sent to website, with [message] and [signature]
 7. Payment receipt is sent to user and website
 7. User is redirected back to website
-
-## Proof of Action
-
-TBC

@@ -12,7 +12,6 @@ In our release of SDK 1.0, we support the following features:
 
 * Login
 * Payment
-* Proof of Action
 
 ## Dapp Anatomy
 
@@ -26,6 +25,13 @@ A distributed app consists of:
 
 ## Building your Dapp
 
+### SDKs
+
+Software Development Kits are available for:
+
+* [iOS](http://cocoapods.org/pods/NewPaySDK-iOS)
+* [Android](https://github.com/newtonproject/NewPaySDK-Android)
+
 ### Smart Contract
 
 NewPay Dapps use [NewTruffle](newtruffle.md), a fork of [Truffle](https://truffleframework.com/), so if you're familiar with [Ethereum](https://www.ethereum.org/) you'll feel right at home.
@@ -34,4 +40,4 @@ NewPay Dapps use [NewTruffle](newtruffle.md), a fork of [Truffle](https://truffl
 
 ### Transaction Interface
 
-NewPay SDK 1.0 provides basic functions for login, payment, and proof-of-action transactions
+NewPay SDK 1.0 provides basic functions for login and payment.

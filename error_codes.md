@@ -85,8 +85,3 @@ These generally apply to all cases, including user login. More specific use case
 
 * Invalid currency format
 * Deprecated currency format (for example French Francs were replaced by Euros. This is for future-proofing)
-
-## Proof of Action Errors
-
-* Action not found
-* Action format invalid
