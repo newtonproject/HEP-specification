@@ -1,10 +1,14 @@
-# NewPay SDK API reference
+# HEP API reference
 
 ## Endpoints
 
 ```
 Testnet: https://rpc1.newchain.newtonproject.org
 ```
+
+## Basic of request and response
+
+see [Common request and response](api-common.md)
 
 ## User Login
 
