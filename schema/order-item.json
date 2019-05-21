@@ -1,0 +1,25 @@
+ {
+   "type":"object",
+   "$schema":"http://json-schema.org/draft-04/hyper-schema#",
+   "title":"order-item",
+   "description":"order item details.",
+   "properties":{
+   	"order_item_number":{
+         "type":"string",
+         "description":"The identifier of the order item."
+      },
+      "order_item_status":{
+         "type":"string",
+         "description":"The current status of the order item.choices:OrderCancelled,OrderDelivered,OrderInTransit,OrderPaymentDue,OrderPickupAvailable,OrderProblem,OrderProcessing,OrderReturned"
+      },
+      "order_item_quantity":{
+         "type":"number",
+         "description":"The number of the item ordered. If the property is not set, assume the quantity is one."
+      },
+      "ordered_item":{
+         "type":"product|service",
+         "description":"The item ordered. see[product.json] and [service.json]"
+      }
+   },
+   "required" : [ "order_item_number", "ordered_item"]
+}

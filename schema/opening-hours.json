@@ -1,0 +1,29 @@
+ {
+   "type":"object",
+   "$schema":"http://json-schema.org/draft-04/hyper-schema#",
+   "title":"opening-hours",
+   "description":"A structured value providing information about the opening hours of a place or a certain service inside a place.",
+   "properties":{
+      "closes":{
+         "type":"string",
+         "description":"The closing hour of the place or service on the given day(s) of the week.A point in time recurring on multiple days in the form hh:mm:ss[Z|(+|-)hh:mm]"
+      },
+   	"opens":{
+         "type":"string",
+         "description":"The opening hour of the place or service on the given day(s) of the week.A point in time recurring on multiple days in the form hh:mm:ss[Z|(+|-)hh:mm]"
+      },
+      "day_of_week":{
+         "type":"number",
+         "description":"The day of the week for which these opening hours are valid."
+      },
+      "valid_from":{
+         "type":"string",
+         "description":"The date when the item becomes valid."
+      },
+      "valid_through":{
+         "type":"string",
+         "description":"The date after when the item is not valid. For example the end of an offer, salary period, or a period of opening hours."
+      }
+   },
+   "required" : [ "closes", "opens", "day_of_week"]
+}

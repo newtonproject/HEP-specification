@@ -45,13 +45,12 @@ Example
   "req_id": "1",
   "errors": [
   	{
-  		"code": "",
+  		"name": "",
   		"debug_id": "",
   		"message": "",
   	}
   ],
-  "error_message": "...",
-  "data":[...]
+  "result":{...}
   ...
 }
 ```
