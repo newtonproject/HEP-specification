@@ -59,7 +59,8 @@ Example
 
 | Field            | Type   | Notes                                                      |
 | ---              | ---    | ---                                                        |
-| seller     | string | NewID of seller                                               |
+| seller     | string | The seller NewID                                               |
+| broker     | string | The broker NewID                                               |
 | order_number     | string | The order number                                               |
 | description     | string | The order description                                               |
 | order_items     | list | The list of order items, see [schema/order-item.json]                                               |
@@ -88,11 +89,8 @@ Example
 
 | Field            | Type   | Notes                                                      |
 | ---              | ---    | ---                                                        |
-| newid            | string | NewID              |
-| name        | string | the user name      |
-| country_code     | string | the country code   |
-| cellphone        | string | the cellphone      |
-| avatar      | string | the avatar of user |
+| customer            | string | The customer NewID              |
+| txid        | string | The transaction Id      |
 
 Example
 ```
@@ -100,7 +98,8 @@ Example
   "req_id": "1",
   "errors": [...],
   "result": {
-    "newid": "NEWID...",
+    "customer": "NEWID...",
+    "txid": "...",
     ...
   }
 }

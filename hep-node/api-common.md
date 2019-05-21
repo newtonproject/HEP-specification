@@ -11,7 +11,7 @@
 | dapp_id           | string | Decentralized Application Id                             |
 | req_id           | string | request Id                             |
 | method           | string | choices: login,pay,proof.submit     |
-| callback  | string | For Mobile Native DApp, it is redirect schema; For website DApp, it is callback url; For in-app DApp, it is HEP-based url.       |
+| callback  | string | For Mobile Native DApp, it is redirect schema; For website DApp, it is callback url; For  NewDApp, it is HEP-based url.       |
 | package_name    | string  | package name of dapp               |
 | protocol_version | int    | protocol version, default:2                |
 | timestamp        | int    | timestamp                                  |
