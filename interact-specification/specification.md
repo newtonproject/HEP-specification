@@ -1,8 +1,11 @@
-# HEP API reference
+# Interact Specification reference
+
+This specification is for the interact data format between dApp and Newton ecosystem.
+
 
 ## Basic of request and response
 
-see [Common request and response](api-common.md)
+see [Common request and response](specification-common.md)
 
 ## User Authentication
 
