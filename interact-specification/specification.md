@@ -62,28 +62,19 @@ Example
 
 | Field            | Type   | Notes                                                      |
 | ---              | ---    | ---                                                        |
-| seller     | string | The seller NewID                                               |
-| broker     | string | The broker NewID                                               |
-| order_number     | string | The order number                                               |
-| description     | string | The order description                                               |
-| order_items     | list | The list of order items, see [schema/order-item.json]                                               |
-| price_currency     | string | symbol of fiat or digital token, such as USD, RMB, NEW,BTC,ETH                                               |
-| total_price     | string | amount of fiat or digital token, unit is the minimum unit of given fiat or digital token                                               |
+| seller     | string | The seller's NewID                                               |
+| broker     | string | The broker's NewID                                               |
+| customer     | string | The customer's NewID                                               |
+| proof_hash     | string | The proof hash which is hex string                                               |
+
 
 Example
 ```
 {
   ...
   "seller": "NEWID...",
-  "order_number": "20190510....",
-  "description": "....",
-  "order_items": [
-    {
-      "order_item_number": "...",
-      "order_item_quantity": 1,
-      "ordered_item": {...},
-    }
-  ],
+  "broker": "NEWID....",
+  "proof_hash": "0x...",
 }
 ```
 
@@ -92,7 +83,7 @@ Example
 
 | Field            | Type   | Notes                                                      |
 | ---              | ---    | ---                                                        |
-| customer            | string | The customer NewID              |
+| customer            | string | The customer's NewID              |
 | txid        | string | The transaction Id      |
 
 Example
@@ -107,3 +98,48 @@ Example
   }
 }
 ```
+
+## Upload Offchain Transaction
+
+### Endpoints
+
+* NewPay iOS/Android
+
+### Request
+
+| Field            | Type   | Notes                                                      |
+| ---              | ---    | ---                                                        |
+| uploader     | string | The uploader's NewID                                               |
+| proof_hash     | string | The proof hash which is hex string                                               |
+                                             |
+
+Example
+```
+{
+  ...
+  "uploader": "NEWID...",
+  "proof_hash": "20190510...."
+}
+```
+
+
+### Response
+
+| Field            | Type   | Notes                                                      |
+| ---              | ---    | ---                                                        |
+| uploader     | string | The uploader's NewID                                               |
+| txid        | string | The transaction Id      |
+
+Example
+```
+{
+  "req_id": "1",
+  "errors": [...],
+  "result": {
+    "uploader": "NEWID...",
+    "txid": "...",
+    ...
+  }
+}
+```
+
