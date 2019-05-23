@@ -1,6 +1,6 @@
-# Dapp-in-Dapp
+# NewDApp
 
-Newton provides a Javascript API for Dapps-in-Dapps, which are mini-programs that run within the [NewPay Wallet] Dapp
+Newton provides a Javascript API for NewDApps.
 
 ## User Account Creation and Login
 
@@ -14,14 +14,14 @@ sequenceDiagram;
     participant User;
     participant Dapp;
 	participant NewPay;
-	participant HEP API;
+	participant HEP Node;
 
 	User->>NewPay: Open Dapp Store;
 	User->>NewPay: Install Dapp;
 	User-->>Dapp: Open Dapp
 	Dapp->>NewPay: Request NewID access
-	NewPay->>HEP API: Send Dapp public key;
-	HEP API->>NewPay: Send Dapp info, request user access;
+	NewPay->>HEP Node: Send Dapp public key;
+	HEP Node->>NewPay: Send Dapp info, request user access;
 	NewPay->>User: Pop-up requesting NewID
 	User->>NewPay: Authorize access
 	NewPay->>Dapp: NewID sent to Dapp;
@@ -46,19 +46,19 @@ sequenceDiagram;
     participant User;
     participant Dapp;
 	participant NewPay;
-	participant HEP API;
+	participant HEP Node;
 
     User->>Dapp: Click 'Pay with NewPay';
 	Dapp->>NewPay: Send public key + order info;
-	NewPay->>HEP API: Send public key;
-	HEP API->>NewPay: Send Dapp info;
+	NewPay->>HEP Node: Send public key;
+	HEP Node->>NewPay: Send Dapp info;
 	NewPay->> User: Prompt: authorize payment;
 	User->>NewPay: Type password + authorize;
-	NewPay->>HEP API: Request payment;
+	NewPay->>HEP Node: Request payment;
 loop FundsTransfer;
-        HEP API->>HEP API: Transfer payment;
+        HEP Node->>HEP Node: Transfer payment;
 	end;
-	HEP API->>NewPay: Send receipt;
+	HEP Node->>NewPay: Send receipt;
 	NewPay->>User: Send receipt;
 	NewPay->>Dapp: Send receipt;
 	NewPay-->>Dapp: Send user back;

@@ -1,6 +1,6 @@
-# Website
+# Decentralized Web
 
-The NewPay SDK provides a Javascript API for websites to integrate with NewID for user login and NewPay for payments
+The HEP SDK provides a Javascript API for websites to integrate with NewID for user login and payments
 
 ## User Account Creation and Login
 
@@ -14,14 +14,14 @@ sequenceDiagram;
     participant User;
     participant Website;
 	participant NewPay;
-	participant HEP API;
+	participant HEP Node;
  
     User->>Website: Click Login;
 	Website->>User: Display QR code;
 	User-->>NewPay: Open NewPay;
 	User->>NewPay: Scan QR code;
-	NewPay->>HEP API: Send website public key;
-	HEP API->>NewPay: Send website info, request user access;
+	NewPay->>HEP Node: Send website public key;
+	HEP Node->>NewPay: Send website info, request user access;
 	NewPay->> User: Prompt to authorize login;
 	User->>NewPay: Authorize login;
 	NewPay->>Website: NewID sent to website;
@@ -39,9 +39,9 @@ sequenceDiagram;
 ### User authorizes website on NewPay
 
 1. NewPay gets public key of website through [signature] and [message] parameters
-2. NewPay sends public key to [HEP API]
-3. HEP API uses public key to request website information that was registered in database and sends that information back to NewPay
-4. NewPay opens and prompts user to authorize the website login based on information gathered from HEP API
+2. NewPay sends public key to [HEP Node]
+3. HEP Node uses public key to request website information that was registered in database and sends that information back to NewPay
+4. NewPay opens and prompts user to authorize the website login based on information gathered from HEP Node
 5. User confirms login
 6. User's NewID is sent to website, with [message] and [signature]
 
@@ -52,21 +52,21 @@ sequenceDiagram;
     participant User;
     participant Website;
 	participant NewPay;
-	participant HEP API;
+	participant HEP Node;
 
     User->>Website: Click 'Pay with NewPay';
 	Website->>User: Display QR code;
 	User-->>NewPay: Open NewPay;
 	User->>NewPay: Scan QR code;
-	NewPay->>HEP API: Send public key;
-	HEP API->>NewPay: Send website info;
+	NewPay->>HEP Node: Send public key;
+	HEP Node->>NewPay: Send website info;
 	NewPay->> User: Prompt: authorize payment;
 	User->>NewPay: Type password + authorize;
-	NewPay->>HEP API: Request payment;
+	NewPay->>HEP Node: Request payment;
 loop FundsTransfer;
-        HEP API->>HEP API: Transfer payment;
+        HEP Node->>HEP Node: Transfer payment;
 	end;
-	HEP API->>NewPay: Send receipt;
+	HEP Node->>NewPay: Send receipt;
 	NewPay->>User: Send receipt;
 	NewPay->>Website: Send receipt;
 ```
@@ -82,9 +82,9 @@ loop FundsTransfer;
 ### User authorizes payment on NewPay
 
 1. NewPay gets public key of website through [signature] and [message] parameters
-2. NewPay sends public key to [HEP API]
-3. HEP API uses public key to request website information that was registered in database and order information, and sends that information back to NewPay
-4. NewPay opens and prompts user to authorize the payment based on information gathered from HEP API
+2. NewPay sends public key to [HEP Node]
+3. HEP Node uses public key to request website information that was registered in database and order information, and sends that information back to NewPay
+4. NewPay opens and prompts user to authorize the payment based on information gathered from HEP Node
 5. User confirms payment
 6. User's NewID is sent to website, with [message] and [signature]
 7. Payment receipt is sent to user and website
