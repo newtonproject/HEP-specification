@@ -7,9 +7,9 @@
 
 2. 基础合约 + MarketPlace(提供合约模板)
 
-3. Proof Engine + hep-node
+3. Proof Engine + HEP-Node
 > Proof Engine: 用于查询工作量信息，提交数据信息（基于Proof的Blockchain）<br/>
-> Hep-node: 提供查询接口服务 第三方通过hep-node，去 ProofEngine 实现所需要的功能
+> HEP-Node: 提供查询接口服务 第三方通过HEP-Node，去 ProofEngine 实现所需要的功能
 
 4. 行业SDK, 基础服务SDK, Oracle服务
 > 行业SDK: TBD<br/>
