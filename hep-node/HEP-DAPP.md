@@ -1,12 +1,17 @@
 # 基础架构
-<img src="https://gitlab.newtonproject.org/xiawu/newton-documentation/uploads/012152af18aafb9f607fcb9967ccbcc4/14941558591441_.pic_hd.jpg"/>
-1. NewChain, NewNet, NewAI, NewIoT
-2. 基础合约+MarketPlace(提供合约模板)
-3. Proof Engine, hep-node
-> Proof Engine: 用于查询工作量信息，提交数据信息（基于Proof的Blockchain）<br/>
-> Hep-node: 提供查询接口服务 第三方通过hep-node，去 ProofEngine 实现所需要的功能.
 
-3. 行业SDK, 基础服务SDK, Oracle
+<img src="https://gitlab.newtonproject.org/xiawu/newton-documentation/uploads/012152af18aafb9f607fcb9967ccbcc4/14941558591441_.pic_hd.jpg"/>
+
+1. NewChain  NewNet  NewIoT  NewAI
+> Newton底层技术支持
+
+2. 基础合约 + MarketPlace(提供合约模板)
+
+3. Proof Engine + hep-node
+> Proof Engine: 用于查询工作量信息，提交数据信息（基于Proof的Blockchain）<br/>
+> Hep-node: 提供查询接口服务 第三方通过hep-node，去 ProofEngine 实现所需要的功能
+
+4. 行业SDK, 基础服务SDK, Oracle服务
 > 行业SDK: TBD<br/>
 > 基础服务SDK: 联合登录，数据上链，New 支付（包括Native, Web, H5）
 
