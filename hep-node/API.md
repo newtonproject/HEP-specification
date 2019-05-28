@@ -23,6 +23,7 @@
 
     1. url: /request/login
     2. params:
+
         | Field | Type | Desc |
         |:--:|:--:|:--:|
         | app_id | string | flag of app |
@@ -33,6 +34,7 @@
         | sign_s | string | sign_s |
         | sign_message | string | sign_message |
     3. return:
+
     ```
     {
         "error_code": 1,
@@ -45,6 +47,7 @@
 
     1. url: /request/pay
     2. params:
+
         | Field | Type | Desc |
         |:--:|:--:|:--:|
         | app_id | string | flag of app |
@@ -58,6 +61,7 @@
         | sign_s | string | sign_s |
         | sign_message | string | sign message |
     3. return:
+
     ```
     {
         "error_code": 1,
@@ -70,6 +74,7 @@
 
     1. url: /request/placeorder
     2. params:
+
         | Field | Type | Desc |
         |:--:|:--:|:--:|
         | app_id | string | flag of app |
@@ -83,6 +88,7 @@
         | sign_s | string | sign_s |
         | sign_message | string | sign message |
     3. return:
+
     ```
     {
         "error_code": 1,
@@ -97,11 +103,13 @@
 1. <h5 id="native_login">Native Login</h5>
 
     1. url: /get/login
-    1. params:
+    2. params:
+
         | Field | Type | Desc |
         |:--:|:--:|:--:|
         | action_id | String | login_key |
-    1. return:
+    3. return:
+
     ```
     {
         "error_code": 1,
@@ -118,10 +126,12 @@
 
     1. url: /get/pay
     2. params:
+
         | Field | Type | Desc |
         |:--:|:--:|:--:|
         | action_id | String | login_key |
     3. return:
+
     ```
     {
         "error_code": 1,
@@ -141,10 +151,12 @@
 
     1. url: /get/placeorder
     2. params:
+
         | Field | Type | Desc |
         |:--:|:--:|:--:|
         | action_id | String | login_key |
     3. return:
+
     ```
     {
         "error_code": 1,
@@ -161,6 +173,7 @@
 
     1. url: /notify/placeorder
     2. params:
+
         | Field | Type | Desc |
         |:--:|:--:|:--:|
         | app_id | String | app id |
@@ -168,6 +181,7 @@
         | sign_r | String | sign_r |
         | sign_s | String | sign_s |
     3. return:
+
     ```
     {
         "error_code": 1,
@@ -181,6 +195,7 @@
 
     1. url: /hep/login
     2. params:
+
         | Field | Type | Desc |
         |:--:|:--:|:--:|
         | app_id | String | app_id |
@@ -193,6 +208,7 @@
         | sign_s | String | sign s |
         | sign_message | String | sign message |
     3. return:
+
     ```
     {
         "error_code": 1,
@@ -205,6 +221,7 @@
     1. url: /hep/pay
 
     2. params:
+
         | Field | Type | Desc |
         |:--:|:--:|:--:|
         | app_id | String | app_id |
@@ -214,6 +231,7 @@
         | sign_s | String | sign_s |
         | sign_message | String | sign_message |
     3. return:
+
     ```
     {
         "error_code": 1,
@@ -225,6 +243,7 @@
 
     1. url: /hep/placeorder
     2. params:
+
         | Field | Type | Desc |
         |:--:|:--:|:--:|
         | app_id | String | app_id |
@@ -235,6 +254,7 @@
         | sign_s | String | sign_s |
         | sign_message | String | sign_message |
     3. return:
+    
     ```
     {
         "error_code": 1,
