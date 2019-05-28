@@ -12,27 +12,22 @@ The HEP SDK provides a Javascript API for websites to integrate with NewID for u
 ```mermaid
 sequenceDiagram;
     participant User;
-    participant Website;
+    participant DWEB;
 	participant NewPay;
 	participant HEP Node;
- 
-    User->>Website: Click Login;
-	Website->>User: Display QR code;
-	User-->>NewPay: Open NewPay;
-	User->>NewPay: Scan QR code;
-	NewPay->>HEP Node: Send website public key;
-	HEP Node->>NewPay: Send website info, request user access;
-	NewPay->> User: Prompt to authorize login;
-	User->>NewPay: Authorize login;
-	NewPay->>Website: NewID sent to website;
-	NewPay-->>Website: Send user back;
+    User->>DWEB: Click Login;
+    DWEB->>NewPay: QRCode(AppId,LoginAction,UUID)
+    NewPay->>HEP Node:Query AppId
+    HEP Node->> NewPay: DWEB info, loginUrl;
+    NewPay->>DWEB:Profile Info, Signature;
+    DWEB->>User:verify signature and Login success;
 ```
 
 ### Website requests user login
 
 1. Website displays *Login with NewID* button
 2. User clicks or taps button
-3. If on mobile, user is redirected to NewPay. Otherwise, website pops up a QR code for user to scan, containing [website signature] and [message]
+3. If on mobile, user is redirected to NewPay. Otherwise, website pops up a QR code for user to scan, containing [AppInfo] and [UUID]
 
 * See [newpay.web.login.requestAccess]
 
@@ -50,30 +45,21 @@ sequenceDiagram;
 ```mermaid
 sequenceDiagram;
     participant User;
-    participant Website;
+    participant DWEB;
 	participant NewPay;
 	participant HEP Node;
-
-    User->>Website: Click 'Pay with NewPay';
-	Website->>User: Display QR code;
-	User-->>NewPay: Open NewPay;
-	User->>NewPay: Scan QR code;
-	NewPay->>HEP Node: Send public key;
-	HEP Node->>NewPay: Send website info;
-	NewPay->> User: Prompt: authorize payment;
-	User->>NewPay: Type password + authorize;
-	NewPay->>HEP Node: Request payment;
-loop FundsTransfer;
-        HEP Node->>HEP Node: Transfer payment;
-	end;
-	HEP Node->>NewPay: Send receipt;
-	NewPay->>User: Send receipt;
-	NewPay->>Website: Send receipt;
+	User->>DWEB:Click pay with NEW;
+	DWEB->>NewPay:QRCode(AppId, OrderHash);
+	DWEB->>HEP Node:AppId, OrderValue;
+	NewPay->>HEP Node:Query Order by AppId, OrderHash;
+	HEP Node->>NewPay: OrderValue;
+	NewPay->>DWEB:Pay and send txid;
+	DWEB->>User:verify tx and Pay success;
 ```
 
 ### Website requests user payment
 
-1. Website displays *Pay with NewID* button
+1. Website displays *Pay with NewPay* button
 2. User clicks or taps button
 3. If on mobile, user is redirected to NewPay. Otherwise, website pops up a QR code for user to scan, containing [order information], [website signature] and [message]
 
@@ -89,3 +75,43 @@ loop FundsTransfer;
 6. User's NewID is sent to website, with [message] and [signature]
 7. Payment receipt is sent to user and website
 7. User is redirected back to website
+
+## PlaceOrder
+
+```mermaid
+sequenceDiagram;
+	participant User;
+	participant DWEB;
+	participant NewPay;
+	participant HEP Node;
+	participant NF API;
+	User->>DWEB:Click place order;
+	DWEB->>HEP Node:AppId, OrderInfo;
+	HEP Node->>NF API:Query Appid can place order;
+	NF API->>HEP Node:Place Order Status: true;
+	HEP Node->>DWEB: OrderInfo hash;
+	DWEB->>NewPay: QRCode(AppId, OrderInfo Hash)
+	NewPay->> HEP Node:AppId, OrderInfo Hash;
+	HEP Node->>NewPay:Order Info;
+	NewPay->>DWEB:sign hash, txid, order hash;
+	DWEB->>User:Place Order Success;
+	NewPay->>HEP Node:sign hash, txid;
+	HEP Node->>NF API:hash, txid;
+	NF API->>HEP Node:Query Order;
+	HEP Node->>NF API:Order;
+	NF API->>NF API: Calculate NF;
+```
+
+### Website requests user place order
+
+1. Website displays *Place Order* button
+2. User clicks or taps button
+3. If on mobile, user is redirected to NewPay. Otherwise, website pops up a QR code for user to scan, containing **order hash**, **AppID** and **Action Type**
+
+### User authorizes place order on NewPay
+
+1. DWeb Post order info to HEP-Node;
+2. HEP-Node verify order info and query the DWEB's status, which can place order or not,if true, return the the order hash, else return false.
+3. Show QRCode for user to scan, containing **order hash**, **AppId** and **Action Type**.
+4. Newpay scan the QRCode and sign the order hash, then return the txid to DWeb and HEP-Node.
+5. NF-API get the order info by hash and calculate the NF.
