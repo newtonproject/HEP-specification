@@ -27,8 +27,12 @@ sequenceDiagram;
 
 1. Website displays *Login with NewID* button
 2. User clicks or taps button
-3. If on mobile, user is redirected to NewPay. Otherwise, website pops up a QR code for user to scan, containing [AppInfo] and [UUID]
-
+3. Website sends session request to HEP Node
+4. HEP Node stores session information and sends [UUID] back to website
+5. If on mobile, user is redirected to NewPay bring [UUID]. Otherwise, website pops up a QR code for user to scan, containing [UUID]
+6. If on mobile, user authorises Login and send login request to website api and jump back to browser
+7. If not on mobile, user requests session information by passing [UUID] to HEP Node, authorises Login and send login request to website api and jump back to browser
+8. 
 * See [newpay.web.login.requestAccess]
 
 ### User authorizes website on NewPay
