@@ -36,20 +36,20 @@ sequenceDiagram;
 	participant DWEB;
 	participant NewPay;
 	participant HEP Node;
-	participant RPC;
+	participant NF API;
 	User->>DWEB:Click place order;
 	DWEB->>HEP Node:AppId, OrderInfo;
-	HEP Node->>RPC:Query Appid can place order;
-	RPC->>HEP Node:Place Order Status: true;
+	HEP Node->>NF API:Query Appid can place order;
+	NF API->>HEP Node:Place Order Status: true;
 	HEP Node->>DWEB: OrderInfo hash;
 	DWEB->>NewPay: QRCode(AppId, OrderInfo Hash)
 	NewPay->> HEP Node:AppId, OrderInfo Hash;
 	HEP Node->>NewPay:Order Info;
 	NewPay->>HEP Node:sign hash, txid;
-	HEP Node->>RPC:hash, txid;
-	RPC->>HEP Node:Query Order;
-	HEP Node->>RPC:Order;
-	RPC->>RPC: Calculate NF;
+	HEP Node->>NF API:hash, txid;
+	NF API->>HEP Node:Query Order;
+	HEP Node->>NF API:Order;
+	NF API->>NF API: Calculate NF;
 	HEP Node->>DWEB:place order txid;
 	DWEB->>User:Place Order Success;
 ```
