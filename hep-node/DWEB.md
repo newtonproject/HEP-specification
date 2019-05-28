@@ -1,3 +1,4 @@
+
 ### 登录流程图
 ```mermaid
 sequenceDiagram;
@@ -6,10 +7,11 @@ sequenceDiagram;
 	participant NewPay;
 	participant HEP Node;
     User->>DWEB: Click Login;
-    DWEB->>NewPay: QRCode(AppId,LoginAction)
-    NewPay->>HEP Node:Send AppId, signMessage;
-    HEP Node->> DWEB: Verify signMessage, send user's profile;
-    DWEB->>User:Login success;
+    DWEB->>NewPay: QRCode(AppId,LoginAction,UUID)
+    NewPay->>HEP Node:Query AppId
+    HEP Node->> NewPay: DWEB info, loginUrl;
+    NewPay->>DWEB:Profile Info, Signature;
+    DWEB->>User:verify signature and Login success;
 ```
 
 ### 支付流程图
