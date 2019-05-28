@@ -1,4 +1,3 @@
-
 ### 登录流程图
 ```mermaid
 sequenceDiagram;
@@ -22,13 +21,12 @@ sequenceDiagram;
 	participant NewPay;
 	participant HEP Node;
 	User->>DWEB:Click pay with NEW;
-	DWEB->>NewPay:QRCode(AppId, OrderKey);
+	DWEB->>NewPay:QRCode(AppId, OrderHash);
 	DWEB->>HEP Node:AppId, OrderValue;
-	NewPay->>HEP Node:Query Order by AppId, OrderId;
+	NewPay->>HEP Node:Query Order by AppId, OrderHash;
 	HEP Node->>NewPay: OrderValue;
-	NewPay->>HEP Node:Pay and send txid;
-	HEP Node->>DWEB:txid, verify tx;
-	DWEB->>User:Pay success;
+	NewPay->>DWEB:Pay and send txid;
+	DWEB->>User:verify tx and Pay success;
 ```
 
 ### 上链流程图
