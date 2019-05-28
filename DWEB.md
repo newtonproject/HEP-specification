@@ -16,8 +16,11 @@ sequenceDiagram;
 	participant NewPay;
 	participant HEP Node;
     User->>DWEB: Click Login;
-    DWEB->>NewPay: QRCode(AppId,LoginAction,UUID)
-    NewPay->>HEP Node:Query AppId
+    DWEB->>HEP Node: Session Request;
+    HEP Node->>HEP Node: Store Session and Generate UUID
+    HEP Node->>DWEB: UUID;
+    DWEB->>NewPay: QRCode (UUID)
+    NewPay->>HEP Node: Query UUID
     HEP Node->> NewPay: DWEB info, loginUrl;
     NewPay->>DWEB:Profile Info, Signature;
     DWEB->>User:verify signature and Login success;
