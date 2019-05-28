@@ -30,19 +30,18 @@ sequenceDiagram;
 3. Website sends session request to HEP Node
 4. HEP Node stores session information and sends [UUID] back to website
 5. If on mobile, user is redirected to NewPay bringing [UUID]. Otherwise, website pops up a QR code for user to scan, containing [UUID]
-6. If on mobile, user authorises Login and send login request to website api and jump back to browser
-7. If not on mobile, user requests session information by passing [UUID] to HEP Node, authorises Login, send login request to website api and jump back to browser
 
 * See [newpay.web.login.requestAccess]
 
 ### User authorizes website on NewPay
 
-1. NewPay gets public key of website through [signature] and [message] parameters
-2. NewPay sends public key to [HEP Node]
-3. HEP Node uses public key to request website information that was registered in database and sends that information back to NewPay
-4. NewPay opens and prompts user to authorize the website login based on information gathered from HEP Node
-5. User confirms login
-6. User's NewID is sent to website, with [message] and [signature]
+1. NewPay gets [UUID] from QR code or schema url
+2. NewPay sends [UUID] to [HEP Node]
+3. HEP Node uses [UUID] to query session information and website information that was registered in database
+4. HEP Node sends information back to NewPay
+5. NewPay opens and prompts user to authorize the website login based on information gathered from HEP Node
+6. User confirms login
+7. User sends login request to website, including NewID, personal information, [message] and [signature]
 
 ## Payments
 
