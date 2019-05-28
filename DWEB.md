@@ -69,11 +69,26 @@ sequenceDiagram;
 
 1. Website displays *Pay with NewPay* button
 2. User clicks or taps button
-3. If on mobile, user is redirected to NewPay. Otherwise, website pops up a QR code for user to scan, containing [order information], [website signature] and [message]
+3. Website sends session request to [HEP Node] including [order information]
+4. [HEP Node] sends [UUID] back to website
+3. If on mobile, user is redirected to NewPay. Otherwise, website pops up a QR code for user to scan, containing [UUID]
 
 * See [newpay.web.payment.requestAccess]
 
 ### User authorizes payment on NewPay
+
+Update:
+
+1. NewPay gets [UUID] through QR code or scheme url
+2. NewPay sends [UUID] to [HEP Node]
+3. HEP Node uses [UUID] to request website information that was registered in database and order information, and sends that information back to NewPay
+4. NewPay opens and prompts user to authorize the payment based on information gathered from HEP Node
+5. User confirms payment
+6. User's NewID is sent to website, with [message] and [signature]
+7. Payment receipt is sent to user and website
+7. User is redirected back to website
+
+Old: 
 
 1. NewPay gets public key of website through [signature] and [message] parameters
 2. NewPay sends public key to [HEP Node]
