@@ -55,9 +55,11 @@ sequenceDiagram;
 	participant NewPay;
 	participant HEP Node;
 	User->>DWEB:Click pay with NEW;
-	DWEB->>NewPay:QRCode(AppId, OrderHash);
-	DWEB->>HEP Node:AppId, OrderValue;
-	NewPay->>HEP Node:Query Order by AppId, OrderHash;
+	DWEB->>HEP Node: Session Request with AppId, OrderValue;
+    HEP Node->>HEP Node: Store Session and Generate UUID
+    HEP Node->>DWEB: UUID;
+	DWEB->>NewPay:QRCode(UUID);
+	NewPay->>HEP Node:Query Order by UUID;
 	HEP Node->>NewPay: OrderValue;
 	NewPay->>DWEB:Pay and send txid;
 	DWEB->>User:verify tx and Pay success;
