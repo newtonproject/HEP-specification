@@ -45,11 +45,11 @@ sequenceDiagram;
 	DWEB->>NewPay: QRCode(AppId, OrderInfo Hash)
 	NewPay->> HEP Node:AppId, OrderInfo Hash;
 	HEP Node->>NewPay:Order Info;
+	NewPay->>DWEB:sign hash, txid, order hash;
+	DWEB->>User:Place Order Success;
 	NewPay->>HEP Node:sign hash, txid;
 	HEP Node->>NF API:hash, txid;
 	NF API->>HEP Node:Query Order;
 	HEP Node->>NF API:Order;
 	NF API->>NF API: Calculate NF;
-	HEP Node->>DWEB:place order txid;
-	DWEB->>User:Place Order Success;
 ```
