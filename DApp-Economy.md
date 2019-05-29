@@ -1,7 +1,8 @@
 # DApp Economy
 
 * NewTax：
-	* 牛顿DApp生态经济所产生的NEW收入都将流入NewTax。此部分的NEW将会在未来释放到NewPool中，为社群经济提供激励。
+	* 牛顿DApp生态经济所产生的NEW收入都将流入NewTax。
+	* 此部分的NEW将会在未来释放到NewPool中，为社群经济提供激励。
 
 * 在DAPP产生的用户交易订单：
 	* 法币通过DAPP支付渠道进入开发者账户
