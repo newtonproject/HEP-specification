@@ -112,9 +112,10 @@ sequenceDiagram;
 	DWEB->>HEP Node:AppId, OrderInfo;
 	HEP Node->>NF API:Query Appid can place order;
 	NF API->>HEP Node:Place Order Status: true;
-	HEP Node->>DWEB: OrderInfo hash;
-	DWEB->>NewPay: QRCode(AppId, OrderInfo Hash)
-	NewPay->> HEP Node:AppId, OrderInfo Hash;
+	HEP Node->>HEP Node: Store Session and Generate UUID
+    HEP Node->>DWEB: UUID;
+    DWEB->>NewPay: QRCode (UUID)
+    NewPay->>HEP Node: Query UUID
 	HEP Node->>NewPay:Order Info;
 	NewPay->>DWEB:sign hash, txid, order hash;
 	DWEB->>User:Place Order Success;
