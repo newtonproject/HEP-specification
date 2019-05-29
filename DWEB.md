@@ -128,11 +128,31 @@ sequenceDiagram;
 
 ### Website requests user place order
 
+Update
+
+1. Website displays *Place Order* button
+2. User clicks or taps button
+3. If on mobile, user is redirected to NewPay. Otherwise, website pops up a QR code for user to scan, containing **UUID**
+
+Old
+
 1. Website displays *Place Order* button
 2. User clicks or taps button
 3. If on mobile, user is redirected to NewPay. Otherwise, website pops up a QR code for user to scan, containing **order hash**, **AppID** and **Action Type**
 
 ### User authorizes place order on NewPay
+
+Update
+
+1. DWeb posts order info to HEP-Node;
+2. HEP-Node verifies order info and query the DWEB's status, which can place order or not,if true, return the the order hash, else return false.
+3. HEP-Node stores the session information including **order hash**, **AppID** and **Action Type**
+4. HEP-Node sends the UUID of the session to DWeb 
+3. DWeb shows QRCode for user to scan, containing **UUID**
+4. Newpay scan the QRCode and sign the order hash, then return the txid to DWeb and HEP-Node.
+5. NF-API get the order info by hash and calculate the NF.
+
+Old
 
 1. DWeb Post order info to HEP-Node;
 2. HEP-Node verify order info and query the DWEB's status, which can place order or not,if true, return the the order hash, else return false.
