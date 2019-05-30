@@ -438,6 +438,7 @@ newid
 | address | string | newid address |
 
 #### Example
+```
 // Response
 {
     "uuid": "...",
@@ -447,3 +448,4 @@ newid
         "address": "NEW182...",
     }
 }
+```
