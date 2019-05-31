@@ -70,9 +70,7 @@ TBD
 Verify the dapp information
 Details in [REST-API]
 
-
-
-
+*** 
 
 ## Payment
 
