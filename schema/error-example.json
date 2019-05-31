@@ -8,7 +8,7 @@
             "403": "Forbidden",
             "404": "RESOURCE_NOT_FOUND. The specified resource does not exist.",
             "405": "Method Not Allowed -- METHOD_NOT_SUPPORTED. The server does not implement the requested HTTP method.",
-            "500": "Internal Server Erro -- INTERNAL_SERVER_ERROR. An internal server error has occurred",
+            "500": "Internal Server Erro -- INTERNAL_SERVER_ERROR. An internal server error has occurred"
         }
     },
     {
