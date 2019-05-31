@@ -16,10 +16,6 @@ The timestamp and nonce fields is for preventing the replay attack.
 
 ## Union Login
 
-### EndPoints
-`NewPay`
-
-
 ### Steps
 
 1. DH5 app 
