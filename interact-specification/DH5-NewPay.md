@@ -64,61 +64,11 @@ TBD
 
 
 #### Example
-```
-
-```
-
-*** 
-
-### auth_getRequest
-Get the authentication information by given request hash.
-
-#### Path
-`
-/auth/request/[hash]/
-`
-
-#### Parameters
-none
-
-#### Example Parameters
-TBD
-
-#### Returns
-| Field            | Type   | Notes                                      |
-| ---              | ---    | ---                                        |
-| dapp_id           | string | Decentralized Application Id                             |
-| protocol | string    | protocol name. The default is "HEP".                |
-| version | string    | protocol version. The example is "1.0".                |
-| ts        | number    | timestamp                                  |
-| nonce            | string | random string or auto-increment sequence                              |
-| signature        | string | signature hex string by application owner |
-| action           | string | The value is "auth_generateCode"                             |
-| expired          | number | Expired timestamp                             |
-| memo             | string | Login Memo,optional                             |
-
-#### Example
-```
-// Request
-curl -X POST --data '{}'
 
 
-// Response
-{
-    "req_id": "...",
-    "result": {
-        "dapp_id": "...",
-        "protocol": "....",
-        "version": "1.0",
-        "ts": 1559122027,
-        "nonce": "...",
-        "signature": "...",
-        "action": "...",
-        "expired": 1559122027,
-        "memo": "...."
-    }
-}
-```
+### dapp_profile
+Verify the dapp information
+Details in [REST-API]
 
 
 
