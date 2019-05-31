@@ -24,7 +24,7 @@ calls the js function **hep.login** with basic parameters and extra parameters, 
 3. NewPay authorizes Login.
 4. NewPay sends profile back to DH5 app.
 
-### hep.login
+### JS Function: hep.login
 
 #### Parameters + Basic Parameters(Top of the page)
 
@@ -73,7 +73,7 @@ Details in [REST-API]
 4. NewPay sends profile back to DH5 app.
 
 
-### hep.pay
+### JS Function: hep.pay
 
 #### Parameters + Basic Parameters(Top of the page)
 
@@ -116,7 +116,7 @@ Details in [REST-API]
 3. NewPay authorizes and submits the proof.
 4. NewPay notify success/fail back to DH5 app.
 
-### hep.submitProof
+### JS Function: hep.submitProof
 
 #### Parameters + Basic Parameters(Top of the page)
 
