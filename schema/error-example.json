@@ -1,0 +1,32 @@
+[
+    {
+        "http_code":{
+            "200": "ok",
+            "204": "No Content -- The server successfully executed the method but returns no response body.",
+            "400": "bad request",
+            "401": "unauthorized",
+            "403": "Forbidden",
+            "404": "RESOURCE_NOT_FOUND. The specified resource does not exist.",
+            "405": "Method Not Allowed -- METHOD_NOT_SUPPORTED. The server does not implement the requested HTTP method.",
+            "500": "Internal Server Erro -- INTERNAL_SERVER_ERROR. An internal server error has occurred"
+        }
+    },
+    {
+        "errors": [
+            {
+                "name": "invalid_cellpohone",
+                "debug_id": "api.py lines 57",
+                "message": "cellphone must be number"
+            }, 
+            {
+                "name": "invalid_cellpohone",
+                "debug_id": "api.py lines 57",
+                "message": "cellphone must be number"
+            }
+        ]
+    },{
+        "uuid": "uuid",
+        "result": {
+
+        }
+}]
