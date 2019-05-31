@@ -16,7 +16,6 @@ The timestamp and nonce fields is for preventing the replay attack.
 
 ## Authentication
 
-***
 
 ### Union Login
 
