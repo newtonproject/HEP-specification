@@ -1,4 +1,4 @@
-# HEP Node API
+# DMA - NewPay Interaction Specification
 
 ## Basic Parameters
 ### Request
