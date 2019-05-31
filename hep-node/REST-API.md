@@ -61,7 +61,6 @@ curl -X POST --data '{}'
 
 // Response
 {
-    "req_id": "...",
     "result": {
         "request_hash": "...."
     }
