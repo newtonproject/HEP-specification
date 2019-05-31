@@ -1,2 +1,2 @@
-hep://:dappId/
+hep://open/:dappid/
 hep://:hash/
