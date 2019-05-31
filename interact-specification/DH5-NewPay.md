@@ -64,6 +64,7 @@ TBD
 
 
 #### Example
+TBD
 
 
 ### dapp_profile
@@ -107,14 +108,16 @@ Details in [REST-API]
 TBD
 
 #### Returns
-
 success / fail
 
 #### Example
+TBD
 
 ### dapp_profile
 Verify the dapp information
 Details in [REST-API]
+
+***
 
 ## Proof
 
