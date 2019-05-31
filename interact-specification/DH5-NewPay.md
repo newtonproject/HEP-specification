@@ -142,39 +142,3 @@ Details in [REST-API]
 Verify the dapp information
 Details in [REST-API]
 
-***
-
-## NewID
-
-### newid_profile
-
-#### Path
-`
-/newid/[newid]/
-`
-
-#### Parameters
-none
-
-#### Example Parameters
-TBD
-
-#### Returns
-| Field            | Type   | Notes                                      |
-| ---              | ---    | ---                                        |
-| public_key           | string | The hex string of public key                             |
-
-#### Example
-```
-// Request
-curl -X POST --data '{}'
-
-
-// Response
-{
-    "req_id": "...",
-    "result": {
-        "public_key": "...."
-    }
-}
-```
