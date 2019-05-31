@@ -400,6 +400,8 @@ TBD
 | icon           | string | Icon of Application                             |
 | public_key           | string | Public key of Dapp                             |
 | address | string | NEW182.... |
+| dapp_type | int | 1 is native, 2 is web 3 is h5 |
+| dapp_category | int | 1 is game, tax 10 %, 2 is mall, tax 3% |
 | callback  | string | For Mobile Native DApp, it is redirect schema; For website DApp, it is callback url; For  NewDApp, it is HEP-based url.       |
 
 #### Example
@@ -413,6 +415,37 @@ curl -X POST --data '{}'
     "uuid": "...",
     "result": {
         ....
+    }
+}
+```
+
+
+### newid
+
+#### Path
+`
+/dapp/:newid/
+`
+
+#### Parameters
+newid
+
+#### Returns
+| Field | Type | Notes |
+| --- | --- | --- |
+| newid | string | NewID |
+| public_key | string | newid public_key |
+| address | string | newid address |
+
+#### Example
+```
+// Response
+{
+    "uuid": "...",
+    "result": {
+        "newid": "NEWID...",
+        "public_key": "0x...",
+        "address": "NEW182...",
     }
 }
 ```
