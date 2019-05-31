@@ -2,23 +2,14 @@
 
 ## Basic Parameters
 ### Request
-| Field            | Type   | Notes                                      |
-| ---              | ---    | ---                                        |
-| dapp_id           | string | Decentralized Application Id                             |
-| uuid           | string | request uuid                             |
-| protocol | string    | protocol name. The default is "HEP".                |
-| version | string    | protocol version. The example is "1.0".                |
-| ts        | number    | timestamp                                  |
-| nonce            | string | random string or auto-increment sequence                              |
 
-The timestamp and nonce fields is for preventing the replay attack.
+| Field | Type | Notes |
+| --- | --- | --- |
+| dapp_id | string | Decentralized Application Id |
+| protocol | string | protocol name. The default is "HEP". |
+| version | string    | protocol version. The example is "1.0". |
+| environment | int | Environment of NewPay. 1 for release, 2 for testnet, 3 for dev |
 
-### Response
-| Field            | Type   | Notes                                      |
-| ---              | ---    | ---                                        |
-| uuid           | string | request uuid                             |
-| errors       | json    | error list, see [error.json](api-style-guide/error.json)         |
-| result    | json | response result     |
 
 ## Authentication
 
@@ -29,100 +20,75 @@ The timestamp and nonce fields is for preventing the replay attack.
 #### EndPoints
 `NewPay`
 
+
+### Steps
+
+1. DMA app calls the **login** function in NewPaySDK with basic parameters and extra parameters, such as scope, memo, sign_type and signature.
+2. NewPay sends dapp_profile to verify DH5 app info.
+3. NewPay authorizes Login.
+4. NewPay sends profile back to DMA app.
+
+### login
+
 #### Parameters
-| Field            | Type   | Notes                                      |
-| ---              | ---    | ---                                        |
-| action           | string | The value is "login"                             |
-| scope            | int    | profile type Id. 1: base profile including name,head,newid; 2: advance profile including cellphone  |
-| expired          | number | Expired timestamp.                             |
-| memo             | string | Login Memo,optional                             |
-| sign_type             | string | Signature Type,aka cryptographic algorithm |
-| signature        | string | signature hex string by application owner, format: "0xf9559857bb89e106de1c97bf640a481ff77a6f51e9ba8e8487d43999af0369c4e89eecca9ae085c44506137bc12ef16b24347c6b93b04fee5ef8572818382138". |
+| Field | Type | Notes |
+| --- | --- | --- |
+| scope | int | profile type Id. 1: base profile including name,head,newid; 2: advance profile including cellphone  |
+| memo | string | Login Memo,optional |
+| sign_type | string | Signature Type,aka cryptographic algorithm |
+| signature | string | signature hex string by application owner, format: "0xf9559857bb89e106de1c97bf640a481ff77a6f51e9ba8e8487d43999af0369c4e89eecca9ae085c44506137bc12ef16b24347c6b93b04fee5ef8572818382138". |
+| success | function | callback function for successfully passing parameters to NewPay |
+| failure | function | callback function for failling to passing parameters to NewPay |
+
 
 
 #### Example Parameters
 TBD
 
 #### Returns
-| Field            | Type   | Notes                                      |
-| ---              | ---    | ---                                        |
+
+success / failure
 
 #### Example
-```
 
-// Response
-{
-    "req_id": "...",
-    "result": {
-        "request_hash": "...."
-    }
-}
-```
+
+### dapp_profile
+Verify the dapp information
+Details in [REST-API]
    
+
+### Profile Infomation return to DMA app
+
+| Field | Type | Notes |
+| --- | --- | --- |
+| user_name | string | Name |
+| newid | string | newid |
+| invite_code | string | invite code |
+| address | string | address |
+| user_avatar | string | user avatar |
+| country_code | string | Country code (scope is 2) |
+| cellphone | string | Cellphone (scope is 2) |
+| error_code | string | errcode |
+| error_message | string | errorMessage |
+
+
 *** 
 
-### auth_getRequest
-Get the authentication information by given request hash.
-
-#### Path
-`
-/auth/request/[hash]/
-`
-
-#### Parameters
-none
-
-#### Example Parameters
-TBD
-
-#### Returns
-| Field            | Type   | Notes                                      |
-| ---              | ---    | ---                                        |
-| dapp_id           | string | Decentralized Application Id                             |
-| protocol | string    | protocol name. The default is "HEP".                |
-| version | string    | protocol version. The example is "1.0".                |
-| ts        | number    | timestamp                                  |
-| nonce            | string | random string or auto-increment sequence                              |
-| signature        | string | signature hex string by application owner |
-| action           | string | The value is "auth_generateCode"                             |
-| expired          | number | Expired timestamp                             |
-| memo             | string | Login Memo,optional                             |
-
-#### Example
-```
-// Request
-curl -X POST --data '{}'
-
-
-// Response
-{
-    "req_id": "...",
-    "result": {
-        "dapp_id": "...",
-        "protocol": "....",
-        "version": "1.0",
-        "ts": 1559122027,
-        "nonce": "...",
-        "signature": "...",
-        "action": "...",
-        "expired": 1559122027,
-        "memo": "...."
-    }
-}
-```
 
 ## Payment
 
-### pay_newRequest
-#### Path
-`
-/pay/request/
-`
+### Steps
+
+1. DMA app calls the **pay** function in NewPaySDK with basic parameters and extra parameters, such as description, price_currency, total_price, order_number, seller, customer, broker, signature.
+2. NewPay sends dapp_profile to verify DH5 app info.
+3. NewPay authorizes payment.
+4. NewPay jump back to DMA app.
+
+### pay
 
 #### Parameters
 | Field            | Type   | Notes                                      |
 | ---              | ---    | ---                                        |
-| expired          | number | Expired timestamp                             |
 | description      | string | The order description |
 | price_currency   | string | symbol of fiat or digital token, such as USD, RMB, NEW,BTC,ETH
 | total_price      | string | amount of fiat or digital token, unit is the minimum unit of given fiat or digital token |
@@ -131,96 +97,46 @@ curl -X POST --data '{}'
 | customer         | string | The customer's NewID |
 | broker           | string | The broker's NewID. optional.  |
 | signature        | string | signature hex string by application owner, format: "secp256r1:0xf9559857bb89e106de1c97bf640a481ff77a6f51e9ba8e8487d43999af0369c4e89eecca9ae085c44506137bc12ef16b24347c6b93b04fee5ef8572818382138". |
+| success | function | callback function for successfully passing parameters to NewPay |
+| failure | function | callback function for failling to passing parameters to NewPay |
 
 #### Example Parameters
 TBD
 
 #### Returns
-| Field            | Type   | Notes                                      |
-| ---              | ---    | ---                                        |
-| request_hash           | string | The payment request hash                             |
+
+success/ failure
 
 #### Example
-```
-// Request
-curl -X POST --data '{}'
+  
+
+### dapp_profile
+Verify the dapp information
+Details in [REST-API]
+
+### Infomation return to DMA app
+
+| Field | Type | Notes |
+| --- | --- | --- |
+| error_code | string | errcode |
+| error_message | string | errorMessage |
 
 
-// Response
-{
-    "req_id": "...",
-    "result": {
-        "hash": "...."
-    }
-}
-```
-   
 *** 
-
-### pay_getRequest
-Get the payment information by given request hash.
-
-#### Path
-`
-/pay/request/[hash]/
-`
-
-#### Parameters
-none
-
-#### Example Parameters
-TBD
-
-#### Returns
-| Field            | Type   | Notes                                      |
-| ---              | ---    | ---                                        |
-| dapp_id           | string | Decentralized Application Id                             |
-| protocol | string    | protocol name. The default is "HEP".                |
-| version | string    | protocol version. The example is "1.0".                |
-| ts        | number    | timestamp                                  |
-| nonce            | string | random string or auto-increment sequence                              |
-| signature        | string | signature hex string by application owner |
-| action           | string | The value is "pay_generateCode"                             |
-| expired          | number | Expired timestamp                             |
-| description      | string | The order description |
-| price_currency   | string | symbol of fiat or digital token, such as USD, RMB, NEW,BTC,ETH
-| total_price      | string | amount of fiat or digital token, unit is the minimum unit of given fiat or digital token |
-| order_number     | string | The order number. |
-| seller           | string | The seller's NewID  |
-| customer         | string | The customer's NewID |
-| broker           | string | The broker's NewID.  |
-
-#### Example
-```
-// Request
-curl -X POST --data '{}'
-
-
-// Response
-{
-    "req_id": "...",
-    "result": {
-        "dapp_id": "...",
-        "protocol": "....",
-        "version": "1.0",
-        "ts": 1559122027,
-        "nonce": "...",
-        "signature": "...",
-        "action": "...",
-        "expired": 1559122027,
-        ...
-    }
-}
-```
 
 ## Proof
 
+### Steps
+
+1. DMA app calls the **submitProof** function in NewPaySDK with basic parameters and extra parameters, such as description, price_currency, total_price, order_number, order_items, seller, customer, broker, signature.
+2. NewPay sends dapp_profile to verify DH5 app info.
+3. NewPay authorizes submitProof.
+4. NewPay jump back to DMA app.
+
+### submitProof
+
 ### proof_submitProof
 
-#### Path
-`
-/proof/
-`
 
 #### Parameters
 | Field            | Type   | Notes                                      |
