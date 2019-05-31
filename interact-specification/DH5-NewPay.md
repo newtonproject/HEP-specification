@@ -27,7 +27,7 @@ The timestamp and nonce fields is for preventing the replay attack.
 
 1. DH5 app 
 calls the js function **hep.login** with basic parameters and extra parameters, such as scope, expired, memo, sign_type and signature.
-2. NewPay sends dapp_profile to verify DH5 app info.
+2. NewPay sends **dapp_profile** to verify DH5 app info.
 3. NewPay authorizes Login.
 4. NewPay sends profile back to DH5 app.
 
@@ -77,16 +77,16 @@ Details in [REST-API]
 #### Steps
 
 1. DH5 app calls the js function **hep.pay** with basic parameters and extra parameters, such as expired, description, price_currency, total_price, order_number, seller, customer, broker, signature.
-2. NewPay sends dapp_profile to verify DH5 app info.
+2. NewPay sends **dapp_profile** to verify DH5 app info.
 3. NewPay authorizes and makes the payment.
 4. NewPay sends profile back to DH5 app.
 
 
-#### JS Function
+### JS Function
 
-##### hep.pay
+#### hep.pay
 
-###### Parameters + Basic Parameters(Top of the page)
+##### Parameters + Basic Parameters(Top of the page)
 
 | Field            | Type   | Notes                                      |
 | ---              | ---    | ---                                        |
@@ -112,31 +112,25 @@ success / fail
 
 #### Example
 
-
-
 ### dapp_profile
 Verify the dapp information
 Details in [REST-API]
-
-
-
-
 
 ## Proof
 
 #### Steps
 
 1. DH5 app calls the js function **hep.submitProof** with basic parameters and extra parameters, such as description, price_currency, total_price, order_number, order_items, seller, customer, broker, signature.
-2. NewPay sends dapp_profile to verify DH5 app info.
+2. NewPay sends **dapp_profile** to verify DH5 app info.
 3. NewPay authorizes and submits the proof.
 4. NewPay notify success/fail back to DH5 app.
 
 
-#### JS Function
+### JS Function
 
-##### hep.submitProof
+#### hep.submitProof
 
-###### Parameters + Basic Parameters(Top of the page)
+##### Parameters + Basic Parameters(Top of the page)
 
 | Field            | Type   | Notes                                      |
 | ---              | ---    | ---                                        |
@@ -152,57 +146,11 @@ Details in [REST-API]
 | success | function | callback function for successfully aquiring profile |
 | fail | function | callback function for failling to aquire profile|
 
+### dapp_profile
+Verify the dapp information
+Details in [REST-API]
 
-
-
-### proof_submitProof
-
-#### Path
-`
-/proof/
-`
-
-#### Parameters
-| Field            | Type   | Notes                                      |
-| ---              | ---    | ---                                        |
-| content      | json | The content of proof |
-| signature      | string | The signature by proof submitter |
-
-##### Order Proof Parameters
-| Field            | Type   | Notes                                      |
-| ---              | ---    | ---                                        |
-| type           | string | The value is "order"                             |
-| description      | string | The order description |
-| price_currency   | string | symbol of fiat or digital token, such as USD, RMB, NEW,BTC,ETH
-| total_price      | string | amount of fiat or digital token, unit is the minimum unit of given fiat or digital token |
-| order_number     | string | The order number. |
-| order_items      | json | The list of order items, see [schema/order-item.json]. |
-| seller           | string | The seller's NewID  |
-| customer         | string | The customer's NewID |
-| broker           | string | The broker's NewID. optional.  |
-
-#### Example Parameters
-TBD
-
-#### Returns
-| Field            | Type   | Notes                                      |
-| ---              | ---    | ---                                        |
-| proof_hash           | string | The proof hash                             |
-
-#### Example
-```
-// Request
-curl -X POST --data '{}'
-
-
-// Response
-{
-    "req_id": "...",
-    "result": {
-        "proof_hash": "...."
-    }
-}
-```
+***
 
 ## NewID
 
