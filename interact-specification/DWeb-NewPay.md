@@ -1,4 +1,4 @@
-# HEP Node API
+# DWeb - NewPay Interaction Specification
 
 ## Basic Parameters
 ### Request
