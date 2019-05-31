@@ -27,7 +27,7 @@ The timestamp and nonce fields is for preventing the replay attack.
 
 1. DH5 app 
 calls the js function **hep.login** with basic parameters and extra parameters, such as scope, expired, memo, sign_type and signature.
-2. NewPay sends auth_getRequest to verify DH5 app info.
+2. NewPay sends dapp_profile to verify DH5 app info.
 3. NewPay authorizes Login.
 4. NewPay sends profile back to DH5 app.
 
