@@ -14,16 +14,13 @@
 The timestamp and nonce fields is for preventing the replay attack.
 
 
-## Authentication
+## Union Login
 
-
-### Union Login
-
-#### EndPoints
+### EndPoints
 `NewPay`
 
 
-#### Steps
+### Steps
 
 1. DH5 app 
 calls the js function **hep.login** with basic parameters and extra parameters, such as scope, expired, memo, sign_type and signature.
@@ -31,11 +28,9 @@ calls the js function **hep.login** with basic parameters and extra parameters, 
 3. NewPay authorizes Login.
 4. NewPay sends profile back to DH5 app.
 
-#### JS Function
+### hep.login
 
-##### hep.login
-
-###### Parameters + Basic Parameters(Top of the page)
+#### Parameters + Basic Parameters(Top of the page)
 
 | Field | Type | Notes |
 | --- | --- | --- |
@@ -46,7 +41,6 @@ calls the js function **hep.login** with basic parameters and extra parameters, 
 | signature | string | signature hex string by application owner, format: "0xf9559857bb89e106de1c97bf640a481ff77a6f51e9ba8e8487d43999af0369c4e89eecca9ae085c44506137bc12ef16b24347c6b93b04fee5ef8572818382138". |
 | success | function | callback function for successfully aquiring profile |
 | fail | function | callback function for failling to aquire profile|
-
 
 #### Example Parameters
 TBD
@@ -75,7 +69,7 @@ Details in [REST-API]
 
 ## Payment
 
-#### Steps
+### Steps
 
 1. DH5 app calls the js function **hep.pay** with basic parameters and extra parameters, such as expired, description, price_currency, total_price, order_number, seller, customer, broker, signature.
 2. NewPay sends **dapp_profile** to verify DH5 app info.
@@ -83,11 +77,9 @@ Details in [REST-API]
 4. NewPay sends profile back to DH5 app.
 
 
-### JS Function
+### hep.pay
 
-#### hep.pay
-
-##### Parameters + Basic Parameters(Top of the page)
+#### Parameters + Basic Parameters(Top of the page)
 
 | Field            | Type   | Notes                                      |
 | ---              | ---    | ---                                        |
@@ -121,19 +113,16 @@ Details in [REST-API]
 
 ## Proof
 
-#### Steps
+### Steps
 
 1. DH5 app calls the js function **hep.submitProof** with basic parameters and extra parameters, such as description, price_currency, total_price, order_number, order_items, seller, customer, broker, signature.
 2. NewPay sends **dapp_profile** to verify DH5 app info.
 3. NewPay authorizes and submits the proof.
 4. NewPay notify success/fail back to DH5 app.
 
+### hep.submitProof
 
-### JS Function
-
-#### hep.submitProof
-
-##### Parameters + Basic Parameters(Top of the page)
+#### Parameters + Basic Parameters(Top of the page)
 
 | Field            | Type   | Notes                                      |
 | ---              | ---    | ---                                        |
