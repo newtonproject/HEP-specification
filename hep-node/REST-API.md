@@ -385,7 +385,9 @@ TBD
 | address | string | NEW182.... |
 | dapp_type | int | 1 is native, 2 is web 3 is h5 |
 | dapp_category | int | 1 is game, tax 10 %, 2 is mall, tax 3% |
-| callback  | string | For Mobile Native DApp, it is redirect schema; For website DApp, it is callback url; For  NewDApp, it is HEP-based url.       |
+| callback_login  | string | For Mobile Native DApp, it is redirect schema; For website DApp, it is callback url; For  NewDApp, it is HEP-based url.       |
+| callback_pay | string | For Mobile Native DApp, it is redirect schema; For website DApp, it is callback url; For  NewDApp, it is HEP-based url. |
+| callback_proof | string | For Mobile Native DApp, it is redirect schema; For website DApp, it is callback url; For  NewDApp, it is HEP-based url. |
 
 #### Example
 ```
