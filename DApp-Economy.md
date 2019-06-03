@@ -12,8 +12,8 @@
 
 #### 用户在DAPP中将交易订单提交上链获得NF：
 * 按照订单产生时间计算NF，按照订单上链时间计算NF系数
-* 法币比例：**1元人民币 = 1 NF** 外币：openexchangerate.org 一天一次
-* NEW比例：NEW按照Price API（CMC一天一次）换算成人民币，按法币比例计算
+* 法币比例：**1元人民币 = 1 NF** 外币：openexchangerate.org 昨日均价
+* NEW比例：NEW按照Price API（CMC昨日均价）换算成人民币，按法币比例计算
 
 #### 从DAPP运营账户中收取NewTax：
 * 基于DAPP的每日（每笔）**上链**营业总额收取
