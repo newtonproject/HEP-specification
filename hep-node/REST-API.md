@@ -186,7 +186,7 @@ TBD
 | nonce            | string | random string or auto-increment sequence                              |
 | sign_type        | string | Signature Type,aka cryptographic algorithm |
 | signature        | string | signature hex string by DApp owner. |
-| action           | string | The value is "pay"                             |
+| action           | string | The value is "hep.pay.order". |
 | expired          | number | Expired timestamp                             |
 | description      | string | The order description |
 | price_currency   | string | symbol of fiat or digital token, such as USD, CNY, NEW,BTC,ETH
@@ -262,7 +262,7 @@ curl -X POST --data '{}'
 
 // Response
 {
-    "hash": "...."
+    "proof_hash": "...."
 }
 ```
 
@@ -541,12 +541,12 @@ TBD
 | dapp_name           | string | Decentralized Application name                             |
 | icon           | string | Icon of Application                             |
 | public_key           | string | Public key of Dapp                             |
-| address | string | NEW182.... |
-| dapp_type | int | 1 is native, 2 is web 3 is h5 |
-| dapp_category | int | 1 is game, tax 10 %, 2 is mall, tax 3% |
-| callback_login  | string | For Mobile Native DApp, it is redirect schema; For website DApp, it is callback url; For  NewDApp, it is HEP-based url.       |
-| callback_pay | string | For Mobile Native DApp, it is redirect schema; For website DApp, it is callback url; For  NewDApp, it is HEP-based url. |
-| callback_proof | string | For Mobile Native DApp, it is redirect schema; For website DApp, it is callback url; For  NewDApp, it is HEP-based url. |
+| new_address | string | The Newchain Address, the example is NEW182.... |
+| dapp_type | int | The DApp type |
+| dapp_category | int | The DApp category |
+| auth_login_callback  | string | For Mobile Native DApp, it is redirect schema; For website DApp, it is callback url; For  NewDApp, it is HEP-based url.       |
+| pay_order_callback | string | For Mobile Native DApp, it is redirect schema; For website DApp, it is callback url; For  NewDApp, it is HEP-based url. |
+| proof_submit_callback | string | For Mobile Native DApp, it is redirect schema; For website DApp, it is callback url; For  NewDApp, it is HEP-based url. |
 
 #### Example
 ```
@@ -576,7 +576,7 @@ none
 | --- | --- | --- |
 | newid | string | NewID |
 | public_key | string | newid public_key |
-| address | string | newid address |
+| new_address | string | The NewChain wallet address |
 
 #### Example
 ```
@@ -584,6 +584,6 @@ none
 {
     "newid": "NEWID...",
     "public_key": "0x...",
-    "address": "NEW182...",
+    "new_address": "NEW182...",
 }
 ```
