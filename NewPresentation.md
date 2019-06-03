@@ -1,5 +1,7 @@
-#### Newton DApp Process
+# Welcome to the Newton World
 
-#### Newton DApp Economy
+## [1. Newton DApp Process](https://gitlab.newtonproject.org/alexcg/HEP-specification/blob/master/DApp-Process.md)
 
-#### DMA - Decentralized Mobile App
+## [2. Newton DApp Economy](https://gitlab.newtonproject.org/alexcg/HEP-specification/blob/master/DApp-Economy.md)
+
+## [3. DMA - Decentralized Mobile App](https://gitlab.newtonproject.org/alexcg/HEP-specification/blob/master/DMA.md)
