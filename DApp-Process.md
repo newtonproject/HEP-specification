@@ -14,17 +14,17 @@
 4. 填写DAPP申请信息
 	* DAPP名称
 	* DAPP图标
-	* DAPP类型
+	* DAPP平台
 		* Native
 			* IOS
-				> 需要Buildle ID
+				> 需要Bunldle ID
 			* Android
 				> 需要package name
 		* Web
 			> 需要API域名
 		* H5
 	* DAPP简介
-	* DAPP平台
+	* DAPP类型（游戏、商城）
 	* 开发者名称
 	* 开发者网站
 	* 生成DAPP运营账户地址
