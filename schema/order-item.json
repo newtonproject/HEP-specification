@@ -21,5 +21,5 @@
          "description":"The item ordered. see[product.json] and [service.json]"
       }
    },
-   "required" : [ "order_item_number", "ordered_item"]
+   "required" : [ "order_item_number", "ordered_item", "order_item_quantity"]
 }

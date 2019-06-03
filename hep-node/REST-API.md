@@ -324,6 +324,17 @@ curl -X POST --data '{}'
         "signature": "...",
         "action": "...",
         "expired": 1559122027,
+        "order_items": [
+            {
+                "order_item_number": "...",
+                "ordered_item": {
+                    "name": "...",
+                    "type": "product",
+                    "product_id": "..."
+                },
+                "order_item_quantity": 1
+            }
+        ],
         ...
     },
     "sign_type": "...",
@@ -443,6 +454,17 @@ curl -X POST --data '{}'
         "signature": "...",
         "action": "...",
         "expired": 1559122027,
+        "order_items": [
+            {
+                "order_item_number": "...",
+                "ordered_item": {
+                    "name": "...",
+                    "type": "product",
+                    "product_id": "..."
+                },
+                "order_item_quantity": 1
+            }
+        ],
         ...
     },
     "sign_type": "...",
