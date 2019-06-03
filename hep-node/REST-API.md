@@ -36,12 +36,12 @@ Caches the authentication request in DWeb use case.
 | Field            | Type   | Notes                                      |
 | ---              | ---    | ---                                        |
 | uuid           | string | request uuid                             |
-| action           | string | The value is "login"                             |
+| action           | string | The value is "hep.auth.login"                             |
 | scope            | int    | profile type Id. 1: base profile including name,head,newid; 2: advance profile including cellphone  |
 | expired          | number | Expired timestamp                             |
 | memo             | string | Login Memo,optional                             |
 | sign_type             | string | Signature Type,aka cryptographic algorithm |
-| signature        | string | signature hex string by application owner, format: "0xf9559857bb89e106de1c97bf640a481ff77a6f51e9ba8e8487d43999af0369c4e89eecca9ae085c44506137bc12ef16b24347c6b93b04fee5ef8572818382138". |
+| signature        | string | signature hex string by application owner. The exclude fields is [sign_type, signature, md5, uuid]. |
 
 
 #### Example Parameters
@@ -50,7 +50,7 @@ TBD
 #### Returns
 | Field            | Type   | Notes                                      |
 | ---              | ---    | ---                                        |
-| hash           | string | The hash of request information                             |
+| auth_hash           | string | The hash of auth information                             |
 
 #### Example
 ```
@@ -71,7 +71,7 @@ Get the authentication information by given request hash.
 
 #### Path
 `
-/newnet/cache/auth/:hash/
+/newnet/cache/auth/:auth_hash/
 `
 
 #### Parameters
@@ -127,7 +127,7 @@ curl -X POST --data '{}'
 | Field            | Type   | Notes                                      |
 | ---              | ---    | ---                                        |
 | uuid             | string | request uuid                             |
-| action           | string | The value is "order"                             |
+| action           | string | The value is "hep.pay.order"                             |
 | expired          | number | Expired timestamp                             |
 | description      | string | The order description |
 | price_currency   | string | symbol of fiat or digital token, such as USD, CNY, NEW,BTC,ETH
@@ -137,7 +137,7 @@ curl -X POST --data '{}'
 | customer         | string | The customer's NewID |
 | broker           | string | The broker's NewID. optional.  |
 | sign_type        | string | Signature Type,aka cryptographic algorithm |
-| signature        | string | signature hex string by application owner, format: "0xf9559857bb89e106de1c97bf640a481ff77a6f51e9ba8e8487d43999af0369c4e89eecca9ae085c44506137bc12ef16b24347c6b93b04fee5ef8572818382138". |
+| signature        | string | signature hex string by application owner. The exclude fields is [sign_type, signature, md5, uuid]. |
 
 #### Example Parameters
 TBD
@@ -145,7 +145,7 @@ TBD
 #### Returns
 | Field            | Type   | Notes                                      |
 | ---              | ---    | ---                                        |
-| hash           | string | The payment request hash                             |
+| pay_hash           | string | The payment request hash                             |
 
 #### Example
 ```
@@ -155,7 +155,7 @@ curl -X POST --data '{}'
 
 // Response
 {
-    "hash": "...."
+    "pay_hash": "...."
 }
 ```
    
@@ -166,7 +166,7 @@ Get the payment information by given request hash.
 
 #### Path
 `
-/newnet/cache/pay/:hash/
+/newnet/cache/pay/:pay_hash/
 `
 
 #### Parameters
@@ -184,7 +184,8 @@ TBD
 | version | string    | protocol version. The example is "1.0".                |
 | ts        | number    | timestamp                                  |
 | nonce            | string | random string or auto-increment sequence                              |
-| signature        | string | signature hex string by application owner |
+| sign_type        | string | Signature Type,aka cryptographic algorithm |
+| signature        | string | signature hex string by DApp owner. |
 | action           | string | The value is "pay"                             |
 | expired          | number | Expired timestamp                             |
 | description      | string | The order description |
@@ -216,23 +217,20 @@ curl -X POST --data '{}'
 }
 ```
 
-## Proof
-
-### proof_submitProof
-
-In this case, we should check the delegate balance of dapp.
+### newnet_newProofCache
 
 #### Path
 `
-/proof/
+/newnet/cache/proof/
 `
 
 #### Parameters
 | Field            | Type   | Notes                                      |
 | ---              | ---    | ---                                        |
-| content      | json | The content of proof |
-| signature      | string | The signature by proof submitter |
-| action | string | "submit_proof" |
+| content      | json | The content of proof. the format see below. |
+| sign_type        | string | Signature Type,aka cryptographic algorithm |
+| signature      | string | The signature by DApp owner. The exclude fields is [sign_type, signature, md5, uuid]. |
+| action | string | "hep.proof.submit" |
 | uuid           | string | request uuid                             |
 
 ##### Order Proof Parameters
@@ -254,7 +252,7 @@ TBD
 #### Returns
 | Field            | Type   | Notes                                      |
 | ---              | ---    | ---                                        |
-| hash           | string | The proof hash                             |
+| proof_hash           | string | The proof hash                             |
 
 #### Example
 ```
@@ -270,12 +268,12 @@ curl -X POST --data '{}'
 
 *** 
 
-### proof_getProof
+### newnet_getProofCache
 Get the proof information by given proof hash.
 
 #### Path
 `
-/proof/:hash/
+/newnet/cache/proof/:proof_hash/
 `
 
 #### Method
@@ -296,6 +294,125 @@ TBD
 | version | string    | protocol version. The example is "1.0".                |
 | ts        | number    | timestamp                                  |
 | nonce            | string | random string or auto-increment sequence                              |
+| sign_type        | string | Signature Type,aka cryptographic algorithm |
+| signature        | string | signature hex string by application owner |
+| action | string | "hep.proof.submit" |
+| expired          | number | Expired timestamp                             |
+| description      | string | The order description |
+| price_currency   | string | symbol of fiat or digital token, such as USD, CNY, NEW,BTC,ETH
+| total_price      | string | amount of fiat or digital token, unit is the minimum unit of given fiat or digital token |
+| order_number     | string | The order number. |
+| order_items      | json | The list of order items, see [schema/order-item.json]. |
+| seller           | string | The seller's NewID  |
+| customer         | string | The customer's NewID |
+| broker           | string | The broker's NewID.  |
+
+#### Example
+```
+// Request
+curl -X POST --data '{}'
+
+
+// Response
+{
+    "content": {
+        "dapp_id": "...",
+        "protocol": "....",
+        "version": "1.0",
+        "ts": 1559122027,
+        "nonce": "...",
+        "signature": "...",
+        "action": "...",
+        "expired": 1559122027,
+        ...
+    },
+    "sign_type": "...",
+    "signature": "...",
+    "action": "hep.proof.submit",
+    "uuid": "...",
+}
+```
+
+
+## Proof
+
+### proof_submitProof
+
+In this case, we should check the delegate balance of dapp.
+
+#### Path
+`
+/proof/
+`
+
+#### Parameters
+| Field            | Type   | Notes                                      |
+| ---              | ---    | ---                                        |
+| content      | json | The content of proof. |
+| sign_type        | string | Signature Type,aka cryptographic algorithm |
+| signature      | string | The signature by Dapp owner. |
+
+##### Order Proof Parameters
+| Field            | Type   | Notes                                      |
+| ---              | ---    | ---                                        |
+| type           | string | The value is "order"                             |
+| description      | string | The order description |
+| price_currency   | string | symbol of fiat or digital token, such as USD, RMB, NEW,BTC,ETH
+| total_price      | string | amount of fiat or digital token, unit is the minimum unit of given fiat or digital token |
+| order_number     | string | The order number. |
+| order_items      | json | The list of order items, see [schema/order-item.json]. |
+| seller           | string | The seller's NewID  |
+| customer         | string | The customer's NewID |
+| broker           | string | The broker's NewID. optional.  |
+
+#### Example Parameters
+TBD
+
+#### Returns
+| Field            | Type   | Notes                                      |
+| ---              | ---    | ---                                        |
+| proof_hash           | string | The proof hash                             |
+
+#### Example
+```
+// Request
+curl -X POST --data '{}'
+
+
+// Response
+{
+    "proof_hash": "...."
+}
+```
+
+*** 
+
+### proof_getProof
+Get the proof information by given proof hash.
+
+#### Path
+`
+/proof/:proof_hash/
+`
+
+#### Method
+`GET`
+
+#### Parameters
+none
+
+#### Example Parameters
+TBD
+
+#### Returns
+| Field            | Type   | Notes                                      |
+| ---              | ---    | ---                                        |
+| dapp_id           | string | Decentralized Application Id                             |
+| protocol | string    | protocol name. The default is "HEP".                |
+| version | string    | protocol version. The example is "1.0".                |
+| ts        | number    | timestamp                                  |
+| nonce            | string | random string or auto-increment sequence                              |
+| sign_type        | string | Signature Type,aka cryptographic algorithm |
 | signature        | string | signature hex string by application owner |
 | action           | string | The value is "pay"                             |
 | expired          | number | Expired timestamp                             |
@@ -316,23 +433,64 @@ curl -X POST --data '{}'
 
 // Response
 {
-    "uuid": "...",
-    "dapp_id": "...",
-    "protocol": "....",
-    "version": "1.0",
-    "ts": 1559122027,
-    "nonce": "...",
-    "signature": "...",
-    "action": "...",
-    "expired": 1559122027,
     ...
+    "content": {
+        "dapp_id": "...",
+        "protocol": "....",
+        "version": "1.0",
+        "ts": 1559122027,
+        "nonce": "...",
+        "signature": "...",
+        "action": "...",
+        "expired": 1559122027,
+        ...
+    },
+    "sign_type": "...",
+    "signature": "...",
 }
 ```
+
+***
+
+### proof_confirmProof
+
+#### Path
+`
+/proof/:proof_hash/confirm/
+`
+
+#### Parameters
+| Field            | Type   | Notes                                      |
+| ---              | ---    | ---                                        |
+| confirmer        | string | The confirmer's NewID |
+| tx        | string | The body of transaction. |
+| sign_type        | string | Signature Type,aka cryptographic algorithm. |
+| signature      | string | The signature by confirmer. |
+
+#### Example Parameters
+TBD
+
+#### Returns
+none
+
+#### Example
+```
+// Request
+curl -X POST --data '{}'
+
+
+// Response
+{
+}
+```
+
+*** 
+
 ### proof_cancelProof
 
 #### Path
 `
-/proof/:hash/
+/proof/:proof_hash/cancel/
 `
 #### Method
 `DELETE`
@@ -340,8 +498,9 @@ curl -X POST --data '{}'
 #### Parameters
 | Field            | Type   | Notes                                      |
 | ---              | ---    | ---                                        |
-| hash      | string | The proof hash |
-| signature        | string | signature hex string by application owner |
+| tx        | string | The body of transaction. |
+| sign_type        | string | Signature Type,aka cryptographic algorithm. |
+| signature      | string | The signature by DApp owner. |
 
 #### Example Parameters
 TBD
@@ -406,11 +565,11 @@ curl -X POST --data '{}'
 
 #### Path
 `
-/dapp/:newid/
+/newid/:newid/
 `
 
 #### Parameters
-newid
+none
 
 #### Returns
 | Field | Type | Notes |
