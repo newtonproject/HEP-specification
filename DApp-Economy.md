@@ -11,18 +11,22 @@
 * 通过NewID关联的NEW地址进入开发者账户
 
 #### 用户在DAPP中将交易订单提交上链获得NF：
-* 订单产生时候计算NF
-* 法币比例：**1元人民币 = 1 NF** 外币：openexchangerate.org 一天一次
-* NEW比例：NEW按照Price API（CMC一天一次）换算成人民币，按法币比例计算
+* 按照订单产生时间计算NF，按照订单上链时间计算NF系数
+* 法币比例：**1元人民币 = 1 NF** 外币：openexchangerate.org 昨日均价
+* NEW比例：NEW按照Price API（CMC昨日均价）换算成人民币，按法币比例计算
 
 #### 从DAPP运营账户中收取NewTax：
-* 基于DAPP的每日（每笔）**上链**营业总额收取
+* 基于DAPP的每笔**上链**营业总额收取
 	* 收入为**法币**的部分基于**法币等值的NEW**按费率收取
 	* 收入为**NEW**的部分按费率收取**NEW**
 
 #### DAPP的NewTax费率：
-* 游戏类DAPP：**10%**
+* 游戏类DAPP：**3%**
 * 其他类DAPP：**3%**
+
+#### DAPP产生退单退税：
+* DAPP产生退款将按照订单信息将对应NewTax退回至DAPP运营账户
+
 
 #### （待定）阶梯制DAPP的NewTax费率规则：
 * 提交 1万NF 以下：免税
