@@ -377,7 +377,20 @@ In this case, we should check the delegate balance of dapp.
 | broker           | string | The broker's NewID. optional.  |
 
 #### Example Parameters
-TBD
+`
+{
+    "content": {
+        "dapp_id": "12..."
+        ...
+        "type": "order",
+        "description": "...",
+        "total_price": "12.34",
+        ...
+    },
+    "sign_type": "p256",
+    "signature": "0x..."
+}
+`
 
 #### Returns
 | Field            | Type   | Notes                                      |
