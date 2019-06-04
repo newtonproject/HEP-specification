@@ -4,9 +4,13 @@
    "title":"product",
    "description":"Product details.",
    "properties":{
-   	  "name":{
+   	"name":{
          "type":"string",
          "description":"The product name"
+      },
+      "type":{
+         "type":"string",
+         "description":"The value is product"
       },
       "product_id":{
          "type":"string",
