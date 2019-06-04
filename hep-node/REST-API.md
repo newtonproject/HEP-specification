@@ -217,134 +217,6 @@ curl -X POST --data '{}'
 }
 ```
 
-### newnet_newProofCache
-
-#### Path
-`
-/newnet/cache/proof/
-`
-
-#### Parameters
-| Field            | Type   | Notes                                      |
-| ---              | ---    | ---                                        |
-| content      | json | The content of proof. the format see below. |
-| sign_type        | string | Signature Type,aka cryptographic algorithm |
-| signature      | string | The signature by DApp owner. The exclude fields is [sign_type, signature, md5, uuid]. |
-| action | string | "hep.proof.submit" |
-| uuid           | string | request uuid                             |
-
-##### Order Proof Parameters
-| Field            | Type   | Notes                                      |
-| ---              | ---    | ---                                        |
-| type           | string | The value is "order"                             |
-| description      | string | The order description |
-| price_currency   | string | symbol of fiat or digital token, such as USD, RMB, NEW,BTC,ETH
-| total_price      | string | amount of fiat or digital token, unit is the minimum unit of given fiat or digital token |
-| order_number     | string | The order number. |
-| order_items      | json | The list of order items, see [schema/order-item.json]. |
-| seller           | string | The seller's NewID  |
-| customer         | string | The customer's NewID |
-| broker           | string | The broker's NewID. optional.  |
-
-#### Example Parameters
-TBD
-
-#### Returns
-| Field            | Type   | Notes                                      |
-| ---              | ---    | ---                                        |
-| proof_hash           | string | The proof hash                             |
-
-#### Example
-```
-// Request
-curl -X POST --data '{}'
-
-
-// Response
-{
-    "proof_hash": "...."
-}
-```
-
-*** 
-
-### newnet_getProofCache
-Get the proof information by given proof hash.
-
-#### Path
-`
-/newnet/cache/proof/:proof_hash/
-`
-
-#### Method
-`GET`
-
-#### Parameters
-none
-
-#### Example Parameters
-TBD
-
-#### Returns
-| Field            | Type   | Notes                                      |
-| ---              | ---    | ---                                        |
-| uuid           | string | request uuid                             |
-| dapp_id           | string | Decentralized Application Id                             |
-| protocol | string    | protocol name. The default is "HEP".                |
-| version | string    | protocol version. The example is "1.0".                |
-| ts        | number    | timestamp                                  |
-| nonce            | string | random string or auto-increment sequence                              |
-| sign_type        | string | Signature Type,aka cryptographic algorithm |
-| signature        | string | signature hex string by application owner |
-| action | string | "hep.proof.submit" |
-| expired          | number | Expired timestamp                             |
-| description      | string | The order description |
-| price_currency   | string | symbol of fiat or digital token, such as USD, CNY, NEW,BTC,ETH
-| total_price      | string | amount of fiat or digital token, unit is the minimum unit of given fiat or digital token |
-| order_number     | string | The order number. |
-| order_items      | json | The list of order items, see [schema/order-item.json]. |
-| seller           | string | The seller's NewID  |
-| customer         | string | The customer's NewID |
-| broker           | string | The broker's NewID.  |
-
-#### Example
-```
-// Request
-curl -X POST --data '{}'
-
-
-// Response
-{
-    "content": {
-        "dapp_id": "...",
-        "protocol": "....",
-        "version": "1.0",
-        "ts": 1559122027,
-        "nonce": "...",
-        "signature": "...",
-        "action": "...",
-        "expired": 1559122027,
-        "order_items": [
-            {
-                "order_item_number": "...",
-                "ordered_item": {
-                    "name": "...",
-                    "type": "product",
-                    "product_id": "..."
-                },
-                "order_item_quantity": 1
-            }
-        ],
-        ...
-    },
-    "sign_type": "...",
-    "signature": "...",
-    "action": "hep.proof.submit",
-    "uuid": "...",
-}
-```
-
-
 ## Proof
 
 ### proof_submitProof
@@ -457,32 +329,38 @@ curl -X POST --data '{}'
 
 // Response
 {
-    ...
+    "dapp_id": "...",
+    "protocol": "....",
+    "version": "1.0",
+    "ts": 1559122027,
+    "nonce": "...",
+    "signature": "...",
+    "sign_type": "...",
+    "action": "...",
+    "expired": 1559122027,
+    "description": "xxx",
     "content": {
-        "dapp_id": "...",
-        "protocol": "....",
-        "version": "1.0",
-        "ts": 1559122027,
-        "nonce": "...",
-        "signature": "...",
-        "action": "...",
-        "expired": 1559122027,
+        "total_price": "1000",
+        "price_currency": "CNY",
         "order_number": "...",
+        "seller": "NEWID182...",
+        "buyer": "NEWID182...",
+        "broker": "NEWIDXX..."
         "order_items": [
             {
                 "order_item_number": "...",
                 "ordered_item": {
                     "name": "...",
                     "type": "product",
-                    "product_id": "..."
+                    "price": "12.2",
+                    "product_id": "...",
+                    "service_id": "...",
                 },
                 "order_item_quantity": 1
             }
         ],
         ...
     },
-    "sign_type": "...",
-    "signature": "...",
 }
 ```
 
@@ -623,3 +501,19 @@ none
     "new_address": "NEW182...",
 }
 ```
+
+### rate
+
+#### Path
+`
+/rate/
+`
+
+#### Parameters
+None
+
+#### Returns
+| Field | Type | Notes |
+| -- | -- | -- |
+| USD_CNY| string | |
+| NF_NEW| string|| 

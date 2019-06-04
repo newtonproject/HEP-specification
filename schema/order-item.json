@@ -19,7 +19,11 @@
       "ordered_item":{
          "type":"product|service",
          "description":"The item ordered. see[product.json] and [service.json]"
+      },
+      "price": {
+         "type": "string",
+         "description": "order's price"
       }
    },
-   "required" : [ "order_item_number", "ordered_item", "order_item_quantity"]
+   "required" : [ "order_item_number", "ordered_item", "order_item_quantity", "price"]
 }

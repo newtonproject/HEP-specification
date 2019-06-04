@@ -39,7 +39,11 @@
       "terms_of_service":{
          "type":"url",
          "description":"Human-readable terms of service documentation."
+      },
+      "service_id": {
+         "type": "string",
+         "description": "id of the service"
       }
    },
-   "required" : [ "name", "provider", "service_type", "category"]
+   "required" : [ "name", "provider", "service_type", "category", "service_id"]
 }
