@@ -380,7 +380,8 @@ curl -X POST --data '{}'
 | Field            | Type   | Notes                                      |
 | ---              | ---    | ---                                        |
 | confirmer        | string | The confirmer's NewID |
-| tx        | string | The body of transaction. |
+| sign_type        | string | Signature Type,aka cryptographic algorithm. |
+| signature      | string | The signature by confirmer. |
 
 #### Example Parameters
 TBD
@@ -396,6 +397,7 @@ curl -X POST --data '{}'
 
 // Response
 {
+    'txid': 'xxxx';
 }
 ```
 
