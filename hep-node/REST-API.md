@@ -399,7 +399,10 @@ curl -X POST --data '{}'
 
 // Response
 {
-    'txid': 'xxxx';
+    'signature': 'xxxx',
+    'sign_type': 'secp256r1',
+    'proof_hash': 'xxx',
+    'ts': 'xxx',
 }
 ```
 
@@ -460,9 +463,14 @@ TBD
 | dapp_name           | string | Decentralized Application name                             |
 | icon           | string | Icon of Application                             |
 | public_key           | string | Public key of Dapp                             |
+| package_name | string | com.demo.dev.android |
+| bundle_id | string | com.demo.dev.ios |
+| schema | string | ios schema |
+| website | string | dapp website |
+| download_page | string | dapp download page |
 | new_address | string | The Newchain Address, the example is NEW182.... |
-| dapp_type | int | The DApp type |
-| dapp_category | int | The DApp category |
+| dapp_type | string | android, ios, dweb,... |
+| dapp_category | string | game, retail |
 | auth_login_callback  | string | For Mobile Native DApp, it is redirect schema; For website DApp, it is callback url; For  NewDApp, it is HEP-based url.       |
 | pay_order_callback | string | For Mobile Native DApp, it is redirect schema; For website DApp, it is callback url; For  NewDApp, it is HEP-based url. |
 | proof_submit_callback | string | For Mobile Native DApp, it is redirect schema; For website DApp, it is callback url; For  NewDApp, it is HEP-based url. |
