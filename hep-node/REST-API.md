@@ -9,6 +9,8 @@
 | version | string    | protocol version. The example is "1.0".                |
 | ts        | number    | timestamp                                  |
 | nonce            | string | random string or auto-increment sequence                              |
+| os | string | ios, android, web |
+| language | string | zh, en, ... |
 | md5            | string | HMAC authentication md5 checksum |
 
 The timestamp and nonce fields is for preventing the replay attack.
