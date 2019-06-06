@@ -240,6 +240,7 @@ In this case, we should check the delegate balance of dapp.
 | content      | json | The content of proof. |
 | sign_type        | string | Signature Type,aka cryptographic algorithm |
 | signature      | string | The signature by Dapp owner. |
+| uuid | string | uuid |
 
 ##### Order Proof Parameters
 | Field            | Type   | Notes                                      |
@@ -309,6 +310,7 @@ TBD
 #### Returns
 | Field            | Type   | Notes                                      |
 | ---              | ---    | ---                                        |
+| uuid | string | uuid |
 | dapp_id           | string | Decentralized Application Id                             |
 | protocol | string    | protocol name. The default is "HEP".                |
 | version | string    | protocol version. The example is "1.0".                |
