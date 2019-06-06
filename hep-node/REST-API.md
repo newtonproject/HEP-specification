@@ -4,6 +4,7 @@
 ### Request
 | Field            | Type   | Notes                                      |
 | ---              | ---    | ---                                        |
+| dapp_key | string | Decentralized Application key. |
 | dapp_id           | string | Decentralized Application Id                             |
 | protocol | string    | protocol name. The default is "HEP".                |
 | version | string    | protocol version. The example is "1.0".                |
