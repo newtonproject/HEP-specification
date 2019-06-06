@@ -259,8 +259,7 @@ In this case, we should check the delegate balance of dapp.
 `
 {
     "content": {
-        "dapp_id": "12..."
-        ...
+                ...
         "type": "order",
         "description": "...",
         "total_price": "12.34",
