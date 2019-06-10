@@ -10,7 +10,7 @@
 | version | string    | protocol version. The example is "1.0". |
 | ts        | number    | timestamp                                  |
 | nonce            | string | random string or auto-increment sequence                              |
-| environment | int | Environment of NewPay. 1 for release, 2 for testnet, 3 for dev |
+| environment | string | Environment of NewPay. "mainnet", "testnet", "devnet" |
 
 ### Response
 | Field | Type | Notes |
