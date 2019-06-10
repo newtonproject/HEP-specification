@@ -23,7 +23,11 @@
       "price": {
          "type": "string",
          "description": "order's price"
-      }
+      },
+      "price_currency": {
+         "type": "string",
+         "description": "The symbol of fiat or digital token, such as USD, RMB, NEW,BTC,ETH."
+      }      
    },
-   "required" : [ "order_item_number", "ordered_item", "order_item_quantity", "price"]
+   "required" : [ "order_item_number", "ordered_item", "order_item_quantity", "price", "price_currency"]
 }

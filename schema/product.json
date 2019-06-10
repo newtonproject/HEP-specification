@@ -8,11 +8,11 @@
          "type":"string",
          "description":"The product name"
       },
-      "type":{
+      "thing_type":{
          "type":"string",
          "description":"The value is product"
       },
-      "product_id":{
+      "thing_id":{
          "type":"string",
          "description":"The product identifier, such as ISBN. For example: isbn:123-456-789."
       },
@@ -37,5 +37,5 @@
          "description":"The release date of a product or product model. This can be used to distinguish the exact variant of a product."
       },
    },
-   "required" : [ "name", "product_id"]
+   "required" : [ "name", "thing_type", "thing_id"]
 }

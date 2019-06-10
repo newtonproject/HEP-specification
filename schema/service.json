@@ -8,7 +8,7 @@
          "type":"string",
          "description":"The service name"
       },
-      "type":{
+      "thing_type":{
          "type":"string",
          "description":"The value is service"
       },
@@ -40,10 +40,10 @@
          "type":"url",
          "description":"Human-readable terms of service documentation."
       },
-      "service_id": {
+      "thing_id": {
          "type": "string",
          "description": "id of the service"
       }
    },
-   "required" : [ "name", "provider", "service_type", "category", "service_id"]
+   "required" : [ "name", "thing_type", "thing_id"]
 }
