@@ -41,6 +41,7 @@ Caches the authentication request in DWeb use case.
 #### Parameters
 | Field            | Type   | Notes                                      |
 | ---              | ---    | ---                                        |
+| dapp_id | string | dapp id |
 | uuid           | string | request uuid                             |
 | action           | string | The value is "hep.auth.login"                             |
 | scope            | int    | profile type Id. 1: base profile including name,head,newid; 2: advance profile including cellphone  |
