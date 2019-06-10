@@ -11,7 +11,6 @@
 | ts        | number    | timestamp                                  |
 | nonce            | string | random string or auto-increment sequence                              |
 | environment | int | Environment of NewPay. 1 for release, 2 for testnet, 3 for dev |
-| language | string | The language of DMA app. choices:zh_CN,en |
 
 ### Response
 | Field | Type | Notes |
