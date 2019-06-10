@@ -41,6 +41,7 @@ Cache the authentication request.
 #### Parameters
 | Field            | Type   | Notes                                      |
 | ---              | ---    | ---                                        |
+| dapp_id | string | The dapp ID |
 | uuid           | string | The request uuid                             |
 | action           | string | The action name which value is "hep.auth.login".                             |
 | scope            | int    | The request profile type. 1: base profile including name,head,newid; 2: advance profile including cellphone.  |
@@ -530,5 +531,40 @@ None
 #### Returns
 | Field | Type | Notes |
 | -- | -- | -- |
-| USD_CNY| string | |
-| NF_NEW| string|| 
+| USD_CNY | string | |
+| NF_NEW | string || 
+
+
+#### login params for call back
+```
+{
+    "uuid":"uuid string",
+    "signature": "signature",
+    "sign_type": "secp256r1",
+    "profile": {
+        "name": "profile_name",
+        "country_code": "86",
+        "cellphone": "18888888888",
+        "address": "NEW182XXX",
+        "NEWID": "NEWID12xxxx",
+        "avatar": "https://www.newtonproject.org/a.png",
+        "invite_code": "123456"
+    }
+}
+```
+
+#### pay params for call back
+```
+{
+    "uuid":"uuid string",
+    "txid": "0xaaxxx",
+}
+```
+
+#### proof params for call back
+```
+{
+    "uuid":"uuid string",
+    "txid": "0xaaxxx",
+}
+```
