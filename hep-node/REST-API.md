@@ -531,5 +531,40 @@ None
 #### Returns
 | Field | Type | Notes |
 | -- | -- | -- |
-| USD_CNY| string | |
-| NF_NEW| string|| 
+| USD_CNY | string | |
+| NF_NEW | string || 
+
+
+#### login params for call back
+```
+{
+    "uuid":"uuid string",
+    "signature": "signature",
+    "sign_type": "secp256r1",
+    "profile": {
+        "name": "profile_name",
+        "country_code": "86",
+        "cellphone": "18888888888",
+        "address": "NEW182XXX",
+        "NEWID": "NEWID12xxxx",
+        "avatar": "https://www.newtonproject.org/a.png",
+        "invite_code": "123456"
+    }
+}
+```
+
+#### pay params for call back
+```
+{
+    "uuid":"uuid string",
+    "txid": "0xaaxxx",
+}
+```
+
+#### proof params for call back
+```
+{
+    "uuid":"uuid string",
+    "txid": "0xaaxxx",
+}
+```
