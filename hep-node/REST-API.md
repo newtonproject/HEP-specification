@@ -95,6 +95,7 @@ TBD
 | version | string    | The protocol version. example is "1.0".                |
 | ts        | number    | The current timestamp                                  |
 | nonce            | string | The random string or auto-increment sequence                              |
+| sign_type        | string | Signature Type,aka cryptographic algorithm |
 | signature        | string | The signature hex string by application owner |
 | action           | string | The action name which value is "hep.auth.login"                             |
 | scope            | int    | The profile type. 1: base profile including name,head,newid; 2: advance profile including cellphone  |
