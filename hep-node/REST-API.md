@@ -5,7 +5,6 @@
 | Field            | Type   | Notes                                      |
 | ---              | ---    | ---                                        |
 | dapp_key | string | The decentralized application access key |
-| dapp_id           | string | The decentralized application ID                             |
 | protocol | string    | The protocol name. default is "HEP".                |
 | version | string    | The protocol version such as "1.0"                |
 | ts        | number    | The current timestamp                                  |
@@ -41,7 +40,7 @@ Cache the authentication request.
 #### Parameters
 | Field            | Type   | Notes                                      |
 | ---              | ---    | ---                                        |
-| dapp_id | string | The dapp ID |
+| dapp_id           | string | The decentralized application ID                             |
 | uuid           | string | The request uuid                             |
 | action           | string | The action name which value is "hep.auth.login".                             |
 | scope            | int    | The request profile type. 1: base profile including name,head,newid; 2: advance profile including cellphone.  |
@@ -134,6 +133,7 @@ curl -X POST --data '{}'
 | Field            | Type   | Notes                                      |
 | ---              | ---    | ---                                        |
 | uuid             | string | The request uuid                             |
+| dapp_id           | string | The decentralized application ID                             |
 | action           | string | The action name which value is "hep.pay.order"                             |
 | expired          | number | The expired timestamp                             |
 | description      | string | The order description |
@@ -186,7 +186,7 @@ TBD
 | Field            | Type   | Notes                                      |
 | ---              | ---    | ---                                        |
 | uuid           | string | request uuid                             |
-| dapp_id           | string | Decentralized Application Id                             |
+| dapp_id           | string | The decentralized application ID                             |
 | protocol | string    | protocol name. The default is "HEP".                |
 | version | string    | protocol version. The example is "1.0".                |
 | ts        | number    | timestamp                                  |
@@ -238,6 +238,7 @@ In this case, we should check the delegate balance of dapp.
 #### Parameters
 | Field            | Type   | Notes                                      |
 | ---              | ---    | ---                                        |
+| dapp_id           | string | The decentralized application ID                             |
 | content      | json | The content of proof. |
 | sign_type        | string | Signature Type,aka cryptographic algorithm |
 | signature      | string | The signature by Dapp owner. |
@@ -311,7 +312,7 @@ TBD
 | Field            | Type   | Notes                                      |
 | ---              | ---    | ---                                        |
 | uuid | string | uuid |
-| dapp_id           | string | Decentralized Application Id                             |
+| dapp_id           | string | The decentralized application ID                             |
 | protocol | string    | protocol name. The default is "HEP".                |
 | version | string    | protocol version. The example is "1.0".                |
 | ts        | number    | timestamp                                  |
