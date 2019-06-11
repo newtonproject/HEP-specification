@@ -547,7 +547,7 @@ None
         "country_code": "86",
         "cellphone": "18888888888",
         "address": "NEW182XXX",
-        "NEWID": "NEWID12xxxx",
+        "newid": "NEWID12xxxx",
         "avatar": "https://www.newtonproject.org/a.png",
         "invite_code": "123456"
     }
