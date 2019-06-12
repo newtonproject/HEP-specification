@@ -456,7 +456,8 @@ curl -X POST --data '{}'
 `
 
 #### Parameters
-none
+| Field | Type | Notes |
+| newid | string | user's newid |
 
 #### Example Parameters
 TBD
