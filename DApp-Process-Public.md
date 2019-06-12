@@ -23,7 +23,7 @@
 4. 上传公钥
 	* 生成DApp的公钥-示例代码
 
-    ```
+    ```java
     @Test
         public void generateKeyTest() throws Exception {
             byte[] bytes = new byte[32];
@@ -33,8 +33,8 @@
             System.out.println("pub:" + keyPair.getPublicKey().toString(16));
         }
         
-    priv:30052c79d52897c38e129ebec2f3e00b4e0ba9ecb4cb7e3dfd53cf9bb50dd672
-    pub:7fba91006d0899775c2e019746480030072316f26964d302f6dbf44b7793e880c4233806097502a6f261186dcd8e1367c9e3bc41c484bdeb076c91194b801db5
+    priv: 30052c79d52897c38e129ebec2f3e00b4e0ba9ecb4cb7e3dfd53cf9bb50dd672
+    pub: 7fba91006d0899775c2e019746480030072316f26964d302f6dbf44b7793e880c4233806097502a6f261186dcd8e1367c9e3bc41c484bdeb076c91194b801db5
     ```
 
 5. NewPay-SDK
