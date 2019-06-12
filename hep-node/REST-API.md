@@ -34,7 +34,7 @@ Cache the authentication request.
 
 #### Path
 `
-/newnet/cache/auth/
+/newnet/caches/auth/
 `
 
 #### Parameters
@@ -77,7 +77,7 @@ Get the authentication information by given request hash.
 
 #### Path
 `
-/newnet/cache/auth/:auth_hash/
+/newnet/caches/auth/:auth_hash/
 `
 
 #### Parameters
@@ -127,7 +127,7 @@ curl -X POST --data '{}'
 ### newnet_newPayCache
 #### Path
 `
-/newnet/cache/pay/
+/newnet/caches/pay/
 `
 
 #### Parameters
@@ -174,7 +174,7 @@ Get the payment information by given request hash.
 
 #### Path
 `
-/newnet/cache/pay/:pay_hash/
+/newnet/caches/pay/:pay_hash/
 `
 
 #### Parameters
