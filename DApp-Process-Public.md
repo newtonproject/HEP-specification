@@ -21,7 +21,21 @@
 	    * Web平台的DWeb需要提供auth_login_callback URL、pay_order_callback URL、proof_submit_callback URL
 
 4. 上传公钥
-	* 生成DApp的公钥
+	* 生成DApp的公钥-示例代码
+
+    ```
+    @Test
+        public void generateKeyTest() throws Exception {
+            byte[] bytes = new byte[32];
+            new SecureRandom().nextBytes(bytes);
+            ECKeyPair keyPair = ECKeyPair.create(bytes);
+            System.out.println("priv:" + keyPair.getPrivateKey().toString(16));
+            System.out.println("pub:" + keyPair.getPublicKey().toString(16));
+        }
+        
+    priv:30052c79d52897c38e129ebec2f3e00b4e0ba9ecb4cb7e3dfd53cf9bb50dd672
+    pub:7fba91006d0899775c2e019746480030072316f26964d302f6dbf44b7793e880c4233806097502a6f261186dcd8e1367c9e3bc41c484bdeb076c91194b801db5
+    ```
 
 5. NewPay-SDK
 	* 在应用配置中获取AppID、AppKey、AppSecret
