@@ -374,42 +374,6 @@ curl -X POST --data '{}'
 }
 ```
 
-***
-
-### proof_confirmProof
-
-#### Path
-`
-/proofs/:proof_hash/
-`
-
-#### Method
-`PUT`
-
-#### Parameters
-| Field            | Type   | Notes                                      |
-| ---              | ---    | ---                                        |
-| confirmer        | string | The confirmer's NewID |
-| sign_type        | string | Signature Type,aka cryptographic algorithm. |
-| signature      | string | The signature by confirmer. |
-
-#### Example Parameters
-TBD
-
-#### Returns
-none
-
-#### Example
-```
-// Request
-curl -X POST --data '{}'
-
-
-// Response
-{
-}
-```
-
 *** 
 
 ### proof_cancelProof
