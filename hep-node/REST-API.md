@@ -34,7 +34,7 @@ Cache the authentication request.
 
 #### Path
 `
-/newnet/cache/auth/
+/newnet/caches/auth/
 `
 
 #### Parameters
@@ -77,7 +77,7 @@ Get the authentication information by given request hash.
 
 #### Path
 `
-/newnet/cache/auth/:auth_hash/
+/newnet/caches/auth/:auth_hash/
 `
 
 #### Parameters
@@ -95,6 +95,7 @@ TBD
 | version | string    | The protocol version. example is "1.0".                |
 | ts        | number    | The current timestamp                                  |
 | nonce            | string | The random string or auto-increment sequence                              |
+| sign_type        | string | Signature Type,aka cryptographic algorithm |
 | signature        | string | The signature hex string by application owner |
 | action           | string | The action name which value is "hep.auth.login"                             |
 | scope            | int    | The profile type. 1: base profile including name,head,newid; 2: advance profile including cellphone  |
@@ -126,7 +127,7 @@ curl -X POST --data '{}'
 ### newnet_newPayCache
 #### Path
 `
-/newnet/cache/pay/
+/newnet/caches/pay/
 `
 
 #### Parameters
@@ -173,7 +174,7 @@ Get the payment information by given request hash.
 
 #### Path
 `
-/newnet/cache/pay/:pay_hash/
+/newnet/caches/pay/:pay_hash/
 `
 
 #### Parameters
@@ -455,7 +456,8 @@ curl -X POST --data '{}'
 `
 
 #### Parameters
-none
+| Field | Type | Notes |
+| newid | string | user's newid |
 
 #### Example Parameters
 TBD
