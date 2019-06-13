@@ -466,7 +466,7 @@ TBD
 | dapp_id           | string | The decentralized application ID                             |
 | dapp_name           | string | The decentralized application name                             |
 | icon           | string | The icon of application                             |
-| public_key           | string | The public key of DApp                             |
+| dapp_public_key           | string | The public key of DApp                             |
 | package_name | string | The package name such as com.demo.dev.android |
 | bundle_id | string | The bundle id such as com.demo.dev.ios for ios platform |
 | schema | string | The routing schema |
