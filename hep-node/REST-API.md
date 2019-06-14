@@ -384,8 +384,8 @@ curl -X POST --data '{}'
     "sign_type": "...",
     "action": "hep.proof.submit",
     "expired": 1559122027,
-    "description": "xxx",
     "content": {
+        "description": "xxx",
         "total_price": "1000",
         "price_currency": "CNY",
         "order_number": "...",
