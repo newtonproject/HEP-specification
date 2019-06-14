@@ -18,6 +18,8 @@ The timestamp and nonce fields is for preventing the replay attack.
 
 #### dapp_signature_method
 * `HMAC-MD5` - MD5
+* `HMAC-SHA2` - SHA2
+* `HMAC-SHA3` - Keccak-256
 
 #### Signature Base String
 The Signature Base String is a consistent reproducible concatenation of the request elements into a single string. The string is used as an input in hashing or signing algorithms. The HMAC-SHA256 signature method provides both a standard and an example of using the Signature Base String with a signing algorithm to generate signatures. 
