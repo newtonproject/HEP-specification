@@ -29,7 +29,7 @@ The request parameters are collected, sorted and concatenated into a normalized 
 
 Parameters in the HTTP POST request body (with a content-type of application/x-www-form-urlencoded).
 HTTP GET parameters added to the URLs in the query part (as defined by [RFC3986]).
-The dapp_signature parameter MUST be excluded.
+The 'dapp_signature_method', 'dapp_signature', 'signature', 'sign_type' parameter MUST be excluded.
 
 The parameters are normalized into a single string as follows:
 
@@ -81,7 +81,7 @@ Cache the authentication request.
 | expired          | number | The expired timestamp                             |
 | memo             | string | The login Memo,optional.                             |
 | sign_type             | string | The signature Type,aka cryptographic algorithm. |
-| signature        | string | The signature hex string by application owner. The exclude fields is [signature, dapp_signature]. |
+| signature        | string | The signature hex string by application owner. The exclude fields is ['dapp_signature_method', 'dapp_signature', 'signature', 'sign_type']. |
 
 
 #### Example Parameters
@@ -130,7 +130,7 @@ TBD
 | ts        | number    | The current timestamp                                  |
 | nonce            | string | The random string or auto-increment sequence                              |
 | sign_type        | string | Signature Type,aka cryptographic algorithm |
-| signature        | string | The signature hex string by application owner. The exclude fields is [signature, dapp_signature]. |
+| signature        | string | The signature hex string by application owner. The exclude fields is ['dapp_signature_method', 'dapp_signature', 'signature', 'sign_type']. |
 | action           | string | The action name which value is "hep.auth.login"                             |
 | scope            | int    | The profile type. 1: base profile including name,head,newid; 2: advance profile including cellphone  |
 | expired          | number | The expired timestamp                             |
@@ -179,7 +179,7 @@ curl -X POST --data '{}'
 | customer         | string | The customer's NewID |
 | broker           | string | The broker's NewID. optional.  |
 | sign_type        | string | Signature Type,aka cryptographic algorithm |
-| signature        | string | The signature hex string by application owner. The exclude fields is [signature, dapp_signature]. |
+| signature        | string | The signature hex string by application owner. The exclude fields is ['dapp_signature_method', 'dapp_signature', 'signature', 'sign_type']. |
 
 #### Example Parameters
 TBD
@@ -227,7 +227,7 @@ TBD
 | ts        | number    | timestamp                                  |
 | nonce            | string | random string or auto-increment sequence                              |
 | sign_type        | string | Signature Type,aka cryptographic algorithm |
-| signature        | string | The signature hex string by application owner. The exclude fields is [signature, dapp_signature]. |
+| signature        | string | The signature hex string by application owner. The exclude fields is ['dapp_signature_method', 'dapp_signature', 'signature', 'sign_type']. |
 | action           | string | The value is "hep.pay.order". |
 | expired          | number | Expired timestamp                             |
 | description      | string | The order description |
@@ -276,7 +276,7 @@ In this case, we should check the delegate balance of dapp.
 | dapp_id           | string | The decentralized application ID                             |
 | content      | json | The content of proof. |
 | sign_type        | string | Signature Type,aka cryptographic algorithm |
-| signature        | string | The signature hex string by application owner. The exclude fields is [signature, dapp_signature]. |
+| signature        | string | The signature hex string by application owner. The exclude fields is ['dapp_signature_method', 'dapp_signature', 'signature', 'sign_type']. |
 | uuid | string | uuid |
 | action           | string | The value is "hep.proof.submit".                             |
 
@@ -355,7 +355,7 @@ TBD
 | ts        | number    | timestamp                                  |
 | nonce            | string | random string or auto-increment sequence                              |
 | sign_type        | string | Signature Type,aka cryptographic algorithm |
-| signature        | string | The signature hex string by application owner. The exclude fields is [signature, dapp_signature]. |
+| signature        | string | The signature hex string by application owner. The exclude fields is ['dapp_signature_method', 'dapp_signature', 'signature', 'sign_type']. |
 | action           | string | The value is "hep.proof.submit".                             |
 | expired          | number | Expired timestamp                             |
 | description      | string | The order description |
@@ -426,7 +426,7 @@ curl -X POST --data '{}'
 | Field            | Type   | Notes                                      |
 | ---              | ---    | ---                                        |
 | sign_type        | string | Signature Type,aka cryptographic algorithm. |
-| signature        | string | The signature hex string by application owner. The exclude fields is [signature, dapp_signature]. |
+| signature        | string | The signature hex string by application owner. The exclude fields is ['dapp_signature_method', 'dapp_signature', 'signature', 'sign_type']. |
 
 #### Example Parameters
 TBD
