@@ -244,6 +244,8 @@ In this case, we should check the delegate balance of dapp.
 | sign_type        | string | Signature Type,aka cryptographic algorithm |
 | signature      | string | The signature by Dapp owner. |
 | uuid | string | uuid |
+| action           | string | The value is "hep.proof.submit".                             |
+
 
 ##### Order Proof Parameters
 | Field            | Type   | Notes                                      |
@@ -320,7 +322,7 @@ TBD
 | nonce            | string | random string or auto-increment sequence                              |
 | sign_type        | string | Signature Type,aka cryptographic algorithm |
 | signature        | string | signature hex string by application owner |
-| action           | string | The value is "pay"                             |
+| action           | string | The value is "hep.proof.submit".                             |
 | expired          | number | Expired timestamp                             |
 | description      | string | The order description |
 | price_currency   | string | symbol of fiat or digital token, such as USD, CNY, NEW,BTC,ETH
