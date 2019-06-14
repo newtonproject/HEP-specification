@@ -348,7 +348,7 @@ curl -X POST --data '{}'
     "nonce": "...",
     "signature": "...",
     "sign_type": "...",
-    "action": "...",
+    "action": "hep.proof.submit",
     "expired": 1559122027,
     "description": "xxx",
     "content": {
