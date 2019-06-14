@@ -48,6 +48,7 @@
 #### Parameters
 | Field | Type | Notes |
 | --- | --- | --- |
+| uuid           | string | The request uuid                             |
 | action           | string | The value is "hep.auth.login"                             |
 | scope | int | profile type Id. 1: base profile including name,head,newid; 2: advance profile including cellphone  |
 | memo | string | Login Memo,optional |
@@ -59,7 +60,7 @@
 Details in [HEP NODE REST API](hep-node/REST-API.md)
    
 
-### NewPay return to DWeb app
+### NewPay return to DWeb app or server
 
 #### Returns
 
@@ -78,7 +79,8 @@ Details in [HEP NODE REST API](hep-node/REST-API.md)
 {
     "status_code": 200,
     "result": {
-        "user_name": "..."
+        "uuid": "...",
+        "user_name": "...",
         ...
     }
 }
@@ -110,6 +112,7 @@ Details in [HEP NODE REST API](hep-node/REST-API.md)
 #### Parameters
 | Field            | Type   | Notes                                      |
 | ---              | ---    | ---                                        |
+| uuid           | string | The request uuid                             |
 | action           | string | The value is "hep.pay.order"                             |
 | description      | string | The order description |
 | price_currency   | string | symbol of fiat or digital token, such as USD, RMB, NEW,BTC,ETH
@@ -125,11 +128,12 @@ Details in [HEP NODE REST API](hep-node/REST-API.md)
 ### Retrieve the profile of DApp in NewPay
 Details in [HEP NODE REST API](hep-node/REST-API.md)
 
-### Infomation return to DWeb app
+### Infomation return to DWeb app or server
 #### Returns
 
 | Field | Type | Notes |
 | --- | --- | --- |
+| uuid           | string | The request uuid                             |
 | order_number     | string | The order number. |
 | txid | string | The transaction id. |
 
@@ -139,8 +143,9 @@ Details in [HEP NODE REST API](hep-node/REST-API.md)
 {
     "status_code": 200,
     "result": {
-        "order_number": "..."
-        "txid": "..."
+        "uuid": "...",
+        "order_number": "...",
+        "txid": "...",
     }
 }
 ```
@@ -174,6 +179,7 @@ see [proof_submitProof](hep-node/REST-API.md)
 #### Parameters
 | Field            | Type   | Notes                                      |
 | ---              | ---    | ---                                        |
+| uuid           | string | The request uuid                             |
 | action | string | The value is "hep.proof.submit". |
 | proof_hash      | string | The hash of proof which prefix is '0x'. |
 | sign_type | string | Signature Type,aka cryptographic algorithm. |
@@ -183,14 +189,15 @@ see [proof_submitProof](hep-node/REST-API.md)
 Details in [dapp_profile](hep-node/REST-API.md)
 
 ### Confirm the proof
-Details in [proof_confirmProof](hep-node/REST-API.md)
+TBD
 
-### Result return to DWeb app
+### Result return to DWeb app or server
 #### Returns
 
 | Field | Type | Notes |
 | --- | --- | --- |
-| txid | string | The transaction id of confirm proof. |
+| uuid           | string | The request uuid                             |
+| proof_hash      | string | The hash of proof which prefix is '0x'. |
 
 
 #### Example
@@ -198,7 +205,8 @@ Details in [proof_confirmProof](hep-node/REST-API.md)
 {
     "status_code": 200,
     "result": {
-        "txid": "..."
+        "uuid": "...",
+        "proof_hash": "...",
     }
 }
 ```
