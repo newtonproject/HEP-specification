@@ -359,12 +359,12 @@ curl -X POST --data '{}'
         "order_items": [
             {
                 "order_item_number": "...",
+                "price": "12.2",
+                "price_currency": "NEW",
                 "ordered_item": {
                     "name": "...",
-                    "type": "product",
-                    "price": "12.2",
-                    "product_id": "...",
-                    "service_id": "...",
+                    "thing_type": "product",
+                    "thing_id": "...",
                 },
                 "order_item_quantity": 1
             }
