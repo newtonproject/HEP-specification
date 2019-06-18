@@ -430,6 +430,7 @@ curl -X POST --data '{}'
 #### Parameters
 | Field            | Type   | Notes                                      |
 | ---              | ---    | ---                                        |
+| dapp_id           | string | The decentralized application ID                             |
 | proof_subitem_id        | string | The proof subitem id. For order proof, it is order_item_number. optional. If it is empty, all subitem will be canceled. |
 | sign_type        | string | Signature Type,aka cryptographic algorithm. |
 | signature        | string | The signature hex string by application owner. The exclude fields is ['dapp_signature_method', 'dapp_signature', 'signature', 'sign_type']. |
