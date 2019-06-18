@@ -293,6 +293,7 @@ In this case, we should check the delegate balance of dapp.
 | seller           | string | The seller's NewID  |
 | customer         | string | The customer's NewID |
 | broker           | string | The broker's NewID. optional.  |
+| chain_txid           | string | The txid of blockchain. optional.  |
 
 #### Example Parameters
 `
@@ -366,6 +367,7 @@ TBD
 | seller           | string | The seller's NewID  |
 | customer         | string | The customer's NewID |
 | broker           | string | The broker's NewID.  |
+| chain_txid           | string | The txid of blockchain. optional.  |
 
 #### Example
 ```
@@ -405,6 +407,7 @@ curl -X POST --data '{}'
                 "order_item_quantity": 1
             }
         ],
+        "chain_txid": "xxx",
         ...
     },
 }
@@ -425,6 +428,7 @@ curl -X POST --data '{}'
 #### Parameters
 | Field            | Type   | Notes                                      |
 | ---              | ---    | ---                                        |
+| proof_subitem_id        | string | The proof subitem id. For order proof, it is order_item_number. optional. If it is empty, all subitem will be canceled. |
 | sign_type        | string | Signature Type,aka cryptographic algorithm. |
 | signature        | string | The signature hex string by application owner. The exclude fields is ['dapp_signature_method', 'dapp_signature', 'signature', 'sign_type']. |
 
