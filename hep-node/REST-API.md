@@ -360,6 +360,7 @@ TBD
 | action           | string | The value is "hep.proof.submit".                             |
 | expired          | number | Expired timestamp                             |
 | description      | string | The order description |
+| proof_type       | string | The type of proof information |
 | price_currency   | string | symbol of fiat or digital token, such as USD, CNY, NEW,BTC,ETH
 | total_price      | string | amount of fiat or digital token, unit is the minimum unit of given fiat or digital token |
 | order_number     | string | The order number. |
@@ -393,7 +394,8 @@ curl -X POST --data '{}'
         "order_number": "...",
         "seller": "NEWID182...",
         "buyer": "NEWID182...",
-        "broker": "NEWIDXX..."
+        "broker": "NEWIDXX...",
+        "proof_type": "order",
         "order_items": [
             {
                 "order_item_number": "...",
