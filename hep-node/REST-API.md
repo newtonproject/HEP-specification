@@ -569,3 +569,64 @@ none
     "main_wallet_address": "NEW182...",
 }
 ```
+
+### NewForce
+
+#### Path
+`
+/newforce/:date/
+`
+
+* `date` - the date format is '20190808'.
+
+
+#### Parameters
+none
+
+#### Returns
+| Field | Type | Notes |
+| --- | --- | --- |
+| NF/NEW | string | The conversion rate between NF(NewForce) and NEW |
+| NEW/CNY | string | The conversion rate between NEW and CNY |
+
+
+#### Example
+```
+// Response
+{
+    "NF/NEW": "2.6",
+    "NEW/CNY": "2"
+}
+```
+
+### Oracle
+
+#### Get the information of given oracle
+
+##### Path
+`
+/oracles/:oracle_id/
+`
+
+* `oracle_id` - The oracle id. The reserved oracle id are as follows: default .
+
+##### Parameters
+none
+
+##### Returns
+| Field | Type | Notes |
+| --- | --- | --- |
+| oracle_id | string | The oracle id |
+| oracle_name | string | The oracle name |
+| public_key | string | The public key of oracle |
+
+
+##### Example
+```
+// Response
+{
+    "oracle_id": "....",
+    "oracle_name": "....",
+    "public_key": "...."
+}
+```
