@@ -2,7 +2,27 @@
 
 #### Welcome to Newton DApp Ecosystem
 
-* The DApp develeper is an important group of Newton Community. Developers can join mining by providing variety of services in Newton Community Economy.
+* The DApp developer is an important group of Newton Community. Developers can join mining by providing a variety of services in Newton Community Economy.
+* All Users' consuming actions will get NEW incentives by uploading to NewChain.
+* Newton Project provides NewPay SDK, technical documentation, and back-end management for DApp developers.
+
+#### DApp Application Process
+
+1. Become Newton community node
+
+2. NewID login
+
+3. DApp/DWeb application info and developer info
+
+4. Upload PublicKey
+
+5. Get NewPay-SDK
+
+6. Submit your DApp/DWeb
+
+7. Operation fee
+
+8. Reveiw policy
 
 #### 欢迎加入牛顿DApp生态
 
@@ -13,19 +33,20 @@
 #### DApp入驻流程
 
 1. 牛顿社群节点
-    * 获得DApp开发者权限需要成为牛顿社群节点，即锁定1000万NEW
+* 获得DApp开发者权限需要成为牛顿社群节点，即锁定1000万NEW
 
 2. NewID登录
-    * 使用成为牛顿社群节点的NewID扫码登录
+* 使用成为牛顿社群节点的NewID扫码登录
 
 3. 填写DApp/DWeb的申请信息和开发者的联系信息
-	* 牛顿DApp生态目前支持iOS、Android、Web平台
-	    * iOS平台的DApp需要提供Bundle ID
-	    * Android平台的DApp需要提供Package Name
-	    * Web平台的DWeb需要提供auth_login_callback URL、pay_order_callback URL、proof_submit_callback URL
+* 牛顿DApp生态目前支持iOS、Android、Web、H5(NewDApp)平台
+	* iOS平台的DApp需要提供Bundle ID
+	* Android平台的DApp需要提供Package Name
+	* Web平台的DWeb需要提供auth_login_callback URL、pay_order_callback URL、proof_submit_callback URL
+	* H5(NewDApp)平台的DApp在申请页面无需提供额外信息
 
 4. 上传公钥
-	* 生成DApp的公钥-示例代码
+* 生成DApp的公钥-示例代码
 
     ```java
     @Test
@@ -42,16 +63,16 @@
     ```
 
 5. NewPay-SDK
-	* 在应用配置中获取AppID、AppKey、AppSecret
-	* 在应用配置中下载NewPay-SDK并查看技术文档
+* 在应用配置中获取AppID、AppKey、AppSecret
+* 在应用配置中下载NewPay-SDK并查看技术文档
 
 6. 提交DApp
-	* 开发完成后，请提供DApp的下载链接/DWeb的访问链接
+* 开发完成后，请提供DApp的下载链接/DWeb的访问链接
 
 7. 运营税收
-    * 填写NEW的收款地址
-	* 查看DAPP运营账户地址和余额
-	* 向DAPP运营账户地址转入NEW
+* 填写NEW的收款地址
+* 查看DAPP运营账户地址和余额
+* 向DAPP运营账户地址转入NEW
 
 8. 审核关停
-	* 如有发现违规内容或行为则关闭AppKey
+* 如有发现违规内容或行为则关闭AppKey
