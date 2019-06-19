@@ -452,6 +452,49 @@ curl -X POST --data '{}'
 }
 ```
 
+***
+### proof_getProofReceipts
+Get the proof receipts by given proof hashes.
+
+#### Path
+`
+/proofs/receipts/
+`
+
+#### Method
+`POST`
+
+#### Parameters
+| Field            | Type   | Notes                                      |
+| ---              | ---    | ---                                        |
+| proof_hashes | json | The proof hashes. |
+
+#### Example Parameters
+TBD
+
+#### Returns
+| Field            | Type   | Notes                                      |
+| ---              | ---    | ---                                        |
+| receipts | json | The receipts which is proof_hash and proof_status pairs. |
+
+
+#### Example
+```
+// Request
+curl -X POST --data '{}'
+
+
+// Response
+{
+    "receipts": [
+        {
+            "proof_hash": "....",
+            "proof_status": "....",            
+        }
+    ]
+}
+```
+
 ## DApp
 
 ### dapp_profile
@@ -524,22 +567,6 @@ none
 {
     "newid": "NEWID...",
     "public_key": "0x...",
-    "wallet_address": "NEW182...",
+    "main_wallet_address": "NEW182...",
 }
 ```
-
-### rate
-
-#### Path
-`
-/rate/
-`
-
-#### Parameters
-None
-
-#### Returns
-| Field | Type | Notes |
-| -- | -- | -- |
-| USD_CNY | string | |
-| NF_NEW | string || 
