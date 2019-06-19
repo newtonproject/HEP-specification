@@ -1,5 +1,9 @@
 # DApp-Process-Public
 
+#### Welcome to Newton DApp Ecosystem
+
+* The DApp develeper is an important group of Newton Community. Developers can join mining by providing variety of services in Newton Community Economy.
+
 #### 欢迎加入牛顿DApp生态
 
 * DApp开发者是牛顿社群的重要组成部分，并能通过提供DApp服务参与到牛顿生态的挖矿中。
