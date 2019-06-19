@@ -122,7 +122,7 @@ Details in [HEP NODE REST API](hep-node/REST-API.md)
 | customer         | string | The customer's NewID |
 | broker           | string | The broker's NewID. optional.  |
 | sign_type | string | Signature Type,aka cryptographic algorithm |
-| signature        | string | signature hex string by application owner, format: "secp256r1:0xf9559857bb89e106de1c97bf640a481ff77a6f51e9ba8e8487d43999af0369c4e89eecca9ae085c44506137bc12ef16b24347c6b93b04fee5ef8572818382138". |
+| signature        | string | signature hex string by application owner, format: "0xf9559857bb89e106de1c97bf640a481ff77a6f51e9ba8e8487d43999af0369c4e89eecca9ae085c44506137bc12ef16b24347c6b93b04fee5ef8572818382138". |
 
 
 ### Retrieve the profile of DApp in NewPay
