@@ -1,4 +1,4 @@
-# DApp-Process-Public
+# DApp-Process
 
 #### Welcome to Newton DApp Ecosystem
 
