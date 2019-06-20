@@ -5,6 +5,7 @@
 
 | Field | Type | Notes |
 | --- | --- | --- |
+| uuid | string | uuid |
 | dapp_id | string | Decentralized Application Id |
 | protocol | string | protocol name. The default is "HEP". |
 | version | string    | protocol version. The example is "1.0". |
@@ -54,11 +55,11 @@ Details in [HEP NODE REST API](hep-node/REST-API.md)
 
 | Field | Type | Notes |
 | --- | --- | --- |
-| user_name | string | The user name |
+| name | string | The user name |
 | newid | string | newid |
 | invite_code | string | invite code |
-| wallet_address | string | The wallet address |
-| user_avatar | string | user avatar |
+| address | string | The wallet address |
+| avatar | string | user avatar |
 | country_code | string | Country code (scope is 2) |
 | cellphone | string | Cellphone (scope is 2) |
 
@@ -67,8 +68,16 @@ Details in [HEP NODE REST API](hep-node/REST-API.md)
 {
 	"status_code": 200,
 	"result": {
-		"user_name": "..."
-		...
+		"uuid": "uuid string",
+		"signature": "0xsignature",
+		"sign_type": "secp256r1",
+		"name": "user name",
+		"country_code": "86",
+		"cellphone": "1999999999",
+		"address": "NEW182XXXX",
+		"newid": "NEWID12313",
+		"avatar": "https://www.newtonproject.org/avatar.png",
+		"invite_code": "123455"
 	}
 }
 ```
@@ -95,7 +104,7 @@ Details in [HEP NODE REST API](hep-node/REST-API.md)
 | customer         | string | The customer's NewID |
 | broker           | string | The broker's NewID. optional.  |
 | sign_type | string | Signature Type,aka cryptographic algorithm |
-| signature        | string | signature hex string by application owner, format: "0xf9559857bb89e106de1c97bf640a481ff77a6f51e9ba8e8487d43999af0369c4e89eecca9ae085c44506137bc12ef16b24347c6b93b04fee5ef8572818382138". |
+| signature        | string | signature hex string by application owner, format: "secp256r1:0xf9559857bb89e106de1c97bf640a481ff77a6f51e9ba8e8487d43999af0369c4e89eecca9ae085c44506137bc12ef16b24347c6b93b04fee5ef8572818382138". |
 
 
 ### Retrieve the profile of DApp in NewPay
@@ -106,6 +115,12 @@ Details in [HEP NODE REST API](hep-node/REST-API.md)
 
 | Field | Type | Notes |
 | --- | --- | --- |
+| signature| string | signtaure| 
+| sign_type | string | secp256r1 |
+| ts | string | timestamp |
+| nonce | string | random string |
+| dapp_id | string | dapp id |
+| uuid | string | uuid |
 | order_number     | string | The order number. |
 | txid | string | The transaction id. |
 
@@ -116,7 +131,11 @@ Details in [HEP NODE REST API](hep-node/REST-API.md)
 	"status_code": 200,
 	"result": {
 		"order_number": "..."
-		"txid": "..."
+		"txid": "...",
+		"ts": "...",
+		"nonce": "...",
+		"dapp_id": "...",
+		"uuid": "..."
 	}
 }
 ```
@@ -156,7 +175,11 @@ Details in [proof_confirmProof](hep-node/REST-API.md)
 | --- | --- | --- |
 | proof_hash      | string | The hash of proof which prefix is '0x'. |
 | txid | string | The transaction id of confirm proof. |
-
+| signature | string | string |
+| sign_type | string | string |
+| ts | string | timestamp |
+| nonce | string | random string |
+| uuid | string | uuid |
 
 #### Example
 ```
@@ -164,7 +187,12 @@ Details in [proof_confirmProof](hep-node/REST-API.md)
 	"status_code": 200,
 	"result": {
 		"proof_hash": "...",
-		"txid": "..."
+		"txid": "...",
+		"signature": "...",
+		"sign_type": "...",
+		"ts": "...",
+		"nonce": "...",
+		"uuid": "...",
 	}
 }
 ```
