@@ -3,18 +3,26 @@
 #### Welcome to Newton DApp Ecosystem
 
 * The DApp developer is an important group of Newton Community. Developers can join mining by providing a variety of services in Newton Community Economy.
-* All Users' consuming actions will get NEW incentives by uploading to NewChain.
+* All Users' consuming actions will get NEW incentives by uploading order information to NewChain.
 * Newton Project provides NewPay SDK, technical documentation, and back-end management for DApp developers.
 
 #### DApp Application Process
 
 1. Become Newton community node
+* Only a Newton community node(minimum locked amount: 10,000,000 NEW) can develop DApp for Newton.
 
 2. NewID login
+* Use NewPay Scan QR code to log into developer.newtonproject.org.
 
 3. DApp/DWeb application info and developer info
+* Newton DApp ecosystem supports iOS, Andriod, Web, and HTML5(NewDApp) platforms.
+	* iOS DApp requires Bundle ID
+	* Android DApp requires Package Name
+	* Web DWeb requires auth_login_callback URL, pay_order_callback URL, proof_submit_callback URL
+	* No extra infomation required for HTML5(NewDApp) 
 
 4. Upload PublicKey
+* https://github.com/newtonproject/hep-tools
 
 5. Get NewPay-SDK
 
