@@ -64,15 +64,13 @@ Software Development Kits are available for:
 * [iOS](http://cocoapods.org/pods/NewPaySDK-iOS)
 * [Android](https://github.com/newtonproject/NewPaySDK-Android)
 * [HEP SDK](https://github.com/newtonproject/hep-sdk)
-
-### How to develope the Smart Contract based on NewVM
-In Newton ecosystem, you don't need to write the smart contracts for developing DApp because we provide the smart contract template and market place. 
-
-If you still want to do it, it is easy. Use [NewTruffle](NewTruffle.md), a fork of [Truffle](https://truffleframework.com/), so if you're familiar with [Ethereum](https://www.ethereum.org/) you'll feel right at home.
+* [DApp Demo](https://github.com/newtonproject/dapp_demo)
 
 ### Tutorial
-
-* examples - [DApp Demo](https://github.com/newtonproject/dapp_demo)
+* [Tutorial for develop DMA application](tutorial/tutorial-dma.md)
+* [Tutorial for develop DWEB application](tutorial/tutorial-dweb.md)
+* [Tutorial for develop NewDApp](tutorial/tutorial-newdapp.md)
+* [Tutorial for develop smart contract based on NewVM](tutorial/tutorial-smart-contract.md)
 
 ### Use Cases
 
