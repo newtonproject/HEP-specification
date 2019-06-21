@@ -1,18 +1,18 @@
 # DApp-Process
 
-#### Welcome to Newton DApp Ecosystem
+## Welcome to Newton DApp Ecosystem
 
 * The DApp developer is an important group of Newton Community. Developers can join mining by providing a variety of services in Newton Community Economy.
 * All Users' consuming actions will get NEW incentives by uploading order information to NewChain.
 * Newton Project provides NewPay SDK, technical documentation, and back-end management for DApp developers.
 
-#### DApp Application Process
+## DApp Application Process
 
 1. Become Newton community node
 * Only a Newton community node(minimum locked amount: 10,000,000 NEW) can develop DApp for Newton.
 
 2. NewID login
-* Use NewPay Scan QR code to log into developer.newtonproject.org.
+* Use NewPay scan QR code to log into developer.newtonproject.org.
 
 3. DApp/DWeb application info and developer info
 * Newton DApp ecosystem supports iOS, Andriod, Web, and HTML5(NewDApp) platforms.
@@ -22,23 +22,34 @@
 	* No extra infomation required for HTML5(NewDApp) 
 
 4. Upload PublicKey
-* https://github.com/newtonproject/hep-tools
+* You can use [HEP-tools](https://github.com/newtonproject/hep-tools) to generate the publickey.
 
 5. Get NewPay-SDK
+* Get your AppID, AppKey, and AppSecret in DApp Settings
+* Download NewPay-SDK and read documentation in DApp Settings
 
 6. Submit your DApp/DWeb
+* Please provide DApp/DWeb access URL
 
 7. Operation fee
+* Provide a NEW receiving address
+* Checkout your NEW operation address and balance
+* Transfer operation fee to your NEW operation address
 
 8. Reveiw policy
+* DApp will be shut down if any irregular content or behavior is found
 
-#### 欢迎加入牛顿DApp生态
+---
+
+# DApp对接
+
+## 欢迎加入牛顿DApp生态
 
 * DApp开发者是牛顿社群的重要组成部分，并能通过提供DApp服务参与到牛顿生态的挖矿中。
 * 所有用户在DApp中的行为进行上链确权后都会获得社群激励。
 * 牛顿为DApp开发者提供了完整的SDK、技术文档、和管理后台。
 
-#### DApp入驻流程
+## DApp入驻流程
 
 1. 牛顿社群节点
 * 获得DApp开发者权限需要成为牛顿社群节点，即锁定1000万NEW
@@ -54,21 +65,7 @@
 	* H5(NewDApp)平台的DApp在申请页面无需提供额外信息
 
 4. 上传公钥
-* 生成DApp的公钥-示例代码
-
-    ```java
-    @Test
-        public void generateKeyTest() throws Exception {
-            byte[] bytes = new byte[32];
-            new SecureRandom().nextBytes(bytes);
-            ECKeyPair keyPair = ECKeyPair.create(bytes);
-            System.out.println("priv:" + keyPair.getPrivateKey().toString(16));
-            System.out.println("pub:" + keyPair.getPublicKey().toString(16));
-        }
-        
-    priv: 30052c79d52897c38e129ebec2f3e00b4e0ba9ecb4cb7e3dfd53cf9bb50dd672
-    pub: 7fba91006d0899775c2e019746480030072316f26964d302f6dbf44b7793e880c4233806097502a6f261186dcd8e1367c9e3bc41c484bdeb076c91194b801db5
-    ```
+* 使用[HEP-tools工具](https://github.com/newtonproject/hep-tools)生成公钥
 
 5. NewPay-SDK
 * 在应用配置中获取AppID、AppKey、AppSecret
