@@ -1,23 +1,6 @@
-# Hyper Exchange Protocol (HEP)
+# Specification of Hyper Exchange Protocol (HEP)
 
-More see [HEP introduction](HEP-introd.md).
-
-## Architecture
-
-TBD
-
-### HEP Node
-
-see [HEP Node](hep-node/README.md)
-
-### Proof Engine Subchain
-
-see [Proof Engine Suchain](proof-engine-subchain/README.md)
-
-### Oracle Services
-
-see [Oracle Services](oracle/README.md)
-
+More see [HEP introduction](HEP-intro.md).
 
 ## DApp Ecosystem
 
@@ -42,6 +25,22 @@ In our release of HEP 1.0, we support the following features:
 * Authentication
 * Payment
 * Upload OffChain Transaction
+
+## Architecture
+
+TBD
+
+### HEP Node
+
+see [HEP Node](hep-node/README.md)
+
+### Proof Engine Subchain
+
+see [Proof Engine Suchain](proof-engine-subchain/README.md)
+
+### Oracle Services
+
+see [Oracle Services](oracle/README.md)
 
 ## Building your Dapp
 
