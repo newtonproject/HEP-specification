@@ -173,10 +173,10 @@ Details in [proof_confirmProof](hep-node/REST-API.md)
 
 | Field | Type | Notes |
 | --- | --- | --- |
-| proof_hash      | string | The hash of proof which prefix is '0x'. |
-| txid | string | The transaction id of confirm proof. |
+| proof_hash | string | The hash of proof which prefix is '0x'. |
 | signature | string | string |
 | sign_type | string | string |
+| dapp_id | string | string |
 | ts | string | timestamp |
 | nonce | string | random string |
 | uuid | string | uuid |
@@ -187,12 +187,12 @@ Details in [proof_confirmProof](hep-node/REST-API.md)
 	"status_code": 200,
 	"result": {
 		"proof_hash": "...",
-		"txid": "...",
 		"signature": "...",
 		"sign_type": "...",
 		"ts": "...",
 		"nonce": "...",
 		"uuid": "...",
+        "dapp_id": "..."
 	}
 }
 ```
