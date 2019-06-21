@@ -572,7 +572,9 @@ none
 
 ### NewForce
 
-#### Path
+#### Get the daily statistics of NewForce
+
+##### Path
 `
 /newforce/:date/
 `
@@ -580,10 +582,10 @@ none
 * `date` - the date format is '20190808'.
 
 
-#### Parameters
+##### Parameters
 none
 
-#### Returns
+##### Returns
 | Field | Type | Notes |
 | --- | --- | --- |
 | nf_new | string | The conversion rate between NewForce(NF) and NEW |
@@ -592,7 +594,7 @@ none
 | gnf | string | The global NewForce |
 
 
-#### Example
+##### Example
 ```
 // Response
 {
@@ -655,7 +657,8 @@ none
 | from_address | string | The from address |
 | to_address | string | The to address |
 | value | string | The transfer amount |
-| ts | int | The timstampe of transaction |
+| block_height | int | The block height |
+| status | int | The status of transaction |
 
 
 ##### Example
