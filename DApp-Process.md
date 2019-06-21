@@ -16,28 +16,28 @@
 
 #### 3. DApp/DWeb application info and developer info
 * Newton DApp ecosystem supports iOS, Andriod, Web, and HTML5(NewDApp) platforms.
-	* iOS DApp requires Bundle ID
-	* Android DApp requires Package Name
-	* Web DWeb requires auth_login_callback URL, pay_order_callback URL, proof_submit_callback URL
-	* No extra infomation required for HTML5(NewDApp) 
+	* iOS DApp requires Bundle ID.
+	* Android DApp requires Package Name.
+	* Web DWeb requires auth_login_callback URL, pay_order_callback URL, proof_submit_callback URL.
+	* No extra infomation required for HTML5(NewDApp).
 
 #### 4. Upload PublicKey
 * You can use [HEP-tools](https://github.com/newtonproject/hep-tools) to generate the publickey.
 
 #### 5. Get NewPay-SDK
-* Get your AppID, AppKey, and AppSecret in DApp Settings
-* Download NewPay-SDK and read documentation in DApp Settings
+* Get your AppID, AppKey, and AppSecret in DApp Settings.
+* Download NewPay-SDK and read documentation in DApp Settings.
 
 #### 6. Submit your DApp/DWeb
-* Please provide DApp/DWeb access URL
+* Please provide DApp/DWeb access URL.
 
 #### 7. Operation fee
-* Provide a NEW receiving address
-* Checkout your NEW operation address and balance
-* Transfer operation fee to your NEW operation address
+* Provide a NEW receiving address.
+* Checkout your NEW operation address and balance.
+* Transfer operation fee to your NEW operation address.
 
 #### 8. Reveiw policy
-* DApp will be shut down if any irregular content or behavior is found
+* DApp will be shut down if any irregular content or behavior is found.
 
 ---
 
@@ -52,32 +52,32 @@
 ## DApp入驻流程
 
 #### 1. 牛顿社群节点
-* 获得DApp开发者权限需要成为牛顿社群节点，即锁定1000万NEW
+* 获得DApp开发者权限需要成为牛顿社群节点，即锁定1000万NEW。
 
 #### 2. NewID登录
-* 使用成为牛顿社群节点的NewID扫码登录
+* 使用成为牛顿社群节点的NewID扫码登录。
 
 #### 3. 填写DApp/DWeb的申请信息和开发者的联系信息
-* 牛顿DApp生态目前支持iOS、Android、Web、H5(NewDApp)平台
-	* iOS平台的DApp需要提供Bundle ID
-	* Android平台的DApp需要提供Package Name
-	* Web平台的DWeb需要提供auth_login_callback URL、pay_order_callback URL、proof_submit_callback URL
-	* H5(NewDApp)平台的DApp在申请页面无需提供额外信息
+* 牛顿DApp生态目前支持iOS、Android、Web、H5(NewDApp)平台。
+	* iOS平台的DApp需要提供Bundle ID。
+	* Android平台的DApp需要提供Package Name。
+	* Web平台的DWeb需要提供auth_login_callback URL、pay_order_callback URL、proof_submit_callback URL。
+	* H5(NewDApp)平台的DApp在申请页面无需提供额外信息。
 
 #### 4. 上传公钥
-* 使用[HEP-tools工具](https://github.com/newtonproject/hep-tools)生成公钥
+* 使用[HEP-tools工具](https://github.com/newtonproject/hep-tools)生成公钥。
 
 #### 5. NewPay-SDK
-* 在应用配置中获取AppID、AppKey、AppSecret
-* 在应用配置中下载NewPay-SDK并查看技术文档
+* 在应用配置中获取AppID、AppKey、AppSecret。
+* 在应用配置中下载NewPay-SDK并查看技术文档。
 
 #### 6. 提交DApp
-* 开发完成后，请提供DApp的下载链接/DWeb的访问链接
+* 开发完成后，请提供DApp的下载链接/DWeb的访问链接。
 
 #### 7. 运营税收
-* 填写NEW的收款地址
-* 查看DAPP运营账户地址和余额
-* 向DAPP运营账户地址转入NEW
+* 填写NEW的收款地址。
+* 查看DAPP运营账户地址和余额。
+* 向DAPP运营账户地址转入NEW。
 
 #### 8. 审核关停
-* 如有发现违规内容或行为则关闭AppKey
+* 如有发现违规内容或行为则关闭AppKey。
