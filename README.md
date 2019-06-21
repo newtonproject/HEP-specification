@@ -2,29 +2,23 @@
 
 More see [HEP introduction](HEP-intro.md).
 
-## DApp Ecosystem
+## HEP Ecosystem
 
-### DApp economy
+### Economy Model
 
-see [DApp economy](DApp-Economy.md)
+see [Economy Model v1](economy-model-v1.md)
 
-### DApp Type 
+### DApp Developer
+* [How to be the application developer](DApp-Process.md)
 
-Now HEP supports three kinds of Dapps to integration:
+### Technology Service Developer
+* [How to be the Technology Serice developer](tech-service-developer.md)
 
-| Dapp type                      | Description                                                                                                                                  | Language                      |
-| ---                            | ---                                                                                                                                          | ---                           |
-| **[DMA - Decentralized Mobile App](DMA.md)**           | Runs natively in iOS or Android. Downloadable from Apple App Store or Google Play Store                                                      | Swift (iOS) or Java (Android) |
-| **[DWEB - Decentralized Web](DWEB.md)**                 | A regular website with hooks into the HEP API                                                                                             | Javascript                    |
-| **[NewDApp](NewDApp.md)** | A decentralized app that runs on [NewVM](NewVM.md). Similar to [WeChat mini-programs](https://walkthechat.com/wechat-mini-programs-simple-introduction/) | Javascript or [NewLang](NewLang.md)                    |
+### Miner
+* [How to be the miner](miner.md)
 
-### Features 
-
-In our release of HEP 1.0, we support the following features:
-
-* Authentication
-* Payment
-* Upload OffChain Transaction
+### Scentist
+TBD
 
 ## Architecture
 
@@ -44,22 +38,41 @@ see [Oracle Services](oracle/README.md)
 
 ## Building your Dapp
 
+### DApp Type 
+
+Now HEP supports three kinds of Dapps to integration:
+
+| Dapp type                      | Description                                                                                                                                  | Language                      |
+| ---                            | ---                                                                                                                                          | ---                           |
+| **[DMA - Decentralized Mobile App](DMA.md)**           | Runs natively in iOS or Android. Downloadable from Apple App Store or Google Play Store                                                      | Swift (iOS) or Java (Android) |
+| **[DWEB - Decentralized Web](DWEB.md)**                 | A regular website with hooks into the HEP API                                                                                             | Javascript                    |
+| **[NewDApp](NewDApp.md)** | A decentralized app that runs on [NewVM](NewVM.md). Similar to [WeChat mini-programs](https://walkthechat.com/wechat-mini-programs-simple-introduction/) | Javascript or [NewLang](NewLang.md)                    |
+
+### Features 
+
+In our release of HEP 1.0, we support the following features:
+
+* Authentication
+* Payment
+* Upload OffChain Transaction
+
+
 ### SDKs
 
 Software Development Kits are available for:
 
 * [iOS](http://cocoapods.org/pods/NewPaySDK-iOS)
 * [Android](https://github.com/newtonproject/NewPaySDK-Android)
-* [NodeJS](https://github.com/newtonproject/hep.js)
+* [HEP SDK](https://github.com/newtonproject/hep-sdk)
 
-### Smart Contract
+### How to develope the Smart Contract based on NewVM
 In Newton ecosystem, you don't need to write the smart contracts for developing DApp because we provide the smart contract template and market place. 
 
 If you still want to do it, it is easy. Use [NewTruffle](NewTruffle.md), a fork of [Truffle](https://truffleframework.com/), so if you're familiar with [Ethereum](https://www.ethereum.org/) you'll feel right at home.
 
 ### Tutorial
 
-* examples - [DApp Example](https://github.com/newtonproject/hep-example)
+* examples - [DApp Demo](https://github.com/newtonproject/dapp_demo)
 
 ### Use Cases
 
