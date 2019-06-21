@@ -586,16 +586,20 @@ none
 #### Returns
 | Field | Type | Notes |
 | --- | --- | --- |
-| NF/NEW | string | The conversion rate between NF(NewForce) and NEW |
-| NEW/CNY | string | The conversion rate between NEW and CNY |
+| nf_new | string | The conversion rate between NewForce(NF) and NEW |
+| nf_cny | string | The conversion rate between NewForce(NF) and CNY |
+| nf_usd | string | The conversion rate between NewForce(NF) and USD |
+| gnf | string | The global NewForce |
 
 
 #### Example
 ```
 // Response
 {
-    "NF/NEW": "2.6",
-    "NEW/CNY": "2"
+    "nf_new": "2.6",
+    "nf_cny": "2",
+    "nf_usd": "2",
+    "gnf": "11111111111"
 }
 ```
 
@@ -628,5 +632,41 @@ none
     "oracle_id": "....",
     "oracle_name": "....",
     "public_key": "...."
+}
+```
+
+### NewChain
+
+#### Get the transaction information of given txid
+
+##### Path
+`
+/newchain/tx/:txid/
+`
+
+##### Parameters
+none
+
+##### Returns
+| Field | Type | Notes |
+| --- | --- | --- |
+| txid | string | The transaction ID |
+| order_number | string | The order number |
+| from_address | string | The from address |
+| to_address | string | The to address |
+| value | string | The transfer amount |
+| ts | int | The timstampe of transaction |
+
+
+##### Example
+```
+// Response
+{
+    "txid": "....",
+    "order_number": "....",
+    "from_address": "....",
+    "to_address": "....",
+    "value": "....",
+    "ts": 1534322342,
 }
 ```
