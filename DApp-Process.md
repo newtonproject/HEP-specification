@@ -9,23 +9,23 @@
 ## DApp Application Process
 
 #### 1. Become Newton community node
-* Only a Newton community node(minimum locked amount: 10,000,000 NEW) can develop DApp for Newton.
+* Only a Newton community node **(minimum locked amount: 10,000,000 NEW)** can develop DApp for Newton.
 
 #### 2. NewID login
 * Use NewPay scan QR code to log into developer.newtonproject.org.
 
 #### 3. DApp/DWeb application info and developer info
 * Newton DApp ecosystem supports iOS, Andriod, Web, and HTML5(NewDApp) platforms.
-	* iOS DApp requires Bundle ID.
-	* Android DApp requires Package Name.
-	* Web DWeb requires auth_login_callback URL, pay_order_callback URL, proof_submit_callback URL.
-	* No extra infomation required for HTML5(NewDApp).
+	* **iOS** DApp requires Bundle ID.
+	* **Android** DApp requires Package Name.
+	* **Web** DWeb requires auth_login_callback URL, pay_order_callback URL, proof_submit_callback URL.
+	* No extra infomation required for **HTML5(NewDApp)**.
 
 #### 4. Upload PublicKey
-* You can use [HEP-tools](https://github.com/newtonproject/hep-tools) to generate the publickey.
+* You can use **[HEP-tools](https://github.com/newtonproject/hep-tools)** to generate the publickey.
 
 #### 5. Get NewPay-SDK
-* Get your AppID, AppKey, and AppSecret in DApp Settings.
+* Get your **AppID, AppKey, and AppSecret** in DApp Settings.
 * Download NewPay-SDK and read documentation in DApp Settings.
 
 #### 6. Submit your DApp/DWeb
@@ -52,23 +52,23 @@
 ## DApp入驻流程
 
 #### 1. 牛顿社群节点
-* 获得DApp开发者权限需要成为牛顿社群节点，即锁定1000万NEW。
+* 获得DApp开发者权限需要成为牛顿社群节点，**即锁定1000万NEW**。
 
 #### 2. NewID登录
 * 使用成为牛顿社群节点的NewID扫码登录。
 
 #### 3. 填写DApp/DWeb的申请信息和开发者的联系信息
 * 牛顿DApp生态目前支持iOS、Android、Web、H5(NewDApp)平台。
-	* iOS平台的DApp需要提供Bundle ID。
-	* Android平台的DApp需要提供Package Name。
-	* Web平台的DWeb需要提供auth_login_callback URL、pay_order_callback URL、proof_submit_callback URL。
-	* H5(NewDApp)平台的DApp在申请页面无需提供额外信息。
+	* **iOS平台**的DApp需要提供Bundle ID。
+	* **Android平台**的DApp需要提供Package Name。
+	* **Web平台**的DWeb需要提供auth_login_callback URL、pay_order_callback URL、proof_submit_callback URL。
+	* **H5(NewDApp)平台**的DApp在申请页面无需提供额外信息。
 
 #### 4. 上传公钥
-* 使用[HEP-tools工具](https://github.com/newtonproject/hep-tools)生成公钥。
+* 使用 **[HEP-tools工具](https://github.com/newtonproject/hep-tools)** 生成公钥。
 
 #### 5. NewPay-SDK
-* 在应用配置中获取AppID、AppKey、AppSecret。
+* 在应用配置中获取**AppID、AppKey、AppSecret**。
 * 在应用配置中下载NewPay-SDK并查看技术文档。
 
 #### 6. 提交DApp
