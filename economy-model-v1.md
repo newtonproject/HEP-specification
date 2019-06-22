@@ -1,4 +1,4 @@
-# DApp Economy for NewPay 1.3
+# DApp Economy Model v1.0
 
 ### NewTax：
 * All NEW earned from Newton DApp Ecosystem makes NewTax.
@@ -8,7 +8,7 @@
 ### 在DAPP产生的用户交易订单：
 * 法币通过DAPP支付渠道进入开发者账户
 * 通过NewID关联的NEW地址进入一个管理地址，通过智能合约**一个月后**发放给开发者账户
-* 对于游戏类DAPP，用户产生的交易订单将被抽取**10%**的手续费
+* 对于游戏类DAPP，用户产生的交易订单将被抽取 **10%** 的手续费
 
 ### 用户在DAPP中将交易订单提交上链获得NF：
 * 按照**订单上链时间**计算NF，按照**订单上链时间**计算NF系数
@@ -39,7 +39,7 @@
 
 ---
 
-# NewPay 1.3 DApp 经济模型 
+# DApp 经济模型 v1.0
 
 ### NewTax：
 * 牛顿DApp生态经济所产生的NEW收入都将流入NewTax
