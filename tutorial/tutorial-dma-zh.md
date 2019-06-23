@@ -40,9 +40,9 @@ DApp 客户端需要的功能:
 1. 应用 ID: dapp_id
 2. 应用 Key: dapp_key
 3. 应用 Secret: dapp_secret
-4. 应用运营地址: deposit_contract_address
-5. 应用收款地址: operation_contract_address
-6. ？: deposit_wallet_address
+4. dapp的收款合约地址: deposit_contract_address    
+5. dapp的收款钱包地址: deposit_wallet_address        
+6. dapp 运营合约地址: operation_contract_address  
 
 ## 3. Android 接入
 
@@ -59,5 +59,9 @@ DApp 客户端需要的功能:
 ## 6. 服务端接入
 
 ### <a href="https://github.com/newtonproject/hep-sdk"> hep sdk</a>
+
+## 7. 客户端参数，验证 python
+
+### <a href="https://github.com/newtonproject/hep-sdk/blob/master/rest/sdks/python/README-ZH.md">客户端参数，验证</a>
 
 
