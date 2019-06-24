@@ -63,6 +63,6 @@ DApp 客户端需要的功能:
 
 ## 7. 客户端参数，验证 python
 
-### <a href="https://github.com/newtonproject/hep-sdk/blob/master/rest/sdks/python/README-ZH.md">客户端参数，验证</a>
+### <a href="https://github.com/newtonproject/HEP-specification/blob/master/tutorial/README-HEP-REST-API.md">客户端参数，验证</a>
 
 
