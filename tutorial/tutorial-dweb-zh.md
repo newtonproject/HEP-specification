@@ -98,26 +98,33 @@ callback的接受参数格式见
 ```python
 # 如果返回为 True， 那么用户的信息已确认
 verify_status = auth_helper.validate_auth_callback(data)
-```
+
 
 from hep_rest_api.scenarios.auth import AuthHelper
 from hep_rest_api.scenarios.pay import PayHelper
 from hep_rest_api.scenarios.proof import ProofHelper
-
+```
 
 ## 获取支付的 PayHelper
+
+```
 def _get_pay_helper():
     if pay_helper:
         return pay_helper
     return PayHelper(_get_api_client(), base_parameters, DAPP_ID, DAPP_SECERT, DAPP_PRIVATE_KEY_PATH, chain_id=CHAIN_ID)
+```
 
 ## 获取上链的 ProofHelper
+
+```
 def _get_proof_helper():
     if proof_helper:
         return proof_helper
     return ProofHelper(_get_api_client(), base_parameters, DAPP_ID, DAPP_SECERT, DAPP_PRIVATE_KEY_PATH, chain_id=CHAIN_ID)
+```
 
 ## 网页支付
+```
 def hep_pay(params):
     data = {
         'uuid': params['uuid'], # 会话标识
@@ -136,9 +143,12 @@ def hep_pay(params):
     # 根据生成的订单hash 生成支付二维码
     pay_qr_str = _get_pay_helper().generate_qrcode_string(pay_response.pay_hash)
     return pay_qr_str
+```
 
 ## 网页上链
 def hep_proof(content, uuid):
+
+```
  # content dict
  # order_content = OrderProof(order_number=uuid.uuid4().hex,
  #                               price_currency="NEW",
@@ -163,10 +173,11 @@ def hep_proof(content, uuid):
     # 根据上链 hash 生成上链需要的二维码字符串
     proof_qr_str = _get_proof_helper().generate_qrcode_string(proof_response.proof_hash)
     return proof_qr_str
-
+```
 
 
 ## 验证支付信息
+```
 def verify_pay(params):
 	# 验证签名是否通过
     is_valid = _get_pay_helper().validate_pay_callback(params)
@@ -175,8 +186,11 @@ def verify_pay(params):
         response = _get_pay_helper().get_confirmed_transaction(params.get('txid'))
         return response
     return None
+```
 
 ## 验证上链信息
+
+```
 def verify_proof(data):
 	# 验证上链信息的签名
     is_valid = _get_proof_helper().validate_proof_callback(data)
@@ -188,8 +202,11 @@ def verify_proof(data):
         # proof_status 为字符串类型 SUBMIT(已提交), CONFIRMED(已上链), CANCELED(已取消), PART_CANCELED(部分取消/退货)
         return response.receipts[0]
     return None
+```
 
 ## 获取客户端的基础参数
+
+```
 def _get_client_params(data, os=None):
     if os == "android":
         dapp_id = DAPP_ID_ANDROID
@@ -225,8 +242,11 @@ def _get_client_params(data, os=None):
         s = '0' * y + s
     data['signature'] = '0x' + r + s
     return data
+```
 
 ## 获取登录参数
+
+```
 def get_client_login(request):
     os = request.POST.get('os')
     if not os:
@@ -240,7 +260,11 @@ def get_client_login(request):
     }
     login_params = _get_client_params(login_params, os)
     return http.JsonSuccessResponse(data=login_params)
+```
+
 ## 获取支付参数
+
+```python
 def get_client_pay(request):
     os = request.POST.get('os')
     if not os:
@@ -263,8 +287,11 @@ def get_client_pay(request):
     }
     pay_params = _get_client_params(pay_params, os)
     return http.JsonSuccessResponse(data=pay_params)
+```
 
 ## 获取上链参数信息
+
+```python
 def get_client_proof(request):
     try:
         os = request.POST.get('os')
@@ -307,5 +334,4 @@ def get_client_proof(request):
     except Exception as e:
         print(str(e))
         return http.JsonErrorResponse(error_message=str(e))
-
-
+```
