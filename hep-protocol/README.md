@@ -27,6 +27,8 @@ hep://:dappid/?action=hep.pay.order&pay_hash=...
 hep://:dappid/?action=hep.proof.submit&proof_hash=...
 `
 
+## Return information to Dapp 
+
 ### Return Profile to DApp
 | Field | Type | Desc |
 |:--:|:--:|:--:|
