@@ -230,7 +230,7 @@ function h5proof() {
 ```
 
 #### 使用NewPay完成授权，将授权数据发送到网站回调接口
-callback的接受参数格式见 
+callback的接受参数格式见 https://github.com/newtonproject/HEP-specification/blob/master/hep-protocol/README.md#return-information-to-dapp
 
 #### 网站验证用户返回授权数据
 * python
