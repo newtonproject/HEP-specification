@@ -88,6 +88,127 @@ qr_code_str = auth_helper.generate_qrcode_string(auth_response.auth_hash)
 // 检查浏览器Agent。
 // 如果在NewPay里面打开，调用内置Javasciprt授权函数。
 // 如果在非NewPay中打开，跳转到NewPay下载。
+// 函数定义
+const REQUEST_PROFILE = "requestProfile"; // 请求传递登录参数到NewPay
+const REQUEST_PAY = "requestPay";         // 请求传递支付参数到NewPay
+const REQUEST_PROOF = "requestProof";     // 请求传递上链参数到NewPay
+
+const ON_PROFILE = "onProfile";           // 接收来自NewPay的profile信息
+const ON_PAY = "onPay";                   // 接收来自NewPay的支付信息
+const ON_PROOF = "onProof";               // 接收来自NewPay的上链信息
+const ON_ERROR = "onCallNewPayError";     // 接收来自NewPay的错误信息
+const NEWPAY_AGENT = "NewPay";            // NewPay 的 User-Agent
+
+// js 与 Nativie 通信使用的 dsbridge,需要引入到项目
+// https://github.com/wendux/DSBridge-Android/blob/master/app/src/main/assets/dsbridge.
+// 检查 user-agent
+// let isInNewPay = navigator.userAgent == "NewPay";
+var dsBridge = bridge;
+// 接收来自 NewPay 的 profile 信息
+dsBridge.registerAsyn(ON_PROFILE, function (profile) {
+    let url = "/post/profile/";
+    alert(JSON.stringify(profile));
+    $.ajax({
+        url: url,
+        async: true,
+        type: 'post',
+        data: profile,
+        success: function (res) {
+            console.log(JSON.stringify(res));
+            if(res.error_code == 1) {
+                window.location.href = "/user"
+            }
+        }
+    })
+});
+// 接收来自 NewPay 的支付信息
+dsBridge.registerAsyn(ON_PAY, function (pay_info) {
+    let url = "/receive/pay/";
+    $.ajax({
+        url: url,
+        async: true,
+        type: 'post',
+        data: pay_info,
+        success: function (res) {
+            console.log(JSON.stringify(res));
+            if(res.error_code == 1) {
+                window.location.href = "/placeorder/"
+            }
+        }
+    })
+});
+// 接收来自 NewPay 的上链信息
+dsBridge.registerAsyn(ON_PROOF, function (proof_info) {
+    let url = "/receive/proof/";
+    $.ajax({
+        url: url,
+        async: true,
+        type: 'post',
+        data: proof_info,
+        success: function (res) {
+            console.log(res);
+            $('#tip').val("success")
+        }
+    })
+});
+
+// 获取登录参数，并且传递参数到 NewPay
+function h5login() {
+    let url = "/request/login/h5/";
+    $.ajax({
+        url: url,
+        async: true,
+        type: 'post',
+        success: function (res) {
+            console.log(JSON.stringify(res));
+            if(res.error_code == 1) {
+                let params = res.result;
+                dsBridge.call(REQUEST_PROFILE, params, function (res) {
+                    console.log("call success")
+                })
+            }
+        }
+    });
+}
+
+// 获取支付参数，并且传递支付参数到 NewPay
+function h5pay() {
+    let url = "/request/pay/h5/";
+    $.ajax({
+        url: url,
+        async: true,
+        type: 'post',
+        data: {'order_number': 'orderNumber'},
+        success: function (res) {
+            if(res.error_code == 1) {
+                console.log(res);
+                let params = res.result;
+                dsBridge.call(REQUEST_PAY, params, function (res) {
+                    console.log("call success")
+                });
+            }
+        }
+    });
+}
+
+// 获取上链的参数，并且传递上链参数到 NewPay
+function h5proof() {
+    let url = "/request/proof/h5/";
+    $.ajax({
+        url: url,
+        async: true,
+        type: 'post',
+        data: {'order_number': 'orderNumber'},
+        success: function (res) {
+            if(res.error_code == 1) {
+                let params = res.result;
+                dsBridge.call(REQUEST_PROOF, params, function (res) {
+                    console.log("call success")
+                });
+            }
+        }
+    });
+}
 ```
 
 #### 使用NewPay完成授权，将授权数据发送到网站回调接口
