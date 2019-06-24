@@ -83,7 +83,7 @@ qr_code_str = auth_helper.generate_qrcode_string(auth_response.auth_hash)
 ```
 
 #### 移动网站调用内置Javascript函数
-* javascript
+* javascript 基础定义
 ```javascript
 // 检查浏览器Agent。
 // 如果在NewPay里面打开，调用内置Javasciprt授权函数。
@@ -99,6 +99,10 @@ const ON_PROOF = "onProof";               // 接收来自NewPay的上链信息
 const ON_ERROR = "onCallNewPayError";     // 接收来自NewPay的错误信息
 const NEWPAY_AGENT = "NewPay";            // NewPay 的 User-Agent
 
+```
+
+* 注册接收 profile 的函数
+```javascript
 // js 与 Nativie 通信使用的 dsbridge,需要引入到项目
 // https://github.com/wendux/DSBridge-Android/blob/master/app/src/main/assets/dsbridge.
 // 检查 user-agent
@@ -121,6 +125,10 @@ dsBridge.registerAsyn(ON_PROFILE, function (profile) {
         }
     })
 });
+```
+
+* 注册接收支付信息的函数
+```javascript
 // 接收来自 NewPay 的支付信息
 dsBridge.registerAsyn(ON_PAY, function (pay_info) {
     let url = "/receive/pay/";
@@ -137,6 +145,10 @@ dsBridge.registerAsyn(ON_PAY, function (pay_info) {
         }
     })
 });
+```
+
+* 注册接收上链信息的函数
+```javascript
 // 接收来自 NewPay 的上链信息
 dsBridge.registerAsyn(ON_PROOF, function (proof_info) {
     let url = "/receive/proof/";
@@ -151,8 +163,10 @@ dsBridge.registerAsyn(ON_PROOF, function (proof_info) {
         }
     })
 });
+```
 
-// 获取登录参数，并且传递参数到 NewPay
+* 获取登录参数，并且传递参数到 NewPay
+```javascript
 function h5login() {
     let url = "/request/login/h5/";
     $.ajax({
@@ -170,8 +184,10 @@ function h5login() {
         }
     });
 }
+```
 
-// 获取支付参数，并且传递支付参数到 NewPay
+* 获取支付参数，并且传递支付参数到 NewPay
+```javascript
 function h5pay() {
     let url = "/request/pay/h5/";
     $.ajax({
@@ -190,8 +206,10 @@ function h5pay() {
         }
     });
 }
+```
 
-// 获取上链的参数，并且传递上链参数到 NewPay
+* 获取上链的参数，并且传递上链参数到 NewPay
+```javascript
 function h5proof() {
     let url = "/request/proof/h5/";
     $.ajax({
