@@ -5,10 +5,27 @@
 * NewTax main purposes: DApp development, Newton Foundation operation, and Newton Ecosystem Development Fund.
 * Part of NEW from NewTax will release to NewPool for Newton community economy incentives in the future.
 
-### transaction orders in DApps:
+### Order transactions in DApps:
 * Legal tender will go into the developer account directly.
-* NEW will go into a smart contract address, then will send to deceloper NEW receiving account in 30 days.
+* NEW will go into a NEW smart contract address, then will send to developer's NEW receiving address in 30 days.
+* Gaming DApps will be charged 10% of transactions as service fee.
 
+### Upload order transactions on NewChain and get NF rewards:
+* NF rewards is calculated based on transaction on-chain time.
+* CNY standard rate: 1 CNY = 1 NF
+* Non-CNY rate: convert any currency to CNY based on yesterday's rate price on openexchangerates.org.
+* NEW rate: convert NEW to CNY based on yesterday's rate price on CoinMarketCap.
+
+### Collect NewTax from NEW operating address：
+* NewTax will be collected from developer's NEW operating address based on on-chain business volume.
+	* 
+
+
+
+### NewTax rate:
+* Gaming DApps：**3%**
+* Retailing DApps：**3%**
+* Other DAPP：**3%**
 ---
 
 # DApp 经济模型 v1.0
