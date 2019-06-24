@@ -3,18 +3,18 @@
 ### NewTax：
 * All NEW earned from Newton DApp Ecosystem makes NewTax.
 * NewTax main purposes: DApp development, Newton Foundation operation, and Newton Ecosystem Development Fund.
-* Part of NEW from NewTax will release to NewPool for Newton community economy incentives in the future.
+* Part of NEW from NewTax will release to **NewPool** for Newton community economy incentives in the future.
 
 ### Order transactions in DApps:
 * Legal tender will go into the developer account directly.
-* NEW will go into a NEW smart contract address, then will send to developer's NEW receiving address in 30 days.
-* Gaming DApps will be charged 10% of transactions as service fee.
+* NEW will go into a NEW smart contract address, then will send to developer's NEW receiving address **in 30 days**.
+* Gaming DApps will be charged **10% of transactions as service fee**.
 
 ### Upload order transactions on NewChain and get NF rewards:
-* NF rewards is calculated based on transaction on-chain time.
-* CNY standard rate: 1 CNY = 1 NF
-* Non-CNY rate: convert any currency to CNY based on yesterday's rate price on openexchangerates.org.
-* NEW rate: convert NEW to CNY based on yesterday's rate price on CoinMarketCap.
+* NF rewards is calculated based on **transaction on-chain time**.
+* CNY standard rate: **1 CNY = 1 NF**
+* Non-CNY rate: convert any currency to CNY based on **yesterday's rate price on [openexchangerates.org](https://openexchangerates.org/)**.
+* NEW rate: convert NEW to CNY based on **yesterday's rate price on [CoinMarketCap](https://coinmarketcap.com/currencies/newton/)**.
 
 ### Collect NewTax from NEW operating address：
 * NewTax will be collected by NEW from developer's NEW operating address based on on-chain business volume.
@@ -46,7 +46,7 @@
 ### 在DAPP产生的用户交易订单：
 * 法币通过DAPP支付渠道进入开发者账户
 * NEW通过NewID关联的NEW地址进入一个智能合约地址，通过智能合约**一个月后**发放给开发者账户
-* 对于游戏类DAPP，用户产生的交易订单将被抽取**10%**的手续费
+* 对于游戏类DAPP，用户产生的交易订单将被抽取 **10%的手续费**
 
 ### 用户在DAPP中将交易订单提交上链获得NF：
 * 按照**订单上链时间**计算NF，按照**订单上链时间**计算NF系数
