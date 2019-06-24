@@ -17,15 +17,23 @@
 * NEW rate: convert NEW to CNY based on yesterday's rate price on CoinMarketCap.
 
 ### Collect NewTax from NEW operating address：
-* NewTax will be collected from developer's NEW operating address based on on-chain business volume.
-	* 
-
-
+* NewTax will be collected by NEW from developer's NEW operating address based on on-chain business volume.
 
 ### NewTax rate:
 * Gaming DApps：**3%**
 * Retailing DApps：**3%**
 * Other DAPP：**3%**
+
+### NewTax refund:
+* The related amount of NEW will return to developer's NEW operating address when the order transaction has been cancelled.
+
+### Daily NF submit limitation for DApps：
+* Rate: **10,000,000 NEW locked amount** limits **250,000 NF submission**
+
+### DApp's NEW operating address：
+* The developer transfers NEW to NEW operating address for NewTax.
+* Insufficient balance of NEW in NEW operating address will lead DApp shutdown.
+
 ---
 
 # DApp 经济模型 v1.0
