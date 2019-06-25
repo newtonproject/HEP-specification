@@ -46,7 +46,7 @@ hep://:dappid/?action=hep.proof.submit&proof_hash=...
 ### Return transaction information to DApp
 | Field | Type | Desc |
 |:--:|:--:|:--:|
-| signature | string | The profile's signature |
+| signature | string | The pay's signature |
 | sign_type | string | secp256r1, signature method name |
 | uuid | string | uuid |
 | nonce | string | nonce, random string |
@@ -58,7 +58,7 @@ hep://:dappid/?action=hep.proof.submit&proof_hash=...
 ### Return proof information to DApp
 | Field | Type | Desc |
 |:--:|:--:|:--:|
-| signature | string | The profile's signature |
+| signature | string | The proof's signature |
 | sign_type | string | secp256r1, signature method name |
 | uuid | string | uuid |
 | nonce | string | nonce, random string |
