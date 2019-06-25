@@ -37,7 +37,7 @@ DAPP_ID = "{dapp_id}"
 DAPP_KEY = "{dapp_key}"
 DAPP_SECERT = "{dapp_secret}"
 DAPP_PRIVATE_KEY_PATH = "{dapp_private_key_path}"
-DAPP_PROTOCOL = "protocol"
+DAPP_PROTOCOL = "HEP"
 DAPP_PROTOCOL_VERSION = "1.0"
 CHAIN_ID = 1012  # dev environment is 1002, test environment is 1002, mainnet environment is 1012
 
