@@ -163,6 +163,7 @@ from hep_rest_api.scenarios.auth import AuthHelper
 from hep_rest_api.scenarios.pay import PayHelper
 from hep_rest_api.scenarios.proof import ProofHelper
 ```
+#### 接收成功 返回 http code 为 200，其他 code 为失败
 
 ## 支付
 
@@ -247,6 +248,7 @@ def verify_pay(params):
         return response
     return None
 ```
+#### 接收成功 返回 http code 为 200，其他 code 均为失败
 
 ## 上链
 
@@ -331,3 +333,6 @@ def verify_proof(data):
         return response.receipts[0]
     return None
 ```
+
+#### 接收成功 返回 http code 为 200，其他 code 均为失败
+
