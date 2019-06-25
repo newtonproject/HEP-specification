@@ -24,6 +24,8 @@
 | 4 | no network |
 
 ### Validation Error
+| Code | Description |
+|:--:|:--:|
 | 1000 | newpay is not installed. |
 | 1001 | no wallet. |
 | 1002 | no newid. |
@@ -35,5 +37,7 @@
 | 1008 | signature error |
 
 ### Authentication Error
+| Code | Description |
+|:--:|:--:|
 | 1100 | The action hash has expired |
 
