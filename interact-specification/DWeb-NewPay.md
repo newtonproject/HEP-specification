@@ -57,6 +57,7 @@
 
 ### NewPay return to DWeb app or server
 
+* Request
 | Field | Type | Desc |
 |:--:|:--:|:--:|
 | signature | string | The profile's signature |
@@ -70,6 +71,8 @@
 | address | string | user's address, scope=2 |
 | invite_code | string | user's invite code,scope=2 |
 
+* Response
+see [Error Message](DWeb-callback-error-messages.md)
 
 #### Example
 ```
@@ -127,6 +130,7 @@
 
 
 #### Return transaction information to DApp js or server
+* Request
 | Field | Type | Desc |
 |:--:|:--:|:--:|
 | signature | string | The pay's signature |
@@ -137,6 +141,9 @@
 | ts | string | timestamp |
 | txid | string | transaction id |
 | order_number | string | order number |
+
+* Response
+see [Error Message](DWeb-callback-error-messages.md)
 
 #### Example
 ```
@@ -188,6 +195,7 @@ see [proof_submitProof](hep-node/REST-API.md)
 | signature      | string | The signature by DApp owner. |
 
 #### Result to DWeb app or server
+* Request
 | Field | Type | Desc |
 |:--:|:--:|:--:|
 | signature | string | The proof's signature |
@@ -197,6 +205,9 @@ see [proof_submitProof](hep-node/REST-API.md)
 | dapp_id | string | dapp id |
 | ts | string | timestamp |
 | proof_hash | string | proof hash |
+
+* Response
+see [Error Message](DWeb-callback-error-messages.md)
 
 
 #### Example

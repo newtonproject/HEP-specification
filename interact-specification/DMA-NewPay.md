@@ -44,7 +44,7 @@
 | sign_type | string | Signature Type,aka cryptographic algorithm |
 | signature | string | signature hex string by DApp owner. |
 
-### NewPay return to DMA app
+### NewPay profile information to DMA app
 
 #### Returns
 
