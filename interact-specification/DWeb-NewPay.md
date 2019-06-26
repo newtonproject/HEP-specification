@@ -58,6 +58,7 @@
 ### NewPay return to DWeb app or server
 
 * Request
+
 | Field | Type | Desc |
 |:--:|:--:|:--:|
 | signature | string | The profile's signature |
@@ -197,6 +198,7 @@ see [proof_submitProof](hep-node/REST-API.md)
 
 #### Result to DWeb app or server
 * Request
+
 | Field | Type | Desc |
 |:--:|:--:|:--:|
 | signature | string | The proof's signature |
