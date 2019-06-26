@@ -131,6 +131,7 @@ see [Error Message](DWeb-callback-error-messages.md)
 
 #### Return transaction information to DApp js or server
 * Request
+
 | Field | Type | Desc |
 |:--:|:--:|:--:|
 | signature | string | The pay's signature |
