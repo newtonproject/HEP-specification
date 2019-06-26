@@ -55,14 +55,8 @@
 | sign_type | string | Signature Type,aka cryptographic algorithm |
 | signature | string | signature hex string by DApp owner. |
 
-
-### Retrieve the profile of DApp in NewPay
-Details in [HEP NODE REST API](hep-node/REST-API.md)
-   
-
 ### NewPay return to DWeb app or server
 
-### Return Profile to DApp
 | Field | Type | Desc |
 |:--:|:--:|:--:|
 | signature | string | The profile's signature |
@@ -74,18 +68,22 @@ Details in [HEP NODE REST API](hep-node/REST-API.md)
 | country_code | string | eg: 86 scope=2 |
 | cellphone | string | user's cellphone, scope =2 |
 | address | string | user's address, scope=2 |
-| invite_code | string | user's invite code,scope=2 
+| invite_code | string | user's invite code,scope=2 |
 
 
 #### Example
 ```
 {
-    "status_code": 200,
-    "result": {
-        "uuid": "...",
-        "user_name": "...",
-        ...
-    }
+    "signature": "0x...",
+    "sign_type": "secp256r1",
+    "uuid": "xxx",
+    "name": "name",
+    "avatar": "avatar path",
+    "newid": "NEWID182...",
+    "country_code": "86",
+    "cellphone": "1888888888",
+    "address": "NEW...",
+    "invite_code": "123456"
 }
 ```
 
@@ -125,14 +123,10 @@ Details in [HEP NODE REST API](hep-node/REST-API.md)
 | customer         | string | The customer's NewID |
 | broker           | string | The broker's NewID. optional.  |
 | sign_type | string | Signature Type,aka cryptographic algorithm |
-| signature        | string | signature hex string by application owner, format: "0xf9559857bb89e106de1c97bf640a481ff77a6f51e9ba8e8487d43999af0369c4e89eecca9ae085c44506137bc12ef16b24347c6b93b04fee5ef8572818382138". |
+| signature        | string |"0xf9559857bb89e106de1c97bf640a481ff77a6f51e9ba8e8487d43999af0369c4e89eecca9ae085c44506137bc12ef16b24347c6b93b04fee5ef8572818382138". |
 
 
-### Retrieve the profile of DApp in NewPay
-Details in [HEP NODE REST API](hep-node/REST-API.md)
-
-### Infomation return to DWeb app or server
-#### Return transaction information to DApp
+#### Return transaction information to DApp js or server
 | Field | Type | Desc |
 |:--:|:--:|:--:|
 | signature | string | The pay's signature |
@@ -147,12 +141,14 @@ Details in [HEP NODE REST API](hep-node/REST-API.md)
 #### Example
 ```
 {
-    "status_code": 200,
-    "result": {
-        "uuid": "...",
-        "order_number": "...",
-        "txid": "...",
-    }
+    "signature": "0x...",
+    "sign_type": "secp256r1",
+    "uuid": "xxx",
+    "nonce": "random string",
+    "dapp_id": "dapp id",
+    "ts": "timestamp",
+    "txid": "txid",
+    "order_number": "order number"
 }
 ```
 
@@ -191,14 +187,7 @@ see [proof_submitProof](hep-node/REST-API.md)
 | sign_type | string | Signature Type,aka cryptographic algorithm. |
 | signature      | string | The signature by DApp owner. |
 
-### Retrieve the profile of DApp in NewPay
-Details in [dapp_profile](hep-node/REST-API.md)
-
-### Confirm the proof
-TBD
-
-### Result return to DWeb app or server
-#### Return proof information to DApp
+#### Result to DWeb app or server
 | Field | Type | Desc |
 |:--:|:--:|:--:|
 | signature | string | The proof's signature |
@@ -213,11 +202,13 @@ TBD
 #### Example
 ```
 {
-    "status_code": 200,
-    "result": {
-        "uuid": "...",
-        "proof_hash": "...",
-    }
+    "signature": "0x...",
+    "sign_type": "secp256r1",
+    "uuid": "xxx",
+    "nonce": "random string",
+    "dapp_id": "dapp id",
+    "ts": "timestamp",
+    "proof_hash": "proof hash"
 }
 ```
 

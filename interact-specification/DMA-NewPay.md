@@ -44,41 +44,36 @@
 | sign_type | string | Signature Type,aka cryptographic algorithm |
 | signature | string | signature hex string by DApp owner. |
 
-
-### Retrieve the profile of DApp in NewPay
-Details in [HEP NODE REST API](hep-node/REST-API.md)
-   
-
 ### NewPay return to DMA app
 
 #### Returns
 
-| Field | Type | Notes |
-| --- | --- | --- |
-| name | string | The user name |
-| newid | string | newid |
-| invite_code | string | invite code |
-| address | string | The wallet address |
-| avatar | string | user avatar |
-| country_code | string | Country code (scope is 2) |
-| cellphone | string | Cellphone (scope is 2) |
+| Field | Type | Desc |
+|:--:|:--:|:--:|
+| signature | string | The profile's signature |
+| sign_type | string | secp256r1, signature method name |
+| uuid | string | uuid |
+| name | string | user's name |
+| avatar | string | user's avatar path |
+| newid | string | user's newid |
+| country_code | string | eg: 86 scope=2 |
+| cellphone | string | user's cellphone, scope =2 |
+| address | string | user's address, scope=2 |
+| invite_code | string | user's invite code,scope=2 |
 
 #### Example
 ```
 {
-	"status_code": 200,
-	"result": {
-		"uuid": "uuid string",
-		"signature": "0xsignature",
-		"sign_type": "secp256r1",
-		"name": "user name",
-		"country_code": "86",
-		"cellphone": "1999999999",
-		"address": "NEW182XXXX",
-		"newid": "NEWID12313",
-		"avatar": "https://www.newtonproject.org/avatar.png",
-		"invite_code": "123455"
-	}
+    "signature": "0x...",
+    "sign_type": "secp256r1",
+    "uuid": "xxx",
+    "name": "name",
+    "avatar": "avatar path",
+    "newid": "NEWID182...",
+    "country_code": "86",
+    "cellphone": "1888888888",
+    "address": "NEW...",
+    "invite_code": "123456"
 }
 ```
 
@@ -107,36 +102,29 @@ Details in [HEP NODE REST API](hep-node/REST-API.md)
 | signature        | string | 0xf9559857bb89e106de1c97bf640a481ff77a6f51e9ba8e8487d43999af0369c4e89eecca9ae085c44506137bc12ef16b24347c6b93b04fee5ef8572818382138". |
 
 
-### Retrieve the profile of DApp in NewPay
-Details in [HEP NODE REST API](hep-node/REST-API.md)
-
-### Infomation return to DMA app
-#### Returns
-
-| Field | Type | Notes |
-| --- | --- | --- |
-| signature| string | signtaure| 
-| sign_type | string | secp256r1 |
-| ts | string | timestamp |
-| nonce | string | random string |
-| dapp_id | string | dapp id |
+#### Return transaction information to DMA
+| Field | Type | Desc |
+|:--:|:--:|:--:|
+| signature | string | The pay's signature |
+| sign_type | string | secp256r1, signature method name |
 | uuid | string | uuid |
-| order_number     | string | The order number. |
-| txid | string | The transaction id. |
-
+| nonce | string | nonce, random string |
+| dapp_id | string | dapp id |
+| ts | string | timestamp |
+| txid | string | transaction id |
+| order_number | string | order number |
 
 #### Example
 ```
 {
-	"status_code": 200,
-	"result": {
-		"order_number": "..."
-		"txid": "...",
-		"ts": "...",
-		"nonce": "...",
-		"dapp_id": "...",
-		"uuid": "..."
-	}
+    "signature": "0x...",
+    "sign_type": "secp256r1",
+    "uuid": "xxx",
+    "nonce": "random string",
+    "dapp_id": "dapp id",
+    "ts": "timestamp",
+    "txid": "txid",
+    "order_number": "order number"
 }
 ```
 
@@ -162,38 +150,28 @@ see [proof_submitProof](hep-node/REST-API.md)
 | sign_type | string | Signature Type,aka cryptographic algorithm. |
 | signature      | string | The signature by DApp owner. |
 
-### Retrieve the profile of DApp in NewPay
-Details in [dapp_profile](hep-node/REST-API.md)
-
-### Confirm the proof
-Details in [proof_confirmProof](hep-node/REST-API.md)
-
-### Result return to DMA app
-#### Returns
-
-| Field | Type | Notes |
-| --- | --- | --- |
-| proof_hash | string | The hash of proof which prefix is '0x'. |
-| signature | string | string |
-| sign_type | string | string |
-| dapp_id | string | string |
-| ts | string | timestamp |
-| nonce | string | random string |
+#### Result to DMA
+| Field | Type | Desc |
+|:--:|:--:|:--:|
+| signature | string | The proof's signature |
+| sign_type | string | secp256r1, signature method name |
 | uuid | string | uuid |
+| nonce | string | nonce, random string |
+| dapp_id | string | dapp id |
+| ts | string | timestamp |
+| proof_hash | string | proof hash |
+
 
 #### Example
 ```
 {
-	"status_code": 200,
-	"result": {
-		"proof_hash": "...",
-		"signature": "...",
-		"sign_type": "...",
-		"ts": "...",
-		"nonce": "...",
-		"uuid": "...",
-        "dapp_id": "..."
-	}
+    "signature": "0x...",
+    "sign_type": "secp256r1",
+    "uuid": "xxx",
+    "nonce": "random string",
+    "dapp_id": "dapp id",
+    "ts": "timestamp",
+    "proof_hash": "proof hash"
 }
 ```
 
