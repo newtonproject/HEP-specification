@@ -36,12 +36,12 @@ hep://:dappid/?action=hep.proof.submit&proof_hash=...
 | sign_type | string | secp256r1, signature method name |
 | uuid | string | uuid |
 | name | string | user's name |
-| country_code | string | eg: 86 |
-| cellphone | string | user's cellphone |
 | avatar | string | user's avatar path |
-| address | string | user's address |
 | newid | string | user's newid |
-| invite_code | string | user's invite code |
+| country_code | string | eg: 86 scope=2 |
+| cellphone | string | user's cellphone, scope =2 |
+| address | string | user's address, scope=2 |
+| invite_code | string | user's invite code,scope=2 |
 
 ### Return transaction information to DApp
 | Field | Type | Desc |
