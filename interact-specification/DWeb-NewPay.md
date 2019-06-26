@@ -62,17 +62,20 @@ Details in [HEP NODE REST API](hep-node/REST-API.md)
 
 ### NewPay return to DWeb app or server
 
-#### Returns
+### Return Profile to DApp
+| Field | Type | Desc |
+|:--:|:--:|:--:|
+| signature | string | The profile's signature |
+| sign_type | string | secp256r1, signature method name |
+| uuid | string | uuid |
+| name | string | user's name |
+| avatar | string | user's avatar path |
+| newid | string | user's newid |
+| country_code | string | eg: 86 scope=2 |
+| cellphone | string | user's cellphone, scope =2 |
+| address | string | user's address, scope=2 |
+| invite_code | string | user's invite code,scope=2 
 
-| Field | Type | Notes |
-| --- | --- | --- |
-| user_name | string | The user name |
-| newid | string | newid |
-| invite_code | string | invite code |
-| wallet_address | string | The wallet address |
-| user_avatar | string | user avatar |
-| country_code | string | Country code (scope is 2) |
-| cellphone | string | Cellphone (scope is 2) |
 
 #### Example
 ```
@@ -129,14 +132,17 @@ Details in [HEP NODE REST API](hep-node/REST-API.md)
 Details in [HEP NODE REST API](hep-node/REST-API.md)
 
 ### Infomation return to DWeb app or server
-#### Returns
-
-| Field | Type | Notes |
-| --- | --- | --- |
-| uuid           | string | The request uuid                             |
-| order_number     | string | The order number. |
-| txid | string | The transaction id. |
-
+#### Return transaction information to DApp
+| Field | Type | Desc |
+|:--:|:--:|:--:|
+| signature | string | The pay's signature |
+| sign_type | string | secp256r1, signature method name |
+| uuid | string | uuid |
+| nonce | string | nonce, random string |
+| dapp_id | string | dapp id |
+| ts | string | timestamp |
+| txid | string | transaction id |
+| order_number | string | order number |
 
 #### Example
 ```
@@ -192,12 +198,16 @@ Details in [dapp_profile](hep-node/REST-API.md)
 TBD
 
 ### Result return to DWeb app or server
-#### Returns
-
-| Field | Type | Notes |
-| --- | --- | --- |
-| uuid           | string | The request uuid                             |
-| proof_hash      | string | The hash of proof which prefix is '0x'. |
+#### Return proof information to DApp
+| Field | Type | Desc |
+|:--:|:--:|:--:|
+| signature | string | The proof's signature |
+| sign_type | string | secp256r1, signature method name |
+| uuid | string | uuid |
+| nonce | string | nonce, random string |
+| dapp_id | string | dapp id |
+| ts | string | timestamp |
+| proof_hash | string | proof hash |
 
 
 #### Example
