@@ -150,7 +150,8 @@ dsBridge.registerAsyn(ON_PROFILE, function (profile) {
 ```
 
 #### 使用NewPay完成授权，将授权数据发送到网站回调接口
-callback的接受参数格式见 https://github.com/newtonproject/HEP-specification/blob/master/hep-protocol/README.md#return-information-to-dapp
+callback的接受参数格式见 https://github.com/newtonproject/HEP-specification/blob/master/interact-specification/DWeb-NewPay.md#newpay-return-to-dweb-app-or-server
+
 
 #### 网站验证用户返回授权数据
 * python
@@ -234,7 +235,7 @@ dsBridge.registerAsyn(ON_PAY, function (pay_info) {
 ```
 
 #### 使用NewPay完成支付，将支付数据发送到网站回调接口
-callback的接受参数格式见 https://github.com/newtonproject/HEP-specification/blob/master/hep-protocol/README.md#return-transaction-information-to-dapp
+callback的接受参数格式见 https://github.com/newtonproject/HEP-specification/blob/master/interact-specification/DWeb-NewPay.md#return-transaction-information-to-dapp-js-or-server
 
 #### 网站验证用户返回支付数据
 ```python
@@ -316,7 +317,7 @@ dsBridge.registerAsyn(ON_PROOF, function (proof_info) {
 ```
 
 #### 使用NewPay完成上链，将支付数据发送到网站回调接口
-callback的接受参数格式见 https://github.com/newtonproject/HEP-specification/blob/master/hep-protocol/README.md#return-proof-information-to-dapp
+callback的接受参数格式见 https://github.com/newtonproject/HEP-specification/blob/master/interact-specification/DWeb-NewPay.md#result-to-dweb-app-or-server
 
 #### 网站验证用户返回上链数据
 ```python
