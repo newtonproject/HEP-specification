@@ -14,11 +14,15 @@ For example as follows:
 
 ```
 {
-	'errors': [
-		{
-        	'name': 'SESSION_EXPIRED',
-            'message': 'The session is expired.'
-        }
-    ]
+  "status_code": 200,
+  "result": {
+  },
+  "message": "error",
+  "errors": [
+   {
+     "name": "invalid_cellpohone",
+      "message": "cellphone must be number"
+   }
+  ]
 }
 ```
