@@ -63,24 +63,7 @@ api_client = hep_rest_api.RestApi(hep_rest_api.ApiClient(configuration))
 
 * javascript 基础定义
 ```javascript
-// 检查浏览器Agent。
-// 如果在NewPay里面打开，调用内置Javasciprt授权函数。
-// 如果在非NewPay中打开，跳转到NewPay下载。
-// 函数定义
-const REQUEST_PROFILE = "requestProfile"; // 请求传递登录参数到NewPay
-const REQUEST_PAY = "requestPay";         // 请求传递支付参数到NewPay
-const REQUEST_PROOF = "requestProof";     // 请求传递上链参数到NewPay
-
-const ON_PROFILE = "onProfile";           // 接收来自NewPay的profile信息
-const ON_PAY = "onPay";                   // 接收来自NewPay的支付信息
-const ON_PROOF = "onProof";               // 接收来自NewPay的上链信息
-const ON_ERROR = "onCallNewPayError";     // 接收来自NewPay的错误信息
 const NEWPAY_AGENT = "NewPay";            // NewPay 的 User-Agent
-// js 与 Nativie 通信使用的 dsbridge,需要引入到项目
-// https://github.com/wendux/DSBridge-Android/blob/master/app/src/main/assets/dsbridge.
-// 检查 user-agent
-// let isInNewPay = navigator.userAgent == "NewPay";
-var dsBridge = bridge;
 ```
 
 
@@ -105,9 +88,9 @@ auth_response = auth_helper.generate_auth_request(uuid=session_id)
 qr_code_str = auth_helper.generate_qrcode_string(auth_response.auth_hash)
 ```
 
-#### 移动网站调用内置Javascript函数
+#### 移动网站调用内置Javascript函数，<a href="https://github.com/newtonproject/HEP-specification/blob/master/interact-specification/DWeb-callback-error-messages.md#example">回调的数据结构</a>
 
-* 获取登录参数，并且传递参数到 NewPay
+* 获取登录参数，并且传递参数到 NewPay, 获取 profile 信息
 ```javascript
 function h5login() {
     let url = "/request/login/h5/";
@@ -116,37 +99,29 @@ function h5login() {
         async: true,
         type: 'post',
         success: function (res) {
-            console.log(JSON.stringify(res));
-            if(res.error_code == 1) {
+            if(res.error_code === 1) {
                 let params = res.result;
-                dsBridge.call(REQUEST_PROFILE, params, function (res) {
-                    console.log("call success")
-                })
+                if(hep) {   // 确保 newpay 注入成功，由 NewPay 完成
+                    hep.auth.login(params, function (response) {
+                        if(response.status_code === 200) {
+                            var profile = response.result;   // 成功的结果数据
+                            let url = "/post/profile/";
+                            $.post(url, profile, function (res) {
+                                if(res.error_code === 1) {
+                                    window.location.href = "/user"
+                                }
+                            }, "json")
+                        } else {
+                            alert(response.message);  // 错误信息
+                        }
+                    });
+                }else {
+                    alert("hep is not inject");
+                }
             }
         }
     });
 }
-```
-
-* 注册接收 profile 的函数
-```javascript
-// 接收来自 NewPay 的 profile 信息
-dsBridge.registerAsyn(ON_PROFILE, function (profile) {
-    let url = "/post/profile/";
-    alert(JSON.stringify(profile));
-    $.ajax({
-        url: url,
-        async: true,
-        type: 'post',
-        data: profile,
-        success: function (res) {
-            console.log(JSON.stringify(res));
-            if(res.error_code == 1) {
-                window.location.href = "/user"
-            }
-        }
-    })
-});
 ```
 
 #### 使用NewPay完成授权，将授权数据发送到网站回调接口
@@ -192,7 +167,7 @@ qr_code_str = pay_helper.generate_qrcode_string(pay_helper.pay_hash)
 
 #### 移动网站调用内置Javascript函数
 
-* 获取支付参数，并且传递支付参数到 NewPay
+* 获取支付参数，并且传递支付参数到 NewPay, 获取支付结果信息
 ```javascript
 function h5pay() {
     let url = "/request/pay/h5/";
@@ -202,36 +177,36 @@ function h5pay() {
         type: 'post',
         data: {'order_number': 'orderNumber'},
         success: function (res) {
-            if(res.error_code == 1) {
-                console.log(res);
-                let params = res.result;
-                dsBridge.call(REQUEST_PAY, params, function (res) {
-                    console.log("call success")
-                });
+            if(res.error_code === 1) {
+                if(hep) {
+                    let params = res.result;
+                    hep.pay.order(params, function (response) {
+                        if(response.status_code === 200) {
+                            var pay_info = response.result;
+                            let url = "/receive/pay/";
+                            $.ajax({
+                                url: url,
+                                async: true,
+                                type: 'post',
+                                data: pay_info,
+                                success: function (res) {
+                                    if(res.error_code == 1) {
+                                        window.location.href = "/placeorder/"
+                                    }
+                                }
+                            });
+                        } else {
+                            alert(response.message);
+                        }
+                    })
+                } else {
+                    alert("hep is not inject");
+                }
             }
         }
     });
 }
-```
 
-* 注册接收支付信息的函数
-```javascript
-// 接收来自 NewPay 的支付信息
-dsBridge.registerAsyn(ON_PAY, function (pay_info) {
-    let url = "/receive/pay/";
-    $.ajax({
-        url: url,
-        async: true,
-        type: 'post',
-        data: pay_info,
-        success: function (res) {
-            console.log(JSON.stringify(res));
-            if(res.error_code == 1) {
-                window.location.href = "/placeorder/"
-            }
-        }
-    })
-});
 ```
 
 #### 使用NewPay完成支付，将支付数据发送到网站回调接口
@@ -288,32 +263,34 @@ function h5proof() {
         type: 'post',
         data: {'order_number': 'orderNumber'},
         success: function (res) {
-            if(res.error_code == 1) {
-                let params = res.result;
-                dsBridge.call(REQUEST_PROOF, params, function (res) {
-                    console.log("call success")
-                });
+            if(res.error_code === 1) {
+                if(hep) {
+                    let params = res.result;
+                    hep.proof.submit(params, function(response) {
+                        if(response.status_code === 200) {
+                            var proof_info = response.result;
+                            let url = "/receive/proof/";
+                            $.ajax({
+                                url: url,
+                                async: true,
+                                type: 'post',
+                                data: proof_info,
+                                success: function (res) {
+                                    $('#tip').val("success")
+                                }
+                            })
+                        } else {
+                            alert(response.message); 
+                        }
+                    });
+                } else {
+                    alert("hep is not inject");
+                }
             }
         }
     });
 }
-```
 
-* 注册接收上链信息的函数
-```javascript
-dsBridge.registerAsyn(ON_PROOF, function (proof_info) {
-    let url = "/receive/proof/";
-    $.ajax({
-        url: url,
-        async: true,
-        type: 'post',
-        data: proof_info,
-        success: function (res) {
-            console.log(res);
-            $('#tip').val("success")
-        }
-    })
-});
 ```
 
 #### 使用NewPay完成上链，将支付数据发送到网站回调接口
