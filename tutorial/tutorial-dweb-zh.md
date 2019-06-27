@@ -63,7 +63,7 @@ api_client = hep_rest_api.RestApi(hep_rest_api.ApiClient(configuration))
 
 * javascript 基础定义
 ```javascript
-const NEWPAY_AGENT = "NewPay";            // NewPay 的 User-Agent
+https://github.com/newtonproject/HEP-specification/blob/master/hep-provider/user-agent.md
 ```
 
 
