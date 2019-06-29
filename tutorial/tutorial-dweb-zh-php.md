@@ -320,5 +320,4 @@ function verify_proof($data) {
 }
 ```
 
-#### 接收成功 返回 http code 为 200，其他 code 均为失败
 
