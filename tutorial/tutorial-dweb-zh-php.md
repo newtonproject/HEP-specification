@@ -244,7 +244,28 @@ $profHelper = new ProofHelper($restApi, $base_parameters, DAPP_ID, DAPP_SECERT, 
 #### 生成上链签名
 
 ```php
-$content = ['proofinformation'];
+$order_content = new OrderProof(
+    'order_num',
+    'NEW',
+    '100',
+    'NEWID...',
+    'NEWID...',
+    'NEWID...',
+    'order',
+    'description'
+);  # 用 NEW 支付的交易id，由 NewPay 发送到 Dapp客户端
+
+$order_content->add_order_item(
+    'sub_order_num',  # 子订单编号
+    1,                # 订单质量等级
+    '10',             # 子订单价格
+    'NEW',            # 支付单位
+    'pingguo',        # 子订单名称
+    'sub_order_id',   # 子订单id
+    'product'         # 子订单类型 product, service
+);
+
+$content = $order_content->to_dict();
 $uuid = 'session_id';
 $proof_response = $profHelper->generate_proof_request($content, $uuid);
 ```
