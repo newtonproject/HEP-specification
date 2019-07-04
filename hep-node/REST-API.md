@@ -363,6 +363,7 @@ TBD
 | proof_type       | string | The type of proof information |
 | price_currency   | string | symbol of fiat or digital token, such as USD, CNY, NEW,BTC,ETH
 | total_price      | string | amount of fiat or digital token, unit is the minimum unit of given fiat or digital token |
+| orders | json | orders array |
 | order_number     | string | The order number. |
 | order_items      | json | The list of order items, see [schema/order-item.json]. |
 | seller           | string | The seller's NewID  |
@@ -378,40 +379,75 @@ curl -X POST --data '{}'
 
 // Response
 {
-    "dapp_id": "...",
-    "protocol": "....",
-    "version": "1.0",
-    "ts": 1559122027,
-    "nonce": "...",
-    "signature": "...",
-    "sign_type": "...",
-    "action": "hep.proof.submit",
-    "expired": 1559122027,
-    "content": {
-        "description": "xxx",
-        "total_price": "1000",
-        "price_currency": "CNY",
-        "order_number": "...",
-        "seller": "NEWID182...",
-        "buyer": "NEWID182...",
-        "broker": "NEWIDXX...",
-        "proof_type": "order",
-        "order_items": [
+    "dapp_id":"dappid",
+    "protocol":"HEP",
+    "version":"1.0",
+    "ts":1551222202,
+    "nonce":"random string",
+    "signature":"secp256r1signature",
+    "sign_type":"secp256r1",
+    "action":"hep.proof.submit",
+    "content":{
+        "total_price":"199.33",
+        "price_currency":"CNY",
+        "customer":"NEWID182XXXXXXX",
+        "proof_type":"order",
+        "orders":[
             {
-                "order_item_number": "...",
-                "price": "12.2",
-                "price_currency": "NEW",
-                "ordered_item": {
-                    "name": "...",
-                    "thing_type": "product",
-                    "thing_id": "...",
-                },
-                "order_item_quantity": 1
+                "order_number":"xxxx",
+                "description":"description",
+                "chain_txid":"0xtxidxxxxxx",
+                "order_items":[
+                    {
+                        "order_item_number":"20190505053222",
+                        "price":"12.2",
+                        "price_currency":"CNY",
+                        "ordered_item":{
+                            "name":"杯子",
+                            "thing_type":"product",
+                            "thing_id":"pingguoxxxxxxx"
+                        },
+                        "order_item_quantity":3,
+                        "seller":"NEWID18X....",
+                        "broker":"NEWID182......."
+                    },
+                    {
+                        "order_item_number":"20190505053222",
+                        "price":"12888",
+                        "price_currency":"CNY",
+                        "ordered_item":{
+                            "name":"iphone",
+                            "thing_type":"product",
+                            "thing_id":"iphonenumber"
+                        },
+                        "order_item_quantity":1,
+                        "seller":"NEWID18X....",
+                        "broker":"NEWID182......."
+                    }
+                ]
+            },
+            {
+                "order_number":"xxxx",
+                "description":"description",
+                "chain_txid":"0xtxidxxxxxx",
+                "order_items":[
+                    {
+                        "order_item_number":"20190505053222",
+                        "price":"12.2",
+                        "price_currency":"CNY",
+                        "ordered_item":{
+                            "name":"足疗",
+                            "thing_type":"service",
+                            "thing_id":"pingguoxxxxxxx"
+                        },
+                        "order_item_quantity":3,
+                        "seller":"NEWID18X....",
+                        "broker":"NEWID182......."
+                    }
+                ]
             }
-        ],
-        "chain_txid": "xxx",
-        ...
-    },
+        ]
+    }
 }
 ```
 
