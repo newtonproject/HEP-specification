@@ -24,6 +24,7 @@ use HepRestApi\Scenarios\AuthHelper;
 use HepRestApi\Scenarios\ProofHelper;
 use HepRestApi\Api\RestApi;
 use HepRestApi\Configuration;
+use HepRestApi\Scenarios\Order;
 use HepRestApi\Scenarios\OrderProof;
 use HepRestApi\Scenarios\PayHelper;
 
@@ -244,18 +245,17 @@ $profHelper = new ProofHelper($restApi, $base_parameters, DAPP_ID, DAPP_SECERT, 
 #### 生成上链签名
 
 ```php
-$order_content = new OrderProof(
-    'order_num',
-    'NEW',
-    '100',
-    'NEWID...',
-    'NEWID...',
-    'NEWID...',
-    'order',
-    'description'
+$order = new Order(
+    'order_num',    # 订单号
+    'description',  # description
+    '100',          # total price
+    'NEW',          # 支付单位
+    'NEWID...',     # seller NewID
+    'NEWID...',     # customer NewID
+    'NEWID...'      # broker NewID
 );  # 用 NEW 支付的交易id，由 NewPay 发送到 Dapp客户端
 
-$order_content->add_order_item(
+$order->add_order_item(
     'sub_order_num',  # 子订单编号
     1,                # 订单质量等级
     '10',             # 子订单价格
@@ -263,6 +263,17 @@ $order_content->add_order_item(
     'pingguo',        # 子订单名称
     'sub_order_id',   # 子订单id
     'product'         # 子订单类型 product, service
+);
+
+$order_content = new OrderProof(
+    "100",      # total price
+    "NEW",      # 支付单位
+    'NEWID...', # submitter NewID
+    "order"     # proof type
+);  # 用 NEW 支付的交易id，由 NewPay 发送到 Dapp客户端
+
+$order_content->add_order(
+    $order->to_dict()
 );
 
 $content = $order_content->to_dict();
