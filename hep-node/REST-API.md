@@ -390,13 +390,18 @@ curl -X POST --data '{}'
     "content":{
         "total_price":"199.33",
         "price_currency":"CNY",
-        "customer":"NEWID182XXXXXXX",
+        "submitter":"NEWID182XXXXXXX",
         "proof_type":"order",
         "orders":[
             {
                 "order_number":"xxxx",
                 "description":"description",
                 "chain_txid":"0xtxidxxxxxx",
+                "seller":"NEWID18X....",
+                "broker":"NEWID182.......",
+                "customer": "NEWID182....",
+                "total_price": "12",
+                "price_currency": "CNY"
                 "order_items":[
                     {
                         "order_item_number":"20190505053222",
@@ -407,42 +412,7 @@ curl -X POST --data '{}'
                             "thing_type":"product",
                             "thing_id":"pingguoxxxxxxx"
                         },
-                        "order_item_quantity":3,
-                        "seller":"NEWID18X....",
-                        "broker":"NEWID182......."
-                    },
-                    {
-                        "order_item_number":"20190505053222",
-                        "price":"12888",
-                        "price_currency":"CNY",
-                        "ordered_item":{
-                            "name":"iphone",
-                            "thing_type":"product",
-                            "thing_id":"iphonenumber"
-                        },
-                        "order_item_quantity":1,
-                        "seller":"NEWID18X....",
-                        "broker":"NEWID182......."
-                    }
-                ]
-            },
-            {
-                "order_number":"xxxx",
-                "description":"description",
-                "chain_txid":"0xtxidxxxxxx",
-                "order_items":[
-                    {
-                        "order_item_number":"20190505053222",
-                        "price":"12.2",
-                        "price_currency":"CNY",
-                        "ordered_item":{
-                            "name":"足疗",
-                            "thing_type":"service",
-                            "thing_id":"pingguoxxxxxxx"
-                        },
-                        "order_item_quantity":3,
-                        "seller":"NEWID18X....",
-                        "broker":"NEWID182......."
+                        "order_item_quantity":3
                     }
                 ]
             }
