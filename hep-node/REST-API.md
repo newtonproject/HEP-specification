@@ -530,7 +530,7 @@ TBD
 | website | string | The dapp website link |
 | download_url | string | The dapp download url |
 | deposit_contract_address | string | The deposit contract Address, the example is NEW182.... |
-| dapp_type_id | int | The dapp type id.  |
+| dapp_type_ids | array[] | The dapp type ids.  support platforms, 1 android, 2 ios, 3 dweb, 4 newdapp |
 | dapp_category_id | int | The dapp category id.  |
 | auth_login_callback  | string | For Mobile Native DApp, it is redirect schema; For website DApp, it is callback url; For  NewDApp, it is HEP-based url.       |
 | pay_order_callback | string | For Mobile Native DApp, it is redirect schema; For website DApp, it is callback url; For  NewDApp, it is HEP-based url. |
