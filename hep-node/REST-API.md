@@ -528,7 +528,8 @@ TBD
 | bundle_id | string | The bundle id such as com.demo.dev.ios for ios platform |
 | schema | string | The routing schema |
 | website | string | The dapp website link |
-| download_url | string | The dapp download url |
+| android_download_url | string | The dapp download url |
+| ios_download_url | string | the ios download url |
 | deposit_contract_address | string | The deposit contract Address, the example is NEW182.... |
 | dapp_type_ids | array[] | The dapp type ids.  support platforms, 1 android, 2 ios, 3 dweb, 4 newdapp |
 | dapp_category_id | int | The dapp category id.  |
