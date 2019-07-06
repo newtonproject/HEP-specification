@@ -535,6 +535,10 @@ TBD
 | auth_login_callback  | string | For Mobile Native DApp, it is redirect schema; For website DApp, it is callback url; For  NewDApp, it is HEP-based url.       |
 | pay_order_callback | string | For Mobile Native DApp, it is redirect schema; For website DApp, it is callback url; For  NewDApp, it is HEP-based url. |
 | proof_submit_callback | string | For Mobile Native DApp, it is redirect schema; For website DApp, it is callback url; For  NewDApp, it is HEP-based url. |
+| android_status | int | the android platform publish status |
+| ios_status | int | the ios platform publish status |
+| dweb_status | int | the dweb platform publish status |
+| newdapp_status | int | the newdapp platform publish status |
 
 #### Example
 ```
