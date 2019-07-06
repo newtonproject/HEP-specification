@@ -530,6 +530,8 @@ TBD
 | website | string | The dapp website link |
 | android_download_url | string | The dapp download url |
 | ios_download_url | string | the ios download url |
+| dweb_download_url | string | the dweb download url |
+| newdapp_download_url | string | the newdapp download url |
 | deposit_contract_address | string | The deposit contract Address, the example is NEW182.... |
 | dapp_type_ids | array[] | The dapp type ids.  support platforms, 1 android, 2 ios, 3 dweb, 4 newdapp |
 | dapp_category_id | int | The dapp category id.  |
