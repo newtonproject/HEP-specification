@@ -437,6 +437,7 @@ curl -X POST --data '{}'
 | Field            | Type   | Notes                                      |
 | ---              | ---    | ---                                        |
 | dapp_id           | string | The decentralized application ID                             |
+| proof_item_id        | string | The proof item id. For order proof, it is order_number. |
 | proof_subitem_id        | string | The proof subitem id. For order proof, it is order_item_number. optional. If it is empty, all subitem will be canceled. |
 | sign_type        | string | Signature Type,aka cryptographic algorithm. |
 | signature        | string | The signature hex string by application owner. The exclude fields is ['dapp_signature_method', 'dapp_signature', 'signature', 'sign_type']. |
@@ -496,6 +497,51 @@ curl -X POST --data '{}'
         {
             "proof_hash": "....",
             "proof_status": "....",            
+        }
+    ]
+}
+```
+
+***
+### proof_getProofRewards
+Get the proof reward by given proof data.
+
+#### Path
+`
+/proofs/rewards/
+`
+
+#### Method
+`POST`
+
+#### Parameters
+| Field            | Type   | Notes                                      |
+| ---              | ---    | ---                                        |
+| proof_data | json | The proof data. the format is [{"proof_hash":"...", "proof_item_id":'...', "proof_subitem_id":"..."},] |
+
+#### Example Parameters
+TBD
+
+#### Returns
+| Field            | Type   | Notes                                      |
+| ---              | ---    | ---                                        |
+| proof_rewards | json | The proof rewards. |
+
+
+#### Example
+```
+// Request
+curl -X POST --data '{}'
+
+
+// Response
+{
+    "proof_rewards": [
+        {
+            "proof_hash": "....",
+            "proof_item_id": "....",
+            "proof_subitem_id": "....",
+            "earn_tokens": "....",                  
         }
     ]
 }
