@@ -541,7 +541,9 @@ curl -X POST --data '{}'
             "proof_hash": "....",
             "proof_item_id": "....",
             "proof_subitem_id": "....",
-            "earn_tokens": "....",                  
+            "earn_tokens": "....",   
+            "newid": "....",                  
+            "newforce": "....",                                 
         }
     ]
 }
