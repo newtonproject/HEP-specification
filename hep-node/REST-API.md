@@ -630,6 +630,7 @@ TBD
 #### Returns
 | Field            | Type   | Notes                                      |
 | ---              | ---    | ---                                        |
+| dapp_id           | string | The decentralized application ID                             |
 | total_nf           | string | The total Newforce                             |
 | total_tokens           | string | The total number of NEW tokens                             |
 
@@ -642,6 +643,7 @@ curl -X POST --data '{}'
 
 // Response
 {
+    "dapp_id": "e123123123",
     "total_nf": "100",
     "total_tokens": "200"    
 }
