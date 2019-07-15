@@ -526,6 +526,15 @@ TBD
 | Field            | Type   | Notes                                      |
 | ---              | ---    | ---                                        |
 | proof_rewards | json | The proof rewards. |
+| proof_hash | string | The proof hash. |
+| proof_item_id        | string | The proof item id.  |
+| proof_subitem_id        | string | The proof subitem id. |
+| reward_tokens | string | The proof rewards. |
+| newid | string | The newid of submit proof. |
+| newforce | string | The newforce of proof. |
+| action | string | The action of proof.choices:PURCHASE,RETURN |
+| issue_timestamp | int | The timestamp of token issued |
+| issue_status | string | The status of token issued.choices:PENDING,SENT,CANCELED |
 
 
 #### Example
@@ -541,9 +550,10 @@ curl -X POST --data '{}'
             "proof_hash": "....",
             "proof_item_id": "....",
             "proof_subitem_id": "....",
-            "earn_tokens": "....",   
+            "reward_tokens": "....",   
             "newid": "....",                  
-            "newforce": "....",                                 
+            "newforce": "....",        
+            "action": "....",                                                          
         }
     ]
 }
@@ -603,6 +613,39 @@ curl -X POST --data '{}'
 }
 ```
 
+### dapp_getDailyStats
+
+#### Path
+`
+/dapps/:dapp_id/:date/
+`
+* `date` - the date format is '20190808'.
+
+#### Parameters
+none
+
+#### Example Parameters
+TBD
+
+#### Returns
+| Field            | Type   | Notes                                      |
+| ---              | ---    | ---                                        |
+| total_nf           | string | The total Newforce                             |
+| total_tokens           | string | The total number of NEW tokens                             |
+
+
+#### Example
+```
+// Request
+curl -X POST --data '{}'
+
+
+// Response
+{
+    "total_nf": "100",
+    "total_tokens": "200"    
+}
+```
 
 ### newid
 
