@@ -70,8 +70,8 @@ Software Development Kits are available for:
 * [DApp Demo](https://github.com/newtonproject/dapp_demo)
 
 ### Tutorial
-* [Tutorial for develop DMA application](https://github.com/newtonproject/HEP-specification/blob/master/DMA.md)
-* [Tutorial for develop DWEB application](https://github.com/newtonproject/HEP-specification/blob/master/DWeb.md)
+* [Tutorial for develop DMA application](tutorial/tutorial-dma.md)
+* [Tutorial for develop DWEB application](tutorial/tutorial-dweb.md)
 * [Tutorial for develop NewDApp](tutorial/tutorial-newdapp.md)
 * [Tutorial for develop smart contract based on NewVM](tutorial/tutorial-smart-contract.md)
 
