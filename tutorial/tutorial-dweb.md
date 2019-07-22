@@ -88,7 +88,7 @@ auth_response = auth_helper.generate_auth_request(uuid=session_id)
 qr_code_str = auth_helper.generate_qrcode_string(auth_response.auth_hash)
 ```
 
-#### Mobile webistes calls in-build Javascript function，<a href="https://github.com/newtonproject/HEP-specification/blob/master/interact-specification/DWeb-callback-error-messages.md#example">回调的数据结构</a>
+#### Mobile webistes calls in-build Javascript function，<a href="https://github.com/newtonproject/HEP-specification/blob/master/interact-specification/DWeb-callback-error-messages.md#example">Callback Data Format</a>
 
 * Acquire login parameters，pass them to NewPay and get profile information back
 ```javascript
