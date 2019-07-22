@@ -63,6 +63,6 @@ DApp Native-side Requirement:
 
 ## 7. Native parameters, python verification
 
-### <a href="https://github.com/newtonproject/HEP-specification/blob/master/tutorial/README-HEP-REST-API.md">客户端参数，验证</a>
+### <a href="https://github.com/newtonproject/HEP-specification/blob/master/tutorial/README-HEP-REST-API.md"> Native parameters, Verification</a>
 
 
