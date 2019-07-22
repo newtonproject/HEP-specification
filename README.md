@@ -1,3 +1,6 @@
+English / [中文](README_cn.md)
+
+
 # Specification of Hyper Exchange Protocol (HEP)
 
 More see [HEP introduction](HEP-intro.md).

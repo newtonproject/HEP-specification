@@ -9,9 +9,8 @@ pip install hep-rest-api
 ```
 
 ### PHP
-```bash
-TBD
-```
+
+[PHP Tutorial](tutorial\tutorial-dweb-zh-php.md)
 
 ### Java
 ```bash
