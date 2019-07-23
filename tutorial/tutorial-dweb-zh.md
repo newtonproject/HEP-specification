@@ -306,7 +306,7 @@ def verify_proof(data):
         proof_hashes = [data.get('proof_hash')]
         response = _get_proof_helper().get_status_of_proofs(proof_hashes)
         # 如果只校验一条的话取第一个数组的值，返回结果包括 proof_hash, 和 proof_status
-        # proof_status 为字符串类型 SUBMIT(已提交), CONFIRMED(已上链), CANCELED(已取消), PART_CANCELED(部分取消/退货)
+        # proof_status 为字符串类型 SUBMIT(已提交), PROCESSING(处理中),CONFIRMED(已上链), CANCELED(已取消), PART_CANCELED(部分取消/退货)
         # 参见 https://github.com/newtonproject/HEP-specification/blob/master/hep-node/REST-API.md#proof_getproofreceipts
         return response.receipts[0]
     return None
