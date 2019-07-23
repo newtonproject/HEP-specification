@@ -437,6 +437,7 @@ curl -X POST --data '{}'
 | Field            | Type   | Notes                                      |
 | ---              | ---    | ---                                        |
 | dapp_id           | string | The decentralized application ID                             |
+| proof_item_id        | string | The proof item id. For order proof, it is order_number. |
 | proof_subitem_id        | string | The proof subitem id. For order proof, it is order_item_number. optional. If it is empty, all subitem will be canceled. |
 | sign_type        | string | Signature Type,aka cryptographic algorithm. |
 | signature        | string | The signature hex string by application owner. The exclude fields is ['dapp_signature_method', 'dapp_signature', 'signature', 'sign_type']. |
@@ -501,6 +502,63 @@ curl -X POST --data '{}'
 }
 ```
 
+***
+### proof_getProofRewards
+Get the proof reward by given proof data.
+
+#### Path
+`
+/proofs/rewards/
+`
+
+#### Method
+`POST`
+
+#### Parameters
+| Field            | Type   | Notes                                      |
+| ---              | ---    | ---                                        |
+| proof_data | json | The proof data. the format is [{"proof_hash":"...", "proof_item_id":'...', "proof_subitem_id":"..."},] |
+
+#### Example Parameters
+TBD
+
+#### Returns
+| Field            | Type   | Notes                                      |
+| ---              | ---    | ---                                        |
+| proof_rewards | json | The proof rewards. |
+| proof_hash | string | The proof hash. |
+| proof_item_id        | string | The proof item id.  |
+| proof_subitem_id        | string | The proof subitem id. |
+| reward_tokens | string | The proof rewards. |
+| newid | string | The newid of submit proof. |
+| newforce | string | The newforce of proof. |
+| action | string | The action of proof.choices:PURCHASE,RETURN |
+| issue_timestamp | int | The timestamp of token issued |
+| issue_status | string | The status of token issued.choices:PENDING,SENT,CANCELED |
+
+
+#### Example
+```
+// Request
+curl -X POST --data '{}'
+
+
+// Response
+{
+    "proof_rewards": [
+        {
+            "proof_hash": "....",
+            "proof_item_id": "....",
+            "proof_subitem_id": "....",
+            "reward_tokens": "....",   
+            "newid": "....",                  
+            "newforce": "....",        
+            "action": "....",                                                          
+        }
+    ]
+}
+```
+
 ## DApp
 
 ### dapp_profile
@@ -555,6 +613,41 @@ curl -X POST --data '{}'
 }
 ```
 
+### dapp_getDailyStats
+
+#### Path
+`
+/dapps/:dapp_id/:date/
+`
+* `date` - the date format is '20190808'.
+
+#### Parameters
+none
+
+#### Example Parameters
+TBD
+
+#### Returns
+| Field            | Type   | Notes                                      |
+| ---              | ---    | ---                                        |
+| dapp_id           | string | The decentralized application ID                             |
+| total_nf           | string | The total Newforce                             |
+| total_tokens           | string | The total number of NEW tokens                             |
+
+
+#### Example
+```
+// Request
+curl -X POST --data '{}'
+
+
+// Response
+{
+    "dapp_id": "e123123123",
+    "total_nf": "100",
+    "total_tokens": "200"    
+}
+```
 
 ### newid
 

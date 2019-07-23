@@ -20,9 +20,9 @@
 * NewTax will be collected by NEW from developer's NEW operating address based on on-chain business volume.
 
 ### NewTax rate:
-* Gaming DApps：**1‰**
-* Retailing DApps：**1‰**
-* Other DApps：**1‰**
+* Gaming DApps：**2‰**
+* Retailing DApps：**2‰**
+* Other DApps：**2‰**
 
 ### NewTax refund:
 * The related amount of NEW will return to developer's NEW operating address when the order transaction has been cancelled.
@@ -60,9 +60,9 @@
 	* 收入为**NEW**的部分按费率收取**NEW**
 
 ### DAPP的NewTax费率：
-* 游戏类DAPP：**1‰**
-* 零售类DAPP：**1‰**
-* 其他类DAPP：**1‰**
+* 游戏类DAPP：**2‰**
+* 零售类DAPP：**2‰**
+* 其他类DAPP：**2‰**
 
 ### DAPP产生退单退税：
 * DAPP产生退款将按照订单信息将对应NewTax退回至DAPP运营账户
