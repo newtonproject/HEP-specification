@@ -676,6 +676,41 @@ none
 }
 ```
 
+#### Path
+`
+/newids/:newid/reward/tokens/
+`
+
+#### Parameters
+none
+
+#### Returns
+| Field | Type | Notes |
+| --- | --- | --- |
+| total_reward | string | The total reward of govern community, unit: NEW |
+| direct_buy_reward | string | The direct purchase reward of govern community, unit: NEW |
+| direct_invite_reward | string | The direct invitation reward of govern community, unit: NEW |
+| indirect_buy_reward | string | The indirect purchase reward of govern community, unit: NEW |
+| indirect_invite_reward | string | The indirect invitation reward of govern community, unit: NEW |
+| locked_for_candidate_reward | string | The community node reward of govern community, unit: NEW |
+| locked_for_voter_reward | string | The vote reward of govern community, unit: NEW |
+| sale_reward | string | The sale reward of govern community, unit: NEW |
+
+#### Example
+```
+// Response
+{
+    'direct_buy_reward': '0',
+    'direct_invite_reward': '0',
+    'indirect_buy_reward': '0',
+    'indirect_invite_reward': '0',
+    'locked_for_candidate_reward': '0.002097746394517319',
+    'locked_for_voter_reward': '0.001064190109278843',
+    'sale_reward': '0',
+    'total_reward': '0.003161936503796162'
+}
+```
+
 ### NewForce
 
 #### Get the daily statistics of NewForce
