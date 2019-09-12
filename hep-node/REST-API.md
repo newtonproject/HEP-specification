@@ -680,7 +680,7 @@ none
 
 #### Path
 `
-/newids/:newid/reward/tokens/
+/newids/:newid/newforce/reward/
 `
 * `newid` - the newid format is 'NEW182...'.
 
