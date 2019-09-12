@@ -676,10 +676,13 @@ none
 }
 ```
 
+### Get the newforce reward tokens by newid
+
 #### Path
 `
 /newids/:newid/reward/tokens/
 `
+* `newid` - the newid format is 'NEW182...'.
 
 #### Parameters
 none
