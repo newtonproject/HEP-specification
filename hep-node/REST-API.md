@@ -388,24 +388,24 @@ curl -X POST --data '{}'
     "sign_type":"secp256r1",
     "action":"hep.proof.submit",
     "content":{
-        "total_price":"199.33",
-        "price_currency":"CNY",
-        "submitter":"NEWID182XXXXXXX",
-        "proof_type":"order",
-        "orders":[
+        "total_price":"199.33",  // 所有订单的价格和
+        "price_currency":"CNY",  // 订单的价格单位
+        "submitter":"NEWID182XXXXXXX", // 用户的 newid
+        "proof_type":"order",    // 证明类型，默认为order
+        "orders":[               // 订单数组
             {
-                "order_number":"xxxx",
-                "description":"description",
-                "chain_txid":"0xtxidxxxxxx",
-                "seller":"NEWID18X....",
-                "broker":"NEWID182.......",
-                "customer": "NEWID182....",
-                "total_price": "12",
-                "price_currency": "CNY"
-                "order_items":[
+                "order_number":"xxxx",   // 订单编号
+                "description":"description",  // 订单描述
+                "chain_txid":"0xtxidxxxxxx",  // 如果为new支付，该值 wei 支付的 txid
+                "seller":"NEWID18X....",     // 卖家的newid
+                "broker":"NEWID182.......",   // 代理商的 newid， 可以为空字符串
+                "customer": "NEWID182....",   // 用户的 newid
+                "total_price": "12",         // 该订单的价格
+                "price_currency": "CNY"      // 该订单的计价单位
+                "order_items":[             // 订单详情数组
                     {
-                        "order_item_number":"20190505053222",
-                        "price":"12.2",
+                        "order_item_number":"20190505053222",  // 订单详情id
+                        "price":"12.2",                         // 订单价格...
                         "price_currency":"CNY",
                         "ordered_item":{
                             "name":"杯子",
