@@ -829,7 +829,7 @@ Get
 
 ##### Path
 `
-gravity/account/:newid/
+/gravity/account/:newid/
 `
 
 ##### Parameters
@@ -848,6 +848,7 @@ None
 | exchange_rate | string | exchange rate GRV to NEW |
 | gravity_escrow_address | string | GRV escrow address |
 | can_collect_tokens | string | amount of can collect tokens |
+| locked_tokens | string | locked NEW amount |
 
 ###### Example
 ```
