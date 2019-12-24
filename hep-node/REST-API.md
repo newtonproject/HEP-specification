@@ -828,7 +828,7 @@ Get
 
 ##### Path
 `
-gravity/account/:newid/
+/newchain/coin/:coin_name/account/:newid/
 `
 
 ##### Parameters
@@ -871,7 +871,7 @@ Get
 
 ##### Path
 `
-/gravity/cast/condition/:newid/
+/newchain/coin/:coin_name/cast/condition/:newid/
 `
 
 ##### Parameters
@@ -910,7 +910,7 @@ Get
 
 ##### Path
 `
-/gravity/cast/data/current/:newid/
+/newchain/coin/:coin_name/cast/data/current/:newid/
 `
 
 ##### Parameters
@@ -964,7 +964,7 @@ Post
 
 ##### Path
 `
-/gravity/cast/data/history/
+/newchain/coin/:coin_name/cast/data/history/
 `
 
 ##### Parameters
@@ -1022,7 +1022,7 @@ POST
 
 ##### Path
 `
-gravity/cast/submit/
+/newchain/coin/:coin_name/cast/submit/
 `
 
 ##### Parameters
@@ -1053,7 +1053,7 @@ POST
 
 ##### Path
 `
-/gravity/cast/collect/
+/newchain/coin/:coin_name/cast/collect/
 `
 
 ##### Parameters
@@ -1082,7 +1082,7 @@ Get
 
 ##### Path
 `
-/gravity/subscribe/condition/:newid/
+/newchain/coin/:coin_name/subscribe/condition/:newid/
 `
 
 ##### Parameters
@@ -1117,7 +1117,7 @@ Post
 
 ##### Path
 `
-/gravity/subscribe/submit/
+/newchain/coin/:coin_name/subscribe/submit/
 `
 
 ##### Parameters
