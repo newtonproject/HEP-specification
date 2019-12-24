@@ -838,11 +838,11 @@ None
 | field | type | description|
 | --- | --- | --- |
 | is_in_whitelist | boolean | whether newid is in whitelist |
-| cast_status | int | status of cast, 1 for not cast, 2 for pending cast, 3 for in casting, 4 for completed cast, 5 for pending collect |
-| collect_status | int | status of cast, 1 for can not collect, 2 for can collect, 3 for pending collect |
-| total_gravity | string | GRV account balance include available GRV and in casting GRV |
-| in_casting_gravity | string | in casting GRV |
-| casted_gravity | string | history accumulative casted GRV |
+| mint_status | int | status of mint, 1 for not mint, 2 for pending mint, 3 for in minting, 4 for completed mint, 5 for pending collect |
+| collect_status | int | status of mint, 1 for can not collect, 2 for can collect, 3 for pending collect |
+| total_gravity | string | GRV account balance include available GRV and in minting GRV |
+| in_minting_gravity | string | in minting GRV |
+| minted_gravity | string | history accumulative minted GRV |
 | exchanged_tokens | string | history accumulative exchanged tokens |
 | exchange_rate | string | exchange rate GRV to NEW |
 | gravity_escrow_address | string | GRV escrow address |
@@ -853,11 +853,11 @@ None
 ```
 {
       "is_in_whitelist": True,
-      "cast_status": 3,
+      "mint_status": 3,
       "can_collect": True,
       "total_gravity": "1000000",
-      "in_casting_gravity": "490000",
-      "casted_gravity": "5000000",
+      "in_minting_gravity": "490000",
+      "minted_gravity": "5000000",
       "exchanged_tokens": "5000000",
       "exchange_rate": "1",
       "gravity_escrow_address": "0xa21311321321321",
@@ -865,14 +865,14 @@ None
 }
 ```
 
-#### Get condition of Gravity casting
+#### Get condition of Gravity minting
 
 ##### Method
 Get
 
 ##### Path
 `
-/newchain/coin/:coin_name/cast/condition/:newid/
+/newchain/coin/:coin_name/mint/condition/:newid/
 `
 
 ##### Parameters
@@ -882,12 +882,12 @@ None
 | field | type | description| 
 | --- | --- | --- |
 | exchange_rate | string | exchange rate GRV to NEW |
-| locked_tokens_rate | string | the rate of locked tokens when casting GRV |
+| locked_tokens_rate | string | the rate of locked tokens when minting GRV |
 | locked_tokens_threshold | string | the threshold of locked tokens, used to decide locked days, unit: NEW |
-| cast_formula_constant | int | constant of the locked days formula |
+| mint_formula_constant | int | constant of the locked days formula |
 | locked_tokens_days_minimum | string | the minimum locked days |
-| casting_gravity_minimum | string | the minimum GRV amount when castings, unit: GRV |
-| casting_gravity_maximum | string | the maximum GRV amount when castings, unit: GRV |
+| minting_gravity_minimum | string | the minimum GRV amount when mintings, unit: GRV |
+| minting_gravity_maximum | string | the maximum GRV amount when mintings, unit: GRV |
 | gravity_escrow_address | string | GRV escrow address |
 
 ##### Example
@@ -896,22 +896,22 @@ None
       "exchange_rate": "1",
       "locked_tokens_rate": "10",
       "locked_tokens_threshold": "1000000",
-      "cast_formula_constant": 1,
+      "mint_formula_constant": 1,
       "locked_tokens_days_minimum": "10",
-      "casting_gravity_minimum": "10000",
-      "casting_gravity_maximum": "100000000",
+      "minting_gravity_minimum": "10000",
+      "minting_gravity_maximum": "100000000",
       "gravity_escrow_address": "0x112132132123",
 }
 ```
 
-#### Get current data of Gravity casting
+#### Get current data of Gravity minting
 
 ##### Method
 Get
 
 ##### Path
 `
-/newchain/coin/:coin_name/cast/data/current/:newid/
+/newchain/coin/:coin_name/mint/data/current/:newid/
 `
 
 ##### Parameters
@@ -924,18 +924,18 @@ None
 | end_timestamp | int | end timestamp |
 | remaining_days | int | remaining days |
 | locked_days | int | locked days |
-| casted_days | int | casted days |
+| minted_days | int | minted days |
 | collected_tokens | string | tokens that has been collected, unit: NEW |
-| collect_status | int | status of cast, 1 for can not collect, 2 for can collect, 3 for pending collect |
+| collect_status | int | status of mint, 1 for can not collect, 2 for can collect, 3 for pending collect |
 | can_collect_tokens | string | tokens that waiting for collected, unit: NEW |
-| in_casting_gravity | string | GRV that is in casting, unit: GRV |
-| current_casting_stage | int | stage of current casting |
+| in_minting_gravity | string | GRV that is in minting, unit: GRV |
+| current_minting_stage | int | stage of current minting |
 | current_collect_stage | int | stage of current collect |
-| total_casting_stages | int | total stages of casting |
-| released_tokens | string | released tokens, part of locked tokens, not from casting, unit: NEW |
+| total_minting_stages | int | total stages of minting |
+| released_tokens | string | released tokens, part of locked tokens, not from minting, unit: NEW |
 | locked_tokens | string | locked tokens currently, unit: NEW |
-| total_cast_amount | string | locked GRV of this casting, unit: GRV |
-| total_exchange_tokens | string | exchange NEW of this casting, unit: NEW |
+| total_mint_amount | string | locked GRV of this minting, unit: GRV |
+| total_exchange_tokens | string | exchange NEW of this minting, unit: NEW |
 
 ##### Example
 ```
@@ -944,28 +944,28 @@ None
       "remaining_timestamp": 1567995106,
       "remaining_days": 3,
       "locked_days": 10,
-      "casted_days": 7,
+      "minted_days": 7,
       "collected_tokens": "70000",
-      "in_casting_gravity": "490000",
+      "in_minting_gravity": "490000",
       "can_collect": True,
       "can_collect_tokens": "140000",
-      "current_casting_stage": 3,
-      "total_casting_stages": 10,
+      "current_minting_stage": 3,
+      "total_minting_stages": 10,
       "released_tokens": "2100000",
       "locked_tokens": "4900000",
-      "total_cast_amount": "700000",
+      "total_mint_amount": "700000",
       "total_exchange_tokens": "700000",
 }
 ```
 
-#### Get history data of GRV casting
+#### Get history data of GRV minting
 
 ##### Method
 Post
 
 ##### Path
 `
-/newchain/coin/:coin_name/cast/data/history/
+/newchain/coin/:coin_name/mint/data/history/
 `
 
 ##### Parameters
@@ -984,7 +984,7 @@ Post
 | start_timestamp | int | start timestamp |
 | end_timestamp | int | end timestamp |
 | locked_days | int | total locked timestamp |
-| casted_gravity | string | casted gravity, unit: GRV |
+| minted_gravity | string | minted gravity, unit: GRV |
 | locked_tokens | string | locked tokens currently, unit: NEW |
 | collected_tokens | string | tokens that has been collected, unit: NEW |
 
@@ -996,7 +996,7 @@ Post
       "page_size": page_size,
       "data_list": [
             {
-                  "casted_gravity": "200000",
+                  "minted_gravity": "200000",
                   "collected_tokens": "200000",
                   "locked_tokens": "2000000",
                   "start_timestamp": 1567995106,
@@ -1004,7 +1004,7 @@ Post
                   "locked_days": 10,
             },
             {
-                  "casted_gravity": "2000000",
+                  "minted_gravity": "2000000",
                   "collected_tokens": "2000000",
                   "locked_tokens": "20000000",
                   "start_timestamp": 1567995106,
@@ -1023,7 +1023,7 @@ POST
 
 ##### Path
 `
-/newchain/coin/:coin_name/cast/submit/
+/newchain/coin/:coin_name/mint/submit/
 `
 
 ##### Parameters
@@ -1032,9 +1032,8 @@ POST
 | newid | string | NewID of user |
 | tx_tokens | string | transaction body of lock NEW |
 | tx_gravity | string | transaction body of lock GRV |
-| sign_r | string | r part of signature |
-| sign_s | string | s part of signature |
-| sign_message | string | random number |
+| sign_type        | string | Signature Type,aka cryptographic algorithm |
+| signature        | string | The signature hex string by application owner. The exclude fields is ['dapp_signature_method', 'dapp_signature', 'signature', 'sign_type']. |
 
 ##### Returns
 None
@@ -1042,8 +1041,6 @@ None
 ##### Example
 ```
 {
-    "error_code": 1,
-    "error_message": "",
 }
 ```
 
@@ -1054,16 +1051,15 @@ POST
 
 ##### Path
 `
-/newchain/coin/:coin_name/cast/collect/
+/newchain/coin/:coin_name/mint/collect/
 `
 
 ##### Parameters
 | field | type | description| 
 | --- | --- | --- |
 | newid | string | NewID of user |
-| sign_r | string | r part of signature |
-| sign_s | string | s part of signature |
-| sign_message | string | random number |
+| sign_type        | string | Signature Type,aka cryptographic algorithm |
+| signature        | string | The signature hex string by application owner. The exclude fields is ['dapp_signature_method', 'dapp_signature', 'signature', 'sign_type']. |
 
 ##### Return
 None
@@ -1071,8 +1067,6 @@ None
 ##### Example
 ```
 {
-    "error_code": 1,
-    "error_message": "",
 }
 ```
 
@@ -1083,7 +1077,7 @@ Get
 
 ##### Path
 `
-/newchain/coin/:coin_name/subscribe/condition/:newid/
+/newchain/coin/:coin_name/subscription/condition/:newid/
 `
 
 ##### Parameters
@@ -1093,21 +1087,21 @@ None
 | field | type | description| 
 | --- | --- | --- |
 | reward_pool_balance | string | GRV amount in reward pool |
-| subscribe_rate | string | the exchange rate NEW to GRV |
-| subscribe_minimum | string | the minimum tokens amount to subscribe GRV, unit: NEW |
-| subscribe_maximum | string | the maximum tokens amount to subscribe GRV, unit: NEW |
+| subscription_rate | string | the exchange rate NEW to GRV |
+| subscription_minimum | string | the minimum tokens amount to subscribe GRV, unit: NEW |
+| subscription_maximum | string | the maximum tokens amount to subscribe GRV, unit: NEW |
 | gravity_escrow_address | string | GRV escrow address |
-| subscribe_bonus_constant | string | subscribe bonus formula constant |
+| subscription_bonus_constant | string | subscribe bonus formula constant |
 
 ##### Example
 ```
 {
     "reward_pool_balance": "28000000",
-    "subscribe_rate": "1",
-    "subscribe_minimum": "10000000",
-    "subscribe_maximum": "100000000",
+    "subscription_rate": "1",
+    "subscription_minimum": "10000000",
+    "subscription_maximum": "100000000",
     "gravity_escrow_address": "0x1321321321321",
-    "subscribe_bonus_constant": "1000000000"
+    "subscription_bonus_constant": "1000000000"
 }
 ```
 
@@ -1118,7 +1112,7 @@ Post
 
 ##### Path
 `
-/newchain/coin/:coin_name/subscribe/submit/
+/newchain/coin/:coin_name/subscription/submit/
 `
 
 ##### Parameters
@@ -1126,9 +1120,8 @@ Post
 | --- | --- | --- |
 | newid | string | NewID of user |
 | tx | string | transaction body |
-| sign_r | string | r part of signature |
-| sign_s | string | s part of signature |
-| sign_message | string | random number |
+| sign_type        | string | Signature Type,aka cryptographic algorithm |
+| signature        | string | The signature hex string by application owner. The exclude fields is ['dapp_signature_method', 'dapp_signature', 'signature', 'sign_type']. |
 
 ##### Return
 None
@@ -1136,7 +1129,5 @@ None
 ##### Example
 ```
 {
-    "error_code": 1,
-    "error_message": "",
 }
 ```
