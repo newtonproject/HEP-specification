@@ -824,7 +824,7 @@ none
 #### Get Gravity Account Information
 
 ##### Method
-Get
+GET
 
 ##### Path
 `
@@ -868,7 +868,7 @@ None
 #### Get condition of Gravity minting
 
 ##### Method
-Get
+GET
 
 ##### Path
 `
@@ -907,7 +907,7 @@ None
 #### Get current data of Gravity minting
 
 ##### Method
-Get
+GET
 
 ##### Path
 `
@@ -961,7 +961,7 @@ None
 #### Get history data of GRV minting
 
 ##### Method
-Post
+POST
 
 ##### Path
 `
@@ -1073,7 +1073,7 @@ None
 #### Get Subscribe Gravity Condition
 
 ##### Method
-Get
+GET
 
 ##### Path
 `
@@ -1108,7 +1108,7 @@ None
 #### Execute Subscribe
 
 ##### Method
-Post
+POST
 
 ##### Path
 `
