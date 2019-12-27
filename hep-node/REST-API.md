@@ -985,7 +985,7 @@ POST
 | end_timestamp | int | end timestamp |
 | locked_days | int | total locked timestamp |
 | minted_gravity | string | minted gravity, unit: GRV |
-| locked_tokens | string | locked tokens currently, unit: NEW |
+| locked_tokens | string | locked tokens of this minting, unit: NEW |
 | collected_tokens | string | tokens that has been collected, unit: NEW |
 
 ##### Example
