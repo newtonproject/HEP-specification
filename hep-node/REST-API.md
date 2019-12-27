@@ -972,15 +972,15 @@ POST
 | field | type | description|
 | --- | --- | --- |
 | newid | string | NewID of user |
-| page_id | string |  |
-| page_size | string |  |
+| page_id | int |  |
+| page_size | int |  |
 
 ##### Returns
 | field | type | description| 
 | --- | --- | --- |
 | total_page | int | total number of pages |
-| page_id | string |  |
-| page_size | string |  |
+| page_id | int |  |
+| page_size | int |  |
 | start_timestamp | int | start timestamp |
 | end_timestamp | int | end timestamp |
 | locked_days | int | total locked timestamp |
