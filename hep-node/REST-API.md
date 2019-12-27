@@ -886,8 +886,8 @@ None
 | locked_tokens_threshold | string | the threshold of locked tokens, used to decide locked days, unit: NEW |
 | mint_formula_constant | int | constant of the locked days formula |
 | locked_tokens_days_minimum | string | the minimum locked days |
-| minting_gravity_minimum | string | the minimum GRV amount when mintings, unit: GRV |
-| minting_gravity_maximum | string | the maximum GRV amount when mintings, unit: GRV |
+| minting_gravity_minimum | string | the minimum GRV amount when minting, unit: GRV |
+| minting_gravity_maximum | string | the maximum GRV amount when minting, unit: GRV |
 | gravity_escrow_address | string | GRV escrow address |
 
 ##### Example
