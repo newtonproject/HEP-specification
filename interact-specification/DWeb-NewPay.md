@@ -246,7 +246,6 @@ TBD
 
 | Field | Type | Notes |
 | --- | --- | --- |
-| msg_signature | string |  |
 | message | string |  |
 | sign_type | string |  |
 | signature | string |  |
@@ -258,7 +257,6 @@ TBD
 	"result": {
 		"signature": "0xsignature",
 		"sign_type": "secp256r1",
-		"msg_signature": "0xmsgSignature",
 		"message": "86"
 	}
 }
