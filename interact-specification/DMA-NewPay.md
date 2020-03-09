@@ -202,8 +202,8 @@ Details in [proof_confirmProof](hep-node/REST-API.md)
 ### Steps
 
 * DMA app calls the **signMessage** function in NewPaySDK with basic parameters and extra parameters.
-* NewPay retrieve the dapp profile from hep node and verify the DMA app info.
-* NewPay sign message.
+* NewPay retrieves the dapp profile from hep node and verify the DMA app info.
+* NewPay signs message.
 * NewPay sends signature back.
 
 ### EndPoints
