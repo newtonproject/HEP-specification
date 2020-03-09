@@ -227,7 +227,6 @@ Details in [proof_confirmProof](hep-node/REST-API.md)
 | Field | Type | Notes |
 | --- | --- | --- |
 | uuid | string |  |
-| msg_signature | string |  |
 | message | string |  |
 | sign_type | string |  |
 | signature | string |  |
@@ -240,7 +239,6 @@ Details in [proof_confirmProof](hep-node/REST-API.md)
 		"uuid": "uuid string",
 		"signature": "0xsignature",
 		"sign_type": "secp256r1",
-		"msg_signature": "0xmsgSignature",
 		"message": "86"
 	}
 }
