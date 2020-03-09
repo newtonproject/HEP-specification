@@ -304,18 +304,14 @@ TBD
 
 | Field | Type | Notes |
 | --- | --- | --- |
-| transaction_data | string |  |
-| sign_type | string |  |
-| signature | string |  |
+| signed_transaction | string |  |
 
 #### Example
 ```
 {
 	"status_code": 200,
 	"result": {
-		"transaction_data": "0xtransactionData",
-		"sign_type": "secp256r1",
-		"signature": "0xsignature",
+		"signed_transaction": "0xtransactionData"
 	}
 }
 ```
