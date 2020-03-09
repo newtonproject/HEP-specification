@@ -255,7 +255,7 @@ TBD
 {
 	"status_code": 200,
 	"result": {
-		"signature": "0xsignature",
+		"signature": "0x6e6577746f6e70726f6a656374",
 		"sign_type": "secp256r1",
 		"message": "86"
 	}
@@ -311,7 +311,7 @@ TBD
 {
 	"status_code": 200,
 	"result": {
-		"signed_transaction": "0xtransactionData"
+		"signed_transaction": "0x6e6577746f6e70726f6a656374"
 	}
 }
 ```
