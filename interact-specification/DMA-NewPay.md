@@ -226,7 +226,6 @@ Details in [proof_confirmProof](hep-node/REST-API.md)
 
 | Field | Type | Notes |
 | --- | --- | --- |
-| uuid | string |  |
 | message | string |  |
 | sign_type | string |  |
 | signature | string |  |
@@ -236,7 +235,6 @@ Details in [proof_confirmProof](hep-node/REST-API.md)
 {
 	"status_code": 200,
 	"result": {
-		"uuid": "uuid string",
 		"signature": "0xsignature",
 		"sign_type": "secp256r1",
 		"message": "86"
@@ -278,7 +276,6 @@ Details in [proof_confirmProof](hep-node/REST-API.md)
 
 | Field | Type | Notes |
 | --- | --- | --- |
-| uuid | string |  |
 | signed_transaction | string |  |
 
 #### Example
@@ -286,7 +283,6 @@ Details in [proof_confirmProof](hep-node/REST-API.md)
 {
 	"status_code": 200,
 	"result": {
-		"uuid": "uuid string",
 		"signed_transaction": "0xtransactionData"
 	}
 }
