@@ -228,14 +228,14 @@ Details in [proof_confirmProof](hep-node/REST-API.md)
 | --- | --- | --- |
 | message | string |  |
 | sign_type | string |  |
-| signature | string |  |
+| signed_message | string |  |
 
 #### Example
 ```
 {
 	"status_code": 200,
 	"result": {
-		"signature": "0x6e6577746f6e70726f6a656374",
+		"signed_message": "0x6e6577746f6e70726f6a656374",
 		"sign_type": "secp256r1",
 		"message": "86"
 	}
