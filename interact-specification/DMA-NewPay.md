@@ -197,3 +197,103 @@ Details in [proof_confirmProof](hep-node/REST-API.md)
 }
 ```
 
+## Sign Message
+
+### Steps
+
+* DMA app calls the **signMessage** function in NewPaySDK with basic parameters and extra parameters.
+* NewPay retrieve the dapp profile from hep node and verify the DMA app info.
+* NewPay sign message.
+* NewPay sends signature back.
+
+### EndPoints
+`NewPay`
+
+
+### DMA -> NewPay
+#### Parameters
+| Field | Type | Notes |
+| --- | --- | --- |
+| action | string | The value is "hep.sign.message"|
+| message | string | The message to be signed |
+| sign_type | string | Signature Type,aka cryptographic algorithm |
+| signature | string | signature hex string by DApp owner. |
+   
+
+### NewPay return to DMA app
+
+#### Returns
+
+| Field | Type | Notes |
+| --- | --- | --- |
+| uuid | string |  |
+| msg_signature | string |  |
+| message | string |  |
+| sign_type | string |  |
+| signature | string |  |
+
+#### Example
+```
+{
+	"status_code": 200,
+	"result": {
+		"uuid": "uuid string",
+		"signature": "0xsignature",
+		"sign_type": "secp256r1",
+		"msg_signature": "0xmsgSignature",
+		"message": "86"
+	}
+}
+```
+
+## Sign Transaction
+
+### Steps
+
+* DMA app calls the **signTransaction** function in NewPaySDK with basic parameters and extra parameters.
+* NewPay retrieves the dapp profile from hep node and verify the DMA app info.
+* NewPay signs tansaction.
+* NewPay sends the data which is from transaction signing back to DMA app.
+
+### EndPoints
+`NewPay`
+
+
+### DMA -> NewPay
+#### Parameters
+| Field | Type | Notes |
+| --- | --- | --- |
+| action | string | The value is "hep.sign.transaction" |
+| amount | string | The amount of transaction |
+| from | string | The from address of the transaction |
+| to | string | The to address of the transaction |
+| nonce | string | The nonce of the transaction |
+| gas_price | string | The gas_price of the transaction |
+| gas_limit | string | The gas_limit of the transaction |
+| data | string | The data of the transaction and should be a hex string |
+| sign_type | string | Signature Type,aka cryptographic algorithm |
+| signature | string | signature hex string by DApp owner. |
+
+### NewPay return to DMA app
+
+#### Returns
+
+| Field | Type | Notes |
+| --- | --- | --- |
+| uuid | string |  |
+| transaction_data | string |  |
+| sign_type | string |  |
+| signature | string |  |
+
+#### Example
+```
+{
+	"status_code": 200,
+	"result": {
+		"uuid": "uuid string",
+		"transaction_data": "0xtransactionData",
+		"sign_type": "secp256r1",
+		"signature": "0xsignature",
+	}
+}
+```
