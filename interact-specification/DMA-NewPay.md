@@ -263,7 +263,7 @@ Details in [proof_confirmProof](hep-node/REST-API.md)
 | amount | string | The amount of transaction |
 | from | string | The from address of the transaction |
 | to | string | The to address of the transaction |
-| transaction_nonce | string | The nonce of the transaction |
+| transaction_count | string | The nonce of the transaction |
 | gas_price | string | The gas_price of the transaction |
 | gas_limit | string | The gas_limit of the transaction |
 | data | string | The data of the transaction and should be a hex string |
