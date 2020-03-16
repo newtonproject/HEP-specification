@@ -55,34 +55,39 @@
 | sign_type | string | Signature Type,aka cryptographic algorithm |
 | signature | string | signature hex string by DApp owner. |
 
-
-### Retrieve the profile of DApp in NewPay
-Details in [HEP NODE REST API](hep-node/REST-API.md)
-   
-
 ### NewPay return to DWeb app or server
 
-#### Returns
+* Request
 
-| Field | Type | Notes |
-| --- | --- | --- |
-| user_name | string | The user name |
-| newid | string | newid |
-| invite_code | string | invite code |
-| wallet_address | string | The wallet address |
-| user_avatar | string | user avatar |
-| country_code | string | Country code (scope is 2) |
-| cellphone | string | Cellphone (scope is 2) |
+| Field | Type | Desc |
+|:--:|:--:|:--:|
+| signature | string | The profile's signature |
+| sign_type | string | secp256r1, signature method name |
+| uuid | string | uuid |
+| name | string | user's name |
+| avatar | string | user's avatar path |
+| newid | string | user's newid |
+| country_code | string | eg: 86 scope=2 |
+| cellphone | string | user's cellphone, scope =2 |
+| address | string | user's address, scope=2 |
+| invite_code | string | user's invite code,scope=2 |
+
+* Response
+see [Error Message](DWeb-callback-error-messages.md)
 
 #### Example
 ```
 {
-    "status_code": 200,
-    "result": {
-        "uuid": "...",
-        "user_name": "...",
-        ...
-    }
+    "signature": "0x...",
+    "sign_type": "secp256r1",
+    "uuid": "xxx",
+    "name": "name",
+    "avatar": "avatar path",
+    "newid": "NEWID182...",
+    "country_code": "86",
+    "cellphone": "1888888888",
+    "address": "NEW...",
+    "invite_code": "123456"
 }
 ```
 
@@ -122,31 +127,37 @@ Details in [HEP NODE REST API](hep-node/REST-API.md)
 | customer         | string | The customer's NewID |
 | broker           | string | The broker's NewID. optional.  |
 | sign_type | string | Signature Type,aka cryptographic algorithm |
-| signature        | string | signature hex string by application owner, format: "0xf9559857bb89e106de1c97bf640a481ff77a6f51e9ba8e8487d43999af0369c4e89eecca9ae085c44506137bc12ef16b24347c6b93b04fee5ef8572818382138". |
+| signature        | string |"0xf9559857bb89e106de1c97bf640a481ff77a6f51e9ba8e8487d43999af0369c4e89eecca9ae085c44506137bc12ef16b24347c6b93b04fee5ef8572818382138". |
 
 
-### Retrieve the profile of DApp in NewPay
-Details in [HEP NODE REST API](hep-node/REST-API.md)
+#### Return transaction information to DApp js or server
+* Request
 
-### Infomation return to DWeb app or server
-#### Returns
+| Field | Type | Desc |
+|:--:|:--:|:--:|
+| signature | string | The pay's signature |
+| sign_type | string | secp256r1, signature method name |
+| uuid | string | uuid |
+| nonce | string | nonce, random string |
+| dapp_id | string | dapp id |
+| ts | string | timestamp |
+| txid | string | transaction id |
+| order_number | string | order number |
 
-| Field | Type | Notes |
-| --- | --- | --- |
-| uuid           | string | The request uuid                             |
-| order_number     | string | The order number. |
-| txid | string | The transaction id. |
-
+* Response
+see [Error Message](DWeb-callback-error-messages.md)
 
 #### Example
 ```
 {
-    "status_code": 200,
-    "result": {
-        "uuid": "...",
-        "order_number": "...",
-        "txid": "...",
-    }
+    "signature": "0x...",
+    "sign_type": "secp256r1",
+    "uuid": "xxx",
+    "nonce": "random string",
+    "dapp_id": "dapp id",
+    "ts": "timestamp",
+    "txid": "txid",
+    "order_number": "order number"
 }
 ```
 
@@ -185,29 +196,33 @@ see [proof_submitProof](hep-node/REST-API.md)
 | sign_type | string | Signature Type,aka cryptographic algorithm. |
 | signature      | string | The signature by DApp owner. |
 
-### Retrieve the profile of DApp in NewPay
-Details in [dapp_profile](hep-node/REST-API.md)
+#### Result to DWeb app or server
+* Request
 
-### Confirm the proof
-TBD
+| Field | Type | Desc |
+|:--:|:--:|:--:|
+| signature | string | The proof's signature |
+| sign_type | string | secp256r1, signature method name |
+| uuid | string | uuid |
+| nonce | string | nonce, random string |
+| dapp_id | string | dapp id |
+| ts | string | timestamp |
+| proof_hash | string | proof hash |
 
-### Result return to DWeb app or server
-#### Returns
-
-| Field | Type | Notes |
-| --- | --- | --- |
-| uuid           | string | The request uuid                             |
-| proof_hash      | string | The hash of proof which prefix is '0x'. |
+* Response
+see [Error Message](DWeb-callback-error-messages.md)
 
 
 #### Example
 ```
 {
-    "status_code": 200,
-    "result": {
-        "uuid": "...",
-        "proof_hash": "...",
-    }
+    "signature": "0x...",
+    "sign_type": "secp256r1",
+    "uuid": "xxx",
+    "nonce": "random string",
+    "dapp_id": "dapp id",
+    "ts": "timestamp",
+    "proof_hash": "proof hash"
 }
 ```
 

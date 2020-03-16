@@ -1,6 +1,27 @@
-# Hyper Exchange Protocol (HEP)
+English / [中文](README_cn.md)
 
-More see [HEP introduction](HEP-introd.md).
+
+# Specification of Hyper Exchange Protocol (HEP)
+
+More see [HEP introduction](HEP-intro.md).
+
+## HEP Ecosystem
+
+### Economy Model
+
+see [Economy Model v1](economy-model-v1.md)
+
+### DApp Developer
+* [How to be the application developer](DApp-Process.md)
+
+### Technology Service Developer
+* [How to be the Technology Serice developer](tech-service-developer.md)
+
+### Miner
+* [How to be the miner](miner.md)
+
+### Scentist
+TBD
 
 ## Architecture
 
@@ -18,12 +39,7 @@ see [Proof Engine Suchain](proof-engine-subchain/README.md)
 
 see [Oracle Services](oracle/README.md)
 
-
-## DApp Ecosystem
-
-### DApp economy
-
-see [DApp economy](DApp-Economy.md)
+## Building your Dapp
 
 ### DApp Type 
 
@@ -43,7 +59,6 @@ In our release of HEP 1.0, we support the following features:
 * Payment
 * Upload OffChain Transaction
 
-## Building your Dapp
 
 ### SDKs
 
@@ -51,16 +66,14 @@ Software Development Kits are available for:
 
 * [iOS](http://cocoapods.org/pods/NewPaySDK-iOS)
 * [Android](https://github.com/newtonproject/NewPaySDK-Android)
-* [NodeJS](https://github.com/newtonproject/hep.js)
-
-### Smart Contract
-In Newton ecosystem, you don't need to write the smart contracts for developing DApp because we provide the smart contract template and market place. 
-
-If you still want to do it, it is easy. Use [NewTruffle](NewTruffle.md), a fork of [Truffle](https://truffleframework.com/), so if you're familiar with [Ethereum](https://www.ethereum.org/) you'll feel right at home.
+* [HEP SDK](https://github.com/newtonproject/hep-sdk)
+* [DApp Demo](https://github.com/newtonproject/dapp_demo)
 
 ### Tutorial
-
-* examples - [DApp Example](https://github.com/newtonproject/hep-example)
+* [Tutorial for develop DMA application](tutorial/tutorial-dma.md)
+* [Tutorial for develop DWEB application](tutorial/tutorial-dweb.md)
+* [Tutorial for develop NewDApp](tutorial/tutorial-newdapp.md)
+* [Tutorial for develop smart contract based on NewVM](tutorial/tutorial-smart-contract.md)
 
 ### Use Cases
 

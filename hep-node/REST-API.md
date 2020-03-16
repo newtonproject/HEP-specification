@@ -363,6 +363,7 @@ TBD
 | proof_type       | string | The type of proof information |
 | price_currency   | string | symbol of fiat or digital token, such as USD, CNY, NEW,BTC,ETH
 | total_price      | string | amount of fiat or digital token, unit is the minimum unit of given fiat or digital token |
+| orders | json | orders array |
 | order_number     | string | The order number. |
 | order_items      | json | The list of order items, see [schema/order-item.json]. |
 | seller           | string | The seller's NewID  |
@@ -378,40 +379,45 @@ curl -X POST --data '{}'
 
 // Response
 {
-    "dapp_id": "...",
-    "protocol": "....",
-    "version": "1.0",
-    "ts": 1559122027,
-    "nonce": "...",
-    "signature": "...",
-    "sign_type": "...",
-    "action": "hep.proof.submit",
-    "expired": 1559122027,
-    "content": {
-        "description": "xxx",
-        "total_price": "1000",
-        "price_currency": "CNY",
-        "order_number": "...",
-        "seller": "NEWID182...",
-        "buyer": "NEWID182...",
-        "broker": "NEWIDXX...",
-        "proof_type": "order",
-        "order_items": [
+    "dapp_id":"dappid",
+    "protocol":"HEP",
+    "version":"1.0",
+    "ts":1551222202,
+    "nonce":"random string",
+    "signature":"secp256r1signature",
+    "sign_type":"secp256r1",
+    "action":"hep.proof.submit",
+    "content":{
+        "total_price":"199.33",  // 所有订单的价格和
+        "price_currency":"CNY",  // 订单的价格单位
+        "submitter":"NEWID182XXXXXXX", // 用户的 newid
+        "proof_type":"order",    // 证明类型，默认为order
+        "orders":[               // 订单数组
             {
-                "order_item_number": "...",
-                "price": "12.2",
-                "price_currency": "NEW",
-                "ordered_item": {
-                    "name": "...",
-                    "thing_type": "product",
-                    "thing_id": "...",
-                },
-                "order_item_quantity": 1
+                "order_number":"xxxx",   // 订单编号
+                "description":"description",  // 订单描述
+                "chain_txid":"0xtxidxxxxxx",  // 如果为new支付，该值 wei 支付的 txid
+                "seller":"NEWID18X....",     // 卖家的newid
+                "broker":"NEWID182.......",   // 代理商的 newid， 可以为空字符串
+                "customer": "NEWID182....",   // 用户的 newid
+                "total_price": "12",         // 该订单的价格
+                "price_currency": "CNY"      // 该订单的计价单位
+                "order_items":[             // 订单详情数组
+                    {
+                        "order_item_number":"20190505053222",  // 订单详情id
+                        "price":"12.2",                         // 订单价格...
+                        "price_currency":"CNY",
+                        "ordered_item":{
+                            "name":"杯子",
+                            "thing_type":"product",
+                            "thing_id":"pingguoxxxxxxx"
+                        },
+                        "order_item_quantity":3
+                    }
+                ]
             }
-        ],
-        "chain_txid": "xxx",
-        ...
-    },
+        ]
+    }
 }
 ```
 
@@ -431,6 +437,7 @@ curl -X POST --data '{}'
 | Field            | Type   | Notes                                      |
 | ---              | ---    | ---                                        |
 | dapp_id           | string | The decentralized application ID                             |
+| proof_item_id        | string | The proof item id. For order proof, it is order_number. |
 | proof_subitem_id        | string | The proof subitem id. For order proof, it is order_item_number. optional. If it is empty, all subitem will be canceled. |
 | sign_type        | string | Signature Type,aka cryptographic algorithm. |
 | signature        | string | The signature hex string by application owner. The exclude fields is ['dapp_signature_method', 'dapp_signature', 'signature', 'sign_type']. |
@@ -495,6 +502,63 @@ curl -X POST --data '{}'
 }
 ```
 
+***
+### proof_getProofRewards
+Get the proof reward by given proof data.
+
+#### Path
+`
+/proofs/rewards/
+`
+
+#### Method
+`POST`
+
+#### Parameters
+| Field            | Type   | Notes                                      |
+| ---              | ---    | ---                                        |
+| proof_data | json | The proof data. the format is [{"proof_hash":"...", "proof_item_id":'...', "proof_subitem_id":"..."},] |
+
+#### Example Parameters
+TBD
+
+#### Returns
+| Field            | Type   | Notes                                      |
+| ---              | ---    | ---                                        |
+| proof_rewards | json | The proof rewards. |
+| proof_hash | string | The proof hash. |
+| proof_item_id        | string | The proof item id.  |
+| proof_subitem_id        | string | The proof subitem id. |
+| reward_tokens | string | The proof rewards. |
+| newid | string | The newid of submit proof. |
+| newforce | string | The newforce of proof. |
+| action | string | The action of proof.choices:PURCHASE,RETURN |
+| issue_timestamp | int | The timestamp of token issued |
+| issue_status | string | The status of token issued.choices:PENDING,SENT,CANCELED |
+
+
+#### Example
+```
+// Request
+curl -X POST --data '{}'
+
+
+// Response
+{
+    "proof_rewards": [
+        {
+            "proof_hash": "....",
+            "proof_item_id": "....",
+            "proof_subitem_id": "....",
+            "reward_tokens": "....",   
+            "newid": "....",                  
+            "newforce": "....",        
+            "action": "....",                                                          
+        }
+    ]
+}
+```
+
 ## DApp
 
 ### dapp_profile
@@ -522,13 +586,20 @@ TBD
 | bundle_id | string | The bundle id such as com.demo.dev.ios for ios platform |
 | schema | string | The routing schema |
 | website | string | The dapp website link |
-| download_url | string | The dapp download url |
+| android_download_url | string | The dapp download url |
+| ios_download_url | string | the ios download url |
+| dweb_download_url | string | the dweb download url |
+| newdapp_download_url | string | the newdapp download url |
 | deposit_contract_address | string | The deposit contract Address, the example is NEW182.... |
-| dapp_type_id | int | The dapp type id.  |
+| dapp_type_ids | array[] | The dapp type ids.  support platforms, 1 android, 2 ios, 3 dweb, 4 newdapp |
 | dapp_category_id | int | The dapp category id.  |
 | auth_login_callback  | string | For Mobile Native DApp, it is redirect schema; For website DApp, it is callback url; For  NewDApp, it is HEP-based url.       |
 | pay_order_callback | string | For Mobile Native DApp, it is redirect schema; For website DApp, it is callback url; For  NewDApp, it is HEP-based url. |
 | proof_submit_callback | string | For Mobile Native DApp, it is redirect schema; For website DApp, it is callback url; For  NewDApp, it is HEP-based url. |
+| android_status | int | the android platform publish status |
+| ios_status | int | the ios platform publish status |
+| dweb_status | int | the dweb platform publish status |
+| newdapp_status | int | the newdapp platform publish status |
 
 #### Example
 ```
@@ -542,6 +613,41 @@ curl -X POST --data '{}'
 }
 ```
 
+### dapp_getDailyStats
+
+#### Path
+`
+/dapps/:dapp_id/:date/
+`
+* `date` - the date format is '20190808'.
+
+#### Parameters
+none
+
+#### Example Parameters
+TBD
+
+#### Returns
+| Field            | Type   | Notes                                      |
+| ---              | ---    | ---                                        |
+| dapp_id           | string | The decentralized application ID                             |
+| total_nf           | string | The total Newforce                             |
+| total_tokens           | string | The total number of NEW tokens                             |
+
+
+#### Example
+```
+// Request
+curl -X POST --data '{}'
+
+
+// Response
+{
+    "dapp_id": "e123123123",
+    "total_nf": "100",
+    "total_tokens": "200"    
+}
+```
 
 ### newid
 
@@ -570,9 +676,49 @@ none
 }
 ```
 
-### NewForce
+### Get the newforce reward tokens by newid
 
 #### Path
+`
+/newids/:newid/newforce/reward/
+`
+* `newid` - the newid format is 'NEW182...'.
+
+#### Parameters
+none
+
+#### Returns
+| Field | Type | Notes |
+| --- | --- | --- |
+| total_reward | string | The total reward of govern community, unit: NEW |
+| direct_buy_reward | string | The direct purchase reward of govern community, unit: NEW |
+| direct_invite_reward | string | The direct invitation reward of govern community, unit: NEW |
+| indirect_buy_reward | string | The indirect purchase reward of govern community, unit: NEW |
+| indirect_invite_reward | string | The indirect invitation reward of govern community, unit: NEW |
+| locked_for_candidate_reward | string | The community node reward of govern community, unit: NEW |
+| locked_for_voter_reward | string | The vote reward of govern community, unit: NEW |
+| sale_reward | string | The sale reward of govern community, unit: NEW |
+
+#### Example
+```
+// Response
+{
+    'direct_buy_reward': '0',
+    'direct_invite_reward': '0',
+    'indirect_buy_reward': '0',
+    'indirect_invite_reward': '0',
+    'locked_for_candidate_reward': '0.002097746394517319',
+    'locked_for_voter_reward': '0.001064190109278843',
+    'sale_reward': '0',
+    'total_reward': '0.003161936503796162'
+}
+```
+
+### NewForce
+
+#### Get the daily statistics of NewForce
+
+##### Path
 `
 /newforce/:date/
 `
@@ -580,10 +726,10 @@ none
 * `date` - the date format is '20190808'.
 
 
-#### Parameters
+##### Parameters
 none
 
-#### Returns
+##### Returns
 | Field | Type | Notes |
 | --- | --- | --- |
 | nf_new | string | The conversion rate between NewForce(NF) and NEW |
@@ -592,7 +738,7 @@ none
 | gnf | string | The global NewForce |
 
 
-#### Example
+##### Example
 ```
 // Response
 {
@@ -655,7 +801,8 @@ none
 | from_address | string | The from address |
 | to_address | string | The to address |
 | value | string | The transfer amount |
-| ts | int | The timstampe of transaction |
+| block_height | int | The block height |
+| status | int | The status of transaction |
 
 
 ##### Example
@@ -667,6 +814,320 @@ none
     "from_address": "....",
     "to_address": "....",
     "value": "....",
-    "ts": 1534322342,
+    "block_height": 1990000,
+    "status":1, 
+}
+```
+
+### Gravity
+
+#### Get Gravity Account Information
+
+##### Method
+GET
+
+##### Path
+`
+/newchain/coin/:coin_name/account/:newid/
+`
+
+##### Parameters
+None
+
+##### Returns
+| field | type | description|
+| --- | --- | --- |
+| is_in_whitelist | boolean | whether newid is in whitelist |
+| mint_status | int | status of mint, 1 for not mint, 2 for pending mint, 3 for in minting, 4 for completed mint, 5 for pending collect |
+| collect_status | int | status of mint, 1 for can not collect, 2 for can collect, 3 for pending collect |
+| total_gravity | string | GRV account balance include available GRV and in minting GRV |
+| in_minting_gravity | string | in minting GRV |
+| minted_gravity | string | history accumulative minted GRV |
+| exchanged_tokens | string | history accumulative exchanged tokens |
+| exchange_rate | string | exchange rate GRV to NEW |
+| gravity_escrow_address | string | GRV escrow address |
+| can_collect_tokens | string | amount of can collect tokens |
+| locked_tokens | string | locked NEW amount |
+
+###### Example
+```
+{
+      "is_in_whitelist": True,
+      "mint_status": 3,
+      "can_collect": True,
+      "total_gravity": "1000000",
+      "in_minting_gravity": "490000",
+      "minted_gravity": "5000000",
+      "exchanged_tokens": "5000000",
+      "exchange_rate": "1",
+      "gravity_escrow_address": "0xa21311321321321",
+      "can_collect_tokens": "140000",
+}
+```
+
+#### Get condition of Gravity minting
+
+##### Method
+GET
+
+##### Path
+`
+/newchain/coin/:coin_name/mint/condition/:newid/
+`
+
+##### Parameters
+None
+
+##### Returns
+| field | type | description| 
+| --- | --- | --- |
+| exchange_rate | string | exchange rate GRV to NEW |
+| locked_tokens_rate | string | the rate of locked tokens when minting GRV |
+| locked_tokens_threshold | string | the threshold of locked tokens, used to decide locked days, unit: NEW |
+| mint_formula_constant | int | constant of the locked days formula |
+| locked_tokens_days_minimum | string | the minimum locked days |
+| minting_gravity_minimum | string | the minimum GRV amount when minting, unit: GRV |
+| minting_gravity_maximum | string | the maximum GRV amount when minting, unit: GRV |
+| gravity_escrow_address | string | GRV escrow address |
+
+##### Example
+```
+{
+      "exchange_rate": "1",
+      "locked_tokens_rate": "10",
+      "locked_tokens_threshold": "1000000",
+      "mint_formula_constant": 1,
+      "locked_tokens_days_minimum": "10",
+      "minting_gravity_minimum": "10000",
+      "minting_gravity_maximum": "100000000",
+      "gravity_escrow_address": "0x112132132123",
+}
+```
+
+#### Get current data of Gravity minting
+
+##### Method
+GET
+
+##### Path
+`
+/newchain/coin/:coin_name/mint/data/current/:newid/
+`
+
+##### Parameters
+None
+
+##### Returns
+| field | type | description| 
+| --- | --- | --- |
+| start_timestamp | int | start timestamp |
+| end_timestamp | int | end timestamp |
+| remaining_days | int | remaining days |
+| locked_days | int | locked days |
+| minted_days | int | minted days |
+| collected_tokens | string | tokens that has been collected, unit: NEW |
+| collect_status | int | status of mint, 1 for can not collect, 2 for can collect, 3 for pending collect |
+| can_collect_tokens | string | tokens that waiting for collected, unit: NEW |
+| in_minting_gravity | string | GRV that is in minting, unit: GRV |
+| current_minting_stage | int | stage of current minting |
+| current_collect_stage | int | stage of current collect |
+| total_minting_stages | int | total stages of minting |
+| released_tokens | string | released tokens, part of locked tokens, not from minting, unit: NEW |
+| locked_tokens | string | locked tokens currently, unit: NEW |
+| total_mint_amount | string | locked GRV of this minting, unit: GRV |
+| total_exchange_tokens | string | exchange NEW of this minting, unit: NEW |
+
+##### Example
+```
+{
+      "start_timestamp": 1567995106,
+      "remaining_timestamp": 1567995106,
+      "remaining_days": 3,
+      "locked_days": 10,
+      "minted_days": 7,
+      "collected_tokens": "70000",
+      "in_minting_gravity": "490000",
+      "can_collect": True,
+      "can_collect_tokens": "140000",
+      "current_minting_stage": 3,
+      "total_minting_stages": 10,
+      "released_tokens": "2100000",
+      "locked_tokens": "4900000",
+      "total_mint_amount": "700000",
+      "total_exchange_tokens": "700000",
+}
+```
+
+#### Get history data of GRV minting
+
+##### Method
+POST
+
+##### Path
+`
+/newchain/coin/:coin_name/mint/data/history/
+`
+
+##### Parameters
+| field | type | description|
+| --- | --- | --- |
+| newid | string | NewID of user |
+| page_id | int |  |
+| page_size | int |  |
+
+##### Returns
+| field | type | description| 
+| --- | --- | --- |
+| total_page | int | total number of pages |
+| page_id | int |  |
+| page_size | int |  |
+| start_timestamp | int | start timestamp |
+| end_timestamp | int | end timestamp |
+| locked_days | int | total locked timestamp |
+| minted_gravity | string | minted gravity, unit: GRV |
+| locked_tokens | string | locked tokens of this minting, unit: NEW |
+| collected_tokens | string | tokens that has been collected, unit: NEW |
+
+##### Example
+```
+{
+      "total_page": 10,
+      "page_id": page_id,
+      "page_size": page_size,
+      "data_list": [
+            {
+                  "minted_gravity": "200000",
+                  "collected_tokens": "200000",
+                  "locked_tokens": "2000000",
+                  "start_timestamp": 1567995106,
+                  "end_timestamp": 1567995106,
+                  "locked_days": 10,
+            },
+            {
+                  "minted_gravity": "2000000",
+                  "collected_tokens": "2000000",
+                  "locked_tokens": "20000000",
+                  "start_timestamp": 1567995106,
+                  "end_timestamp": 1567995106,
+                  "locked_days": 10,
+            },
+            ...
+      ]
+}
+```
+
+#### Execute Casting
+
+##### Method
+POST
+
+##### Path
+`
+/newchain/coin/:coin_name/mint/submit/
+`
+
+##### Parameters
+| field | type | description| 
+| --- | --- | --- |
+| newid | string | NewID of user |
+| tx_tokens | string | transaction body of lock NEW |
+| tx_gravity | string | transaction body of lock GRV |
+| sign_type        | string | Signature Type,aka cryptographic algorithm |
+| signature        | string | The signature hex string by application owner. The exclude fields is ['dapp_signature_method', 'dapp_signature', 'signature', 'sign_type']. |
+
+##### Returns
+None
+
+##### Example
+```
+{
+}
+```
+
+#### Execute collect operation
+
+##### Method
+POST
+
+##### Path
+`
+/newchain/coin/:coin_name/mint/collect/
+`
+
+##### Parameters
+| field | type | description| 
+| --- | --- | --- |
+| newid | string | NewID of user |
+| sign_type        | string | Signature Type,aka cryptographic algorithm |
+| signature        | string | The signature hex string by application owner. The exclude fields is ['dapp_signature_method', 'dapp_signature', 'signature', 'sign_type']. |
+
+##### Return
+None
+
+##### Example
+```
+{
+}
+```
+
+#### Get Subscribe Gravity Condition
+
+##### Method
+GET
+
+##### Path
+`
+/newchain/coin/:coin_name/subscription/condition/:newid/
+`
+
+##### Parameters
+None
+
+##### Returns
+| field | type | description| 
+| --- | --- | --- |
+| reward_pool_balance | string | GRV amount in reward pool |
+| subscription_rate | string | the exchange rate NEW to GRV |
+| subscription_minimum | string | the minimum tokens amount to subscribe GRV, unit: NEW |
+| subscription_maximum | string | the maximum tokens amount to subscribe GRV, unit: NEW |
+| gravity_escrow_address | string | GRV escrow address |
+| subscription_bonus_constant | string | subscribe bonus formula constant |
+
+##### Example
+```
+{
+    "reward_pool_balance": "28000000",
+    "subscription_rate": "1",
+    "subscription_minimum": "10000000",
+    "subscription_maximum": "100000000",
+    "gravity_escrow_address": "0x1321321321321",
+    "subscription_bonus_constant": "1000000000"
+}
+```
+
+#### Execute Subscribe
+
+##### Method
+POST
+
+##### Path
+`
+/newchain/coin/:coin_name/subscription/submit/
+`
+
+##### Parameters
+| field | type | description| 
+| --- | --- | --- |
+| newid | string | NewID of user |
+| tx | string | transaction body |
+| sign_type        | string | Signature Type,aka cryptographic algorithm |
+| signature        | string | The signature hex string by application owner. The exclude fields is ['dapp_signature_method', 'dapp_signature', 'signature', 'sign_type']. |
+
+##### Return
+None
+
+##### Example
+```
+{
 }
 ```
