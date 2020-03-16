@@ -8,9 +8,9 @@
 | uuid | string | uuid |
 | dapp_id | string | Decentralized Application Id |
 | protocol | string | protocol name. The default is "HEP". |
-| version | string    | protocol version. The example is "1.0". |
-| ts        | number    | timestamp                                  |
-| nonce            | string | random string or auto-increment sequence                              |
+| version | string | protocol version. The example is "1.0". |
+| ts | string | timestamp |
+| nonce | string | random string or auto-increment sequence |
 
 ### Response
 | Field | Type | Notes |
@@ -175,3 +175,93 @@ see [proof_submitProof](hep-node/REST-API.md)
 }
 ```
 
+## Sign Message
+
+### Steps
+
+* DMA app calls the **signMessage** function in NewPaySDK with basic parameters and extra parameters.
+* NewPay retrieves the dapp profile from hep node and verify the DMA app info.
+* NewPay signs message.
+* NewPay sends signature back.
+
+### EndPoints
+`NewPay`
+
+
+### DMA -> NewPay
+#### Parameters
+| Field | Type | Notes |
+| --- | --- | --- |
+| action | string | The value is "hep.sign.message"|
+| message | string | The message to be signed |
+| sign_type | string | Signature Type,aka cryptographic algorithm |
+| signature | string | signature hex string by DApp owner. |
+   
+
+### NewPay return to DMA app
+
+#### Returns
+
+| Field | Type | Notes |
+| --- | --- | --- |
+| message | string |  |
+| sign_type | string |  |
+| signed_message | string |  |
+
+#### Example
+```
+{
+	"status_code": 200,
+	"result": {
+		"signed_message": "0x6e6577746f6e70726f6a656374",
+		"sign_type": "secp256r1",
+		"message": "86"
+	}
+}
+```
+
+## Sign Transaction
+
+### Steps
+
+* DMA app calls the **signTransaction** function in NewPaySDK with basic parameters and extra parameters.
+* NewPay retrieves the dapp profile from hep node and verify the DMA app info.
+* NewPay signs tansaction.
+* NewPay sends the data which is from transaction signing back to DMA app.
+
+### EndPoints
+`NewPay`
+
+
+### DMA -> NewPay
+#### Parameters
+| Field | Type | Notes |
+| --- | --- | --- |
+| action | string | The value is "hep.sign.transaction" |
+| amount | string | The amount of transaction |
+| from | string | The from address of the transaction |
+| to | string | The to address of the transaction |
+| transaction_count | string | The nonce of the transaction |
+| gas_price | string | The gas_price of the transaction |
+| gas_limit | string | The gas_limit of the transaction |
+| data | string | The data of the transaction and should be a hex string |
+| sign_type | string | Signature Type,aka cryptographic algorithm |
+| signature | string | signature hex string by DApp owner. |
+
+### NewPay return to DMA app
+
+#### Returns
+
+| Field | Type | Notes |
+| --- | --- | --- |
+| signed_transaction | string |  |
+
+#### Example
+```
+{
+	"status_code": 200,
+	"result": {
+		"signed_transaction": "0x6e6577746f6e70726f6a656374"
+	}
+}
+```

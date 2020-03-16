@@ -7,9 +7,9 @@
 | --- | --- | --- |
 | dapp_id | string | Decentralized Application Id |
 | protocol | string | protocol name. The default is "HEP". |
-| version | string    | protocol version. The example is "1.0". |
-| ts        | number    | timestamp                                  |
-| nonce            | string | random string or auto-increment sequence                              |
+| version | string | protocol version. The example is "1.0". |
+| ts | string | timestamp |
+| nonce | string | random string or auto-increment sequence |
 | environment | int | Environment of NewPay. 1 for release, 2 for testnet, 3 for dev |
 | language | string | The language of DWeb app. choices:zh_CN,en |
 
@@ -223,6 +223,111 @@ see [Error Message](DWeb-callback-error-messages.md)
     "dapp_id": "dapp id",
     "ts": "timestamp",
     "proof_hash": "proof hash"
+}
+```
+
+## Sign Message
+
+### Steps
+
+#### In Mobile Browser
+* DWeb app generates the redirect schema by **hep.js** in which basic parameters and extra parameters. Users click any button, and redirect to NewPay. If NewPay is not installed, redirect to NewPay download page.
+* NewPay received the input parameters from schema, and retrieve the dapp profile from hep node and verify the DWeb app info.
+* NewPay sign message.
+* NewPay sends signature back to the API of DWeb app.
+
+#### In NewPay
+* Users click any button. DWeb app call the **signMessage** function by **hep.js** in which basic parameters and extra parameters.
+* NewPay received the input parameters from **JS-bridge**, and retrieve the dapp profile from hep node and verify the DWeb app info.
+* NewPay sign message.
+* NewPay sends signature back to the API of DWeb app.
+
+### DWeb -> NewPay
+#### Parameters
+| Field | Type | Notes |
+| --- | --- | --- |
+| action | string | The value is "hep.sign.message"|
+| message | string | The message to be signed |
+| sign_type | string | Signature Type,aka cryptographic algorithm |
+| signature | string | signature hex string by DApp owner. |
+
+
+### Sign the message
+   
+
+### NewPay return to DWeb app or server
+
+#### Returns
+
+| Field | Type | Notes |
+| --- | --- | --- |
+| message | string |  |
+| sign_type | string |  |
+| signed_message | string |  |
+
+#### Example
+```
+{
+	"status_code": 200,
+	"result": {
+		"signed_message": "0x6e6577746f6e70726f6a656374",
+		"sign_type": "secp256r1",
+		"message": "86"
+	}
+}
+```
+
+
+## Sign Transaction
+
+### Steps
+
+#### In Mobile Browser
+* DWeb app generates the redirect schema by **hep.js** in which basic parameters and extra parameters. Users click any button, and redirect to NewPay. If NewPay is not installed, redirect to NewPay download page.
+* NewPay received the input parameters from schema, and retrieve the dapp profile from hep node and verify the DWeb app info.
+* NewPay sign the transaction.
+* NewPay sends signed data and signature back to the API of DWeb app.
+
+#### In NewPay
+* Users click any button. DWeb app call the **signTransaction** function by **hep.js** in which basic parameters and extra parameters.
+* NewPay received the input parameters from **JS-bridge**, and retrieve the dapp profile from hep node and verify the DWeb app info.
+* NewPay sign the transaction.
+* NewPay sends signed data and signature back to the API of DWeb app.
+
+### DWeb -> NewPay
+#### Parameters
+
+| Field | Type | Notes |
+| --- | --- | --- |
+| action | string | The value is "hep.sign.transaction" |
+| amount | string | The amount of transaction |
+| from | string | The from address of the transaction |
+| to | string | The to address of the transaction |
+| transaction_count | string | The nonce of the transaction |
+| gas_price | string | The gas_price of the transaction |
+| gas_limit | string | The gas_limit of the transaction |
+| data | string | The data of the transaction and should be a hex string |
+| sign_type | string | Signature Type,aka cryptographic algorithm |
+| signature | string | signature hex string by DApp owner. |
+
+
+### Sign the transaction
+   
+### NewPay return to DWeb app or server
+
+#### Returns
+
+| Field | Type | Notes |
+| --- | --- | --- |
+| signed_transaction | string |  |
+
+#### Example
+```
+{
+	"status_code": 200,
+	"result": {
+		"signed_transaction": "0x6e6577746f6e70726f6a656374"
+	}
 }
 ```
 
