@@ -7,9 +7,9 @@
 | --- | --- | --- |
 | dapp_id | string | Decentralized Application Id |
 | protocol | string | protocol name. The default is "HEP". |
-| version | string    | protocol version. The example is "1.0". |
-| ts        | number    | timestamp                                  |
-| nonce            | string | random string or auto-increment sequence                              |
+| version | string | protocol version. The example is "1.0". |
+| ts | string | timestamp |
+| nonce | string | random string or auto-increment sequence |
 | environment | int | Environment of NewPay. 1 for release, 2 for testnet, 3 for dev |
 | language | string | The language of DWeb app. choices:zh_CN,en |
 
