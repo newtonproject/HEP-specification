@@ -8,9 +8,9 @@
 | uuid | string | uuid |
 | dapp_id | string | Decentralized Application Id |
 | protocol | string | protocol name. The default is "HEP". |
-| version | string    | protocol version. The example is "1.0". |
-| ts        | number    | timestamp                                  |
-| nonce            | string | random string or auto-increment sequence                              |
+| version | string | protocol version. The example is "1.0". |
+| ts | string | timestamp |
+| nonce | string | random string or auto-increment sequence |
 
 ### Response
 | Field | Type | Notes |
