@@ -753,7 +753,7 @@ none
 
 ##### Path
 `
-/newforce/:node_wallet_address/
+/newforce/node/round/:node_wallet_address/
 `
 
 * `node_wallet_address` - the wallet address of SuperNode.
@@ -816,7 +816,43 @@ none
 ```
 // Response
 {
-    
+    'address': 'NEW17xQBMnNYm9tefbjQRZuB32X1PMi9LGyQPVH',
+    'page_id': 1,
+    'page_size': 10,
+    'total_page': 106,
+    'round_data': [
+        {
+            'round_id': 1059,
+            'end_time': 1584437400,
+            'is_partner_node': True,
+            'locked_amount': '100',
+            'node_status': 1,
+            'votes': 4,
+            'rank': 1,
+            'partner_node_management_fee': '0.2111',
+            'partner_reward_newforce': '712.0033718548',
+            'partner_reward_token': '263.625055838887102588',
+            'reward_newforce': '739.685537436127551624',
+            'reward_token': '273.874603433174379022',
+            'start_time': 1584435900,
+            'partner_newforce_data': [
+                {'address': 'NEW17xLP9zSuXzXBLF5LLQTowjE1rBEQWVLA5CK',
+                 'locked_amount': '300',
+                 'newforce': '70.380496743982654851',
+                 'newforce_contrib': '18.887491749776645414',
+                 'token_amount': '26.058952973448557302',
+                 'token_contrib': '6.993247874964849472'},
+            ],
+            'voter_newforce_data': [
+                {'address': 'NEW17xLP9zSuXzXBLF5LLQTowjE1rBEQWVLA5CK',
+                 'locked_amount': '1000',
+                 'newforce': '100',
+                 'newforce_contrib': None,
+                 'token_amount': '37.0258156435597031',
+                 'token_contrib': None}
+            ],
+        }
+    ],
 }
 ```
 
