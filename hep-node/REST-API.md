@@ -764,7 +764,7 @@ none
 | --- | --- | --- |
 | page_id | int | page number |
 | page_size | int | max data number per page, max 50 |
-| direction | int | sorted by time in ASC or DESC, 0-ASC, 1-DESC, default 1 |
+| direction | int | sorted by time in ASC or DESC, 1-ASC, 0-DESC, default 0 |
 
 ##### Returns
 | Field | Type | Notes |
@@ -780,7 +780,7 @@ none
 | --- | --- | --- |
 | round_id | int | round id of newforce |
 | start_time | int | round strat time, timestamp in second |
-| round_id | int | round end time, timestamp in second |
+| end_time | int | round end time, timestamp in second |
 | votes | int | number of votes for SuperNode |
 | rank | int | rank of SuperNode |
 | node_status | int | status of SuperNode, 0: candidate 1: FormalSuperNode 2: AlternativeSuperNode |
@@ -816,10 +816,7 @@ none
 ```
 // Response
 {
-    "nf_new": "2.6",
-    "nf_cny": "2",
-    "nf_usd": "2",
-    "gnf": "11111111111"
+    
 }
 ```
 
