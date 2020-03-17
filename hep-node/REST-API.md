@@ -749,6 +749,113 @@ none
 }
 ```
 
+#### Get the round history newforce statistics of SuperNode's partners and voters
+
+##### Path
+`
+/newforce/node/round/:node_wallet_address/
+`
+
+* `node_wallet_address` - the wallet address of SuperNode.
+
+
+##### Parameters
+| Field | Type | Notes |
+| --- | --- | --- |
+| page_id | int | page number |
+| page_size | int | max data number per page, max 50 |
+| direction | int | sorted by time in ASC or DESC, 1-ASC, 0-DESC, default 0 |
+
+##### Returns
+| Field | Type | Notes |
+| --- | --- | --- |
+| address | string | address of SuperNode |
+| page_id | int | current page number |
+| page_size | int | max data number per page, max 50 |
+| total_page | int | total pages number |
+| round_data | list | data of history newforce grouped by round id |
+
+###### round_data
+| Field | Type | Notes |
+| --- | --- | --- |
+| round_id | int | round id of newforce |
+| start_time | int | round strat time, timestamp in second |
+| end_time | int | round end time, timestamp in second |
+| votes | int | number of votes for SuperNode |
+| rank | int | rank of SuperNode |
+| node_status | int | status of SuperNode, 0: candidate 1: FormalSuperNode 2: AlternativeSuperNode |
+| locked_amount | string | locked amount of SuperNode, in unit NEW |
+| reward_newforce | string | reward newfroce from locked amount |
+| reward_token | string | reward token from locked amount, in unit NEW |
+| is_partner_node | bool | whether the SuperNode is partner node |
+| partner_reward_newforce | string | total reward newforce  from partners, not include creator |
+| partner_reward_token | string | total reward token  from partners, not include creator, in unit NEW |
+| partner_node_management_fee | string | management fee rate of the partner node |
+| partner_newforce_data | list | partners and creator newforce data of SuperNode |
+| voter_newforce_data | list | voters newforce data of SuperNode |
+
+###### partner_newforce_data
+| Field | Type | Notes |
+| --- | --- | --- |
+| address | string | address of partner |
+| locked_amount | string | the amount of locked |
+| newforce | string | the reward newforce to partner self  |
+| newforce_contrib | string | the reward newforce to creator |
+| token_amount | string | the reward token to partner self, in unit NEW |
+| token_contrib | string | the reward token to creator |
+
+###### voter_newforce_data
+| Field | Type | Notes |
+| --- | --- | --- |
+| address | string | address of partner |
+| locked_amount | string | the amount of locked |
+| newforce | string | the reward newforce to voter |
+| token_amount | string | the reward token to voter |
+
+##### Example
+```
+// Response
+{
+    'address': 'NEW17xQBMnNYm9tefbjQRZuB32X1PMi9LGyQPVH',
+    'page_id': 1,
+    'page_size': 10,
+    'total_page': 106,
+    'round_data': [
+        {
+            'round_id': 1059,
+            'end_time': 1584437400,
+            'is_partner_node': True,
+            'locked_amount': '100',
+            'node_status': 1,
+            'votes': 4,
+            'rank': 1,
+            'partner_node_management_fee': '0.2111',
+            'partner_reward_newforce': '712.0033718548',
+            'partner_reward_token': '263.625055838887102588',
+            'reward_newforce': '739.685537436127551624',
+            'reward_token': '273.874603433174379022',
+            'start_time': 1584435900,
+            'partner_newforce_data': [
+                {'address': 'NEW17xLP9zSuXzXBLF5LLQTowjE1rBEQWVLA5CK',
+                 'locked_amount': '300',
+                 'newforce': '70.380496743982654851',
+                 'newforce_contrib': '18.887491749776645414',
+                 'token_amount': '26.058952973448557302',
+                 'token_contrib': '6.993247874964849472'},
+            ],
+            'voter_newforce_data': [
+                {'address': 'NEW17xLP9zSuXzXBLF5LLQTowjE1rBEQWVLA5CK',
+                 'locked_amount': '1000',
+                 'newforce': '100',
+                 'newforce_contrib': None,
+                 'token_amount': '37.0258156435597031',
+                 'token_contrib': None}
+            ],
+        }
+    ],
+}
+```
+
 ### Oracle
 
 #### Get the information of given oracle
