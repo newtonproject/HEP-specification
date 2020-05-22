@@ -64,7 +64,7 @@ In our release of HEP 1.0, we support the following features:
 
 Software Development Kits are available for:
 
-* [iOS](http://cocoapods.org/pods/NewPaySDK-iOS)
+* [iOS](https://github.com/newtonproject/newpay-hep-ios)
 * [Android](https://github.com/newtonproject/NewPaySDK-Android)
 * [HEP SDK](https://github.com/newtonproject/hep-sdk)
 * [DApp Demo](https://github.com/newtonproject/dapp_demo)
