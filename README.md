@@ -1,3 +1,5 @@
+Note: The specification is rapidly developed in [develop branch](tree/develop).
+
 English / [中文](README_cn.md)
 
 
