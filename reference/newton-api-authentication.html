@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>1. MD5签名规则 ## | HEP-specification</title>
+    <meta name="description" content="HEP(Hyper Exchange Protocol) Specification for DApp development in Newton ecosystem">
+    <meta name="generator" content="VuePress 1.3.0">
+    
+    
+    <link rel="preload" href="/HEP-specification/assets/css/0.styles.ba461f21.css" as="style"><link rel="preload" href="/HEP-specification/assets/js/app.419242cf.js" as="script"><link rel="preload" href="/HEP-specification/assets/js/2.810d226b.js" as="script"><link rel="preload" href="/HEP-specification/assets/js/46.60bf6604.js" as="script"><link rel="preload" href="/HEP-specification/assets/js/3.aada4df1.js" as="script"><link rel="prefetch" href="/HEP-specification/assets/js/10.07b5122b.js"><link rel="prefetch" href="/HEP-specification/assets/js/11.07ab2f5a.js"><link rel="prefetch" href="/HEP-specification/assets/js/12.ccd7c691.js"><link rel="prefetch" href="/HEP-specification/assets/js/13.590ca748.js"><link rel="prefetch" href="/HEP-specification/assets/js/14.2d893eb2.js"><link rel="prefetch" href="/HEP-specification/assets/js/15.b78077ba.js"><link rel="prefetch" href="/HEP-specification/assets/js/16.7829fee6.js"><link rel="prefetch" href="/HEP-specification/assets/js/17.0d23eaee.js"><link rel="prefetch" href="/HEP-specification/assets/js/18.fda3c910.js"><link rel="prefetch" href="/HEP-specification/assets/js/19.388dc885.js"><link rel="prefetch" href="/HEP-specification/assets/js/20.bd33d416.js"><link rel="prefetch" href="/HEP-specification/assets/js/21.fec79911.js"><link rel="prefetch" href="/HEP-specification/assets/js/22.4852e8c3.js"><link rel="prefetch" href="/HEP-specification/assets/js/23.02ca9ad2.js"><link rel="prefetch" href="/HEP-specification/assets/js/24.a27ecedb.js"><link rel="prefetch" href="/HEP-specification/assets/js/25.6d591597.js"><link rel="prefetch" href="/HEP-specification/assets/js/26.5b54232e.js"><link rel="prefetch" href="/HEP-specification/assets/js/27.db582809.js"><link rel="prefetch" href="/HEP-specification/assets/js/28.6fe812df.js"><link rel="prefetch" href="/HEP-specification/assets/js/29.e2c1a4a5.js"><link rel="prefetch" href="/HEP-specification/assets/js/30.c8bfc05d.js"><link rel="prefetch" href="/HEP-specification/assets/js/31.efd4bdf8.js"><link rel="prefetch" href="/HEP-specification/assets/js/32.8e817237.js"><link rel="prefetch" href="/HEP-specification/assets/js/33.5124ac4c.js"><link rel="prefetch" href="/HEP-specification/assets/js/34.425f35bd.js"><link rel="prefetch" href="/HEP-specification/assets/js/35.102079c4.js"><link rel="prefetch" href="/HEP-specification/assets/js/36.476ac90a.js"><link rel="prefetch" href="/HEP-specification/assets/js/37.04ff4ab5.js"><link rel="prefetch" href="/HEP-specification/assets/js/38.7da043dd.js"><link rel="prefetch" href="/HEP-specification/assets/js/39.b6051c5a.js"><link rel="prefetch" href="/HEP-specification/assets/js/4.65a1a4c3.js"><link rel="prefetch" href="/HEP-specification/assets/js/40.0f513e54.js"><link rel="prefetch" href="/HEP-specification/assets/js/41.d680db47.js"><link rel="prefetch" href="/HEP-specification/assets/js/42.5bf0e2d1.js"><link rel="prefetch" href="/HEP-specification/assets/js/43.1d061f75.js"><link rel="prefetch" href="/HEP-specification/assets/js/44.f794bd6d.js"><link rel="prefetch" href="/HEP-specification/assets/js/45.c060c4a9.js"><link rel="prefetch" href="/HEP-specification/assets/js/47.88292d12.js"><link rel="prefetch" href="/HEP-specification/assets/js/48.f9953027.js"><link rel="prefetch" href="/HEP-specification/assets/js/49.79770fab.js"><link rel="prefetch" href="/HEP-specification/assets/js/5.11a4bfaf.js"><link rel="prefetch" href="/HEP-specification/assets/js/50.c47ea8c2.js"><link rel="prefetch" href="/HEP-specification/assets/js/51.f7c689e5.js"><link rel="prefetch" href="/HEP-specification/assets/js/52.081ff357.js"><link rel="prefetch" href="/HEP-specification/assets/js/53.e66884bb.js"><link rel="prefetch" href="/HEP-specification/assets/js/54.6884c4e5.js"><link rel="prefetch" href="/HEP-specification/assets/js/55.e1ad1900.js"><link rel="prefetch" href="/HEP-specification/assets/js/56.0bb83b11.js"><link rel="prefetch" href="/HEP-specification/assets/js/57.f85086c4.js"><link rel="prefetch" href="/HEP-specification/assets/js/58.2d1f834a.js"><link rel="prefetch" href="/HEP-specification/assets/js/59.18855501.js"><link rel="prefetch" href="/HEP-specification/assets/js/6.ee814126.js"><link rel="prefetch" href="/HEP-specification/assets/js/7.cfd8f4f1.js"><link rel="prefetch" href="/HEP-specification/assets/js/8.01bf51c2.js"><link rel="prefetch" href="/HEP-specification/assets/js/9.849c036f.js">
+    <link rel="stylesheet" href="/HEP-specification/assets/css/0.styles.ba461f21.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/HEP-specification/" class="home-link router-link-active"><!----> <span class="site-name">HEP-specification</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/HEP-specification/" class="nav-link">
+  home
+</a></div><div class="nav-item"><a href="/HEP-specification/hep-node/" class="nav-link">
+  hep-node
+</a></div><div class="nav-item"><a href="/HEP-specification/oracle/oracle.html" class="nav-link">
+  oracle
+</a></div><div class="nav-item"><a href="https://github.com/newtonproject/HEP-specification" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/HEP-specification/" class="nav-link">
+  home
+</a></div><div class="nav-item"><a href="/HEP-specification/hep-node/" class="nav-link">
+  hep-node
+</a></div><div class="nav-item"><a href="/HEP-specification/oracle/oracle.html" class="nav-link">
+  oracle
+</a></div><div class="nav-item"><a href="https://github.com/newtonproject/HEP-specification" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/HEP-specification/" class="sidebar-link">home</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/HEP-specification/#hep-ecosystem" class="sidebar-link">HEP Ecosystem</a></li><li class="sidebar-sub-header"><a href="/HEP-specification/#architecture" class="sidebar-link">Architecture</a></li><li class="sidebar-sub-header"><a href="/HEP-specification/#building-your-dapp" class="sidebar-link">Building your Dapp</a></li></ul></li><li><a href="/HEP-specification/oracle/oracle.html" class="sidebar-link">oracle</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/HEP-specification/oracle/oracle.html#why" class="sidebar-link">Why?</a></li><li class="sidebar-sub-header"><a href="/HEP-specification/oracle/oracle.html#how" class="sidebar-link">How?</a></li></ul></li><li><a href="/HEP-specification/DWeb.html" class="sidebar-link">DWeb</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/HEP-specification/DWeb.html#user-account-creation-and-login" class="sidebar-link">User Account Creation and Login</a></li><li class="sidebar-sub-header"><a href="/HEP-specification/DWeb.html#payments" class="sidebar-link">Payments</a></li><li class="sidebar-sub-header"><a href="/HEP-specification/DWeb.html#placeorder" class="sidebar-link">PlaceOrder</a></li></ul></li><li><a href="/HEP-specification/tutorial/" class="sidebar-link">Tutorial</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="_1-md5签名规则"><a href="#_1-md5签名规则" class="header-anchor">#</a> 1. MD5签名规则</h2> <ol><li>在所有请求参数中，所有参数都需要拼接进行MD5签名，获取sign的值，拼接参数sign进行请求。</li> <li>在拼接过程中，需要将所有参数的key按字典排序（a-z），然后用“&amp;”拼接键值对，最后拼接access_secret.</li></ol> <h2 id="_2-公共参数"><a href="#_2-公共参数" class="header-anchor">#</a> 2. 公共参数</h2> <table><thead><tr><th style="text-align:center;">params</th> <th style="text-align:center;">type</th> <th style="text-align:center;">value</th> <th style="text-align:center;">desc</th></tr></thead> <tbody><tr><td style="text-align:center;">os</td> <td style="text-align:center;">String</td> <td style="text-align:center;">'android'</td> <td style="text-align:center;">平台信息</td></tr> <tr><td style="text-align:center;">version</td> <td style="text-align:center;">String</td> <td style="text-align:center;">'2'</td> <td style="text-align:center;">版本号（version_code）</td></tr> <tr><td style="text-align:center;">device_id</td> <td style="text-align:center;">String</td> <td style="text-align:center;">LKMFA23LKASDF</td> <td style="text-align:center;">设备唯一编码 IMEI</td></tr> <tr><td style="text-align:center;">device_info</td> <td style="text-align:center;">String</td> <td style="text-align:center;">vivo-Y550A-4.0.1</td> <td style="text-align:center;">设备信息</td></tr> <tr><td style="text-align:center;">app_key</td> <td style="text-align:center;">String</td> <td style="text-align:center;">asldkfalskdsajf</td> <td style="text-align:center;">key，可用作访问限制</td></tr> <tr><td style="text-align:center;">language</td> <td style="text-align:center;">String</td> <td style="text-align:center;">zh</td> <td style="text-align:center;">语言信息</td></tr> <tr><td style="text-align:center;">timezone</td> <td style="text-align:center;">String</td> <td style="text-align:center;">UTC</td> <td style="text-align:center;">时区信息</td></tr> <tr><td style="text-align:center;">channel</td> <td style="text-align:center;">String</td> <td style="text-align:center;">www</td> <td style="text-align:center;">渠道信息</td></tr> <tr><td style="text-align:center;">nonce</td> <td style="text-align:center;">String</td> <td style="text-align:center;">'asdf134'</td> <td style="text-align:center;">唯一随机数</td></tr> <tr><td style="text-align:center;">timestamp</td> <td style="text-align:center;">String</td> <td style="text-align:center;">1539582627.158863</td> <td style="text-align:center;">时间戳(单位为秒)</td></tr></tbody></table> <ol start="3"><li></li></ol> <div class="language- extra-class"><pre class="language-text"><code>signContent:
+&gt; app_key=d41d8cd98f00b204e9800998ecf8427e&amp;name=test&amp;os=android&amp;
+version=175d78bdb89dd0baeaeacdbef66ba4240
+&gt; sign result :
+b1396e2e83478a426a31fe24e0de363e
+&gt; post data:
+{app_key=d41d8cd98f00b204e9800998ecf8427e, os=android, name=test, sign=b1396e2e83478a426a31fe24e0de363e, version=1}
+</code></pre></div><h2 id="_3-error-code-列表"><a href="#_3-error-code-列表" class="header-anchor">#</a> 3. ERROR_CODE 列表</h2> <table><thead><tr><th style="text-align:center;">错误码</th> <th style="text-align:center;">描述</th> <th style="text-align:center;">示例</th></tr></thead> <tbody><tr><td style="text-align:center;">1</td> <td style="text-align:center;">成功</td> <td style="text-align:center;"><code>{ &quot;error_code&quot; : 1,&quot;result&quot;:{} }</code></td></tr> <tr><td style="text-align:center;">0</td> <td style="text-align:center;">失败</td> <td style="text-align:center;"><code>{ &quot;error_code&quot; : 0,&quot;result&quot;:{},&quot;error_message&quot;:&quot;permission denied&quot; } </code></td></tr></tbody></table> <h2 id="_4-示例代码"><a href="#_4-示例代码" class="header-anchor">#</a> 4.示例代码</h2> <h3 id="_4-1-java-语言"><a href="#_4-1-java-语言" class="header-anchor">#</a> 4.1 java 语言</h3> <div class="language- extra-class"><pre class="language-text"><code>//method for signature
+public void sign(Map&lt;String, String&gt; params) {
+        if (params != null) {
+            String[] keys = params.keySet().toArray(new String[0]);
+            Arrays.sort(keys);
+            ArrayList&lt;String&gt; signPair = new ArrayList&lt;String&gt;();
+            for (String key : keys) {
+                signPair.add(key + &quot;=&quot; + params.get(key));
+            }
+            String signContent = StringUtils.join(signPair, &quot;&amp;&quot;) + APP_SECRET;
+            MessageDigest messageDigest;
+            try {
+                messageDigest = MessageDigest.getInstance(&quot;MD5&quot;);
+                messageDigest.reset();
+                messageDigest.update(signContent.getBytes(&quot;UTF8&quot;));
+                final byte[] resultByte = messageDigest.digest();
+                final String result = new String(Hex.encodeHex(resultByte));
+                params.put(“sign”, result);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>private String APP_KEY = &quot;93ecc2e817f27e9e81b5363229e231dd&quot;;
+private String APP_SECRET = &quot;bfe65f6d29c397e7efe55d5f25015ed5&quot;;
+private String url = &quot;http://[API Domain]/api/v3/payment/withdraw/success/&quot;;
+
+//parameter for post request
+Map&lt;String,String&gt; map = new HashMap&lt;&gt;();
+map.put(&quot;country_code&quot;,&quot;86&quot;);
+map.put(&quot;cellphone&quot;,&quot;17612321557&quot;);
+map.put(&quot;coins&quot;,&quot;10000&quot;);
+map.put(&quot;access_key&quot;,APP_KEY);
+sign(this,map)；
+//netword request
+OkHttpUtils
+    .post()
+    .url(url)
+    .params(map)
+    .build()
+    .execute(new StringCallback() {
+    @Override
+    public void onError(okhttp3.Call call, Exception e, int i) {
+          //TODO error
+    }
+    @Override
+     public void onResponse(String s, int i) {
+          //TODO success
+    }
+   });
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/HEP-specification/assets/js/app.419242cf.js" defer></script><script src="/HEP-specification/assets/js/2.810d226b.js" defer></script><script src="/HEP-specification/assets/js/46.60bf6604.js" defer></script><script src="/HEP-specification/assets/js/3.aada4df1.js" defer></script>
+  </body>
+</html>

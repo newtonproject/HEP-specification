@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>HEP Node API | HEP-specification</title>
+    <meta name="description" content="HEP(Hyper Exchange Protocol) Specification for DApp development in Newton ecosystem">
+    <meta name="generator" content="VuePress 1.3.0">
+    
+    
+    <link rel="preload" href="/HEP-specification/assets/css/0.styles.ba461f21.css" as="style"><link rel="preload" href="/HEP-specification/assets/js/app.419242cf.js" as="script"><link rel="preload" href="/HEP-specification/assets/js/2.810d226b.js" as="script"><link rel="preload" href="/HEP-specification/assets/js/24.a27ecedb.js" as="script"><link rel="preload" href="/HEP-specification/assets/js/3.aada4df1.js" as="script"><link rel="prefetch" href="/HEP-specification/assets/js/10.07b5122b.js"><link rel="prefetch" href="/HEP-specification/assets/js/11.07ab2f5a.js"><link rel="prefetch" href="/HEP-specification/assets/js/12.ccd7c691.js"><link rel="prefetch" href="/HEP-specification/assets/js/13.590ca748.js"><link rel="prefetch" href="/HEP-specification/assets/js/14.2d893eb2.js"><link rel="prefetch" href="/HEP-specification/assets/js/15.b78077ba.js"><link rel="prefetch" href="/HEP-specification/assets/js/16.7829fee6.js"><link rel="prefetch" href="/HEP-specification/assets/js/17.0d23eaee.js"><link rel="prefetch" href="/HEP-specification/assets/js/18.fda3c910.js"><link rel="prefetch" href="/HEP-specification/assets/js/19.388dc885.js"><link rel="prefetch" href="/HEP-specification/assets/js/20.bd33d416.js"><link rel="prefetch" href="/HEP-specification/assets/js/21.fec79911.js"><link rel="prefetch" href="/HEP-specification/assets/js/22.4852e8c3.js"><link rel="prefetch" href="/HEP-specification/assets/js/23.02ca9ad2.js"><link rel="prefetch" href="/HEP-specification/assets/js/25.6d591597.js"><link rel="prefetch" href="/HEP-specification/assets/js/26.5b54232e.js"><link rel="prefetch" href="/HEP-specification/assets/js/27.db582809.js"><link rel="prefetch" href="/HEP-specification/assets/js/28.6fe812df.js"><link rel="prefetch" href="/HEP-specification/assets/js/29.e2c1a4a5.js"><link rel="prefetch" href="/HEP-specification/assets/js/30.c8bfc05d.js"><link rel="prefetch" href="/HEP-specification/assets/js/31.efd4bdf8.js"><link rel="prefetch" href="/HEP-specification/assets/js/32.8e817237.js"><link rel="prefetch" href="/HEP-specification/assets/js/33.5124ac4c.js"><link rel="prefetch" href="/HEP-specification/assets/js/34.425f35bd.js"><link rel="prefetch" href="/HEP-specification/assets/js/35.102079c4.js"><link rel="prefetch" href="/HEP-specification/assets/js/36.476ac90a.js"><link rel="prefetch" href="/HEP-specification/assets/js/37.04ff4ab5.js"><link rel="prefetch" href="/HEP-specification/assets/js/38.7da043dd.js"><link rel="prefetch" href="/HEP-specification/assets/js/39.b6051c5a.js"><link rel="prefetch" href="/HEP-specification/assets/js/4.65a1a4c3.js"><link rel="prefetch" href="/HEP-specification/assets/js/40.0f513e54.js"><link rel="prefetch" href="/HEP-specification/assets/js/41.d680db47.js"><link rel="prefetch" href="/HEP-specification/assets/js/42.5bf0e2d1.js"><link rel="prefetch" href="/HEP-specification/assets/js/43.1d061f75.js"><link rel="prefetch" href="/HEP-specification/assets/js/44.f794bd6d.js"><link rel="prefetch" href="/HEP-specification/assets/js/45.c060c4a9.js"><link rel="prefetch" href="/HEP-specification/assets/js/46.60bf6604.js"><link rel="prefetch" href="/HEP-specification/assets/js/47.88292d12.js"><link rel="prefetch" href="/HEP-specification/assets/js/48.f9953027.js"><link rel="prefetch" href="/HEP-specification/assets/js/49.79770fab.js"><link rel="prefetch" href="/HEP-specification/assets/js/5.11a4bfaf.js"><link rel="prefetch" href="/HEP-specification/assets/js/50.c47ea8c2.js"><link rel="prefetch" href="/HEP-specification/assets/js/51.f7c689e5.js"><link rel="prefetch" href="/HEP-specification/assets/js/52.081ff357.js"><link rel="prefetch" href="/HEP-specification/assets/js/53.e66884bb.js"><link rel="prefetch" href="/HEP-specification/assets/js/54.6884c4e5.js"><link rel="prefetch" href="/HEP-specification/assets/js/55.e1ad1900.js"><link rel="prefetch" href="/HEP-specification/assets/js/56.0bb83b11.js"><link rel="prefetch" href="/HEP-specification/assets/js/57.f85086c4.js"><link rel="prefetch" href="/HEP-specification/assets/js/58.2d1f834a.js"><link rel="prefetch" href="/HEP-specification/assets/js/59.18855501.js"><link rel="prefetch" href="/HEP-specification/assets/js/6.ee814126.js"><link rel="prefetch" href="/HEP-specification/assets/js/7.cfd8f4f1.js"><link rel="prefetch" href="/HEP-specification/assets/js/8.01bf51c2.js"><link rel="prefetch" href="/HEP-specification/assets/js/9.849c036f.js">
+    <link rel="stylesheet" href="/HEP-specification/assets/css/0.styles.ba461f21.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/HEP-specification/" class="home-link router-link-active"><!----> <span class="site-name">HEP-specification</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/HEP-specification/" class="nav-link">
+  home
+</a></div><div class="nav-item"><a href="/HEP-specification/hep-node/" class="nav-link router-link-active">
+  hep-node
+</a></div><div class="nav-item"><a href="/HEP-specification/oracle/oracle.html" class="nav-link">
+  oracle
+</a></div><div class="nav-item"><a href="https://github.com/newtonproject/HEP-specification" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/HEP-specification/" class="nav-link">
+  home
+</a></div><div class="nav-item"><a href="/HEP-specification/hep-node/" class="nav-link router-link-active">
+  hep-node
+</a></div><div class="nav-item"><a href="/HEP-specification/oracle/oracle.html" class="nav-link">
+  oracle
+</a></div><div class="nav-item"><a href="https://github.com/newtonproject/HEP-specification" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/HEP-specification/" class="sidebar-link">home</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/HEP-specification/#hep-ecosystem" class="sidebar-link">HEP Ecosystem</a></li><li class="sidebar-sub-header"><a href="/HEP-specification/#architecture" class="sidebar-link">Architecture</a></li><li class="sidebar-sub-header"><a href="/HEP-specification/#building-your-dapp" class="sidebar-link">Building your Dapp</a></li></ul></li><li><a href="/HEP-specification/oracle/oracle.html" class="sidebar-link">oracle</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/HEP-specification/oracle/oracle.html#why" class="sidebar-link">Why?</a></li><li class="sidebar-sub-header"><a href="/HEP-specification/oracle/oracle.html#how" class="sidebar-link">How?</a></li></ul></li><li><a href="/HEP-specification/DWeb.html" class="sidebar-link">DWeb</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/HEP-specification/DWeb.html#user-account-creation-and-login" class="sidebar-link">User Account Creation and Login</a></li><li class="sidebar-sub-header"><a href="/HEP-specification/DWeb.html#payments" class="sidebar-link">Payments</a></li><li class="sidebar-sub-header"><a href="/HEP-specification/DWeb.html#placeorder" class="sidebar-link">PlaceOrder</a></li></ul></li><li><a href="/HEP-specification/tutorial/" class="sidebar-link">Tutorial</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="hep-node-api"><a href="#hep-node-api" class="header-anchor">#</a> HEP Node API</h1> <h2 id="basic-parameters"><a href="#basic-parameters" class="header-anchor">#</a> Basic Parameters</h2> <h3 id="request"><a href="#request" class="header-anchor">#</a> Request</h3> <table><thead><tr><th>Field</th> <th>Type</th> <th>Notes</th></tr></thead> <tbody><tr><td>dapp_key</td> <td>string</td> <td>The decentralized application access key</td></tr> <tr><td>protocol</td> <td>string</td> <td>The protocol name. default is &quot;HEP&quot;.</td></tr> <tr><td>version</td> <td>string</td> <td>The protocol version such as &quot;1.0&quot;</td></tr> <tr><td>ts</td> <td>number</td> <td>The current timestamp</td></tr> <tr><td>nonce</td> <td>string</td> <td>The random string or auto-increment sequence</td></tr> <tr><td>os</td> <td>string</td> <td>The operating system of client such as ios, android, dweb,etc.</td></tr> <tr><td>language</td> <td>string</td> <td>The i18n language code such as zh, en, etc.</td></tr> <tr><td>dapp_signature_method</td> <td>string</td> <td>The signature method used by dapp.</td></tr> <tr><td>dapp_signature</td> <td>string</td> <td>The signature generated by dapp.</td></tr></tbody></table> <p>The timestamp and nonce fields is for preventing the replay attack.</p> <h4 id="dapp-signature-method"><a href="#dapp-signature-method" class="header-anchor">#</a> dapp_signature_method</h4> <ul><li><code>HMAC-MD5</code> - MD5</li> <li><code>HMAC-SHA2</code> - SHA2</li> <li><code>HMAC-SHA3</code> - Keccak-256</li></ul> <h4 id="signature-base-string"><a href="#signature-base-string" class="header-anchor">#</a> Signature Base String</h4> <p>The Signature Base String is a consistent reproducible concatenation of the request elements into a single string. The string is used as an input in hashing or signing algorithms. The HMAC-SHA256 signature method provides both a standard and an example of using the Signature Base String with a signing algorithm to generate signatures.</p> <ul><li>Normalize Request Parameters
+The request parameters are collected, sorted and concatenated into a normalized string:</li></ul> <p>Parameters in the HTTP POST request body (with a content-type of application/x-www-form-urlencoded).
+HTTP GET parameters added to the URLs in the query part (as defined by [RFC3986]).
+The 'dapp_signature_method', 'dapp_signature', 'signature', 'sign_type' parameter MUST be excluded.</p> <p>The parameters are normalized into a single string as follows:</p> <p>Parameters are sorted by name, using lexicographical byte value ordering. If two or more parameters share the same name, they are sorted by their value. For example:
+<code>a=1, c=hi%20there, f=25, f=50, f=a, z=p, z=t</code>
+Parameters are concatenated in their sorted order into a single string. For each parameter, the name is separated from the corresponding value by an '=' character (ASCII code 61), even if the value is empty. Each name-value pair is separated by an '&amp;' character (ASCII code 38). For example:
+<code>a=1&amp;c=hi%20there&amp;f=25&amp;f=50&amp;f=a&amp;z=p&amp;z=t</code></p> <p><code>If value is a list or dictionary, the generated string will be the ordered json string.</code></p> <ul><li>Concatenate Request Elements
+The following items MUST be concatenated in order into a single string. Each item is encoded and separated by an '&amp;' character (ASCII code 38), even if empty.</li></ul> <p>The HTTP request method used to send the request. Value MUST be uppercase, for example: HEAD, GET , POST, etc.</p> <h3 id="response"><a href="#response" class="header-anchor">#</a> Response</h3> <table><thead><tr><th>Field</th> <th>Type</th> <th>Notes</th></tr></thead> <tbody><tr><td>message</td> <td>string</td> <td>error message</td></tr> <tr><td>errors</td> <td>json</td> <td>error list, see <a href="schema/error.json">error.json</a></td></tr></tbody></table> <h3 id="note"><a href="#note" class="header-anchor">#</a> Note</h3> <p>sign_type: secp256r1
+https://tools.ietf.org/search/rfc4492#appendix-A</p> <h2 id="newnet"><a href="#newnet" class="header-anchor">#</a> NewNet</h2> <hr> <h3 id="newnet-cacheauth"><a href="#newnet-cacheauth" class="header-anchor">#</a> newnet_cacheAuth</h3> <p>Cache the authentication request.</p> <h4 id="path"><a href="#path" class="header-anchor">#</a> Path</h4> <p><code>/newnet/caches/auth/</code></p> <h4 id="parameters"><a href="#parameters" class="header-anchor">#</a> Parameters</h4> <table><thead><tr><th>Field</th> <th>Type</th> <th>Notes</th></tr></thead> <tbody><tr><td>dapp_id</td> <td>string</td> <td>The decentralized application ID</td></tr> <tr><td>uuid</td> <td>string</td> <td>The request uuid</td></tr> <tr><td>action</td> <td>string</td> <td>The action name which value is &quot;hep.auth.login&quot;.</td></tr> <tr><td>scope</td> <td>int</td> <td>The request profile type. 1: base profile including name,head,newid; 2: advance profile including cellphone.</td></tr> <tr><td>expired</td> <td>number</td> <td>The expired timestamp</td></tr> <tr><td>memo</td> <td>string</td> <td>The login Memo,optional.</td></tr> <tr><td>sign_type</td> <td>string</td> <td>The signature Type,aka cryptographic algorithm.</td></tr> <tr><td>signature</td> <td>string</td> <td>The signature hex string by application owner. The exclude fields is ['dapp_signature_method', 'dapp_signature', 'signature', 'sign_type'].</td></tr></tbody></table> <h4 id="example-parameters"><a href="#example-parameters" class="header-anchor">#</a> Example Parameters</h4> <p>TBD</p> <h4 id="returns"><a href="#returns" class="header-anchor">#</a> Returns</h4> <table><thead><tr><th>Field</th> <th>Type</th> <th>Notes</th></tr></thead> <tbody><tr><td>auth_hash</td> <td>string</td> <td>The hash of auth information</td></tr></tbody></table> <h4 id="example"><a href="#example" class="header-anchor">#</a> Example</h4> <div class="language- extra-class"><pre class="language-text"><code>// Request
+curl -X POST --data '{}'
+
+
+// Response
+{
+    &quot;hash&quot;: &quot;....&quot;
+}
+</code></pre></div><hr> <h3 id="newnet-getauthcache"><a href="#newnet-getauthcache" class="header-anchor">#</a> newnet_getAuthCache</h3> <p>Get the authentication information by given request hash.</p> <h4 id="path-2"><a href="#path-2" class="header-anchor">#</a> Path</h4> <p><code>/newnet/caches/auth/:auth_hash/</code></p> <h4 id="parameters-2"><a href="#parameters-2" class="header-anchor">#</a> Parameters</h4> <p>none</p> <h4 id="example-parameters-2"><a href="#example-parameters-2" class="header-anchor">#</a> Example Parameters</h4> <p>TBD</p> <h4 id="returns-2"><a href="#returns-2" class="header-anchor">#</a> Returns</h4> <table><thead><tr><th>Field</th> <th>Type</th> <th>Notes</th></tr></thead> <tbody><tr><td>uuid</td> <td>string</td> <td>The request uuid</td></tr> <tr><td>dapp_id</td> <td>string</td> <td>The decentralized application ID</td></tr> <tr><td>protocol</td> <td>string</td> <td>The protocol name. default is &quot;HEP&quot;.</td></tr> <tr><td>version</td> <td>string</td> <td>The protocol version. example is &quot;1.0&quot;.</td></tr> <tr><td>ts</td> <td>number</td> <td>The current timestamp</td></tr> <tr><td>nonce</td> <td>string</td> <td>The random string or auto-increment sequence</td></tr> <tr><td>sign_type</td> <td>string</td> <td>Signature Type,aka cryptographic algorithm</td></tr> <tr><td>signature</td> <td>string</td> <td>The signature hex string by application owner. The exclude fields is ['dapp_signature_method', 'dapp_signature', 'signature', 'sign_type'].</td></tr> <tr><td>action</td> <td>string</td> <td>The action name which value is &quot;hep.auth.login&quot;</td></tr> <tr><td>scope</td> <td>int</td> <td>The profile type. 1: base profile including name,head,newid; 2: advance profile including cellphone</td></tr> <tr><td>expired</td> <td>number</td> <td>The expired timestamp</td></tr> <tr><td>memo</td> <td>string</td> <td>The login Memo,optional</td></tr></tbody></table> <h4 id="example-2"><a href="#example-2" class="header-anchor">#</a> Example</h4> <div class="language- extra-class"><pre class="language-text"><code>// Request
+curl -X POST --data '{}'
+
+
+// Response
+{
+    &quot;uuid&quot;: &quot;...&quot;,
+    &quot;signature&quot;: &quot;...&quot;,
+    &quot;dapp_id&quot;: &quot;...&quot;,
+    &quot;protocol&quot;: &quot;....&quot;,
+    &quot;version&quot;: &quot;1.0&quot;,
+    &quot;ts&quot;: 1559122027,
+    &quot;nonce&quot;: &quot;...&quot;,
+    &quot;action&quot;: &quot;...&quot;,
+    &quot;scope&quot;: 1,
+    &quot;expired&quot;: 1559122027,
+    &quot;memo&quot;: &quot;....&quot;
+}
+</code></pre></div><h3 id="newnet-newpaycache"><a href="#newnet-newpaycache" class="header-anchor">#</a> newnet_newPayCache</h3> <h4 id="path-3"><a href="#path-3" class="header-anchor">#</a> Path</h4> <p><code>/newnet/caches/pay/</code></p> <h4 id="parameters-3"><a href="#parameters-3" class="header-anchor">#</a> Parameters</h4> <table><thead><tr><th>Field</th> <th>Type</th> <th>Notes</th></tr></thead> <tbody><tr><td>uuid</td> <td>string</td> <td>The request uuid</td></tr> <tr><td>dapp_id</td> <td>string</td> <td>The decentralized application ID</td></tr> <tr><td>action</td> <td>string</td> <td>The action name which value is &quot;hep.pay.order&quot;</td></tr> <tr><td>expired</td> <td>number</td> <td>The expired timestamp</td></tr> <tr><td>description</td> <td>string</td> <td>The order description</td></tr> <tr><td>price_currency</td> <td>string</td> <td>The symbol of fiat or digital token, such as USD, CNY, NEW,BTC,ETH.</td></tr> <tr><td>total_price</td> <td>string</td> <td>The amount of fiat or digital token, unit is the minimum unit of given fiat or digital token.</td></tr> <tr><td>order_number</td> <td>string</td> <td>The order number</td></tr> <tr><td>seller</td> <td>string</td> <td>The seller's NewID</td></tr> <tr><td>customer</td> <td>string</td> <td>The customer's NewID</td></tr> <tr><td>broker</td> <td>string</td> <td>The broker's NewID. optional.</td></tr> <tr><td>sign_type</td> <td>string</td> <td>Signature Type,aka cryptographic algorithm</td></tr> <tr><td>signature</td> <td>string</td> <td>The signature hex string by application owner. The exclude fields is ['dapp_signature_method', 'dapp_signature', 'signature', 'sign_type'].</td></tr></tbody></table> <h4 id="example-parameters-3"><a href="#example-parameters-3" class="header-anchor">#</a> Example Parameters</h4> <p>TBD</p> <h4 id="returns-3"><a href="#returns-3" class="header-anchor">#</a> Returns</h4> <table><thead><tr><th>Field</th> <th>Type</th> <th>Notes</th></tr></thead> <tbody><tr><td>pay_hash</td> <td>string</td> <td>The payment request hash</td></tr></tbody></table> <h4 id="example-3"><a href="#example-3" class="header-anchor">#</a> Example</h4> <div class="language- extra-class"><pre class="language-text"><code>// Request
+curl -X POST --data '{}'
+
+
+// Response
+{
+    &quot;pay_hash&quot;: &quot;....&quot;
+}
+</code></pre></div><hr> <h3 id="newnet-getpaycache"><a href="#newnet-getpaycache" class="header-anchor">#</a> newnet_getPayCache</h3> <p>Get the payment information by given request hash.</p> <h4 id="path-4"><a href="#path-4" class="header-anchor">#</a> Path</h4> <p><code>/newnet/caches/pay/:pay_hash/</code></p> <h4 id="parameters-4"><a href="#parameters-4" class="header-anchor">#</a> Parameters</h4> <p>none</p> <h4 id="example-parameters-4"><a href="#example-parameters-4" class="header-anchor">#</a> Example Parameters</h4> <p>TBD</p> <h4 id="returns-4"><a href="#returns-4" class="header-anchor">#</a> Returns</h4> <table><thead><tr><th>Field</th> <th>Type</th> <th>Notes</th></tr></thead> <tbody><tr><td>uuid</td> <td>string</td> <td>request uuid</td></tr> <tr><td>dapp_id</td> <td>string</td> <td>The decentralized application ID</td></tr> <tr><td>protocol</td> <td>string</td> <td>protocol name. The default is &quot;HEP&quot;.</td></tr> <tr><td>version</td> <td>string</td> <td>protocol version. The example is &quot;1.0&quot;.</td></tr> <tr><td>ts</td> <td>number</td> <td>timestamp</td></tr> <tr><td>nonce</td> <td>string</td> <td>random string or auto-increment sequence</td></tr> <tr><td>sign_type</td> <td>string</td> <td>Signature Type,aka cryptographic algorithm</td></tr> <tr><td>signature</td> <td>string</td> <td>The signature hex string by application owner. The exclude fields is ['dapp_signature_method', 'dapp_signature', 'signature', 'sign_type'].</td></tr> <tr><td>action</td> <td>string</td> <td>The value is &quot;hep.pay.order&quot;.</td></tr> <tr><td>expired</td> <td>number</td> <td>Expired timestamp</td></tr> <tr><td>description</td> <td>string</td> <td>The order description</td></tr> <tr><td>price_currency</td> <td>string</td> <td>symbol of fiat or digital token, such as USD, CNY, NEW,BTC,ETH</td></tr> <tr><td>total_price</td> <td>string</td> <td>amount of fiat or digital token, unit is the minimum unit of given fiat or digital token</td></tr> <tr><td>order_number</td> <td>string</td> <td>The order number.</td></tr> <tr><td>seller</td> <td>string</td> <td>The seller's NewID</td></tr> <tr><td>customer</td> <td>string</td> <td>The customer's NewID</td></tr> <tr><td>broker</td> <td>string</td> <td>The broker's NewID.</td></tr></tbody></table> <h4 id="example-4"><a href="#example-4" class="header-anchor">#</a> Example</h4> <div class="language- extra-class"><pre class="language-text"><code>// Request
+curl -X POST --data '{}'
+
+
+// Response
+{
+    &quot;uuid&quot;: &quot;...&quot;,
+    &quot;dapp_id&quot;: &quot;...&quot;,
+    &quot;protocol&quot;: &quot;....&quot;,
+    &quot;version&quot;: &quot;1.0&quot;,
+    &quot;ts&quot;: 1559122027,
+    &quot;nonce&quot;: &quot;...&quot;,
+    &quot;signature&quot;: &quot;...&quot;,
+    &quot;action&quot;: &quot;...&quot;,
+    &quot;expired&quot;: 1559122027,
+    ...
+}
+</code></pre></div><h2 id="proof"><a href="#proof" class="header-anchor">#</a> Proof</h2> <h3 id="proof-submitproof"><a href="#proof-submitproof" class="header-anchor">#</a> proof_submitProof</h3> <p>In this case, we should check the delegate balance of dapp.</p> <h4 id="path-5"><a href="#path-5" class="header-anchor">#</a> Path</h4> <p><code>/proofs/</code></p> <h4 id="parameters-5"><a href="#parameters-5" class="header-anchor">#</a> Parameters</h4> <table><thead><tr><th>Field</th> <th>Type</th> <th>Notes</th></tr></thead> <tbody><tr><td>dapp_id</td> <td>string</td> <td>The decentralized application ID</td></tr> <tr><td>content</td> <td>json</td> <td>The content of proof.</td></tr> <tr><td>sign_type</td> <td>string</td> <td>Signature Type,aka cryptographic algorithm</td></tr> <tr><td>signature</td> <td>string</td> <td>The signature hex string by application owner. The exclude fields is ['dapp_signature_method', 'dapp_signature', 'signature', 'sign_type'].</td></tr> <tr><td>uuid</td> <td>string</td> <td>uuid</td></tr> <tr><td>action</td> <td>string</td> <td>The value is &quot;hep.proof.submit&quot;.</td></tr></tbody></table> <h5 id="order-proof-parameters"><a href="#order-proof-parameters" class="header-anchor">#</a> Order Proof Parameters</h5> <table><thead><tr><th>Field</th> <th>Type</th> <th>Notes</th></tr></thead> <tbody><tr><td>proof_type</td> <td>string</td> <td>The proof type which value is &quot;order&quot;.</td></tr> <tr><td>description</td> <td>string</td> <td>The order description</td></tr> <tr><td>price_currency</td> <td>string</td> <td>The symbol of fiat or digital token, such as USD, RMB, NEW,BTC,ETH.</td></tr> <tr><td>total_price</td> <td>string</td> <td>The amount of fiat or digital token, unit is the minimum unit of given fiat or digital token.</td></tr> <tr><td>order_number</td> <td>string</td> <td>The order number</td></tr> <tr><td>order_items</td> <td>json</td> <td>The list of order items, see [schema/order-item.json].</td></tr> <tr><td>seller</td> <td>string</td> <td>The seller's NewID</td></tr> <tr><td>customer</td> <td>string</td> <td>The customer's NewID</td></tr> <tr><td>broker</td> <td>string</td> <td>The broker's NewID. optional.</td></tr> <tr><td>chain_txid</td> <td>string</td> <td>The txid of blockchain. optional.</td></tr></tbody></table> <h4 id="example-parameters-5"><a href="#example-parameters-5" class="header-anchor">#</a> Example Parameters</h4> <p><code>{ &quot;content&quot;: { ... &quot;type&quot;: &quot;order&quot;, &quot;description&quot;: &quot;...&quot;, &quot;total_price&quot;: &quot;12.34&quot;, ... }, &quot;sign_type&quot;: &quot;p256&quot;, &quot;signature&quot;: &quot;0x...&quot; }</code></p> <h4 id="returns-5"><a href="#returns-5" class="header-anchor">#</a> Returns</h4> <table><thead><tr><th>Field</th> <th>Type</th> <th>Notes</th></tr></thead> <tbody><tr><td>proof_hash</td> <td>string</td> <td>The proof hash</td></tr></tbody></table> <h4 id="example-5"><a href="#example-5" class="header-anchor">#</a> Example</h4> <div class="language- extra-class"><pre class="language-text"><code>// Request
+curl -X POST --data '{}'
+
+
+// Response
+{
+    &quot;proof_hash&quot;: &quot;....&quot;
+}
+</code></pre></div><hr> <h3 id="proof-getproof"><a href="#proof-getproof" class="header-anchor">#</a> proof_getProof</h3> <p>Get the proof information by given proof hash.</p> <h4 id="path-6"><a href="#path-6" class="header-anchor">#</a> Path</h4> <p><code>/proofs/:proof_hash/</code></p> <h4 id="method"><a href="#method" class="header-anchor">#</a> Method</h4> <p><code>GET</code></p> <h4 id="parameters-6"><a href="#parameters-6" class="header-anchor">#</a> Parameters</h4> <p>none</p> <h4 id="example-parameters-6"><a href="#example-parameters-6" class="header-anchor">#</a> Example Parameters</h4> <p>TBD</p> <h4 id="returns-6"><a href="#returns-6" class="header-anchor">#</a> Returns</h4> <table><thead><tr><th>Field</th> <th>Type</th> <th>Notes</th></tr></thead> <tbody><tr><td>uuid</td> <td>string</td> <td>uuid</td></tr> <tr><td>dapp_id</td> <td>string</td> <td>The decentralized application ID</td></tr> <tr><td>protocol</td> <td>string</td> <td>protocol name. The default is &quot;HEP&quot;.</td></tr> <tr><td>version</td> <td>string</td> <td>protocol version. The example is &quot;1.0&quot;.</td></tr> <tr><td>ts</td> <td>number</td> <td>timestamp</td></tr> <tr><td>nonce</td> <td>string</td> <td>random string or auto-increment sequence</td></tr> <tr><td>sign_type</td> <td>string</td> <td>Signature Type,aka cryptographic algorithm</td></tr> <tr><td>signature</td> <td>string</td> <td>The signature hex string by application owner. The exclude fields is ['dapp_signature_method', 'dapp_signature', 'signature', 'sign_type'].</td></tr> <tr><td>action</td> <td>string</td> <td>The value is &quot;hep.proof.submit&quot;.</td></tr> <tr><td>expired</td> <td>number</td> <td>Expired timestamp</td></tr> <tr><td>description</td> <td>string</td> <td>The order description</td></tr> <tr><td>proof_type</td> <td>string</td> <td>The type of proof information</td></tr> <tr><td>price_currency</td> <td>string</td> <td>symbol of fiat or digital token, such as USD, CNY, NEW,BTC,ETH</td></tr> <tr><td>total_price</td> <td>string</td> <td>amount of fiat or digital token, unit is the minimum unit of given fiat or digital token</td></tr> <tr><td>orders</td> <td>json</td> <td>orders array</td></tr> <tr><td>order_number</td> <td>string</td> <td>The order number.</td></tr> <tr><td>order_items</td> <td>json</td> <td>The list of order items, see [schema/order-item.json].</td></tr> <tr><td>seller</td> <td>string</td> <td>The seller's NewID</td></tr> <tr><td>customer</td> <td>string</td> <td>The customer's NewID</td></tr> <tr><td>broker</td> <td>string</td> <td>The broker's NewID.</td></tr> <tr><td>chain_txid</td> <td>string</td> <td>The txid of blockchain. optional.</td></tr></tbody></table> <h4 id="example-6"><a href="#example-6" class="header-anchor">#</a> Example</h4> <div class="language- extra-class"><pre class="language-text"><code>// Request
+curl -X POST --data '{}'
+
+
+// Response
+{
+    &quot;dapp_id&quot;:&quot;dappid&quot;,
+    &quot;protocol&quot;:&quot;HEP&quot;,
+    &quot;version&quot;:&quot;1.0&quot;,
+    &quot;ts&quot;:1551222202,
+    &quot;nonce&quot;:&quot;random string&quot;,
+    &quot;signature&quot;:&quot;secp256r1signature&quot;,
+    &quot;sign_type&quot;:&quot;secp256r1&quot;,
+    &quot;action&quot;:&quot;hep.proof.submit&quot;,
+    &quot;content&quot;:{
+        &quot;total_price&quot;:&quot;199.33&quot;,  // 所有订单的价格和
+        &quot;price_currency&quot;:&quot;CNY&quot;,  // 订单的价格单位
+        &quot;submitter&quot;:&quot;NEWID182XXXXXXX&quot;, // 用户的 newid
+        &quot;proof_type&quot;:&quot;order&quot;,    // 证明类型，默认为order
+        &quot;orders&quot;:[               // 订单数组
+            {
+                &quot;order_number&quot;:&quot;xxxx&quot;,   // 订单编号
+                &quot;description&quot;:&quot;description&quot;,  // 订单描述
+                &quot;chain_txid&quot;:&quot;0xtxidxxxxxx&quot;,  // 如果为new支付，该值 wei 支付的 txid
+                &quot;seller&quot;:&quot;NEWID18X....&quot;,     // 卖家的newid
+                &quot;broker&quot;:&quot;NEWID182.......&quot;,   // 代理商的 newid， 可以为空字符串
+                &quot;customer&quot;: &quot;NEWID182....&quot;,   // 用户的 newid
+                &quot;total_price&quot;: &quot;12&quot;,         // 该订单的价格
+                &quot;price_currency&quot;: &quot;CNY&quot;      // 该订单的计价单位
+                &quot;order_items&quot;:[             // 订单详情数组
+                    {
+                        &quot;order_item_number&quot;:&quot;20190505053222&quot;,  // 订单详情id
+                        &quot;price&quot;:&quot;12.2&quot;,                         // 订单价格...
+                        &quot;price_currency&quot;:&quot;CNY&quot;,
+                        &quot;ordered_item&quot;:{
+                            &quot;name&quot;:&quot;杯子&quot;,
+                            &quot;thing_type&quot;:&quot;product&quot;,
+                            &quot;thing_id&quot;:&quot;pingguoxxxxxxx&quot;
+                        },
+                        &quot;order_item_quantity&quot;:3
+                    }
+                ]
+            }
+        ]
+    }
+}
+</code></pre></div><hr> <h3 id="proof-cancelproof"><a href="#proof-cancelproof" class="header-anchor">#</a> proof_cancelProof</h3> <h4 id="path-7"><a href="#path-7" class="header-anchor">#</a> Path</h4> <p><code>/proofs/:proof_hash/</code></p> <h4 id="method-2"><a href="#method-2" class="header-anchor">#</a> Method</h4> <p><code>DELETE</code></p> <h4 id="parameters-7"><a href="#parameters-7" class="header-anchor">#</a> Parameters</h4> <table><thead><tr><th>Field</th> <th>Type</th> <th>Notes</th></tr></thead> <tbody><tr><td>dapp_id</td> <td>string</td> <td>The decentralized application ID</td></tr> <tr><td>proof_item_id</td> <td>string</td> <td>The proof item id. For order proof, it is order_number.</td></tr> <tr><td>proof_subitem_id</td> <td>string</td> <td>The proof subitem id. For order proof, it is order_item_number. optional. If it is empty, all subitem will be canceled.</td></tr> <tr><td>sign_type</td> <td>string</td> <td>Signature Type,aka cryptographic algorithm.</td></tr> <tr><td>signature</td> <td>string</td> <td>The signature hex string by application owner. The exclude fields is ['dapp_signature_method', 'dapp_signature', 'signature', 'sign_type'].</td></tr></tbody></table> <h4 id="example-parameters-7"><a href="#example-parameters-7" class="header-anchor">#</a> Example Parameters</h4> <p>TBD</p> <h4 id="returns-7"><a href="#returns-7" class="header-anchor">#</a> Returns</h4> <p>none</p> <h4 id="example-7"><a href="#example-7" class="header-anchor">#</a> Example</h4> <div class="language- extra-class"><pre class="language-text"><code>// Request
+curl -X POST --data '{}'
+
+
+// Response
+{
+}
+</code></pre></div><hr> <h3 id="proof-getproofreceipts"><a href="#proof-getproofreceipts" class="header-anchor">#</a> proof_getProofReceipts</h3> <p>Get the proof receipts by given proof hashes.</p> <h4 id="path-8"><a href="#path-8" class="header-anchor">#</a> Path</h4> <p><code>/proofs/receipts/</code></p> <h4 id="method-3"><a href="#method-3" class="header-anchor">#</a> Method</h4> <p><code>POST</code></p> <h4 id="parameters-8"><a href="#parameters-8" class="header-anchor">#</a> Parameters</h4> <table><thead><tr><th>Field</th> <th>Type</th> <th>Notes</th></tr></thead> <tbody><tr><td>proof_hashes</td> <td>json</td> <td>The proof hashes.</td></tr></tbody></table> <h4 id="example-parameters-8"><a href="#example-parameters-8" class="header-anchor">#</a> Example Parameters</h4> <p>TBD</p> <h4 id="returns-8"><a href="#returns-8" class="header-anchor">#</a> Returns</h4> <table><thead><tr><th>Field</th> <th>Type</th> <th>Notes</th></tr></thead> <tbody><tr><td>receipts</td> <td>json</td> <td>The receipts which is proof_hash and proof_status pairs.</td></tr></tbody></table> <h4 id="example-8"><a href="#example-8" class="header-anchor">#</a> Example</h4> <div class="language- extra-class"><pre class="language-text"><code>// Request
+curl -X POST --data '{}'
+
+
+// Response
+{
+    &quot;receipts&quot;: [
+        {
+            &quot;proof_hash&quot;: &quot;....&quot;,
+            &quot;proof_status&quot;: &quot;....&quot;,            
+        }
+    ]
+}
+</code></pre></div><hr> <h3 id="proof-getproofrewards"><a href="#proof-getproofrewards" class="header-anchor">#</a> proof_getProofRewards</h3> <p>Get the proof reward by given proof data.</p> <h4 id="path-9"><a href="#path-9" class="header-anchor">#</a> Path</h4> <p><code>/proofs/rewards/</code></p> <h4 id="method-4"><a href="#method-4" class="header-anchor">#</a> Method</h4> <p><code>POST</code></p> <h4 id="parameters-9"><a href="#parameters-9" class="header-anchor">#</a> Parameters</h4> <table><thead><tr><th>Field</th> <th>Type</th> <th>Notes</th></tr></thead> <tbody><tr><td>proof_data</td> <td>json</td> <td>The proof data. the format is [{&quot;proof_hash&quot;:&quot;...&quot;, &quot;proof_item_id&quot;:'...', &quot;proof_subitem_id&quot;:&quot;...&quot;},]</td></tr></tbody></table> <h4 id="example-parameters-9"><a href="#example-parameters-9" class="header-anchor">#</a> Example Parameters</h4> <p>TBD</p> <h4 id="returns-9"><a href="#returns-9" class="header-anchor">#</a> Returns</h4> <table><thead><tr><th>Field</th> <th>Type</th> <th>Notes</th></tr></thead> <tbody><tr><td>proof_rewards</td> <td>json</td> <td>The proof rewards.</td></tr> <tr><td>proof_hash</td> <td>string</td> <td>The proof hash.</td></tr> <tr><td>proof_item_id</td> <td>string</td> <td>The proof item id.</td></tr> <tr><td>proof_subitem_id</td> <td>string</td> <td>The proof subitem id.</td></tr> <tr><td>reward_tokens</td> <td>string</td> <td>The proof rewards.</td></tr> <tr><td>newid</td> <td>string</td> <td>The newid of submit proof.</td></tr> <tr><td>newforce</td> <td>string</td> <td>The newforce of proof.</td></tr> <tr><td>action</td> <td>string</td> <td>The action of proof.choices:PURCHASE,RETURN</td></tr> <tr><td>issue_timestamp</td> <td>int</td> <td>The timestamp of token issued</td></tr> <tr><td>issue_status</td> <td>string</td> <td>The status of token issued.choices:PENDING,SENT,CANCELED</td></tr></tbody></table> <h4 id="example-9"><a href="#example-9" class="header-anchor">#</a> Example</h4> <div class="language- extra-class"><pre class="language-text"><code>// Request
+curl -X POST --data '{}'
+
+
+// Response
+{
+    &quot;proof_rewards&quot;: [
+        {
+            &quot;proof_hash&quot;: &quot;....&quot;,
+            &quot;proof_item_id&quot;: &quot;....&quot;,
+            &quot;proof_subitem_id&quot;: &quot;....&quot;,
+            &quot;reward_tokens&quot;: &quot;....&quot;,   
+            &quot;newid&quot;: &quot;....&quot;,                  
+            &quot;newforce&quot;: &quot;....&quot;,        
+            &quot;action&quot;: &quot;....&quot;,                                                          
+        }
+    ]
+}
+</code></pre></div><h2 id="dapp"><a href="#dapp" class="header-anchor">#</a> DApp</h2> <h3 id="dapp-profile"><a href="#dapp-profile" class="header-anchor">#</a> dapp_profile</h3> <h4 id="path-10"><a href="#path-10" class="header-anchor">#</a> Path</h4> <p><code>/dapps/:dapp_id/</code></p> <h4 id="parameters-10"><a href="#parameters-10" class="header-anchor">#</a> Parameters</h4> <p>none</p> <h4 id="example-parameters-10"><a href="#example-parameters-10" class="header-anchor">#</a> Example Parameters</h4> <p>TBD</p> <h4 id="returns-10"><a href="#returns-10" class="header-anchor">#</a> Returns</h4> <table><thead><tr><th>Field</th> <th>Type</th> <th>Notes</th></tr></thead> <tbody><tr><td>dapp_id</td> <td>string</td> <td>The decentralized application ID</td></tr> <tr><td>dapp_name</td> <td>string</td> <td>The decentralized application name</td></tr> <tr><td>icon</td> <td>string</td> <td>The icon of application</td></tr> <tr><td>dapp_public_key</td> <td>string</td> <td>The public key of DApp</td></tr> <tr><td>developer_copyright</td> <td>string</td> <td>the dapp copyright</td></tr> <tr><td>package_name</td> <td>string</td> <td>The package name such as com.demo.dev.android</td></tr> <tr><td>bundle_id</td> <td>string</td> <td>The bundle id such as com.demo.dev.ios for ios platform</td></tr> <tr><td>schema</td> <td>string</td> <td>The routing schema</td></tr> <tr><td>website</td> <td>string</td> <td>The dapp website link</td></tr> <tr><td>android_download_url</td> <td>string</td> <td>The dapp download url</td></tr> <tr><td>ios_download_url</td> <td>string</td> <td>the ios download url</td></tr> <tr><td>dweb_download_url</td> <td>string</td> <td>the dweb download url</td></tr> <tr><td>newdapp_download_url</td> <td>string</td> <td>the newdapp download url</td></tr> <tr><td>deposit_contract_address</td> <td>string</td> <td>The deposit contract Address, the example is NEW182....</td></tr> <tr><td>dapp_type_ids</td> <td>array[]</td> <td>The dapp type ids.  support platforms, 1 android, 2 ios, 3 dweb, 4 newdapp</td></tr> <tr><td>dapp_category_id</td> <td>int</td> <td>The dapp category id.</td></tr> <tr><td>auth_login_callback</td> <td>string</td> <td>For Mobile Native DApp, it is redirect schema; For website DApp, it is callback url; For  NewDApp, it is HEP-based url.</td></tr> <tr><td>pay_order_callback</td> <td>string</td> <td>For Mobile Native DApp, it is redirect schema; For website DApp, it is callback url; For  NewDApp, it is HEP-based url.</td></tr> <tr><td>proof_submit_callback</td> <td>string</td> <td>For Mobile Native DApp, it is redirect schema; For website DApp, it is callback url; For  NewDApp, it is HEP-based url.</td></tr> <tr><td>android_status</td> <td>int</td> <td>the android platform publish status</td></tr> <tr><td>ios_status</td> <td>int</td> <td>the ios platform publish status</td></tr> <tr><td>dweb_status</td> <td>int</td> <td>the dweb platform publish status</td></tr> <tr><td>newdapp_status</td> <td>int</td> <td>the newdapp platform publish status</td></tr></tbody></table> <h4 id="example-10"><a href="#example-10" class="header-anchor">#</a> Example</h4> <div class="language- extra-class"><pre class="language-text"><code>// Request
+curl -X POST --data '{}'
+
+
+// Response
+{
+    ....    
+}
+</code></pre></div><h3 id="dapp-getdailystats"><a href="#dapp-getdailystats" class="header-anchor">#</a> dapp_getDailyStats</h3> <h4 id="path-11"><a href="#path-11" class="header-anchor">#</a> Path</h4> <p><code>/dapps/:dapp_id/:date/</code></p> <ul><li><code>date</code> - the date format is '20190808'.</li></ul> <h4 id="parameters-11"><a href="#parameters-11" class="header-anchor">#</a> Parameters</h4> <p>none</p> <h4 id="example-parameters-11"><a href="#example-parameters-11" class="header-anchor">#</a> Example Parameters</h4> <p>TBD</p> <h4 id="returns-11"><a href="#returns-11" class="header-anchor">#</a> Returns</h4> <table><thead><tr><th>Field</th> <th>Type</th> <th>Notes</th></tr></thead> <tbody><tr><td>dapp_id</td> <td>string</td> <td>The decentralized application ID</td></tr> <tr><td>total_nf</td> <td>string</td> <td>The total Newforce</td></tr> <tr><td>total_tokens</td> <td>string</td> <td>The total number of NEW tokens</td></tr></tbody></table> <h4 id="example-11"><a href="#example-11" class="header-anchor">#</a> Example</h4> <div class="language- extra-class"><pre class="language-text"><code>// Request
+curl -X POST --data '{}'
+
+
+// Response
+{
+    &quot;dapp_id&quot;: &quot;e123123123&quot;,
+    &quot;total_nf&quot;: &quot;100&quot;,
+    &quot;total_tokens&quot;: &quot;200&quot;    
+}
+</code></pre></div><h3 id="newid"><a href="#newid" class="header-anchor">#</a> newid</h3> <h4 id="path-12"><a href="#path-12" class="header-anchor">#</a> Path</h4> <p><code>/newids/:newid/</code></p> <h4 id="parameters-12"><a href="#parameters-12" class="header-anchor">#</a> Parameters</h4> <p>none</p> <h4 id="returns-12"><a href="#returns-12" class="header-anchor">#</a> Returns</h4> <table><thead><tr><th>Field</th> <th>Type</th> <th>Notes</th></tr></thead> <tbody><tr><td>newid</td> <td>string</td> <td>The NewID</td></tr> <tr><td>public_key</td> <td>string</td> <td>The hex string of NewID's public key</td></tr> <tr><td>main_wallet_address</td> <td>string</td> <td>The main wallet address of NewChain</td></tr></tbody></table> <h4 id="example-12"><a href="#example-12" class="header-anchor">#</a> Example</h4> <div class="language- extra-class"><pre class="language-text"><code>// Response
+{
+    &quot;newid&quot;: &quot;NEWID...&quot;,
+    &quot;public_key&quot;: &quot;0x...&quot;,
+    &quot;main_wallet_address&quot;: &quot;NEW182...&quot;,
+}
+</code></pre></div><h3 id="get-the-newforce-reward-tokens-by-newid"><a href="#get-the-newforce-reward-tokens-by-newid" class="header-anchor">#</a> Get the newforce reward tokens by newid</h3> <h4 id="path-13"><a href="#path-13" class="header-anchor">#</a> Path</h4> <p><code>/newids/:newid/newforce/reward/</code></p> <ul><li><code>newid</code> - the newid format is 'NEW182...'.</li></ul> <h4 id="parameters-13"><a href="#parameters-13" class="header-anchor">#</a> Parameters</h4> <p>none</p> <h4 id="returns-13"><a href="#returns-13" class="header-anchor">#</a> Returns</h4> <table><thead><tr><th>Field</th> <th>Type</th> <th>Notes</th></tr></thead> <tbody><tr><td>total_reward</td> <td>string</td> <td>The total reward of govern community, unit: NEW</td></tr> <tr><td>direct_buy_reward</td> <td>string</td> <td>The direct purchase reward of govern community, unit: NEW</td></tr> <tr><td>direct_invite_reward</td> <td>string</td> <td>The direct invitation reward of govern community, unit: NEW</td></tr> <tr><td>indirect_buy_reward</td> <td>string</td> <td>The indirect purchase reward of govern community, unit: NEW</td></tr> <tr><td>indirect_invite_reward</td> <td>string</td> <td>The indirect invitation reward of govern community, unit: NEW</td></tr> <tr><td>locked_for_candidate_reward</td> <td>string</td> <td>The community node reward of govern community, unit: NEW</td></tr> <tr><td>locked_for_voter_reward</td> <td>string</td> <td>The vote reward of govern community, unit: NEW</td></tr> <tr><td>sale_reward</td> <td>string</td> <td>The sale reward of govern community, unit: NEW</td></tr></tbody></table> <h4 id="example-13"><a href="#example-13" class="header-anchor">#</a> Example</h4> <div class="language- extra-class"><pre class="language-text"><code>// Response
+{
+    'direct_buy_reward': '0',
+    'direct_invite_reward': '0',
+    'indirect_buy_reward': '0',
+    'indirect_invite_reward': '0',
+    'locked_for_candidate_reward': '0.002097746394517319',
+    'locked_for_voter_reward': '0.001064190109278843',
+    'sale_reward': '0',
+    'total_reward': '0.003161936503796162'
+}
+</code></pre></div><h3 id="newforce"><a href="#newforce" class="header-anchor">#</a> NewForce</h3> <h4 id="get-the-daily-statistics-of-newforce"><a href="#get-the-daily-statistics-of-newforce" class="header-anchor">#</a> Get the daily statistics of NewForce</h4> <h5 id="path-14"><a href="#path-14" class="header-anchor">#</a> Path</h5> <p><code>/newforce/:date/</code></p> <ul><li><code>date</code> - the date format is '20190808'.</li></ul> <h5 id="parameters-14"><a href="#parameters-14" class="header-anchor">#</a> Parameters</h5> <p>none</p> <h5 id="returns-14"><a href="#returns-14" class="header-anchor">#</a> Returns</h5> <table><thead><tr><th>Field</th> <th>Type</th> <th>Notes</th></tr></thead> <tbody><tr><td>nf_new</td> <td>string</td> <td>The conversion rate between NewForce(NF) and NEW</td></tr> <tr><td>nf_cny</td> <td>string</td> <td>The conversion rate between NewForce(NF) and CNY</td></tr> <tr><td>nf_usd</td> <td>string</td> <td>The conversion rate between NewForce(NF) and USD</td></tr> <tr><td>gnf</td> <td>string</td> <td>The global NewForce</td></tr></tbody></table> <h5 id="example-14"><a href="#example-14" class="header-anchor">#</a> Example</h5> <div class="language- extra-class"><pre class="language-text"><code>// Response
+{
+    &quot;nf_new&quot;: &quot;2.6&quot;,
+    &quot;nf_cny&quot;: &quot;2&quot;,
+    &quot;nf_usd&quot;: &quot;2&quot;,
+    &quot;gnf&quot;: &quot;11111111111&quot;
+}
+</code></pre></div><h4 id="get-the-round-history-newforce-statistics-of-supernode-s-partners-and-voters"><a href="#get-the-round-history-newforce-statistics-of-supernode-s-partners-and-voters" class="header-anchor">#</a> Get the round history newforce statistics of SuperNode's partners and voters</h4> <h5 id="path-15"><a href="#path-15" class="header-anchor">#</a> Path</h5> <p><code>/newforce/node/round/:node_wallet_address/</code></p> <ul><li><code>node_wallet_address</code> - the wallet address of SuperNode.</li></ul> <h5 id="parameters-15"><a href="#parameters-15" class="header-anchor">#</a> Parameters</h5> <table><thead><tr><th>Field</th> <th>Type</th> <th>Notes</th></tr></thead> <tbody><tr><td>page_id</td> <td>int</td> <td>page number</td></tr> <tr><td>page_size</td> <td>int</td> <td>max data number per page, max 50</td></tr> <tr><td>direction</td> <td>int</td> <td>sorted by time in ASC or DESC, 1-ASC, 0-DESC, default 0</td></tr></tbody></table> <h5 id="returns-15"><a href="#returns-15" class="header-anchor">#</a> Returns</h5> <table><thead><tr><th>Field</th> <th>Type</th> <th>Notes</th></tr></thead> <tbody><tr><td>address</td> <td>string</td> <td>address of SuperNode</td></tr> <tr><td>page_id</td> <td>int</td> <td>current page number</td></tr> <tr><td>page_size</td> <td>int</td> <td>max data number per page, max 50</td></tr> <tr><td>total_page</td> <td>int</td> <td>total pages number</td></tr> <tr><td>round_data</td> <td>list</td> <td>data of history newforce grouped by round id</td></tr></tbody></table> <h6 id="round-data"><a href="#round-data" class="header-anchor">#</a> round_data</h6> <table><thead><tr><th>Field</th> <th>Type</th> <th>Notes</th></tr></thead> <tbody><tr><td>round_id</td> <td>int</td> <td>round id of newforce</td></tr> <tr><td>start_time</td> <td>int</td> <td>round strat time, timestamp in second</td></tr> <tr><td>end_time</td> <td>int</td> <td>round end time, timestamp in second</td></tr> <tr><td>votes</td> <td>int</td> <td>number of votes for SuperNode</td></tr> <tr><td>rank</td> <td>int</td> <td>rank of SuperNode</td></tr> <tr><td>node_status</td> <td>int</td> <td>status of SuperNode, 0: candidate 1: FormalSuperNode 2: AlternativeSuperNode</td></tr> <tr><td>locked_amount</td> <td>string</td> <td>locked amount of SuperNode, in unit NEW</td></tr> <tr><td>reward_newforce</td> <td>string</td> <td>reward newfroce from locked amount</td></tr> <tr><td>reward_token</td> <td>string</td> <td>reward token from locked amount, in unit NEW</td></tr> <tr><td>is_partner_node</td> <td>bool</td> <td>whether the SuperNode is partner node</td></tr> <tr><td>partner_reward_newforce</td> <td>string</td> <td>total reward newforce  from partners, not include creator</td></tr> <tr><td>partner_reward_token</td> <td>string</td> <td>total reward token  from partners, not include creator, in unit NEW</td></tr> <tr><td>partner_node_management_fee</td> <td>string</td> <td>management fee rate of the partner node</td></tr> <tr><td>partner_newforce_data</td> <td>list</td> <td>partners and creator newforce data of SuperNode</td></tr> <tr><td>voter_newforce_data</td> <td>list</td> <td>voters newforce data of SuperNode</td></tr></tbody></table> <h6 id="partner-newforce-data"><a href="#partner-newforce-data" class="header-anchor">#</a> partner_newforce_data</h6> <table><thead><tr><th>Field</th> <th>Type</th> <th>Notes</th></tr></thead> <tbody><tr><td>address</td> <td>string</td> <td>address of partner</td></tr> <tr><td>locked_amount</td> <td>string</td> <td>the amount of locked</td></tr> <tr><td>newforce</td> <td>string</td> <td>the reward newforce to partner self</td></tr> <tr><td>newforce_contrib</td> <td>string</td> <td>the reward newforce to creator</td></tr> <tr><td>token_amount</td> <td>string</td> <td>the reward token to partner self, in unit NEW</td></tr> <tr><td>token_contrib</td> <td>string</td> <td>the reward token to creator</td></tr></tbody></table> <h6 id="voter-newforce-data"><a href="#voter-newforce-data" class="header-anchor">#</a> voter_newforce_data</h6> <table><thead><tr><th>Field</th> <th>Type</th> <th>Notes</th></tr></thead> <tbody><tr><td>address</td> <td>string</td> <td>address of partner</td></tr> <tr><td>locked_amount</td> <td>string</td> <td>the amount of locked</td></tr> <tr><td>newforce</td> <td>string</td> <td>the reward newforce to voter</td></tr> <tr><td>token_amount</td> <td>string</td> <td>the reward token to voter</td></tr></tbody></table> <h5 id="example-15"><a href="#example-15" class="header-anchor">#</a> Example</h5> <div class="language- extra-class"><pre class="language-text"><code>// Response
+{
+    'address': 'NEW17xQBMnNYm9tefbjQRZuB32X1PMi9LGyQPVH',
+    'page_id': 1,
+    'page_size': 10,
+    'total_page': 106,
+    'round_data': [
+        {
+            'round_id': 1059,
+            'end_time': 1584437400,
+            'is_partner_node': True,
+            'locked_amount': '100',
+            'node_status': 1,
+            'votes': 4,
+            'rank': 1,
+            'partner_node_management_fee': '0.2111',
+            'partner_reward_newforce': '712.0033718548',
+            'partner_reward_token': '263.625055838887102588',
+            'reward_newforce': '739.685537436127551624',
+            'reward_token': '273.874603433174379022',
+            'start_time': 1584435900,
+            'partner_newforce_data': [
+                {'address': 'NEW17xLP9zSuXzXBLF5LLQTowjE1rBEQWVLA5CK',
+                 'locked_amount': '300',
+                 'newforce': '70.380496743982654851',
+                 'newforce_contrib': '18.887491749776645414',
+                 'token_amount': '26.058952973448557302',
+                 'token_contrib': '6.993247874964849472'},
+            ],
+            'voter_newforce_data': [
+                {'address': 'NEW17xLP9zSuXzXBLF5LLQTowjE1rBEQWVLA5CK',
+                 'locked_amount': '1000',
+                 'newforce': '100',
+                 'newforce_contrib': None,
+                 'token_amount': '37.0258156435597031',
+                 'token_contrib': None}
+            ],
+        }
+    ],
+}
+</code></pre></div><h3 id="oracle"><a href="#oracle" class="header-anchor">#</a> Oracle</h3> <h4 id="get-the-information-of-given-oracle"><a href="#get-the-information-of-given-oracle" class="header-anchor">#</a> Get the information of given oracle</h4> <h5 id="path-16"><a href="#path-16" class="header-anchor">#</a> Path</h5> <p><code>/oracles/:oracle_id/</code></p> <ul><li><code>oracle_id</code> - The oracle id. The reserved oracle id are as follows: default .</li></ul> <h5 id="parameters-16"><a href="#parameters-16" class="header-anchor">#</a> Parameters</h5> <p>none</p> <h5 id="returns-16"><a href="#returns-16" class="header-anchor">#</a> Returns</h5> <table><thead><tr><th>Field</th> <th>Type</th> <th>Notes</th></tr></thead> <tbody><tr><td>oracle_id</td> <td>string</td> <td>The oracle id</td></tr> <tr><td>oracle_name</td> <td>string</td> <td>The oracle name</td></tr> <tr><td>public_key</td> <td>string</td> <td>The public key of oracle</td></tr></tbody></table> <h5 id="example-16"><a href="#example-16" class="header-anchor">#</a> Example</h5> <div class="language- extra-class"><pre class="language-text"><code>// Response
+{
+    &quot;oracle_id&quot;: &quot;....&quot;,
+    &quot;oracle_name&quot;: &quot;....&quot;,
+    &quot;public_key&quot;: &quot;....&quot;
+}
+</code></pre></div><h3 id="newchain"><a href="#newchain" class="header-anchor">#</a> NewChain</h3> <h4 id="get-the-transaction-information-of-given-txid"><a href="#get-the-transaction-information-of-given-txid" class="header-anchor">#</a> Get the transaction information of given txid</h4> <h5 id="path-17"><a href="#path-17" class="header-anchor">#</a> Path</h5> <p><code>/newchain/tx/:txid/</code></p> <h5 id="parameters-17"><a href="#parameters-17" class="header-anchor">#</a> Parameters</h5> <p>none</p> <h5 id="returns-17"><a href="#returns-17" class="header-anchor">#</a> Returns</h5> <table><thead><tr><th>Field</th> <th>Type</th> <th>Notes</th></tr></thead> <tbody><tr><td>txid</td> <td>string</td> <td>The transaction ID</td></tr> <tr><td>order_number</td> <td>string</td> <td>The order number</td></tr> <tr><td>from_address</td> <td>string</td> <td>The from address</td></tr> <tr><td>to_address</td> <td>string</td> <td>The to address</td></tr> <tr><td>value</td> <td>string</td> <td>The transfer amount</td></tr> <tr><td>block_height</td> <td>int</td> <td>The block height</td></tr> <tr><td>status</td> <td>int</td> <td>The status of transaction</td></tr></tbody></table> <h5 id="example-17"><a href="#example-17" class="header-anchor">#</a> Example</h5> <div class="language- extra-class"><pre class="language-text"><code>// Response
+{
+    &quot;txid&quot;: &quot;....&quot;,
+    &quot;order_number&quot;: &quot;....&quot;,
+    &quot;from_address&quot;: &quot;....&quot;,
+    &quot;to_address&quot;: &quot;....&quot;,
+    &quot;value&quot;: &quot;....&quot;,
+    &quot;block_height&quot;: 1990000,
+    &quot;status&quot;:1, 
+}
+</code></pre></div><h3 id="gravity"><a href="#gravity" class="header-anchor">#</a> Gravity</h3> <h4 id="get-gravity-account-information"><a href="#get-gravity-account-information" class="header-anchor">#</a> Get Gravity Account Information</h4> <h5 id="method-5"><a href="#method-5" class="header-anchor">#</a> Method</h5> <p>GET</p> <h5 id="path-18"><a href="#path-18" class="header-anchor">#</a> Path</h5> <p><code>/newchain/coin/:coin_name/account/:newid/</code></p> <h5 id="parameters-18"><a href="#parameters-18" class="header-anchor">#</a> Parameters</h5> <p>None</p> <h5 id="returns-18"><a href="#returns-18" class="header-anchor">#</a> Returns</h5> <table><thead><tr><th>field</th> <th>type</th> <th>description</th></tr></thead> <tbody><tr><td>is_in_whitelist</td> <td>boolean</td> <td>whether newid is in whitelist</td></tr> <tr><td>mint_status</td> <td>int</td> <td>status of mint, 1 for not mint, 2 for pending mint, 3 for in minting, 4 for completed mint, 5 for pending collect</td></tr> <tr><td>collect_status</td> <td>int</td> <td>status of mint, 1 for can not collect, 2 for can collect, 3 for pending collect</td></tr> <tr><td>total_gravity</td> <td>string</td> <td>GRV account balance include available GRV and in minting GRV</td></tr> <tr><td>in_minting_gravity</td> <td>string</td> <td>in minting GRV</td></tr> <tr><td>minted_gravity</td> <td>string</td> <td>history accumulative minted GRV</td></tr> <tr><td>exchanged_tokens</td> <td>string</td> <td>history accumulative exchanged tokens</td></tr> <tr><td>exchange_rate</td> <td>string</td> <td>exchange rate GRV to NEW</td></tr> <tr><td>gravity_escrow_address</td> <td>string</td> <td>GRV escrow address</td></tr> <tr><td>can_collect_tokens</td> <td>string</td> <td>amount of can collect tokens</td></tr> <tr><td>locked_tokens</td> <td>string</td> <td>locked NEW amount</td></tr></tbody></table> <h6 id="example-18"><a href="#example-18" class="header-anchor">#</a> Example</h6> <div class="language- extra-class"><pre class="language-text"><code>{
+      &quot;is_in_whitelist&quot;: True,
+      &quot;mint_status&quot;: 3,
+      &quot;can_collect&quot;: True,
+      &quot;total_gravity&quot;: &quot;1000000&quot;,
+      &quot;in_minting_gravity&quot;: &quot;490000&quot;,
+      &quot;minted_gravity&quot;: &quot;5000000&quot;,
+      &quot;exchanged_tokens&quot;: &quot;5000000&quot;,
+      &quot;exchange_rate&quot;: &quot;1&quot;,
+      &quot;gravity_escrow_address&quot;: &quot;0xa21311321321321&quot;,
+      &quot;can_collect_tokens&quot;: &quot;140000&quot;,
+}
+</code></pre></div><h4 id="get-condition-of-gravity-minting"><a href="#get-condition-of-gravity-minting" class="header-anchor">#</a> Get condition of Gravity minting</h4> <h5 id="method-6"><a href="#method-6" class="header-anchor">#</a> Method</h5> <p>GET</p> <h5 id="path-19"><a href="#path-19" class="header-anchor">#</a> Path</h5> <p><code>/newchain/coin/:coin_name/mint/condition/:newid/</code></p> <h5 id="parameters-19"><a href="#parameters-19" class="header-anchor">#</a> Parameters</h5> <p>None</p> <h5 id="returns-19"><a href="#returns-19" class="header-anchor">#</a> Returns</h5> <table><thead><tr><th>field</th> <th>type</th> <th>description</th></tr></thead> <tbody><tr><td>exchange_rate</td> <td>string</td> <td>exchange rate GRV to NEW</td></tr> <tr><td>locked_tokens_rate</td> <td>string</td> <td>the rate of locked tokens when minting GRV</td></tr> <tr><td>locked_tokens_threshold</td> <td>string</td> <td>the threshold of locked tokens, used to decide locked days, unit: NEW</td></tr> <tr><td>mint_formula_constant</td> <td>int</td> <td>constant of the locked days formula</td></tr> <tr><td>locked_tokens_days_minimum</td> <td>string</td> <td>the minimum locked days</td></tr> <tr><td>minting_gravity_minimum</td> <td>string</td> <td>the minimum GRV amount when minting, unit: GRV</td></tr> <tr><td>minting_gravity_maximum</td> <td>string</td> <td>the maximum GRV amount when minting, unit: GRV</td></tr> <tr><td>gravity_escrow_address</td> <td>string</td> <td>GRV escrow address</td></tr></tbody></table> <h5 id="example-19"><a href="#example-19" class="header-anchor">#</a> Example</h5> <div class="language- extra-class"><pre class="language-text"><code>{
+      &quot;exchange_rate&quot;: &quot;1&quot;,
+      &quot;locked_tokens_rate&quot;: &quot;10&quot;,
+      &quot;locked_tokens_threshold&quot;: &quot;1000000&quot;,
+      &quot;mint_formula_constant&quot;: 1,
+      &quot;locked_tokens_days_minimum&quot;: &quot;10&quot;,
+      &quot;minting_gravity_minimum&quot;: &quot;10000&quot;,
+      &quot;minting_gravity_maximum&quot;: &quot;100000000&quot;,
+      &quot;gravity_escrow_address&quot;: &quot;0x112132132123&quot;,
+}
+</code></pre></div><h4 id="get-current-data-of-gravity-minting"><a href="#get-current-data-of-gravity-minting" class="header-anchor">#</a> Get current data of Gravity minting</h4> <h5 id="method-7"><a href="#method-7" class="header-anchor">#</a> Method</h5> <p>GET</p> <h5 id="path-20"><a href="#path-20" class="header-anchor">#</a> Path</h5> <p><code>/newchain/coin/:coin_name/mint/data/current/:newid/</code></p> <h5 id="parameters-20"><a href="#parameters-20" class="header-anchor">#</a> Parameters</h5> <p>None</p> <h5 id="returns-20"><a href="#returns-20" class="header-anchor">#</a> Returns</h5> <table><thead><tr><th>field</th> <th>type</th> <th>description</th></tr></thead> <tbody><tr><td>start_timestamp</td> <td>int</td> <td>start timestamp</td></tr> <tr><td>end_timestamp</td> <td>int</td> <td>end timestamp</td></tr> <tr><td>remaining_days</td> <td>int</td> <td>remaining days</td></tr> <tr><td>locked_days</td> <td>int</td> <td>locked days</td></tr> <tr><td>minted_days</td> <td>int</td> <td>minted days</td></tr> <tr><td>collected_tokens</td> <td>string</td> <td>tokens that has been collected, unit: NEW</td></tr> <tr><td>collect_status</td> <td>int</td> <td>status of mint, 1 for can not collect, 2 for can collect, 3 for pending collect</td></tr> <tr><td>can_collect_tokens</td> <td>string</td> <td>tokens that waiting for collected, unit: NEW</td></tr> <tr><td>in_minting_gravity</td> <td>string</td> <td>GRV that is in minting, unit: GRV</td></tr> <tr><td>current_minting_stage</td> <td>int</td> <td>stage of current minting</td></tr> <tr><td>current_collect_stage</td> <td>int</td> <td>stage of current collect</td></tr> <tr><td>total_minting_stages</td> <td>int</td> <td>total stages of minting</td></tr> <tr><td>released_tokens</td> <td>string</td> <td>released tokens, part of locked tokens, not from minting, unit: NEW</td></tr> <tr><td>locked_tokens</td> <td>string</td> <td>locked tokens currently, unit: NEW</td></tr> <tr><td>total_mint_amount</td> <td>string</td> <td>locked GRV of this minting, unit: GRV</td></tr> <tr><td>total_exchange_tokens</td> <td>string</td> <td>exchange NEW of this minting, unit: NEW</td></tr></tbody></table> <h5 id="example-20"><a href="#example-20" class="header-anchor">#</a> Example</h5> <div class="language- extra-class"><pre class="language-text"><code>{
+      &quot;start_timestamp&quot;: 1567995106,
+      &quot;remaining_timestamp&quot;: 1567995106,
+      &quot;remaining_days&quot;: 3,
+      &quot;locked_days&quot;: 10,
+      &quot;minted_days&quot;: 7,
+      &quot;collected_tokens&quot;: &quot;70000&quot;,
+      &quot;in_minting_gravity&quot;: &quot;490000&quot;,
+      &quot;can_collect&quot;: True,
+      &quot;can_collect_tokens&quot;: &quot;140000&quot;,
+      &quot;current_minting_stage&quot;: 3,
+      &quot;total_minting_stages&quot;: 10,
+      &quot;released_tokens&quot;: &quot;2100000&quot;,
+      &quot;locked_tokens&quot;: &quot;4900000&quot;,
+      &quot;total_mint_amount&quot;: &quot;700000&quot;,
+      &quot;total_exchange_tokens&quot;: &quot;700000&quot;,
+}
+</code></pre></div><h4 id="get-history-data-of-grv-minting"><a href="#get-history-data-of-grv-minting" class="header-anchor">#</a> Get history data of GRV minting</h4> <h5 id="method-8"><a href="#method-8" class="header-anchor">#</a> Method</h5> <p>POST</p> <h5 id="path-21"><a href="#path-21" class="header-anchor">#</a> Path</h5> <p><code>/newchain/coin/:coin_name/mint/data/history/</code></p> <h5 id="parameters-21"><a href="#parameters-21" class="header-anchor">#</a> Parameters</h5> <table><thead><tr><th>field</th> <th>type</th> <th>description</th></tr></thead> <tbody><tr><td>newid</td> <td>string</td> <td>NewID of user</td></tr> <tr><td>page_id</td> <td>int</td> <td></td></tr> <tr><td>page_size</td> <td>int</td> <td></td></tr></tbody></table> <h5 id="returns-21"><a href="#returns-21" class="header-anchor">#</a> Returns</h5> <table><thead><tr><th>field</th> <th>type</th> <th>description</th></tr></thead> <tbody><tr><td>total_page</td> <td>int</td> <td>total number of pages</td></tr> <tr><td>page_id</td> <td>int</td> <td></td></tr> <tr><td>page_size</td> <td>int</td> <td></td></tr> <tr><td>start_timestamp</td> <td>int</td> <td>start timestamp</td></tr> <tr><td>end_timestamp</td> <td>int</td> <td>end timestamp</td></tr> <tr><td>locked_days</td> <td>int</td> <td>total locked timestamp</td></tr> <tr><td>minted_gravity</td> <td>string</td> <td>minted gravity, unit: GRV</td></tr> <tr><td>locked_tokens</td> <td>string</td> <td>locked tokens of this minting, unit: NEW</td></tr> <tr><td>collected_tokens</td> <td>string</td> <td>tokens that has been collected, unit: NEW</td></tr></tbody></table> <h5 id="example-21"><a href="#example-21" class="header-anchor">#</a> Example</h5> <div class="language- extra-class"><pre class="language-text"><code>{
+      &quot;total_page&quot;: 10,
+      &quot;page_id&quot;: page_id,
+      &quot;page_size&quot;: page_size,
+      &quot;data_list&quot;: [
+            {
+                  &quot;minted_gravity&quot;: &quot;200000&quot;,
+                  &quot;collected_tokens&quot;: &quot;200000&quot;,
+                  &quot;locked_tokens&quot;: &quot;2000000&quot;,
+                  &quot;start_timestamp&quot;: 1567995106,
+                  &quot;end_timestamp&quot;: 1567995106,
+                  &quot;locked_days&quot;: 10,
+            },
+            {
+                  &quot;minted_gravity&quot;: &quot;2000000&quot;,
+                  &quot;collected_tokens&quot;: &quot;2000000&quot;,
+                  &quot;locked_tokens&quot;: &quot;20000000&quot;,
+                  &quot;start_timestamp&quot;: 1567995106,
+                  &quot;end_timestamp&quot;: 1567995106,
+                  &quot;locked_days&quot;: 10,
+            },
+            ...
+      ]
+}
+</code></pre></div><h4 id="execute-casting"><a href="#execute-casting" class="header-anchor">#</a> Execute Casting</h4> <h5 id="method-9"><a href="#method-9" class="header-anchor">#</a> Method</h5> <p>POST</p> <h5 id="path-22"><a href="#path-22" class="header-anchor">#</a> Path</h5> <p><code>/newchain/coin/:coin_name/mint/submit/</code></p> <h5 id="parameters-22"><a href="#parameters-22" class="header-anchor">#</a> Parameters</h5> <table><thead><tr><th>field</th> <th>type</th> <th>description</th></tr></thead> <tbody><tr><td>newid</td> <td>string</td> <td>NewID of user</td></tr> <tr><td>tx_tokens</td> <td>string</td> <td>transaction body of lock NEW</td></tr> <tr><td>tx_gravity</td> <td>string</td> <td>transaction body of lock GRV</td></tr> <tr><td>sign_type</td> <td>string</td> <td>Signature Type,aka cryptographic algorithm</td></tr> <tr><td>signature</td> <td>string</td> <td>The signature hex string by application owner. The exclude fields is ['dapp_signature_method', 'dapp_signature', 'signature', 'sign_type'].</td></tr></tbody></table> <h5 id="returns-22"><a href="#returns-22" class="header-anchor">#</a> Returns</h5> <p>None</p> <h5 id="example-22"><a href="#example-22" class="header-anchor">#</a> Example</h5> <div class="language- extra-class"><pre class="language-text"><code>{
+}
+</code></pre></div><h4 id="execute-collect-operation"><a href="#execute-collect-operation" class="header-anchor">#</a> Execute collect operation</h4> <h5 id="method-10"><a href="#method-10" class="header-anchor">#</a> Method</h5> <p>POST</p> <h5 id="path-23"><a href="#path-23" class="header-anchor">#</a> Path</h5> <p><code>/newchain/coin/:coin_name/mint/collect/</code></p> <h5 id="parameters-23"><a href="#parameters-23" class="header-anchor">#</a> Parameters</h5> <table><thead><tr><th>field</th> <th>type</th> <th>description</th></tr></thead> <tbody><tr><td>newid</td> <td>string</td> <td>NewID of user</td></tr> <tr><td>sign_type</td> <td>string</td> <td>Signature Type,aka cryptographic algorithm</td></tr> <tr><td>signature</td> <td>string</td> <td>The signature hex string by application owner. The exclude fields is ['dapp_signature_method', 'dapp_signature', 'signature', 'sign_type'].</td></tr></tbody></table> <h5 id="return"><a href="#return" class="header-anchor">#</a> Return</h5> <p>None</p> <h5 id="example-23"><a href="#example-23" class="header-anchor">#</a> Example</h5> <div class="language- extra-class"><pre class="language-text"><code>{
+}
+</code></pre></div><h4 id="get-subscribe-gravity-condition"><a href="#get-subscribe-gravity-condition" class="header-anchor">#</a> Get Subscribe Gravity Condition</h4> <h5 id="method-11"><a href="#method-11" class="header-anchor">#</a> Method</h5> <p>GET</p> <h5 id="path-24"><a href="#path-24" class="header-anchor">#</a> Path</h5> <p><code>/newchain/coin/:coin_name/subscription/condition/:newid/</code></p> <h5 id="parameters-24"><a href="#parameters-24" class="header-anchor">#</a> Parameters</h5> <p>None</p> <h5 id="returns-23"><a href="#returns-23" class="header-anchor">#</a> Returns</h5> <table><thead><tr><th>field</th> <th>type</th> <th>description</th></tr></thead> <tbody><tr><td>reward_pool_balance</td> <td>string</td> <td>GRV amount in reward pool</td></tr> <tr><td>subscription_rate</td> <td>string</td> <td>the exchange rate NEW to GRV</td></tr> <tr><td>subscription_minimum</td> <td>string</td> <td>the minimum tokens amount to subscribe GRV, unit: NEW</td></tr> <tr><td>subscription_maximum</td> <td>string</td> <td>the maximum tokens amount to subscribe GRV, unit: NEW</td></tr> <tr><td>gravity_escrow_address</td> <td>string</td> <td>GRV escrow address</td></tr> <tr><td>subscription_bonus_constant</td> <td>string</td> <td>subscribe bonus formula constant</td></tr></tbody></table> <h5 id="example-24"><a href="#example-24" class="header-anchor">#</a> Example</h5> <div class="language- extra-class"><pre class="language-text"><code>{
+    &quot;reward_pool_balance&quot;: &quot;28000000&quot;,
+    &quot;subscription_rate&quot;: &quot;1&quot;,
+    &quot;subscription_minimum&quot;: &quot;10000000&quot;,
+    &quot;subscription_maximum&quot;: &quot;100000000&quot;,
+    &quot;gravity_escrow_address&quot;: &quot;0x1321321321321&quot;,
+    &quot;subscription_bonus_constant&quot;: &quot;1000000000&quot;
+}
+</code></pre></div><h4 id="execute-subscribe"><a href="#execute-subscribe" class="header-anchor">#</a> Execute Subscribe</h4> <h5 id="method-12"><a href="#method-12" class="header-anchor">#</a> Method</h5> <p>POST</p> <h5 id="path-25"><a href="#path-25" class="header-anchor">#</a> Path</h5> <p><code>/newchain/coin/:coin_name/subscription/submit/</code></p> <h5 id="parameters-25"><a href="#parameters-25" class="header-anchor">#</a> Parameters</h5> <table><thead><tr><th>field</th> <th>type</th> <th>description</th></tr></thead> <tbody><tr><td>newid</td> <td>string</td> <td>NewID of user</td></tr> <tr><td>tx</td> <td>string</td> <td>transaction body</td></tr> <tr><td>sign_type</td> <td>string</td> <td>Signature Type,aka cryptographic algorithm</td></tr> <tr><td>signature</td> <td>string</td> <td>The signature hex string by application owner. The exclude fields is ['dapp_signature_method', 'dapp_signature', 'signature', 'sign_type'].</td></tr></tbody></table> <h5 id="return-2"><a href="#return-2" class="header-anchor">#</a> Return</h5> <p>None</p> <h5 id="example-25"><a href="#example-25" class="header-anchor">#</a> Example</h5> <div class="language- extra-class"><pre class="language-text"><code>{
+}
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/HEP-specification/assets/js/app.419242cf.js" defer></script><script src="/HEP-specification/assets/js/2.810d226b.js" defer></script><script src="/HEP-specification/assets/js/24.a27ecedb.js" defer></script><script src="/HEP-specification/assets/js/3.aada4df1.js" defer></script>
+  </body>
+</html>
