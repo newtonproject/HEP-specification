@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>hep-rest-api | HEP-specification</title>
+    <meta name="description" content="HEP(Hyper Exchange Protocol) Specification for DApp development in Newton ecosystem">
+    <meta name="generator" content="VuePress 1.3.0">
+    
+    
+    <link rel="preload" href="/HEP-specification/assets/css/0.styles.ba461f21.css" as="style"><link rel="preload" href="/HEP-specification/assets/js/app.419242cf.js" as="script"><link rel="preload" href="/HEP-specification/assets/js/2.810d226b.js" as="script"><link rel="preload" href="/HEP-specification/assets/js/48.f9953027.js" as="script"><link rel="preload" href="/HEP-specification/assets/js/3.aada4df1.js" as="script"><link rel="prefetch" href="/HEP-specification/assets/js/10.07b5122b.js"><link rel="prefetch" href="/HEP-specification/assets/js/11.07ab2f5a.js"><link rel="prefetch" href="/HEP-specification/assets/js/12.ccd7c691.js"><link rel="prefetch" href="/HEP-specification/assets/js/13.590ca748.js"><link rel="prefetch" href="/HEP-specification/assets/js/14.2d893eb2.js"><link rel="prefetch" href="/HEP-specification/assets/js/15.b78077ba.js"><link rel="prefetch" href="/HEP-specification/assets/js/16.7829fee6.js"><link rel="prefetch" href="/HEP-specification/assets/js/17.0d23eaee.js"><link rel="prefetch" href="/HEP-specification/assets/js/18.fda3c910.js"><link rel="prefetch" href="/HEP-specification/assets/js/19.388dc885.js"><link rel="prefetch" href="/HEP-specification/assets/js/20.bd33d416.js"><link rel="prefetch" href="/HEP-specification/assets/js/21.fec79911.js"><link rel="prefetch" href="/HEP-specification/assets/js/22.4852e8c3.js"><link rel="prefetch" href="/HEP-specification/assets/js/23.02ca9ad2.js"><link rel="prefetch" href="/HEP-specification/assets/js/24.a27ecedb.js"><link rel="prefetch" href="/HEP-specification/assets/js/25.6d591597.js"><link rel="prefetch" href="/HEP-specification/assets/js/26.5b54232e.js"><link rel="prefetch" href="/HEP-specification/assets/js/27.db582809.js"><link rel="prefetch" href="/HEP-specification/assets/js/28.6fe812df.js"><link rel="prefetch" href="/HEP-specification/assets/js/29.e2c1a4a5.js"><link rel="prefetch" href="/HEP-specification/assets/js/30.c8bfc05d.js"><link rel="prefetch" href="/HEP-specification/assets/js/31.efd4bdf8.js"><link rel="prefetch" href="/HEP-specification/assets/js/32.8e817237.js"><link rel="prefetch" href="/HEP-specification/assets/js/33.5124ac4c.js"><link rel="prefetch" href="/HEP-specification/assets/js/34.425f35bd.js"><link rel="prefetch" href="/HEP-specification/assets/js/35.102079c4.js"><link rel="prefetch" href="/HEP-specification/assets/js/36.476ac90a.js"><link rel="prefetch" href="/HEP-specification/assets/js/37.04ff4ab5.js"><link rel="prefetch" href="/HEP-specification/assets/js/38.7da043dd.js"><link rel="prefetch" href="/HEP-specification/assets/js/39.b6051c5a.js"><link rel="prefetch" href="/HEP-specification/assets/js/4.65a1a4c3.js"><link rel="prefetch" href="/HEP-specification/assets/js/40.0f513e54.js"><link rel="prefetch" href="/HEP-specification/assets/js/41.d680db47.js"><link rel="prefetch" href="/HEP-specification/assets/js/42.5bf0e2d1.js"><link rel="prefetch" href="/HEP-specification/assets/js/43.1d061f75.js"><link rel="prefetch" href="/HEP-specification/assets/js/44.f794bd6d.js"><link rel="prefetch" href="/HEP-specification/assets/js/45.c060c4a9.js"><link rel="prefetch" href="/HEP-specification/assets/js/46.60bf6604.js"><link rel="prefetch" href="/HEP-specification/assets/js/47.88292d12.js"><link rel="prefetch" href="/HEP-specification/assets/js/49.79770fab.js"><link rel="prefetch" href="/HEP-specification/assets/js/5.11a4bfaf.js"><link rel="prefetch" href="/HEP-specification/assets/js/50.c47ea8c2.js"><link rel="prefetch" href="/HEP-specification/assets/js/51.f7c689e5.js"><link rel="prefetch" href="/HEP-specification/assets/js/52.081ff357.js"><link rel="prefetch" href="/HEP-specification/assets/js/53.e66884bb.js"><link rel="prefetch" href="/HEP-specification/assets/js/54.6884c4e5.js"><link rel="prefetch" href="/HEP-specification/assets/js/55.e1ad1900.js"><link rel="prefetch" href="/HEP-specification/assets/js/56.0bb83b11.js"><link rel="prefetch" href="/HEP-specification/assets/js/57.f85086c4.js"><link rel="prefetch" href="/HEP-specification/assets/js/58.2d1f834a.js"><link rel="prefetch" href="/HEP-specification/assets/js/59.18855501.js"><link rel="prefetch" href="/HEP-specification/assets/js/6.ee814126.js"><link rel="prefetch" href="/HEP-specification/assets/js/7.cfd8f4f1.js"><link rel="prefetch" href="/HEP-specification/assets/js/8.01bf51c2.js"><link rel="prefetch" href="/HEP-specification/assets/js/9.849c036f.js">
+    <link rel="stylesheet" href="/HEP-specification/assets/css/0.styles.ba461f21.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/HEP-specification/" class="home-link router-link-active"><!----> <span class="site-name">HEP-specification</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/HEP-specification/" class="nav-link">
+  home
+</a></div><div class="nav-item"><a href="/HEP-specification/hep-node/" class="nav-link">
+  hep-node
+</a></div><div class="nav-item"><a href="/HEP-specification/oracle/oracle.html" class="nav-link">
+  oracle
+</a></div><div class="nav-item"><a href="https://github.com/newtonproject/HEP-specification" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/HEP-specification/" class="nav-link">
+  home
+</a></div><div class="nav-item"><a href="/HEP-specification/hep-node/" class="nav-link">
+  hep-node
+</a></div><div class="nav-item"><a href="/HEP-specification/oracle/oracle.html" class="nav-link">
+  oracle
+</a></div><div class="nav-item"><a href="https://github.com/newtonproject/HEP-specification" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/HEP-specification/" class="sidebar-link">home</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/HEP-specification/#hep-ecosystem" class="sidebar-link">HEP Ecosystem</a></li><li class="sidebar-sub-header"><a href="/HEP-specification/#architecture" class="sidebar-link">Architecture</a></li><li class="sidebar-sub-header"><a href="/HEP-specification/#building-your-dapp" class="sidebar-link">Building your Dapp</a></li></ul></li><li><a href="/HEP-specification/oracle/oracle.html" class="sidebar-link">oracle</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/HEP-specification/oracle/oracle.html#why" class="sidebar-link">Why?</a></li><li class="sidebar-sub-header"><a href="/HEP-specification/oracle/oracle.html#how" class="sidebar-link">How?</a></li></ul></li><li><a href="/HEP-specification/DWeb.html" class="sidebar-link">DWeb</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/HEP-specification/DWeb.html#user-account-creation-and-login" class="sidebar-link">User Account Creation and Login</a></li><li class="sidebar-sub-header"><a href="/HEP-specification/DWeb.html#payments" class="sidebar-link">Payments</a></li><li class="sidebar-sub-header"><a href="/HEP-specification/DWeb.html#placeorder" class="sidebar-link">PlaceOrder</a></li></ul></li><li><a href="/HEP-specification/tutorial/" class="sidebar-link">Tutorial</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="hep-rest-api"><a href="#hep-rest-api" class="header-anchor">#</a> hep-rest-api</h1> <h2 id="环境要求"><a href="#环境要求" class="header-anchor">#</a> 环境要求</h2> <p>Python 3.6</p> <h2 id="安装使用"><a href="#安装使用" class="header-anchor">#</a> 安装使用</h2> <h3 id="pip-install"><a href="#pip-install" class="header-anchor">#</a> pip install</h3> <div class="language- extra-class"><pre class="language-text"><code>pip install hep-rest-api
+</code></pre></div><h2 id="开始"><a href="#开始" class="header-anchor">#</a> 开始</h2> <div class="language-python extra-class"><pre class="language-python"><code><span class="token keyword">import</span> sys
+
+<span class="token comment"># 配置基础参数</span>
+HEP_HOST <span class="token operator">=</span> <span class="token string">&quot;http://hep.newtonproject.dev.diynova.com&quot;</span> <span class="token comment"># dev url</span>
+DAPP_ID <span class="token operator">=</span> <span class="token string">&quot;{dapp_id}&quot;</span>
+DAPP_KEY <span class="token operator">=</span> <span class="token string">&quot;{dapp_key}&quot;</span>
+DAPP_SECERT <span class="token operator">=</span> <span class="token string">&quot;{dapp_secret}&quot;</span>
+DAPP_PRIVATE_KEY_PATH <span class="token operator">=</span> <span class="token string">&quot;{dapp_private_key_path}&quot;</span>
+DAPP_PROTOCOL <span class="token operator">=</span> <span class="token string">&quot;protocol&quot;</span>
+DAPP_PROTOCOL_VERSION <span class="token operator">=</span> <span class="token string">&quot;1.0&quot;</span>
+CHAIN_ID <span class="token operator">=</span> <span class="token number">1012</span>  <span class="token comment"># dev environment is 1002, test environment is 1002, mainnet environment is 1012</span>
+
+<span class="token comment"># ACTION 参数</span>
+ACTION_LOGIN <span class="token operator">=</span> <span class="token string">&quot;hep.auth.login&quot;</span>
+ACTION_PAY <span class="token operator">=</span> <span class="token string">&quot;hep.pay.order&quot;</span>
+ACTION_PROOF_SUBMIT <span class="token operator">=</span> <span class="token string">&quot;hep.proof.submit&quot;</span>
+
+<span class="token comment"># 基础配置信息</span>
+base_parameters <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'dapp_key'</span><span class="token punctuation">:</span> DAPP_KEY<span class="token punctuation">,</span>
+    <span class="token string">'protocol'</span><span class="token punctuation">:</span> DAPP_PROTOCOL<span class="token punctuation">,</span>
+    <span class="token string">'version'</span><span class="token punctuation">:</span> DAPP_PROTOCOL_VERSION<span class="token punctuation">,</span>
+    <span class="token string">'os'</span><span class="token punctuation">:</span> sys<span class="token punctuation">.</span>platform<span class="token punctuation">,</span>
+    <span class="token string">'language'</span><span class="token punctuation">:</span> <span class="token string">'en'</span> <span class="token comment"># Your language</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">## 获取 api_client</span>
+<span class="token keyword">def</span> <span class="token function">_get_api_client</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> api_client<span class="token punctuation">:</span>
+        <span class="token keyword">return</span> api_client
+    configuration <span class="token operator">=</span> hep_rest_api<span class="token punctuation">.</span>api_client<span class="token punctuation">.</span>Configuration<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    configuration<span class="token punctuation">.</span>host <span class="token operator">=</span> settings<span class="token punctuation">.</span>HEP_HOST
+    api_instance <span class="token operator">=</span> hep_rest_api<span class="token punctuation">.</span>RestApi<span class="token punctuation">(</span>hep_rest_api<span class="token punctuation">.</span>ApiClient<span class="token punctuation">(</span>configuration<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> api_instance
+
+<span class="token keyword">from</span> hep_rest_api<span class="token punctuation">.</span>scenarios<span class="token punctuation">.</span>auth <span class="token keyword">import</span> AuthHelper
+<span class="token keyword">from</span> hep_rest_api<span class="token punctuation">.</span>scenarios<span class="token punctuation">.</span>pay <span class="token keyword">import</span> PayHelper
+<span class="token keyword">from</span> hep_rest_api<span class="token punctuation">.</span>scenarios<span class="token punctuation">.</span>proof <span class="token keyword">import</span> ProofHelper
+<span class="token comment">## 获取登录的 AuthHelper</span>
+<span class="token keyword">def</span> <span class="token function">_get_auth_helper</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> auth_helper<span class="token punctuation">:</span>
+        <span class="token keyword">return</span> auth_helper
+    <span class="token keyword">return</span> AuthHelper<span class="token punctuation">(</span>_get_api_client<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> base_parameters<span class="token punctuation">,</span> DAPP_ID<span class="token punctuation">,</span> DAPP_SECERT<span class="token punctuation">,</span> DAPP_PRIVATE_KEY_PATH<span class="token punctuation">,</span> chain_id<span class="token operator">=</span>CHAIN_ID<span class="token punctuation">)</span>
+
+<span class="token comment">## 获取支付的 PayHelper</span>
+<span class="token keyword">def</span> <span class="token function">_get_pay_helper</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> pay_helper<span class="token punctuation">:</span>
+        <span class="token keyword">return</span> pay_helper
+    <span class="token keyword">return</span> PayHelper<span class="token punctuation">(</span>_get_api_client<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> base_parameters<span class="token punctuation">,</span> DAPP_ID<span class="token punctuation">,</span> DAPP_SECERT<span class="token punctuation">,</span> DAPP_PRIVATE_KEY_PATH<span class="token punctuation">,</span> chain_id<span class="token operator">=</span>CHAIN_ID<span class="token punctuation">)</span>
+
+<span class="token comment">## 获取上链的 ProofHelper</span>
+<span class="token keyword">def</span> <span class="token function">_get_proof_helper</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> proof_helper<span class="token punctuation">:</span>
+        <span class="token keyword">return</span> proof_helper
+    <span class="token keyword">return</span> ProofHelper<span class="token punctuation">(</span>_get_api_client<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> base_parameters<span class="token punctuation">,</span> DAPP_ID<span class="token punctuation">,</span> DAPP_SECERT<span class="token punctuation">,</span> DAPP_PRIVATE_KEY_PATH<span class="token punctuation">,</span> chain_id<span class="token operator">=</span>CHAIN_ID<span class="token punctuation">)</span>
+
+<span class="token comment">## 网页登录</span>
+<span class="token keyword">def</span> <span class="token function">hep_login</span><span class="token punctuation">(</span>session_key<span class="token punctuation">)</span><span class="token punctuation">:</span>
+	<span class="token comment"># session_key: str uuid 会话标识</span>
+    auth_response <span class="token operator">=</span> _get_auth_helper<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>generate_auth_request<span class="token punctuation">(</span>uuid<span class="token operator">=</span>session_key<span class="token punctuation">)</span>
+    <span class="token comment"># 获取登录信息后，生成登录使用的二维码</span>
+    qr_code_str <span class="token operator">=</span> _get_auth_helper<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>generate_qrcode_string<span class="token punctuation">(</span>auth_response<span class="token punctuation">.</span>auth_hash<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> qr_code_str
+
+<span class="token comment">## 网页支付</span>
+<span class="token keyword">def</span> <span class="token function">hep_pay</span><span class="token punctuation">(</span>params<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    data <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token string">'uuid'</span><span class="token punctuation">:</span> params<span class="token punctuation">[</span><span class="token string">'uuid'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment"># 会话标识</span>
+        <span class="token string">'description'</span><span class="token punctuation">:</span> params<span class="token punctuation">[</span><span class="token string">'description'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment"># 订单描述</span>
+        <span class="token string">'price_currency'</span><span class="token punctuation">:</span> params<span class="token punctuation">[</span><span class="token string">'price_currency'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment"># 支付单位 NEW. CNY</span>
+        <span class="token string">'total_price'</span><span class="token punctuation">:</span> params<span class="token punctuation">[</span><span class="token string">'total_price'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment"># 支付金额，</span>
+        <span class="token string">'order_number'</span><span class="token punctuation">:</span> params<span class="token punctuation">[</span><span class="token string">'order_number'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment"># 订单唯一编号</span>
+        <span class="token string">'seller'</span><span class="token punctuation">:</span> params<span class="token punctuation">[</span><span class="token string">'celler'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment"># 卖家的 newid</span>
+        <span class="token string">'customer'</span><span class="token punctuation">:</span> params<span class="token punctuation">[</span><span class="token string">'customer'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment"># 买家的 newid</span>
+        <span class="token string">'broker'</span><span class="token punctuation">:</span> params<span class="token punctuation">[</span><span class="token string">'broker'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  <span class="token comment"># 商品厂家的 newid, 选填</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment"># 生成支付的的订单hash</span>
+    pay_response <span class="token operator">=</span> _get_pay_helper<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>generate_pay_request<span class="token punctuation">(</span>data<span class="token punctuation">[</span><span class="token string">'order_number'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> data<span class="token punctuation">[</span><span class="token string">'price_currency'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> data<span class="token punctuation">[</span><span class="token string">'total_price'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                                                          data<span class="token punctuation">[</span><span class="token string">'description'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> data<span class="token punctuation">[</span><span class="token string">'seller'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                                                          data<span class="token punctuation">[</span><span class="token string">'customer'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> data<span class="token punctuation">[</span><span class="token string">'broker'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> uuid<span class="token operator">=</span>data<span class="token punctuation">[</span><span class="token string">'uuid'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token comment"># 根据生成的订单hash 生成支付二维码</span>
+    pay_qr_str <span class="token operator">=</span> _get_pay_helper<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>generate_qrcode_string<span class="token punctuation">(</span>pay_response<span class="token punctuation">.</span>pay_hash<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> pay_qr_str
+
+<span class="token comment">## 网页上链</span>
+<span class="token keyword">def</span> <span class="token function">hep_proof</span><span class="token punctuation">(</span>content<span class="token punctuation">,</span> uuid<span class="token punctuation">)</span><span class="token punctuation">:</span>
+ <span class="token comment"># content dict</span>
+ <span class="token comment"># order_content = OrderProof(order_number=uuid.uuid4().hex,</span>
+ <span class="token comment">#                               price_currency=&quot;NEW&quot;,</span>
+ <span class="token comment">#                               total_price=&quot;100&quot;,</span>
+ <span class="token comment">#                               seller=seller.newid,</span>
+ <span class="token comment">#                               customer=customer.newid,</span>
+ <span class="token comment">#                               broker=broker.newid,</span>
+ <span class="token comment">#                               description=&quot;description&quot;,</span>
+ <span class="token comment">#                               chain_txid=txid)  # 用 NEW 支付的交易id，由 NewPay 发送到 Dapp客户端</span>
+ <span class="token comment">#    order_content.add_order_item(</span>
+ <span class="token comment">#        order_item_number=uuid.uuid4().hex, # 子订单编号</span>
+ <span class="token comment">#        order_item_quantity=1,			  # 订单质量等级</span>
+ <span class="token comment">#        price=&quot;10&quot;,					      # 子订单价格</span>
+ <span class="token comment">#        price_currency=&quot;NEW&quot;,               # 支付单位</span>
+ <span class="token comment">#        thing_name=&quot;pingguo&quot;,	 		      # 子订单名称</span>
+ <span class="token comment">#        thing_id=uuid.uuid4().hex,          # 子订单id</span>
+ <span class="token comment">#        thing_type='product'                # 子订单类型 product, service</span>
+ <span class="token comment">#    )</span>
+ <span class="token comment">#	  content = order_content.to_dict()</span>
+ 	<span class="token comment"># 请求 hep-node 生成 上链 hash</span>
+    proof_response <span class="token operator">=</span> _get_proof_helper<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>generate_proof_request<span class="token punctuation">(</span>content<span class="token punctuation">,</span> uuid<span class="token operator">=</span>uuid<span class="token punctuation">)</span>
+    <span class="token comment"># 根据上链 hash 生成上链需要的二维码字符串</span>
+    proof_qr_str <span class="token operator">=</span> _get_proof_helper<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>generate_qrcode_string<span class="token punctuation">(</span>proof_response<span class="token punctuation">.</span>proof_hash<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> proof_qr_str
+
+<span class="token comment">## 验证登录信息</span>
+<span class="token keyword">def</span> <span class="token function">verify_profile</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">:</span>
+	<span class="token comment"># 如果返回为 True， 那么用户的信息确认为是用户自己签名而成</span>
+    <span class="token keyword">return</span> _get_auth_helper<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>validate_auth_callback<span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+
+<span class="token comment">## 验证支付信息</span>
+<span class="token keyword">def</span> <span class="token function">verify_pay</span><span class="token punctuation">(</span>params<span class="token punctuation">)</span><span class="token punctuation">:</span>
+	<span class="token comment"># 验证签名是否通过</span>
+    is_valid <span class="token operator">=</span> _get_pay_helper<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>validate_pay_callback<span class="token punctuation">(</span>params<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> is_valid<span class="token punctuation">:</span>
+    	<span class="token comment"># 根据txid获取确认的订单信息，返回结果包括 订单唯一编号，支付接受地址，支付发送方地址，支付金额等</span>
+        response <span class="token operator">=</span> _get_pay_helper<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>get_confirmed_transaction<span class="token punctuation">(</span>params<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'txid'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> response
+    <span class="token keyword">return</span> <span class="token boolean">None</span>
+
+<span class="token comment">## 验证上链信息</span>
+<span class="token keyword">def</span> <span class="token function">verify_proof</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">:</span>
+	<span class="token comment"># 验证上链信息的签名</span>
+    is_valid <span class="token operator">=</span> _get_proof_helper<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>validate_proof_callback<span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> is_valid<span class="token punctuation">:</span>
+    	<span class="token comment"># 可以批量验证 proof_hash 的状态</span>
+        proof_hashes <span class="token operator">=</span> <span class="token punctuation">[</span>data<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'proof_hash'</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+        response <span class="token operator">=</span> _get_proof_helper<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>get_status_of_proofs<span class="token punctuation">(</span>proof_hashes<span class="token punctuation">)</span>
+        <span class="token comment"># 如果只校验一条的话取第一个数组的值，返回结果包括 proof_hash, 和 proof_status</span>
+        <span class="token comment"># proof_status 为字符串类型 SUBMIT(已提交), CONFIRMED(已上链), CANCELED(已取消), PART_CANCELED(部分取消/退货)</span>
+        <span class="token keyword">return</span> response<span class="token punctuation">.</span>receipts<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+    <span class="token keyword">return</span> <span class="token boolean">None</span>
+
+<span class="token comment">## 获取客户端的基础参数</span>
+<span class="token keyword">def</span> <span class="token function">_get_client_params</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> os<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> os <span class="token operator">==</span> <span class="token string">&quot;android&quot;</span><span class="token punctuation">:</span>
+        dapp_id <span class="token operator">=</span> DAPP_ID_ANDROID
+        private_key_path <span class="token operator">=</span> DAPP_ANDROID_PRIVATE_PATH
+    <span class="token keyword">elif</span> os <span class="token operator">==</span> <span class="token string">&quot;ios&quot;</span><span class="token punctuation">:</span>
+        dapp_id <span class="token operator">=</span> DAPP_ID_IOS
+        private_key_path <span class="token operator">=</span> DAPP_ID_IOS_PRIVATE_PATH
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        dapp_id <span class="token operator">=</span> DAPP_ID
+        private_key_path <span class="token operator">=</span> DAPP_PRIVATE_KEY_PATH
+    params <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token string">'dapp_id'</span><span class="token punctuation">:</span> dapp_id<span class="token punctuation">,</span>
+        <span class="token string">'protocol'</span><span class="token punctuation">:</span> DAPP_PROTOCOL<span class="token punctuation">,</span>
+        <span class="token string">'version'</span><span class="token punctuation">:</span> DAPP_PROTOCOL_VERSION<span class="token punctuation">,</span>
+        <span class="token string">'ts'</span><span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">(</span>datetime<span class="token punctuation">.</span>datetime<span class="token punctuation">.</span>now<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>timestamp<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token string">'nonce'</span><span class="token punctuation">:</span> uuid<span class="token punctuation">.</span>uuid4<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token builtin">hex</span><span class="token punctuation">,</span>
+        <span class="token string">'sign_type'</span><span class="token punctuation">:</span> <span class="token string">&quot;secp256r1&quot;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span>
+    data<span class="token punctuation">.</span>update<span class="token punctuation">(</span>params<span class="token punctuation">)</span>
+    <span class="token comment"># 获取签名的字符串</span>
+    message <span class="token operator">=</span> utils<span class="token punctuation">.</span>generate_signature_base_string<span class="token punctuation">(</span>data<span class="token punctuation">,</span> <span class="token string">&quot;&amp;&quot;</span><span class="token punctuation">)</span>
+    <span class="token comment"># 使用 secp256r1 进行签名</span>
+    r<span class="token punctuation">,</span> s <span class="token operator">=</span> utils<span class="token punctuation">.</span>sign_secp256r1<span class="token punctuation">(</span>message<span class="token punctuation">,</span> private_key_path<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> r<span class="token punctuation">.</span>startswith<span class="token punctuation">(</span><span class="token string">'0x'</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        r <span class="token operator">=</span> r<span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">'0x'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> s<span class="token punctuation">.</span>startswith<span class="token punctuation">(</span><span class="token string">'0x'</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        s <span class="token operator">=</span> s<span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">'0x'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">64</span><span class="token punctuation">:</span>
+        x <span class="token operator">=</span> <span class="token number">64</span> <span class="token operator">-</span> <span class="token builtin">len</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span>
+        r <span class="token operator">=</span> <span class="token string">'0'</span> <span class="token operator">*</span> x <span class="token operator">+</span> r
+    <span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">64</span><span class="token punctuation">:</span>
+        y <span class="token operator">=</span> <span class="token number">64</span> <span class="token operator">-</span> <span class="token builtin">len</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span>
+        s <span class="token operator">=</span> <span class="token string">'0'</span> <span class="token operator">*</span> y <span class="token operator">+</span> s
+    data<span class="token punctuation">[</span><span class="token string">'signature'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'0x'</span> <span class="token operator">+</span> r <span class="token operator">+</span> s
+    <span class="token keyword">return</span> data
+
+<span class="token comment">## 获取登录参数</span>
+<span class="token keyword">def</span> <span class="token function">get_client_login</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    os <span class="token operator">=</span> request<span class="token punctuation">.</span>POST<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'os'</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> <span class="token keyword">not</span> os<span class="token punctuation">:</span>
+        body <span class="token operator">=</span> json<span class="token punctuation">.</span>loads<span class="token punctuation">(</span>request<span class="token punctuation">.</span>body<span class="token punctuation">)</span>
+        os <span class="token operator">=</span> body<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'os'</span><span class="token punctuation">)</span>
+    login_params <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token string">'action'</span><span class="token punctuation">:</span> settings<span class="token punctuation">.</span>ACTION_LOGIN<span class="token punctuation">,</span>
+        <span class="token string">'scope'</span><span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token comment"># 1. 获取 newid, avatar, name; 2 能获取到 country_code, cellphone, address, invite_code</span>
+        <span class="token string">'memo'</span><span class="token punctuation">:</span> <span class="token string">'Demo Request Login'</span><span class="token punctuation">,</span>
+        <span class="token string">'uuid'</span><span class="token punctuation">:</span> uuid<span class="token punctuation">.</span>uuid4<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token builtin">hex</span>
+    <span class="token punctuation">}</span>
+    login_params <span class="token operator">=</span> _get_client_params<span class="token punctuation">(</span>login_params<span class="token punctuation">,</span> os<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> http<span class="token punctuation">.</span>JsonSuccessResponse<span class="token punctuation">(</span>data<span class="token operator">=</span>login_params<span class="token punctuation">)</span>
+<span class="token comment">## 获取支付参数</span>
+<span class="token keyword">def</span> <span class="token function">get_client_pay</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    os <span class="token operator">=</span> request<span class="token punctuation">.</span>POST<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'os'</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> <span class="token keyword">not</span> os<span class="token punctuation">:</span>
+        body <span class="token operator">=</span> json<span class="token punctuation">.</span>loads<span class="token punctuation">(</span>request<span class="token punctuation">.</span>body<span class="token punctuation">)</span>
+        os <span class="token operator">=</span> body<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'os'</span><span class="token punctuation">)</span>
+    newid <span class="token operator">=</span> request<span class="token punctuation">.</span>POST<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'newid'</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> <span class="token keyword">not</span> newid<span class="token punctuation">:</span>
+        body <span class="token operator">=</span> json<span class="token punctuation">.</span>loads<span class="token punctuation">(</span>request<span class="token punctuation">.</span>body<span class="token punctuation">)</span>
+        newid <span class="token operator">=</span> body<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'newid'</span><span class="token punctuation">)</span>
+    pay_params <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token string">'action'</span><span class="token punctuation">:</span> ACTION_PAY<span class="token punctuation">,</span>
+        <span class="token string">'description'</span><span class="token punctuation">:</span> <span class="token string">'Pay description'</span><span class="token punctuation">,</span>
+        <span class="token string">'price_currency'</span><span class="token punctuation">:</span> <span class="token string">'NEW'</span><span class="token punctuation">,</span>
+        <span class="token string">'total_price'</span><span class="token punctuation">:</span> <span class="token string">&quot;1&quot;</span><span class="token punctuation">,</span>
+        <span class="token string">'order_number'</span><span class="token punctuation">:</span> uuid<span class="token punctuation">.</span>uuid4<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token builtin">hex</span><span class="token punctuation">,</span>
+        <span class="token string">'seller'</span><span class="token punctuation">:</span> newid<span class="token punctuation">,</span>
+        <span class="token string">'customer'</span><span class="token punctuation">:</span> newid<span class="token punctuation">,</span>
+        <span class="token string">'broker'</span><span class="token punctuation">:</span> newid<span class="token punctuation">,</span>
+        <span class="token string">'uuid'</span><span class="token punctuation">:</span> uuid<span class="token punctuation">.</span>uuid4<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token builtin">hex</span>
+    <span class="token punctuation">}</span>
+    pay_params <span class="token operator">=</span> _get_client_params<span class="token punctuation">(</span>pay_params<span class="token punctuation">,</span> os<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> http<span class="token punctuation">.</span>JsonSuccessResponse<span class="token punctuation">(</span>data<span class="token operator">=</span>pay_params<span class="token punctuation">)</span>
+
+<span class="token comment">## 获取上链参数信息</span>
+<span class="token keyword">def</span> <span class="token function">get_client_proof</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        os <span class="token operator">=</span> request<span class="token punctuation">.</span>POST<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'os'</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> <span class="token keyword">not</span> os<span class="token punctuation">:</span>
+            body <span class="token operator">=</span> json<span class="token punctuation">.</span>loads<span class="token punctuation">(</span>request<span class="token punctuation">.</span>body<span class="token punctuation">)</span>
+            os <span class="token operator">=</span> body<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'os'</span><span class="token punctuation">)</span>
+        newid <span class="token operator">=</span> request<span class="token punctuation">.</span>POST<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'newid'</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> <span class="token keyword">not</span> newid<span class="token punctuation">:</span>
+            body <span class="token operator">=</span> json<span class="token punctuation">.</span>loads<span class="token punctuation">(</span>request<span class="token punctuation">.</span>body<span class="token punctuation">)</span>
+            newid <span class="token operator">=</span> body<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'newid'</span><span class="token punctuation">)</span>
+        <span class="token comment"># txid for chaid_txid parameters.</span>
+        pay_model <span class="token operator">=</span> PayModel<span class="token punctuation">.</span>objects<span class="token punctuation">.</span>last<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        txid <span class="token operator">=</span> pay_model<span class="token punctuation">.</span>txid
+        proof_session_id <span class="token operator">=</span> uuid<span class="token punctuation">.</span>uuid4<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token builtin">hex</span>
+        order_content <span class="token operator">=</span> OrderProof<span class="token punctuation">(</span>order_number<span class="token operator">=</span>uuid<span class="token punctuation">.</span>uuid4<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token builtin">hex</span><span class="token punctuation">,</span>
+                                   price_currency<span class="token operator">=</span><span class="token string">&quot;NEW&quot;</span><span class="token punctuation">,</span>
+                                   total_price<span class="token operator">=</span><span class="token string">&quot;100&quot;</span><span class="token punctuation">,</span>
+                                   seller<span class="token operator">=</span>newid<span class="token punctuation">,</span>
+                                   customer<span class="token operator">=</span>newid<span class="token punctuation">,</span>
+                                   broker<span class="token operator">=</span>newid<span class="token punctuation">,</span>
+                                   description<span class="token operator">=</span><span class="token string">&quot;description&quot;</span><span class="token punctuation">,</span>
+                                   chain_txid<span class="token operator">=</span>txid<span class="token punctuation">)</span>
+        order_content<span class="token punctuation">.</span>add_order_item<span class="token punctuation">(</span>
+            order_item_number<span class="token operator">=</span>uuid<span class="token punctuation">.</span>uuid4<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token builtin">hex</span><span class="token punctuation">,</span>
+            order_item_quantity<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>
+            price<span class="token operator">=</span><span class="token string">&quot;10&quot;</span><span class="token punctuation">,</span>
+            price_currency<span class="token operator">=</span><span class="token string">&quot;NEW&quot;</span><span class="token punctuation">,</span>
+            thing_name<span class="token operator">=</span><span class="token string">&quot;pingguo&quot;</span><span class="token punctuation">,</span>
+            thing_id<span class="token operator">=</span>uuid<span class="token punctuation">.</span>uuid4<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token builtin">hex</span><span class="token punctuation">,</span>
+            thing_type<span class="token operator">=</span><span class="token string">'product'</span>
+        <span class="token punctuation">)</span>
+        proof_hash <span class="token operator">=</span> services<span class="token punctuation">.</span>get_proof_hash<span class="token punctuation">(</span>order_content<span class="token punctuation">.</span>to_dict<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> proof_session_id<span class="token punctuation">)</span>
+        client_params <span class="token operator">=</span> <span class="token punctuation">{</span>
+            <span class="token string">'action'</span><span class="token punctuation">:</span> settings<span class="token punctuation">.</span>ACTION_PROOF_SUBMIT<span class="token punctuation">,</span>
+            <span class="token string">'proof_hash'</span><span class="token punctuation">:</span> proof_hash<span class="token punctuation">,</span>
+            <span class="token string">'uuid'</span><span class="token punctuation">:</span> proof_session_id
+        <span class="token punctuation">}</span>
+        client_params <span class="token operator">=</span> _get_client_params<span class="token punctuation">(</span>client_params<span class="token punctuation">,</span> os<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> http<span class="token punctuation">.</span>JsonSuccessResponse<span class="token punctuation">(</span>data<span class="token operator">=</span>client_params<span class="token punctuation">)</span>
+    <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> http<span class="token punctuation">.</span>JsonErrorResponse<span class="token punctuation">(</span>error_message<span class="token operator">=</span><span class="token builtin">str</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/HEP-specification/assets/js/app.419242cf.js" defer></script><script src="/HEP-specification/assets/js/2.810d226b.js" defer></script><script src="/HEP-specification/assets/js/48.f9953027.js" defer></script><script src="/HEP-specification/assets/js/3.aada4df1.js" defer></script>
+  </body>
+</html>
