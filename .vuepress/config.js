@@ -43,5 +43,12 @@ module.exports = {
         },
         
     ]
-  }
+  },
+  plugins: [
+    'vuepress-plugin-mermaidjs',
+    ['@vuepress/pwa', {
+      serviceWorker: true,
+      updatePopup: true,
+    }]
+  ]
 }
